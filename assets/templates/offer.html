@@ -2,110 +2,160 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
 <div layout="row" layout-sm="column" flex>
 
-  <div flex="33" flex-sm="100">
+  <div flex="25" flex-sm="100">
       <md-card>
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title">Step 1 - Car details</span>
+            <span class="md-title">Step 1 - Additional driver</span>
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-          <p>Is your car an off-peak car? </p>
-          <md-radio-group ng-model="car.offpeak" layout="row">
+          <p>Do you want to add a driver? </p>
+          <md-radio-group ng-model="driver.additional" layout="row">
             <md-radio-button value="no" class="md-primary">No</md-radio-button>
             <md-radio-button value="yes"> Yes </md-radio-button>
           </md-radio-group>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Enter your car make and model</label>
-            <input ng-model="car.firstName">
-          </md-input-container>
-          <p>Select your car manufacturing year<p>
-          <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-            <md-button class="md-raised">2016</md-button>
-            <md-button class="md-raised">2015</md-button>
-            <md-button class="md-raised">2014</md-button>
-            <md-button class="md-raised">2013</md-button>
-            <md-button class="md-raised">2012</md-button>
-            <md-button class="md-raised">2011</md-button>
-            <md-button class="md-raised">2010</md-button>
-            <md-button class="md-raised">2009</md-button>
-            <md-button class="md-raised">2008</md-button>
-            <md-button class="md-raised">2007</md-button>
-            <span ng-click="car.elder = true">elder car</span>
-          </section>
-          <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap ng-show="car.elder == true">
-            <md-button class="md-raised">2006</md-button>
-            <md-button class="md-raised">2005</md-button>
-            <md-button class="md-raised">2004</md-button>
-            <md-button class="md-raised">2003</md-button>
-            <md-button class="md-raised">2002</md-button>
-            <md-button class="md-raised">2001</md-button>
-            <md-button class="md-raised">2000</md-button>
-            <md-button class="md-raised">1999</md-button>
-            <md-button class="md-raised">1998</md-button>
-            <md-button class="md-raised">1997</md-button>
-            <span ng-click="car.elder = false">newer car</span>
-          </section>
+
+
         </md-card-content>
       </md-card>
     </div>
 
-  <div flex="33" flex-sm="100" >
+  <div flex="50" flex-sm="100" >
 
     <md-card>
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 2 - Driver details</span>
+          <span class="md-title">Step 2 - Choose a plan</span>
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-        <p>What is your gender? </p>
-        <md-radio-group ng-model="driver.gender" layout="row">
-          <md-radio-button value="male" class="md-primary">Male</md-radio-button>
-          <md-radio-button value="female"> Female </md-radio-button>
-        </md-radio-group>
-        <p>Are you married?</p>
-        <md-radio-group ng-model="driver.marital" layout="row">
-          <md-radio-button value="no" class="md-primary">No</md-radio-button>
-          <md-radio-button value="yes">Yes</md-radio-button>
-        </md-radio-group>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>How old are you?</label>
-          <input ng-model="driver.age">
-        </md-input-container>
+        <p>Select your policy start date</p>
+        <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+      <div layout="row">
+        <div flex="40">
+        <div layout="column" >
+          <h3>Benefits</h3>
+          <p>Benefit 1</p>
+          <p>Benefit 2</p>
+          <p>Benefit 3</p>
+          <p>Benefit 4</p>
+          <p>Benefit 5</p>
+          <p>Benefit 6</p>
+          <p>Benefit 7</p>
+
+        </div>
+        </div>
+        <div flex="20" >
+
+        <div layout="column" layout-align="center center">
+          <h3>Essential</h3>
+<!-- To be implemented with on controller
+<md-list>
+      <md-list-item class="md-3-line" ng-repeat="item in messages">
+        <div class="md-list-item-text">
+          <h3>{{item.what}}</h3>
+          <h4>{{item.who}}</h4>
+          <p>{{item.notes}}</p>
+        </div>
+        <md-button class="md-secondary">Respond</md-button>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list> -->
+          <p>+</p>
+          <p>+</p>
+          <p>+</p>
+          <p>-</p>
+          <p>-</p>
+          <p>-</p>
+          <p>-</p>
+          <md-button class="md-raised">Select</md-button>
+        </div>
+        </div>
+        <div flex="20">
+          <div layout="column" layout-align="center center">
+            <h3>Peace</h3>
+            <p>+</p>
+            <p>+</p>
+            <p>+</p>
+            <p>-</p>
+            <p>-</p>
+            <p>-</p>
+            <p>-</p>
+            <md-button class="md-raised">Select</md-button>
+        </div>
+          </div>
+        <div flex="20">
+          <div layout="column" layout-align="center center">
+            <h3>Flexi</h3>
+            <p>+</p>
+            <p>+</p>
+            <p>+</p>
+            <p>-</p>
+            <p>-</p>
+            <p>-</p>
+            <p>-</p>
+            <md-button class="md-raised">Select</md-button>
+          </div>
+        </div>
+
+      </div>
+
       </md-card-content>
     </md-card>
 
   </div>
-  <div flex="33" flex-sm="100" >
+  <div flex="25" flex-sm="100" >
 
     <md-card>
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 3 - Driving experience</span>
+          <span class="md-title">Your quote summary</span>
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-          <md-input-container >
-            <label>When was your driving license issued?</label>
-            <input ng-model="driver.license">
-          </md-input-container >
-        <p>What is your non claim discount bonus?</p>
-        <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-          <md-button class="md-raised">50%</md-button>
-          <md-button class="md-raised">40%</md-button>
-          <md-button class="md-raised">30%</md-button>
-          <md-button class="md-raised">20%</md-button>
-          <md-button class="md-raised">10%</md-button>
-          <md-button class="md-raised">0%</md-button>
-        </section>
-        <p>Did you have any claims in the past 3 years? </p>
-        <md-radio-group ng-model="driver.claims" layout="row">
-          <md-radio-button value="no" class="md-primary">No</md-radio-button>
-          <md-radio-button value="yes"> Yes </md-radio-button>
-        </md-radio-group>
-      </md-card-content>
+        <h4>Your plan</h4>
+        <div layout="row">
+          <div flex="60">
+            <p>Essential</p>
+          </div>
+          <div flex="40">
+            <p>$1,208</p>
+          </div>
+        </div>
+        <h4>Your discount</h4>
+        <div layout="row">
+          <div flex="60">
+            <p>Safe driver discount</p>
+          </div>
+          <div flex="40">
+            <p>$120</p>
+          </div>
+        </div>
+        <div layout="row">
+          <div flex="60">
+            <p>NDC 30%</p>
+          </div>
+          <div flex="40">
+            <p>$370</p>
+          </div>
+        </div>
+        <h4>Total</h4>
+        <div layout="row">
+          <div flex="60">
+            <p>including GST</p>
+          </div>
+          <div flex="40">
+            <h2>$708</h2>
+          </div>
+        </div>
 
+
+      </md-card-content>
+      <div layout="column">
+        <md-button> purchase this insurance </md-button>
+        <md-button> Save and email my quote </md-button>
+      </div>
     </md-card>
 
   </div>
@@ -113,11 +163,10 @@
 
 
 </md-content>
-<div layout="row" layout-align="end center">
-  <md-button> See my premium </md-button>
+
+<div layout="row">
+  <md-button> back </md-button>
 </div>
-
-
 
 <!--<div id="claim-dialog" class="modal fade">
   <div class="modal-dialog">

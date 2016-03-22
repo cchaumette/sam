@@ -8,6 +8,14 @@ app.config(['$routeProvider',
         templateUrl: 'templates/home.html',
         controller: 'AppCtrl'
       }).
+      when('/offer', {
+        templateUrl: 'templates/offer.html',
+        controller: 'offerCtrl'
+      }).
+      when('/addon', {
+        templateUrl: 'templates/addon.html',
+        controller: 'addonCtrl'
+      }).
       otherwise({
         redirectTo: '/home'
       });
@@ -103,6 +111,33 @@ app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', 
         });
 
     }());
+
+}]);
+app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+
+
+  console.log("== AppCtrl ==");
+
+
+  $scope.myDate = new Date();
+  $scope.minDate = new Date(
+    $scope.myDate.getFullYear(),
+    $scope.myDate.getMonth() - 2,
+    $scope.myDate.getDate());
+  $scope.maxDate = new Date(
+    $scope.myDate.getFullYear(),
+    $scope.myDate.getMonth() + 2,
+    $scope.myDate.getDate());
+  $scope.onlyWeekendsPredicate = function(date) {
+    var day = date.getDay();
+    return day === 0 || day === 6;
+  }
+
+}]);
+app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+
+
+  console.log("== AppCtrl ==");
 
 }]);
 

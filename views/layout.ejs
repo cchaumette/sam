@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!DOCYPE html>
 <html ng-app="StarterApp">
   <head>
     <title>New Sails App</title>
@@ -42,26 +43,38 @@
 
   <div layout="column" ng-controller="AppCtrl">
 
-    <md-toolbar layout="row">
-      <div class="md-toolbar-tools">
-        <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
-          <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
-        </md-button>
-        <h1>Hello World</h1>
+    <md-toolbar layout="row" style="background-color:white;">
+      <div class="md-toolbar-tools" >
+
+          <div flex="30">
+            <span><img src="images/axa_logo.jpg"  style=" padding-top: 20px;padding-left: 30px;padding-bottom: 20px; height: 70px;"></span>
+          </div>
+        <div flex="50"></div>
+          <div flex="20">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Agent code</label>
+              <input ng-model="user.agentcode">
+            </md-input-container>
+
+
+        </div>
+
+
+
+
+
+
+
       </div>
     </md-toolbar>
-    <div layout="row" flex>
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 
-        </md-sidenav>
-        <div layout="column" flex id="content">
-            <md-content id="appContent" layout="column" flex class="md-padding">
-              <%- body %>
-            </md-content>
-        </div>
+
+    <div ng-view ng-cloak></div>
+
+
     </div>
 
-    <div ng-view style="margin-top: 100px">
+
 
     <!--
         Client-side Templates
