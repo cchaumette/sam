@@ -1,6 +1,26 @@
-var app = angular.module('StarterApp', ['ngMaterial', 'ngSails']);
+var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial', 'ngSails']);
+
+
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/home', {
+        templateUrl: 'templates/home.html',
+        controller: 'AppCtrl'
+      }).
+      otherwise({
+        redirectTo: '/home'
+      });
+  }]);
+
+
+
 
 app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+
+
+    console.log("== AppCtrl ==");
+
 
     $scope.toggleSidenav = function (menuId) {
         $mdSidenav(menuId).toggle();
