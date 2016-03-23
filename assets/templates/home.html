@@ -304,13 +304,42 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
+<<<<<<< HEAD
 
 
+=======
+          <md-input-container >
+            <label>When was your driving license issued?</label>
+            <input ng-model="driver.license">
+          </md-input-container >
+        <md-input-container >
+        <p>What is your non claim discount bonus?</p>
+        <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
+          <md-button class="md-raised">50%</md-button>
+          <md-button class="md-raised">40%</md-button>
+          <md-button class="md-raised">30%</md-button>
+          <md-button class="md-raised">20%</md-button>
+          <md-button class="md-raised">10%</md-button>
+          <md-button class="md-raised">0%</md-button>
+        </section>
+          </md-input-container>
+>>>>>>> 19910e39fbf43f4234442cb0877a32b7a49dabc9
         <p>Did you have any claims in the past 3 years? </p>
         <md-radio-group ng-model="driver.claims" layout="row">
           <md-radio-button value="no" class="md-primary">No</md-radio-button>
           <md-radio-button value="yes" ng-click="showAdvanced($event)"> Yes </md-radio-button>
         </md-radio-group>
+
+
+        <md-input-container>
+          <label>State</label>
+          <md-select ng-model="userState">
+            <md-option ng-repeat="state in states" value="{{state.abbrev}}" ng-disabled="$index === 1">
+              {{state.abbrev}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
       </md-card-content>
 
     </md-card>
