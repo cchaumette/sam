@@ -6,16 +6,12 @@
       <md-card>
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title">Step 1 - Additional driver</span>
+            <span class="md-title">Your insurance policy</span>
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-          <p>Do you want to add a driver? </p>
-          <md-radio-group ng-model="driver.additional" layout="row">
-            <md-radio-button value="no" class="md-primary">No</md-radio-button>
-            <md-radio-button value="yes" ng-click="showAdvanced($event)"> Yes </md-radio-button>
-          </md-radio-group>
-
+          <p></p>
+          <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
 
         </md-card-content>
       </md-card>
@@ -30,9 +26,7 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-        <p>Select your policy start date</p>
-        <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-      <div layout="row">
+        <div layout="row">
         <div flex="40">
         <div layout="column" >
           <h3>Benefits</h3>

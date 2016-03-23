@@ -1,0 +1,33 @@
+<md-dialog aria-label="Driver history"  flex="100">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>test</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="">
+        <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+
+
+            <p></p>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="p.selected = true" ng-show="!p.selected">Add this pack</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="p.selected= false" ng-show="p.selected">Remove this pack</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button ng-click="hide()" class="md-primary">
+      cancel
+    </md-button>
+    <md-button ng-click="createPost(newPost)" class="md-primary">
+      submit
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

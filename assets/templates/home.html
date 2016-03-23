@@ -11,27 +11,26 @@
         </md-card-header>
         <md-card-content>
           <p>Is your car an off-peak car? </p>
-          <md-radio-group ng-model="car.offpeak" layout="row">
+          <md-radio-group ng-model="car.offpeak" layout="row" layout-padding>
             <md-radio-button value="no" class="md-primary">No</md-radio-button>
             <md-radio-button value="yes"> Yes </md-radio-button>
           </md-radio-group>
-          <md-input-container class="md-block" flex-gt-sm>
+          <md-input-container class="md-block" flex-gt-sm >
             <label>Enter your car make and model</label>
             <input ng-model="car.firstName">
           </md-input-container>
           <p>Select your car manufacturing year </p>
-          <md-radio-group ng-model="car.age" layout="row" layout-sm="column" flex  layout-wrap >
-            <md-radio-button value="no" class="md-primary">2016</md-radio-button>
-            <md-radio-button value="yes"> 2015 </md-radio-button>
-            <md-radio-button value="yes"> 2014 </md-radio-button>
-            <md-radio-button value="yes"> 2013 </md-radio-button>
-            <md-radio-button value="yes"> 2012 </md-radio-button>
-            <md-radio-button value="yes"> 2011 </md-radio-button>
-            <md-radio-button value="yes"> 2010 </md-radio-button>
-            <md-radio-button value="yes"> 2009 </md-radio-button>
-            <md-radio-button value="yes"> 2008 </md-radio-button>
-            <md-radio-button value="yes"> 2007 </md-radio-button>
-            
+          <md-radio-group ng-model="car.age" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
+            <md-radio-button value="2016" class="md-primary">2016</md-radio-button>
+            <md-radio-button value="2015"> 2015 </md-radio-button>
+            <md-radio-button value="2014"> 2014 </md-radio-button>
+            <md-radio-button value="2013"> 2013 </md-radio-button>
+            <md-radio-button value="2012"> 2012 </md-radio-button>
+            <md-radio-button value="2011"> 2011 </md-radio-button>
+            <md-radio-button value="2010"> 2010 </md-radio-button>
+            <md-radio-button value="2009"> 2009 </md-radio-button>
+            <md-radio-button value="2008"> 2008 </md-radio-button>
+            <md-radio-button value="2007"> 2007 </md-radio-button>
           </md-radio-group>
 
           <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap ng-show="car.elder == true">
@@ -66,12 +65,12 @@
             <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">main driver</a></div></md-tab-label>
             <md-tab-body>
             <p>What is your gender? </p>
-            <md-radio-group ng-model="driver.gender" layout="row">
+            <md-radio-group ng-model="driver.gender" layout="row" >
               <md-radio-button value="male" class="md-primary">Male</md-radio-button>
               <md-radio-button value="female"> Female </md-radio-button>
             </md-radio-group>
             <p>Are you married?</p>
-            <md-radio-group ng-model="driver.marital" layout="row">
+            <md-radio-group ng-model="driver.marital" layout="row" >
               <md-radio-button value="no" class="md-primary">No</md-radio-button>
               <md-radio-button value="yes">Yes</md-radio-button>
             </md-radio-group>
@@ -79,65 +78,47 @@
               <label>How old are you?</label>
               <input ng-model="driver.age">
             </md-input-container>
-            <md-input-container >
-              <label>When was your driving license issued?</label>
-              <input ng-model="driver.license">
-            </md-input-container >
+              <div layout="row">
+              <div flex="70">
+                <md-input-container class="md-block">
+                  <label>When was your driving license issued?</label>
+                  <input ng-model="driver.license">
+                </md-input-container >
+              </div>
+                <div flex="30" ng-show="driver.license >='2015'">
+                  <md-input-container >
+                    <label>Month</label>
+                    <md-select ng-model="licenseMonth">
+                      <md-option ng-repeat="month in months" value="{{month}}" >
+                        {{month}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+              </div>
+
             <p>What is your non claim discount bonus?</p>
-            <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-              <md-button class="md-raised">50%</md-button>
-              <md-button class="md-raised">40%</md-button>
-              <md-button class="md-raised">30%</md-button>
-              <md-button class="md-raised">20%</md-button>
-              <md-button class="md-raised">10%</md-button>
-              <md-button class="md-raised">0%</md-button>
-            </section>
+              <md-radio-group ng-model="driver.ncd" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
+                <md-radio-button value="50%" class="md-primary">50%</md-radio-button>
+                <md-radio-button value="40%"> 40% </md-radio-button>
+                <md-radio-button value="30%"> 30% </md-radio-button>
+                <md-radio-button value="20%"> 20% </md-radio-button>
+                <md-radio-button value="10%"> 10% </md-radio-button>
+                <md-radio-button value="0%"> 0% </md-radio-button>
+              </md-radio-group>
             </md-tab-body>
           </md-tab>
           <md-tab>
             <md-tab-label>
               <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">driver two</a></div></md-tab-label>
             <md-tab-body>
-            <p>What is your gender? </p>
-            <md-radio-group ng-model="driver.gender" layout="row">
-              <md-radio-button value="male" class="md-primary">Male</md-radio-button>
-              <md-radio-button value="female"> Female </md-radio-button>
-            </md-radio-group>
-            <p>Are you married?</p>
-            <md-radio-group ng-model="driver.marital" layout="row">
-              <md-radio-button value="no" class="md-primary">No</md-radio-button>
-              <md-radio-button value="yes">Yes</md-radio-button>
-            </md-radio-group>
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>How old are you?</label>
-              <input ng-model="driver.age">
-            </md-input-container>
-            <md-input-container >
-              <label>When was your driving license issued?</label>
-              <input ng-model="driver.license">
-            </md-input-container >
-            <p>What is your non claim discount bonus?</p>
-            <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-              <md-button class="md-raised">50%</md-button>
-              <md-button class="md-raised">40%</md-button>
-              <md-button class="md-raised">30%</md-button>
-              <md-button class="md-raised">20%</md-button>
-              <md-button class="md-raised">10%</md-button>
-              <md-button class="md-raised">0%</md-button>
-            </section>
-              </md-tab-body>
-          </md-tab>
-          <md-tab>
-            <md-tab-label>
-              <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">driver three</a></div></md-tab-label>
-            <md-tab-body>
               <p>What is your gender? </p>
-              <md-radio-group ng-model="driver.gender" layout="row">
+              <md-radio-group ng-model="driver.gender" layout="row" >
                 <md-radio-button value="male" class="md-primary">Male</md-radio-button>
                 <md-radio-button value="female"> Female </md-radio-button>
               </md-radio-group>
               <p>Are you married?</p>
-              <md-radio-group ng-model="driver.marital" layout="row">
+              <md-radio-group ng-model="driver.marital" layout="row" >
                 <md-radio-button value="no" class="md-primary">No</md-radio-button>
                 <md-radio-button value="yes">Yes</md-radio-button>
               </md-radio-group>
@@ -145,19 +126,82 @@
                 <label>How old are you?</label>
                 <input ng-model="driver.age">
               </md-input-container>
-              <md-input-container >
-                <label>When was your driving license issued?</label>
-                <input ng-model="driver.license">
-              </md-input-container >
+              <div layout="row">
+                <div flex="70">
+                  <md-input-container class="md-block">
+                    <label>When was your driving license issued?</label>
+                    <input ng-model="driver.license">
+                  </md-input-container >
+                </div>
+                <div flex="30" ng-show="driver.license >='2015'">
+                  <md-input-container >
+                    <label>Month</label>
+                    <md-select ng-model="licenseMonth">
+                      <md-option ng-repeat="month in months" value="{{month}}" >
+                        {{month}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+              </div>
+
               <p>What is your non claim discount bonus?</p>
-              <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-                <md-button class="md-raised">50%</md-button>
-                <md-button class="md-raised">40%</md-button>
-                <md-button class="md-raised">30%</md-button>
-                <md-button class="md-raised">20%</md-button>
-                <md-button class="md-raised">10%</md-button>
-                <md-button class="md-raised">0%</md-button>
-              </section>
+              <md-radio-group ng-model="driver.ncd" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
+                <md-radio-button value="50%" class="md-primary">50%</md-radio-button>
+                <md-radio-button value="40%"> 40% </md-radio-button>
+                <md-radio-button value="30%"> 30% </md-radio-button>
+                <md-radio-button value="20%"> 20% </md-radio-button>
+                <md-radio-button value="10%"> 10% </md-radio-button>
+                <md-radio-button value="0%"> 0% </md-radio-button>
+              </md-radio-group>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">driver three</a></div></md-tab-label>
+            <md-tab-body>
+              <p>What is your gender? </p>
+              <md-radio-group ng-model="driver.gender" layout="row" >
+                <md-radio-button value="male" class="md-primary">Male</md-radio-button>
+                <md-radio-button value="female"> Female </md-radio-button>
+              </md-radio-group>
+              <p>Are you married?</p>
+              <md-radio-group ng-model="driver.marital" layout="row" >
+                <md-radio-button value="no" class="md-primary">No</md-radio-button>
+                <md-radio-button value="yes">Yes</md-radio-button>
+              </md-radio-group>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>How old are you?</label>
+                <input ng-model="driver.age">
+              </md-input-container>
+              <div layout="row">
+                <div flex="70">
+                  <md-input-container class="md-block">
+                    <label>When was your driving license issued?</label>
+                    <input ng-model="driver.license">
+                  </md-input-container >
+                </div>
+                <div flex="30" ng-show="driver.license >='2015'">
+                  <md-input-container >
+                    <label>Month</label>
+                    <md-select ng-model="licenseMonth">
+                      <md-option ng-repeat="month in months" value="{{month}}" >
+                        {{month}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+              </div>
+
+              <p>What is your non claim discount bonus?</p>
+              <md-radio-group ng-model="driver.ncd" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
+                <md-radio-button value="50%" class="md-primary">50%</md-radio-button>
+                <md-radio-button value="40%"> 40% </md-radio-button>
+                <md-radio-button value="30%"> 30% </md-radio-button>
+                <md-radio-button value="20%"> 20% </md-radio-button>
+                <md-radio-button value="10%"> 10% </md-radio-button>
+                <md-radio-button value="0%"> 0% </md-radio-button>
+              </md-radio-group>
             </md-tab-body>
           </md-tab>
           <md-tab>
@@ -165,12 +209,12 @@
               <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">driver four</a></div></md-tab-label>
             <md-tab-body>
               <p>What is your gender? </p>
-              <md-radio-group ng-model="driver.gender" layout="row">
+              <md-radio-group ng-model="driver.gender" layout="row" >
                 <md-radio-button value="male" class="md-primary">Male</md-radio-button>
                 <md-radio-button value="female"> Female </md-radio-button>
               </md-radio-group>
               <p>Are you married?</p>
-              <md-radio-group ng-model="driver.marital" layout="row">
+              <md-radio-group ng-model="driver.marital" layout="row" >
                 <md-radio-button value="no" class="md-primary">No</md-radio-button>
                 <md-radio-button value="yes">Yes</md-radio-button>
               </md-radio-group>
@@ -178,116 +222,85 @@
                 <label>How old are you?</label>
                 <input ng-model="driver.age">
               </md-input-container>
-              <md-input-container >
-                <label>When was your driving license issued?</label>
-                <input ng-model="driver.license">
-              </md-input-container >
+              <div layout="row">
+                <div flex="70">
+                  <md-input-container class="md-block">
+                    <label>When was your driving license issued?</label>
+                    <input ng-model="driver.license">
+                  </md-input-container >
+                </div>
+                <div flex="30" ng-show="driver.license >='2015'">
+                  <md-input-container >
+                    <label>Month</label>
+                    <md-select ng-model="licenseMonth">
+                      <md-option ng-repeat="month in months" value="{{month}}" >
+                        {{month}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+              </div>
+
               <p>What is your non claim discount bonus?</p>
-              <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-                <md-button class="md-raised">50%</md-button>
-                <md-button class="md-raised">40%</md-button>
-                <md-button class="md-raised">30%</md-button>
-                <md-button class="md-raised">20%</md-button>
-                <md-button class="md-raised">10%</md-button>
-                <md-button class="md-raised">0%</md-button>
-              </section>
+              <md-radio-group ng-model="driver.ncd" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
+                <md-radio-button value="50%" class="md-primary">50%</md-radio-button>
+                <md-radio-button value="40%"> 40% </md-radio-button>
+                <md-radio-button value="30%"> 30% </md-radio-button>
+                <md-radio-button value="20%"> 20% </md-radio-button>
+                <md-radio-button value="10%"> 10% </md-radio-button>
+                <md-radio-button value="0%"> 0% </md-radio-button>
+              </md-radio-group>
             </md-tab-body>
           </md-tab>
           <md-tab>
             <md-tab-label>
               <div layout="column"><i class="material-icons">person_add</i><a style="font-size:10px;">add driver</a></div></md-tab-label>
             <md-tab-body>
+              <p>What is your gender? </p>
+              <md-radio-group ng-model="driver.gender" layout="row" >
+                <md-radio-button value="male" class="md-primary">Male</md-radio-button>
+                <md-radio-button value="female"> Female </md-radio-button>
+              </md-radio-group>
+              <p>Are you married?</p>
+              <md-radio-group ng-model="driver.marital" layout="row" >
+                <md-radio-button value="no" class="md-primary">No</md-radio-button>
+                <md-radio-button value="yes">Yes</md-radio-button>
+              </md-radio-group>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>How old are you?</label>
+                <input ng-model="driver.age">
+              </md-input-container>
+              <div layout="row">
+                <div flex="70">
+                  <md-input-container class="md-block">
+                    <label>When was your driving license issued?</label>
+                    <input ng-model="driver.license">
+                  </md-input-container >
+                </div>
+                <div flex="30" ng-show="driver.license >='2015'">
+                  <md-input-container >
+                    <label>Month</label>
+                    <md-select ng-model="licenseMonth">
+                      <md-option ng-repeat="month in months" value="{{month}}" >
+                        {{month}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+              </div>
 
-
-            <p>What is your gender? </p>
-            <md-radio-group ng-model="driver.gender" layout="row">
-              <md-radio-button value="male" class="md-primary">Male</md-radio-button>
-              <md-radio-button value="female"> Female </md-radio-button>
-            </md-radio-group>
-            <p>Are you married?</p>
-            <md-radio-group ng-model="driver.marital" layout="row">
-              <md-radio-button value="no" class="md-primary">No</md-radio-button>
-              <md-radio-button value="yes">Yes</md-radio-button>
-            </md-radio-group>
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>How old are you?</label>
-              <input ng-model="driver.age">
-            </md-input-container>
-            <md-input-container >
-              <label>When was your driving license issued?</label>
-              <input ng-model="driver.license">
-            </md-input-container >
-            <p>What is your non claim discount bonus?</p>
-            <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-              <md-button class="md-raised">50%</md-button>
-              <md-button class="md-raised">40%</md-button>
-              <md-button class="md-raised">30%</md-button>
-              <md-button class="md-raised">20%</md-button>
-              <md-button class="md-raised">10%</md-button>
-              <md-button class="md-raised">0%</md-button>
-            </section>
+              <p>What is your non claim discount bonus?</p>
+              <md-radio-group ng-model="driver.ncd" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
+                <md-radio-button value="50%" class="md-primary">50%</md-radio-button>
+                <md-radio-button value="40%"> 40% </md-radio-button>
+                <md-radio-button value="30%"> 30% </md-radio-button>
+                <md-radio-button value="20%"> 20% </md-radio-button>
+                <md-radio-button value="10%"> 10% </md-radio-button>
+                <md-radio-button value="0%"> 0% </md-radio-button>
+              </md-radio-group>
             </md-tab-body>
           </md-tab>
-          <md-tab label="driver 4">
 
-            <p>What is your gender? </p>
-            <md-radio-group ng-model="driver.gender" layout="row">
-              <md-radio-button value="male" class="md-primary">Male</md-radio-button>
-              <md-radio-button value="female"> Female </md-radio-button>
-            </md-radio-group>
-            <p>Are you married?</p>
-            <md-radio-group ng-model="driver.marital" layout="row">
-              <md-radio-button value="no" class="md-primary">No</md-radio-button>
-              <md-radio-button value="yes">Yes</md-radio-button>
-            </md-radio-group>
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>How old are you?</label>
-              <input ng-model="driver.age">
-            </md-input-container>
-            <md-input-container >
-              <label>When was your driving license issued?</label>
-              <input ng-model="driver.license">
-            </md-input-container >
-            <p>What is your non claim discount bonus?</p>
-            <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-              <md-button class="md-raised">50%</md-button>
-              <md-button class="md-raised">40%</md-button>
-              <md-button class="md-raised">30%</md-button>
-              <md-button class="md-raised">20%</md-button>
-              <md-button class="md-raised">10%</md-button>
-              <md-button class="md-raised">0%</md-button>
-            </section>
-          </md-tab>
-          <md-tab>
-            <md-tab-label><i class="material-icons">person_add</i></md-tab-label>
-            <p>What is your gender? </p>
-            <md-radio-group ng-model="driver.gender" layout="row">
-              <md-radio-button value="male" class="md-primary">Male</md-radio-button>
-              <md-radio-button value="female"> Female </md-radio-button>
-            </md-radio-group>
-            <p>Are you married?</p>
-            <md-radio-group ng-model="driver.marital" layout="row">
-              <md-radio-button value="no" class="md-primary">No</md-radio-button>
-              <md-radio-button value="yes">Yes</md-radio-button>
-            </md-radio-group>
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>How old are you?</label>
-              <input ng-model="driver.age">
-            </md-input-container>
-            <md-input-container >
-              <label>When was your driving license issued?</label>
-              <input ng-model="driver.license">
-            </md-input-container >
-            <p>What is your non claim discount bonus?</p>
-            <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-              <md-button class="md-raised">50%</md-button>
-              <md-button class="md-raised">40%</md-button>
-              <md-button class="md-raised">30%</md-button>
-              <md-button class="md-raised">20%</md-button>
-              <md-button class="md-raised">10%</md-button>
-              <md-button class="md-raised">0%</md-button>
-            </section>
-          </md-tab>
         </md-tabs>
 
 
@@ -304,41 +317,33 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-<<<<<<< HEAD
-
-
-=======
-          <md-input-container >
-            <label>When was your driving license issued?</label>
-            <input ng-model="driver.license">
-          </md-input-container >
-        <md-input-container >
-        <p>What is your non claim discount bonus?</p>
-        <section layout="row" layout-sm="column" flex layout-align="center" layout-wrap >
-          <md-button class="md-raised">50%</md-button>
-          <md-button class="md-raised">40%</md-button>
-          <md-button class="md-raised">30%</md-button>
-          <md-button class="md-raised">20%</md-button>
-          <md-button class="md-raised">10%</md-button>
-          <md-button class="md-raised">0%</md-button>
-        </section>
-          </md-input-container>
->>>>>>> 19910e39fbf43f4234442cb0877a32b7a49dabc9
         <p>Did you have any claims in the past 3 years? </p>
         <md-radio-group ng-model="driver.claims" layout="row">
           <md-radio-button value="no" class="md-primary">No</md-radio-button>
           <md-radio-button value="yes" ng-click="showAdvanced($event)"> Yes </md-radio-button>
         </md-radio-group>
+        <p>What was the total claimable amount? </p>
+        <md-radio-group ng-model="driver.claim_amount" layout="row">
+          <md-radio-button value="below" class="md-primary"><$10,000</md-radio-button>
+          <md-radio-button value="above" ng-click="showAdvanced($event)"> >$10,000 </md-radio-button>
+        </md-radio-group>
+        <p>How many non windscreen claims? </p>
+        <md-radio-group ng-model="driver.non_windscreen" layout="row">
+          <md-radio-button value="0" class="md-primary"><0</md-radio-button>
+          <md-radio-button value="1" ng-click="showAdvanced($event)"> >1</md-radio-button>
+          <md-radio-button value="2" ng-click="showAdvanced($event)"> >2</md-radio-button>
+          <md-radio-button value="2+" ng-click="showAdvanced($event)"> >2+</md-radio-button>
+        </md-radio-group>
+        <p>How many windscreen claims? </p>
+        <md-radio-group ng-model="driver.windscreen" layout="row">
+          <md-radio-button value="0" class="md-primary"><0</md-radio-button>
+          <md-radio-button value="1" ng-click="showAdvanced($event)"> >1</md-radio-button>
+          <md-radio-button value="2" ng-click="showAdvanced($event)"> >2</md-radio-button>
+          <md-radio-button value="2+" ng-click="showAdvanced($event)"> >2+</md-radio-button>
+        </md-radio-group>
 
 
-        <md-input-container>
-          <label>State</label>
-          <md-select ng-model="userState">
-            <md-option ng-repeat="state in states" value="{{state.abbrev}}" ng-disabled="$index === 1">
-              {{state.abbrev}}
-            </md-option>
-          </md-select>
-        </md-input-container>
+
 
       </md-card-content>
 

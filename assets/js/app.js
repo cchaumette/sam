@@ -32,11 +32,9 @@ app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', 
 
   console.log("== AppCtrl ==");
 
-  $scope.userState = '';
-  $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
-  'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
-  'WY').split(' ').map(function (state) { return { abbrev: state }; });
+  $scope.licenseMonth = '';
 
+  $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
 
   $scope.toggleSidenav = function (menuId) {
     $mdSidenav(menuId).toggle();
@@ -83,7 +81,6 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
 
   console.log("== offerCtrl ==");
 
-
   $scope.myDate = new Date();
   $scope.minDate = new Date(
     $scope.myDate.getFullYear(),
@@ -97,25 +94,39 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
     var day = date.getDay();
     return day === 0 || day === 6;
   }
-  $scope.showAdvanced = function (ev) {
+
+}]);
+app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope,policy, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+  console.log("== addonCtrl ==");
+  $scope.policy = policy;
+  $scope.policy.packs = [
+    {id:'family', name:'Family protector', selected : false, panel_content:"panel content for FP", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit, cillum proident ne reprehobant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque. Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi quis dolore veniam proident, consequat sed ingeniis."},
+    {id:'duo', name:'Pack duo', selected : false, panel_content:"panel content for duo", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
+  //  {id:'overseas', name:'Overseas protector', selected : false, panel_content:"panel content for overseas protector", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
+  //  {id:'claims', name:'Claims protector', selected : false, panel_content:"panel content for claims", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"}
+  ];
+  $scope.policy.addons = [
+    {id:'excess', name:'Family protector', selected : false, panel_content:"panel content for FP", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit, cillum proident ne reprehobant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque. Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi quis dolore veniam proident, consequat sed ingeniis."},
+    {id:'ncd protector', name:'Pack duo', selected : false, panel_content:"panel content for duo", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
+    {id:'overseas', name:'Overseas protector', selected : false, panel_content:"panel content for overseas protector", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
+    {id:'claims', name:'Claims protector', selected : false, panel_content:"panel content for claims", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"}
+  ];
+
+  $scope.showAdvanced = function(ev) {
     $mdDialog.show({
       controller: DialogController,
-      templateUrl: '/templates/dialogDriver.html',
+      templateUrl: '/templates/dialogPack.html',
       parent: angular.element(document.body),
-      targetEvent: ev
+      targetEvent: ev,
+      clickOutsideToClose:true
     })
-      .then(function (answer) {
-        $scope.alert = 'You said the information was "' + answer + '".';
-      }, function () {
-        $scope.alert = 'You cancelled the dialog.';
+      .then(function(answer) {
+        $scope.status = 'You said the information was "' + answer + '".';
+      }, function() {
+        $scope.status = 'You cancelled the dialog.';
       });
   };
 
-}]);
-app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
-
-
-  console.log("== addonCtrl ==");
 
 }]);
 app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {

@@ -1,6 +1,6 @@
 
 <md-content class="md-padding" layout-xs="column" layout="row">
-<div layout="row" layout-sm="column" flex>
+<div layout="row" layout-sm="column" layout-wrap flex>
 
   <div flex="40" flex-sm="100">
       <md-card>
@@ -10,87 +10,21 @@
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-          <div layout="row" >
-          <md-card>
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-subhead">Family protector</span>
-                <span class="md-subhead">Small</span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-              Lorem ipsum blablabla
-            </md-card-content>
+        <div layout="row">
+          <md-card ng-repeat="p in policy.packs" flex="50" layout-wrap>
+            <md-card-title-text layout-padding>
+
+              <span class="md-subhead">{{p.name}}</span>
+                <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+              <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
+
+            </md-card-title-text>
+            <md-card-content> <p> {{p.panel_content}}</p></md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-              <md-button>Know more</md-button>
-              <md-button>Add this pack</md-button>
+              <md-button ng-click="showAdvanced($event)">Know more</md-button>
             </md-card-actions>
           </md-card>
-          <md-card>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-subhead">Family protector</span>
-                  <span class="md-subhead">Small</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-content>
-                Lorem ipsum blablabla
-              </md-card-content>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Know more</md-button>
-                <md-button>Add this pack</md-button>
-              </md-card-actions>
-            </md-card>
-          </div>
-          <div layout="row" >
-          <md-card>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-subhead">Family protector</span>
-                  <span class="md-subhead">Small</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-content>
-                Lorem ipsum blablabla
-              </md-card-content>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Know more</md-button>
-                <md-button>Add this pack</md-button>
-              </md-card-actions>
-            </md-card>
-          <md-card>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-subhead">Family protector</span>
-                  <span class="md-subhead">Small</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-content>
-                Lorem ipsum blablabla
-              </md-card-content>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Know more</md-button>
-                <md-button>Add this pack</md-button>
-              </md-card-actions>
-            </md-card>
-          </div>
-          <div layout="row" >
-          <md-card>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-subhead">Family protector</span>
-                  <span class="md-subhead">Small</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-content>
-                Lorem ipsum blablabla
-              </md-card-content>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Know more</md-button>
-                <md-button>Add this pack</md-button>
-              </md-card-actions>
-            </md-card>
-          </div>
+        </div>
         </md-card-content>
       </md-card>
     </div>
@@ -104,17 +38,20 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-        <div flex-xs flex-gt-xs="50" layout="column">
-          <md-card layout="row">
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-subhead">Card with image</span>
-                <span>$xx</span>
-                <md-button layout-align="end center" >Add</md-button>
-              </md-card-title-text>
-            </md-card-title>
+        <div layout="column">
+          <md-card ng-repeat="p in policy.addons" layout-padding layout-wrap>
 
-          </md-card>
+              <div layout="row" >
+                <div flex="70">
+              <span class="md-subhead">{{p.name}}</span>
+                </div>
+                <div flex="30">
+              <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+              <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
+                </div>
+                </div>
+
+           </md-card>
         </div>
       </md-card-content>
     </md-card>
