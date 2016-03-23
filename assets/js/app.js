@@ -96,7 +96,7 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
   }
 
 }]);
-app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope,policy, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog, $mdMedia) {
   console.log("== addonCtrl ==");
   $scope.policy = policy;
   $scope.policy.packs = [
@@ -113,25 +113,32 @@ app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
   ];
 
   $scope.showAdvanced = function(ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
       controller: DialogController,
-      templateUrl: '/templates/dialogPack.html',
+      templateUrl: '/templates/dialogClaim.html',
       parent: angular.element(document.body),
       targetEvent: ev,
-      clickOutsideToClose:true
+      clickOutsideToClose:true,
+      fullscreen: useFullScreen
     })
       .then(function(answer) {
         $scope.status = 'You said the information was "' + answer + '".';
       }, function() {
         $scope.status = 'You cancelled the dialog.';
       });
+    $scope.$watch(function() {
+      return $mdMedia('xs') || $mdMedia('sm');
+    }, function(wantsFullScreen) {
+      $scope.customFullscreen = (wantsFullScreen === true);
+    });
   };
 
 
 }]);
 app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
 
-
+  $scope.drivers = [ 'Main driver', 'Driver 2', 'Driver 3', 'Driver 4', 'Driver 5'];
   console.log("== policyCtrl ==");
   $scope.showHints = true;
   $scope.user = {
