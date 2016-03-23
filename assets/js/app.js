@@ -16,6 +16,10 @@ app.config(['$routeProvider',
         templateUrl: 'templates/addon.html',
         controller: 'addonCtrl'
       }).
+      when('/policy', {
+        templateUrl: 'templates/policy.html',
+        controller: 'policyCtrl'
+      }).
       otherwise({
         redirectTo: '/home'
       });
@@ -138,6 +142,19 @@ app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
 
 
   console.log("== AppCtrl ==");
+
+}]);
+app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+
+
+  console.log("== AppCtrl ==");
+  $scope.showHints = true;
+  $scope.user = {
+    name: "",
+    email: "",
+    social: "123456789",
+    phone: "N/A"
+  };
 
 }]);
 
