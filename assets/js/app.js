@@ -30,10 +30,7 @@ app.config(['$routeProvider',
 
 app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
 
-
-    console.log("== AppCtrl ==");
-
-
+  console.log("== AppCtrl ==");
 
   $scope.userState = '';
   $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
@@ -41,43 +38,29 @@ app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', 
   'WY').split(' ').map(function (state) { return { abbrev: state }; });
 
 
-    $scope.toggleSidenav = function (menuId) {
-        $mdSidenav(menuId).toggle();
-    };
+  $scope.toggleSidenav = function (menuId) {
+    $mdSidenav(menuId).toggle();
+  };
 
-    $scope.deletePost = function (postId) {
 
-        if (typeof postId === 'number') {
+  $scope.determinateValue = 0;
 
-            var req = {
-                method: 'POST',
-                url: '/posts/destroy?id=' + postId
-            };
+  $scope.$on('$destroy', function () {
 
-            $http(req);
+    $interval.cancel(postsLoading);
 
-        }
+  });
 
-    };
+  $scope.demo = {
+    topDirections: ['left', 'up'],
+    bottomDirections: ['down', 'right'],
+    availableModes: ['md-fling', 'md-scale'],
+    selectedMode: 'md-fling',
+    availableDirections: ['up', 'down', 'left', 'right'],
+    selectedDirection: 'down'
+  };
 
-    $scope.determinateValue = 0;
-
-    $scope.$on('$destroy', function () {
-
-        $interval.cancel(postsLoading);
-
-    });
-
-    $scope.demo = {
-        topDirections: ['left', 'up'],
-        bottomDirections: ['down', 'right'],
-        availableModes: ['md-fling', 'md-scale'],
-        selectedMode: 'md-fling',
-        availableDirections: ['up', 'down', 'left', 'right'],
-        selectedDirection: 'down'
-    };
-
-    $scope.posts = [];
+  $scope.posts = [];
 
 
   $scope.showAdvanced = function (ev) {
@@ -94,42 +77,11 @@ app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', 
       });
   };
 
-
-  (function () {
-
-        $sails.get("/posts")
-            .success(function (data, status, headers, jwr) {
-
-            $scope.posts = data;
-            $scope.determinateValue = 100;
-
-        })
-            .error(function (data, status, headers, jwr) {
-
-            throw new Error(data);
-
-        });
-
-        $sails.on("posts", function (message) {
-
-            if (message.verb == "destroyed") {
-
-                var index = $filter('getIndex')($scope.posts, parseInt(message.id, 10));
-                $scope.posts.splice(index, 1);
-
-            } else if (message.verb == "created") {
-                $scope.posts.push(message.data);
-            }
-
-        });
-
-    }());
-
 }]);
 app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
 
 
-  console.log("== AppCtrl ==");
+  console.log("== offerCtrl ==");
 
 
   $scope.myDate = new Date();
@@ -163,13 +115,13 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
 app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
 
 
-  console.log("== AppCtrl ==");
+  console.log("== addonCtrl ==");
 
 }]);
 app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
 
 
-  console.log("== AppCtrl ==");
+  console.log("== policyCtrl ==");
   $scope.showHints = true;
   $scope.user = {
     name: "",
@@ -182,46 +134,46 @@ app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval
 
 function DialogController($scope, $mdDialog, $http) {
 
-    $scope.colors = ["green", "gray", "yellow", "blue", "purple", "red"];
+  $scope.colors = ["green", "gray", "yellow", "blue", "purple", "red"];
 
-    $scope.createPost = function (newPost) {
+  $scope.createPost = function (newPost) {
 
-        var req = {
-            method: 'POST',
-            url: '/posts/create',
-            data: newPost
-        };
-
-        $http(req)
-            .success(function (data) {
-            $mdDialog.cancel();
-        })
-            .error(function (data) {
-            console.log(data);
-        });
-
+    var req = {
+      method: 'POST',
+      url: '/posts/create',
+      data: newPost
     };
 
-    $scope.hide = function () {
-        $mdDialog.hide();
-    };
-    $scope.cancel = function () {
+    $http(req)
+      .success(function (data) {
         $mdDialog.cancel();
-    };
-    $scope.answer = function (answer) {
-        $mdDialog.hide(answer);
-    };
+      })
+      .error(function (data) {
+        console.log(data);
+      });
+
+  };
+
+  $scope.hide = function () {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function () {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function (answer) {
+    $mdDialog.hide(answer);
+  };
 }
 
 app.filter('getIndex', function () {
-    return function (input, id) {
-        var i = 0,
-            len = input.length;
-        for (; i < len; i++) {
-            if (+input[i].id == +id) {
-                return i;
-            }
-        }
-        return null;
-    };
+  return function (input, id) {
+    var i = 0,
+      len = input.length;
+    for (; i < len; i++) {
+      if (+input[i].id == +id) {
+        return i;
+      }
+    }
+    return null;
+  };
 });
