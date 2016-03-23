@@ -138,7 +138,19 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
     var day = date.getDay();
     return day === 0 || day === 6;
   }
-
+  $scope.showAdvanced = function (ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogDriver.html',
+      parent: angular.element(document.body),
+      targetEvent: ev
+    })
+      .then(function (answer) {
+        $scope.alert = 'You said the information was "' + answer + '".';
+      }, function () {
+        $scope.alert = 'You cancelled the dialog.';
+      });
+  };
 
 }]);
 app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {

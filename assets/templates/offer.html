@@ -13,7 +13,7 @@
           <p>Do you want to add a driver? </p>
           <md-radio-group ng-model="driver.additional" layout="row">
             <md-radio-button value="no" class="md-primary">No</md-radio-button>
-            <md-radio-button value="yes"> Yes </md-radio-button>
+            <md-radio-button value="yes" ng-click="showAdvanced($event)"> Yes </md-radio-button>
           </md-radio-group>
 
 
