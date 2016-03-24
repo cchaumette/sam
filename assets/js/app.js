@@ -26,6 +26,12 @@ app.config(['$routeProvider',
   }]);
 
 
+app.factory('policy', function() {
+  console.log("===factory.policy==");
+  var policy = {driver :{}, plan:{}, car :{}};
+  return policy;
+});
+
 
 
 app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
@@ -96,7 +102,7 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
   }
 
 }]);
-app.controller('addonCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog, $mdMedia) {
+app.controller('addonCtrl', ['$scope', 'policy', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog, $mdMedia) {
   console.log("== addonCtrl ==");
   $scope.policy = policy;
   $scope.policy.packs = [
