@@ -34,7 +34,7 @@
           </md-input-container>
           <p>Is your car financed with a loan?</p>
           <md-radio-group ng-model="driver.loan" layout="row">
-            <md-radio-button value="no" class="md-primary">No</md-radio-button>
+            <md-radio-button value="no" >No</md-radio-button>
             <md-radio-button value="yes">Yes</md-radio-button>
           </md-radio-group>
 
@@ -47,7 +47,7 @@
           </md-input-container>
           <p>Is it your first time insured?</p>
           <md-radio-group ng-model="driver.insured" layout="row">
-            <md-radio-button value="no" class="md-primary">No</md-radio-button>
+            <md-radio-button value="no" >No</md-radio-button>
             <md-radio-button value="yes">Yes</md-radio-button>
           </md-radio-group>
           <md-input-container class="md-block" ng-show="driver.insured == 'yes'">
@@ -77,7 +77,7 @@
       <md-card-content>
         <p>Is the main driver the policy holder </p>
         <md-radio-group ng-model="driver.policyholder" layout="row">
-          <md-radio-button value="no" class="md-primary">No</md-radio-button>
+          <md-radio-button value="no" >No</md-radio-button>
           <md-radio-button value="yes"> Yes </md-radio-button>
         </md-radio-group>
         <md-input-container class="md-block" flex-gt-sm>
@@ -155,7 +155,7 @@
                   <md-datepicker ng-model="driver.dob" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate" ></md-datepicker>
                   <p>Residency status</p>
                   <md-radio-group ng-model="driver.residency" layout="row">
-                    <md-radio-button value="singaporean" class="md-primary">Singaporean</md-radio-button>
+                    <md-radio-button value="singaporean">Singaporean</md-radio-button>
                     <md-radio-button value="pr"> PR </md-radio-button>
                     <md-radio-button value="foreigner"> Foreigner </md-radio-button>
                   </md-radio-group>
