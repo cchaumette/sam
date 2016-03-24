@@ -75,7 +75,7 @@ app.factory('policy', function() {
 });
 
 
-app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog,algolia) {
+app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','algolia', function ($scope, policy, $filter, $mdSidenav, $mdDialog,algolia) {
 
   console.log("== AppCtrl ==");
 
@@ -88,6 +88,22 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
 
   $scope.policy = policy;
+  $scope.car = policy.car;
+  var clientAlgolia = algolia.Client('BGXJZLELLV', 'f73fe5af31d85d2206be16d5a51718b0');
+  var indexAlgolia = clientAlgolia.initIndex('car_list_dev');
+
+  $scope.search = {value:""};
+
+  $scope.algolia = function () {
+    console.log("car = " + $scope.car.make);
+    $scope.car.car_id = null;
+    indexAlgolia.search( $scope.car.make).then(function(content){$scope.hits = content.hits;});
+  };
+  $scope.range = _.range;
+  $scope.searchTo = function(car, car_id) {
+    $scope.car.make = car;
+    $scope.car.car_id = car_id;
+  }
 
 
   $scope.toggleSidenav = function (menuId) {

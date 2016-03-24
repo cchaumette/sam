@@ -17,10 +17,10 @@
           <md-input-container class="md-block" flex-gt-sm >
             <label>Enter your car make and model</label>
             <input ng-model="car.make" ng-keyup="algolia()">
+            <div ng-show="car.car_id == null">
             <div ng-repeat="hit in hits" ng-click="searchTo(hit.make + ' ' + hit.model, hit.item)">
-
                 {{hit.make}} {{hit.model}}
-
+            </div>
             </div>
           </md-input-container>
           <p>Select your car manufacturing year </p>
