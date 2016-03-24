@@ -12,12 +12,16 @@
         <md-card-content>
           <p>Is your car an off-peak car? </p>
           <md-radio-group ng-model="car.offpeak" layout="row" layout-padding>
-            <md-radio-button value="no" class="md-primary">No</md-radio-button>
-            <md-radio-button value="yes"> Yes </md-radio-button>
+            <md-radio-button ng-repeat="car in policy.cars" value="{{car.offpeak_value}}">{{car.offpeak}}</md-radio-button>
           </md-radio-group>
           <md-input-container class="md-block" flex-gt-sm >
             <label>Enter your car make and model</label>
-            <input ng-model="car.firstName">
+            <input ng-model="car.make" ng-keyup="algolia()">
+            <div ng-repeat="hit in hits" ng-click="searchTo(hit.make + ' ' + hit.model, hit.item)">
+
+                {{hit.make}} {{hit.model}}
+
+            </div>
           </md-input-container>
           <p>Select your car manufacturing year </p>
           <md-radio-group ng-model="car.age" layout="row" layout-sm="column"  flex layout-wrap layout-padding>
@@ -60,14 +64,14 @@
       </md-card-header>
       <md-card-content>
         <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab ng-repeat="driver in drivers">
+          <md-tab ng-repeat="driver in policy.drivers">
             <md-tab-label>
-            <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{driver.name}}</a></div></md-tab-label>
+            <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{driver.label}}</a></div></md-tab-label>
             <md-tab-body>
 
             <p>What is your gender? </p>
             <md-radio-group ng-model="driver.gender" layout="row" layout-padding>
-              <md-radio-button value="male" class="md-primary">Male</md-radio-button>
+              <md-radio-button value="male">Male</md-radio-button>
               <md-radio-button value="female"> Female </md-radio-button>
             </md-radio-group>
 

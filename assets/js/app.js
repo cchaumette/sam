@@ -1,4 +1,4 @@
-var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial']);
+var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial','algoliasearch']);
 
 
 app.config(['$routeProvider',
@@ -28,27 +28,36 @@ app.config(['$routeProvider',
 
 app.factory('policy', function() {
   console.log("===factory.policy==");
-  var policy = {driver :{}, plan:{}, car :{}};
+  var policy = {drivers :[
+    {label : 'main driver'},
+    {label : 'driver 2'},
+    {label : 'driver 3'},
+    {label : 'driver 4'}
+  ], plan:{},
+  cars :[
+    {offpeak : 'No', offpeak_value : 'false'},
+    {offpeak : 'Yes', offpeak_value : 'true'}
+  ]};
   return policy;
 });
 
 
 
-app.controller('AppCtrl', ['$scope', '$filter', '$mdSidenav', '$mdDialog', function ($scope, $filter, $mdSidenav, $mdDialog) {
+app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog,algolia) {
 
   console.log("== AppCtrl ==");
 
   $scope.licenseMonth = '';
 
+ // var car = {offpeaks :[{label : 'No', value : 'false'}, {label : 'Yes', value : 'true'},],
+   // year:[{label :'2016',''}], car :{}};
+
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
 
 
-  $scope.drivers = [
-    {name : 'main driver'},
-    {name : 'driver 2'},
-    {name : 'driver 3'}
-  ]
+  $scope.policy = policy;
 
+  
   $scope.toggleSidenav = function (menuId) {
     $mdSidenav(menuId).toggle();
   };
@@ -141,9 +150,9 @@ app.controller('addonCtrl', ['$scope', 'policy','$filter', '$mdSidenav', '$mdDia
 
 
 }]);
-app.controller('policyCtrl', ['$scope',  '$filter', '$mdSidenav', '$mdDialog', function ($scope, $filter, $mdSidenav, $mdDialog) {
+app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog) {
 
-  $scope.drivers = [ 'Main driver', 'Driver 2', 'Driver 3', 'Driver 4', 'Driver 5'];
+  $scope.policy = policy;
   console.log("== policyCtrl ==");
   $scope.showHints = true;
   $scope.user = {

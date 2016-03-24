@@ -136,9 +136,9 @@
       <md-card-content>
 
             <md-tabs md-dynamic-height md-border-bottom>
-              <md-tab ng-repeat="driver in drivers">
+              <md-tab ng-repeat="driver in policy.drivers">
                 <md-tab-label>
-                <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">{{driver}}</a></div>
+                  <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{driver.label}}</a></div></md-tab-label>
                 </md-tab-label>
                 <md-tab-body>
                 <md-content class="md-padding">
