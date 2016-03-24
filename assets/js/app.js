@@ -1,4 +1,4 @@
-var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial', 'ngSails']);
+var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial']);
 
 
 app.config(['$routeProvider',
@@ -34,7 +34,7 @@ app.factory('policy', function() {
 
 
 
-app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+app.controller('AppCtrl', ['$scope', '$filter', '$mdSidenav', '$mdDialog', function ($scope, $filter, $mdSidenav, $mdDialog) {
 
   console.log("== AppCtrl ==");
 
@@ -42,18 +42,17 @@ app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', 
 
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
 
+
+  $scope.drivers = [
+    {name : 'main driver'},
+    {name : 'driver 2'},
+    {name : 'driver 3'}
+  ]
+
   $scope.toggleSidenav = function (menuId) {
     $mdSidenav(menuId).toggle();
   };
 
-
-  $scope.determinateValue = 0;
-
-  $scope.$on('$destroy', function () {
-
-    $interval.cancel(postsLoading);
-
-  });
 
   $scope.demo = {
     topDirections: ['left', 'up'],
@@ -82,7 +81,7 @@ app.controller('AppCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', 
   };
 
 }]);
-app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+app.controller('offerCtrl', ['$scope', '$filter', '$mdSidenav', '$mdDialog', function ($scope, $filter, $mdSidenav, $mdDialog) {
 
 
   console.log("== offerCtrl ==");
@@ -102,7 +101,7 @@ app.controller('offerCtrl', ['$scope', '$sails', '$http', '$filter', '$interval'
   }
 
 }]);
-app.controller('addonCtrl', ['$scope', 'policy', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog, $mdMedia) {
+app.controller('addonCtrl', ['$scope', 'policy','$filter', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy, $filter, $mdSidenav, $mdDialog, $mdMedia) {
   console.log("== addonCtrl ==");
   $scope.policy = policy;
   $scope.policy.packs = [
@@ -142,7 +141,7 @@ app.controller('addonCtrl', ['$scope', 'policy', '$sails', '$http', '$filter', '
 
 
 }]);
-app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval', '$mdSidenav', '$mdDialog', function ($scope, $sails, $http, $filter, $interval, $mdSidenav, $mdDialog) {
+app.controller('policyCtrl', ['$scope',  '$filter', '$mdSidenav', '$mdDialog', function ($scope, $filter, $mdSidenav, $mdDialog) {
 
   $scope.drivers = [ 'Main driver', 'Driver 2', 'Driver 3', 'Driver 4', 'Driver 5'];
   console.log("== policyCtrl ==");
@@ -156,26 +155,11 @@ app.controller('policyCtrl', ['$scope', '$sails', '$http', '$filter', '$interval
 
 }]);
 
-function DialogController($scope, $mdDialog, $http) {
+function DialogController($scope, $mdDialog) {
 
   $scope.colors = ["green", "gray", "yellow", "blue", "purple", "red"];
 
   $scope.createPost = function (newPost) {
-
-    var req = {
-      method: 'POST',
-      url: '/posts/create',
-      data: newPost
-    };
-
-    $http(req)
-      .success(function (data) {
-        $mdDialog.cancel();
-      })
-      .error(function (data) {
-        console.log(data);
-      });
-
   };
 
   $scope.hide = function () {
