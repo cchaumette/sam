@@ -28,19 +28,51 @@ app.config(['$routeProvider',
 
 app.factory('policy', function() {
   console.log("===factory.policy==");
-  var policy = {drivers :[
-    {label : 'main driver'},
-    {label : 'driver 2'},
-    {label : 'driver 3'},
-    {label : 'driver 4'}
-  ], plan:{},
-  cars :[
-    {offpeak : 'No', offpeak_value : 'false'},
-    {offpeak : 'Yes', offpeak_value : 'true'}
-  ]};
+  var policy =
+  {
+    profil:
+          {
+          "Vehicle": {
+              "Make": "FORD",
+              "Model": "FOCUS 1.4",
+              "YearOfMake": "2000",
+              "OffPeakCar": true
+          },
+          "Drivers": [
+            {
+              "Gender": "MALE",
+              "MaritalStatus": "MARRIED",
+              "DateOfBirth": "19761231",
+              "YearsOfDrivingExp": "6",
+              "PostalCode": "999999"
+            },
+            //TODO : dynamique
+            {},{},{},{}
+          ],
+            "NumberOfClaims": "0",
+            "NumberOfWindscreenClaims": "0",
+            "TotalClaimAmount": "0",
+            "NCDPoints": "10",
+            "ClaimsPast3Years": false,
+            "PolicyStartDate": "20160102",
+            "PolicyEndDate": "20170101"
+          },
+
+    param :
+          {
+            "Vehicle": {
+              OffPeakCar :[{label : 'No', value : false}, {label : 'Yes', value : true} ]
+            },
+            Drivers :
+              {
+                Title : [{label :'main driver'},{label :'driver 2'},{label :'driver 3'},{label :'driver 4'}],
+                Gender :[{label : 'Male', value : "MALE"}, {label : 'Female', value : "FEMALE"} ],
+                MaritalStatus : [{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ]
+              }
+          }
+  }
   return policy;
 });
-
 
 
 app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','algolia', function ($scope, policy, $filter, $mdSidenav, $mdDialog,algolia) {
@@ -56,7 +88,6 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
 
   $scope.policy = policy;
-
   $scope.car = policy.car;
   var clientAlgolia = algolia.Client('BGXJZLELLV', 'f73fe5af31d85d2206be16d5a51718b0');
   var indexAlgolia = clientAlgolia.initIndex('car_list_dev');
@@ -73,6 +104,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     $scope.car.make = car;
     $scope.car.car_id = car_id;
   }
+
 
   $scope.toggleSidenav = function (menuId) {
     $mdSidenav(menuId).toggle();
