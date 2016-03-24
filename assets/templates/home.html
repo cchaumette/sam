@@ -60,9 +60,9 @@
       </md-card-header>
       <md-card-content>
         <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab>
+          <md-tab ng-repeat="driver in drivers">
             <md-tab-label>
-            <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">main driver</a></div></md-tab-label>
+            <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{driver.name}}</a></div></md-tab-label>
             <md-tab-body>
 
             <p>What is your gender? </p>
@@ -88,14 +88,14 @@
                 </md-input-container >
               </div>
                 <div flex="30" ng-show="driver.license >='2015'">
-                  <md-input-container >
+
+                  <md-input-container ng-show="driver.license >='2015'">
                     <label>Month</label>
-                    <md-select ng-model="licenseMonth">
-                      <md-option ng-repeat="month in months" value="{{month}}" >
-                        {{month}}
-                      </md-option>
+                    <md-select ng-model="driver.licenseMonth" required>
+                      <md-option ng-repeat="m in months" value="{{m}}">{{m}}</md-option>
                     </md-select>
                   </md-input-container>
+
                 </div>
               </div>
 
@@ -110,6 +110,9 @@
               </md-radio-group>
             </md-tab-body>
           </md-tab>
+
+
+<!--
           <md-tab>
             <md-tab-label>
               <div layout="column"><i class="material-icons">person</i><a style="font-size:10px;">driver two</a></div></md-tab-label>
@@ -302,7 +305,7 @@
               </md-radio-group>
             </md-tab-body>
           </md-tab>
-
+-->
         </md-tabs>
 
 

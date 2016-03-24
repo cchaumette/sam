@@ -38,15 +38,9 @@
   </head>
 
   <body>
-
-
-
-
-  <div layout="column" ng-controller="AppCtrl">
-
+  <div layout="column">
     <md-toolbar layout="row" style="background-color:white;">
       <div class="md-toolbar-tools" >
-
           <div flex="30">
             <span><img src="images/axa_logo.jpg"  style=" padding-top: 20px;padding-left: 30px;padding-bottom: 20px; height: 70px;"></span>
           </div>
@@ -56,24 +50,11 @@
               <label>Agent code</label>
               <input ng-model="user.agentcode">
             </md-input-container>
-
-
         </div>
-
-
-
-
-
-
-
       </div>
     </md-toolbar>
-
-
     <div ng-view ng-cloak></div>
-
-
-    </div>
+  </div>
 
 
 
