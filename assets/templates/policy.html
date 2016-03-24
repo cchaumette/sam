@@ -12,7 +12,7 @@
         <md-card-content>
           <md-input-container class="md-block" flex-gt-sm>
             <label>Enter your car registration number</label>
-            <input ng-model="car.registration">
+            <input ng-model="policy.profil.Vehicle.RegistrationNumber">
           </md-input-container>
           <!-- to be implemented woth the ngMessages
           <md-input-container class="md-block" flex-gt-sm>
@@ -26,19 +26,18 @@
           </md-input-container>-->
           <md-input-container class="md-block" flex-gt-sm>
             <label>Enter your car chassis number</label>
-            <input ng-model="car.chassis">
+            <input ng-model="policy.profil.Vehicle.ChassisNumber">
           </md-input-container>
           <md-input-container class="md-block" flex-gt-sm>
             <label>Enter your car engine number</label>
-            <input ng-model="car.engine">
+            <input ng-model="policy.profil.Vehicle.EngineNumber">
           </md-input-container>
           <p>Is your car financed with a loan?</p>
-          <md-radio-group ng-model="driver.loan" layout="row">
-            <md-radio-button value="no" >No</md-radio-button>
-            <md-radio-button value="yes">Yes</md-radio-button>
+          <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row">
+            <md-radio-button ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}</md-radio-button>
           </md-radio-group>
 
-          <md-input-container class="md-block" ng-show="driver.loan == 'yes'">
+         <md-input-container class="md-block" ng-show="driver.loan == 'yes'">
             <label>Select your loan company</label>
             <md-select ng-model="driver.loan_company">
               <md-option>company 1</md-option>
@@ -52,8 +51,8 @@
           </md-radio-group>
           <md-input-container class="md-block" ng-show="driver.insured == 'yes'">
             <label>Select your previous insurer</label>
-            <md-select ng-model="driver.insurer">
-              <md-option>company 1</md-option>
+            <md-select ng-model="policy.param.Vehicle.PrevCarInsurer">
+              <md-option ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">{{PrevCarInsurer}}</md-option>
               <md-option>company 2</md-option>
             </md-select>
           </md-input-container>
