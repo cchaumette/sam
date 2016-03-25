@@ -57,11 +57,11 @@ app.factory('policy', function() {
         //TODO : dynamique
         {},{},{},{}
       ],
-      "NumberOfClaims": "0",
-      "NumberOfWindscreenClaims": "0",
-      "TotalClaimAmount": "0",
+      "NumberOfClaims": "",
+      "NumberOfWindscreenClaims": "",
+      "TotalClaimAmount": "",
       "NCDPoints": "10",
-      "ClaimsPast3Years": false,
+      "ClaimsPast3Years":"",
       "PolicyStartDate": "20160102",
       "PolicyEndDate": "20170101",
       "Certificate":true
@@ -271,6 +271,49 @@ $scope.checkNCD = function(ncd){
 
   };
 
+
+  $scope.CheckClaims = function (claims){
+    if (claims == true){
+      $scope.showClaims_amount = true;
+    }
+    else{
+      $scope.showClaims_amount = false;
+    }
+  }
+  $scope.CheckClaimsAmount = function (amount){
+    if (amount == '0'){
+      $scope.showClaims_number = true;
+    }
+    else{
+      $scope.showReferral()
+    }
+  }
+  $scope.CheckClaimsNumber = function (number){
+    if (number > '2'){
+      $scope.showReferral()
+    }
+
+  }
+  $scope.CheckClaimsNumberWind = function (number){
+    if (number > '2'){
+      $scope.showReferral()
+    }
+
+  }
+  $scope.showReferral = function (ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogReferral.html',
+      parent: angular.element(document.body),
+      targetEvent: ev
+    })
+      .then(function (answer) {
+        $scope.alert = 'You said the information was "' + answer + '".';
+      }, function () {
+        $scope.alert = 'You cancelled the dialog.';
+      });
+
+  };
 }]);
 app.controller('offerCtrl', ['$scope', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,product, $filter, $mdSidenav, $mdDialog) {
 
