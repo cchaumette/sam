@@ -44,7 +44,11 @@ app.factory('policy', function() {
         "SubModel": "",
         "CubicCapacity": "343",
         "HasFinanceLoan": false,
+        "HasFinanceCompany": "",
+        "PrevCarInsured": false,
         "PrevCarInsurer": "NONE"
+
+
       },
       "Drivers": [
         {
@@ -79,6 +83,8 @@ app.factory('policy', function() {
         SubModel:{},
         CubicCapacity:{},
         HasFinanceLoan:[{label : 'No', value : false}, {label : 'Yes', value : true} ],
+        HasFinanceCompany:{},
+        PrevCarInsured:[{label : 'No', value : false}, {label : 'Yes', value : true} ],
         PrevCarInsurer:{}
 
       },

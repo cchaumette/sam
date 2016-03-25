@@ -47,17 +47,19 @@
 
          <md-input-container class="md-block" ng-show="policy.profil.Vehicle.HasFinanceLoan == true">
             <label>Select your loan company</label>
-            <md-select ng-model="driver.loan_company">
+            <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
+              <md-option ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">{{HasFinanceCompany}}</md-option>
             </md-select>
           </md-input-container>
+
+
           <p layout-padding>Is it your first time insured?</p>
-          <md-radio-group ng-model="driver.insured" layout="row">
-            <md-radio-button value="no" >No</md-radio-button>
-            <md-radio-button value="yes">Yes</md-radio-button>
+          <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row">
+            <md-radio-button ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button>
           </md-radio-group>
-          <md-input-container class="md-block" ng-show="driver.insured == 'yes'">
+          <md-input-container class="md-block" ng-show="policy.profil.Vehicle.PrevCarInsured == true">
             <label>Select your previous insurer</label>
-            <md-select ng-model="policy.param.Vehicle.PrevCarInsurer">
+            <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
               <md-option ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">{{PrevCarInsurer}}</md-option>
             </md-select>
           </md-input-container>
@@ -74,6 +76,7 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content layout-padding>
+        <form name="userForm">
         <div layout="row" >
           <md-input-container class="md-block" flex-gt-sm flex="50">
             <label>Name</label>
@@ -96,7 +99,6 @@
             <input >
           </md-input-container>
         </div>
-        <form name="userForm">
           <div layout="row">
             <md-input-container class="md-block" flex-gt-sm flex="50">
             <label>Email</label>
@@ -135,12 +137,13 @@
           <input >
         </md-input-container>
             </div>
-          </form>
+
         <p>Is the main driver the policyholder </p>
         <md-radio-group layout="row" >
           <md-radio-button value="no" >No</md-radio-button>
           <md-radio-button value="yes"> Yes </md-radio-button>
         </md-radio-group>
+        </form>
       </md-card-content>
     </md-card>
 
