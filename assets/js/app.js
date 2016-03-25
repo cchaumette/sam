@@ -195,11 +195,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.licenseMonth = '';
 
- // var car = {offpeaks :[{label : 'No', value : 'false'}, {label : 'Yes', value : 'true'},],
-   // year:[{label :'2016',''}], car :{}};
-
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
-
 
   $scope.policy = policy;
   $scope.car = policy.car;
