@@ -32,7 +32,15 @@ app.factory('policy', function() {
           "MaritalStatus": "MARRIED",
           "DateOfBirth": "19761231",
           "YearsOfDrivingExp": "6",
-          "PostalCode": "999999"
+          "PostalCode": "999999",
+          "Surname": "Mike",
+          "GivenName": "Floyd",
+          "DateOfBirth": "19761231",
+          "Nationality": "SIN",
+          "IDNumber": "S8068097Z",
+          "Phone": "6564271232",
+          "Email": "youremail@youremail.com",
+          "Occupation": "GEXC"
         },
 
         //TODO : dynamique
@@ -91,11 +99,19 @@ app.factory('policy', function() {
         Title : [{label :'main driver'},{label :'driver 2'},{label :'driver 3'},{label :'driver 4'}],
         Gender :[{label : 'Male', value : "MALE"}, {label : 'Female', value : "FEMALE"} ],
         MaritalStatus :[{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ],
-        DateOfBirth:{}
+        Surname: {},
+        GivenName:{},
+        DateOfBirth:{},
+        Nationality:{},
+        IDNumber:{},
+        Phone:{},
+        Email:{},
+        Occupation:{}
+
       },
       "PolicyHolder":
       {
-        IsCorporateClient:[{value:'Individual'}, {value:'Corporate'}],
+        IsCorporateClient:[{value:'Individual', label:'No'}, {value:'Corporate', label:'Yes'}],
         Surname: {},
         GivenName:{},
         DisplayName:{},

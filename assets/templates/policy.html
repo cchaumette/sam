@@ -73,26 +73,36 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content layout-padding>
+        <p>Is the main driver the policyholder </p>
+        <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder">
+          <md-radio-button ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder" ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button>
+        </md-radio-group>
+        <div ng-show="policy.profil.IsMainDriverPolicyHolder == false">
+        <p>Is the policyholder a corporation?</p>
+        <md-radio-group layout="row" ng-model="policy.profil.PolicyHolder.IsCorporateClient">
+          <md-radio-button ng-repeat="IsCorporateClient in policy.param.PolicyHolder.IsCorporateClient" ng-value="IsCorporateClient.value">{{IsCorporateClient.label}}</md-radio-button>
+        </md-radio-group>
+        </div>
         <form name="userForm">
         <div layout="row" >
-          <md-input-container class="md-block" flex-gt-sm flex="50">
+          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>Name</label>
             <input ng-model="policy.profil.PolicyHolder.Surname">
           </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm flex="50">
+          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>Surname</label>
             <input ng-model="policy.profil.PolicyHolder.GivenName">
           </md-input-container>
         </div>
         <div layout="row" >
-          <md-input-container class="md-block" flex-gt-sm flex="45">
+          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>Nationality</label>
             <md-select ng-model="policy.profil.PolicyHolder.Nationality">
               <md-option ng-repeat="Nationality in policy.param.PolicyHolder.Nationality">{{Nationality}}</md-option>
             </md-select>
           </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-sm flex="50">
+          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>ID number</label>
             <input ng-model="policy.profil.PolicyHolder.IDNumber">
           </md-input-container>
@@ -135,11 +145,6 @@
           <input ng-model="policy.profil.PolicyHolder.PostalCode">
         </md-input-container>
             </div>
-
-        <p>Is the main driver the policyholder </p>
-        <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder">
-          <md-radio-button ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder" ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button>
-        </md-radio-group>
         </form>
       </md-card-content>
     </md-card>
@@ -164,30 +169,30 @@
               <div layout="row" >
                 <md-input-container class="md-block" flex-gt-sm flex="50">
                   <label>Name</label>
-                  <input >
+                  <input ng-model="policy.profil.Drivers.GivenName">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm flex="50">
                   <label>Surname</label>
-                  <input >
+                  <input ng-model="policy.profil.Drivers.Surname">
                 </md-input-container>
               </div>
               <div layout="row" >
                 <md-input-container class="md-block" flex="45">
                   <label>Nationality</label>
-                  <md-select >
-                    <md-option >{{}}</md-option>
+                  <md-select ng-model="policy.profil.Drivers.Nationality">
+                    <md-option ng-repeat="Nationality in policy.param.Drivers.Nationality">{{Nationality}}</md-option>
                   </md-select>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm flex="50">
                   <label>ID number</label>
-                  <input >
+                  <input ng-model="policy.profil.Drivers.IDNumber">
                 </md-input-container>
               </div>
               <form name="userForm">
                 <div layout="row">
-                  <md-input-container class="md-block" flex-gt-sm flex="50">
+                  <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
                     <label>Email</label>
-                    <input name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                    <input name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
                     <div class="hint" ng-show="showHints"></div>
                     <div ng-messages="userForm.email.$error" ng-hide="showHints">
                       <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -195,9 +200,9 @@
                       </div>
                     </div>
                   </md-input-container>
-                  <md-input-container class="md-block" flex-gt-sm flex="50">
+                  <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
                     <label>Phone number</label>
-                    <input name="phone" required minlength="8" maxlength="8" ng-pattern="" />
+                    <input name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
                     <div class="hint" ng-show="showHints"></div>
                     <div ng-messages="userForm.phone.$error" ng-hide="showHints">
                       <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -211,9 +216,8 @@
 
                   <md-input-container class="md-block" >
                     <label>Occupation</label>
-                    <md-select >
-                      <md-option>company 1</md-option>
-                      <md-option>company 2</md-option>
+                    <md-select ng-model="policy.profil.Drivers.Occupation">
+                      <md-option ng-repeat="Occupation in policy.param.Drivers.Occupation">{{Occupation}}</md-option>
                     </md-select>
                   </md-input-container>
 
