@@ -34,9 +34,31 @@ app.factory('policy', function() {
           "YearsOfDrivingExp": "6",
           "PostalCode": "999999"
         },
+
         //TODO : dynamique
         {},{},{},{}
       ],
+      "PolicyHolder": [{
+        "IsCorporateClient": "Individual",
+        "Surname": "Mike",
+        "GivenName": "Floyd",
+        "DisplayName": "GivenName + Surname",
+        "DateOfBirth": "19761231",
+        "Gender": "MALE",
+        "MaritalStatus": "MARRIED",
+        "Nationality": "SIN",
+        "IDNumber": "S8068097Z",
+        "Phone": "6564271232",
+        "Email": "youremail@youremail.com",
+        "Country": "SIN",
+        "PostalCode": "999999",
+        "Occupation": "GEXC",
+        "AddressLine1": "Addr Line 1",
+        "AddressLine2": "Addr Line 2",
+        "AddressLine3": ""
+      }],
+
+      "IsMainDriverPolicyHolder": true,
       "NumberOfClaims": "",
       "NumberOfWindscreenClaims": "",
       "TotalClaimAmount": "",
@@ -68,8 +90,30 @@ app.factory('policy', function() {
       {
         Title : [{label :'main driver'},{label :'driver 2'},{label :'driver 3'},{label :'driver 4'}],
         Gender :[{label : 'Male', value : "MALE"}, {label : 'Female', value : "FEMALE"} ],
-        MaritalStatus :[{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ]
+        MaritalStatus :[{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ],
+        DateOfBirth:{}
       },
+      "PolicyHolder":
+      {
+        IsCorporateClient:[{value:'Individual'}, {value:'Corporate'}],
+        Surname: {},
+        GivenName:{},
+        DisplayName:{},
+        DateOfBirth: {},
+        Gender:[{value:'MALE', label:'male'}, {value:'FEMALE', label:'female'}],
+        MaritalStatus :[{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ],
+        Nationality:{},
+        IDNumber:{},
+        Phone:{},
+        Email:{},
+        PostalCode:{},
+        Occupation:{},
+        AddressLine1:{},
+        AddressLine2:{},
+        AddressLine3:{}
+
+      },
+      "IsMainDriverPolicyHolder": [{value: false, label:'No'}, {value:true, label:'Yes'}],
       "NCDPoints" : [{label : '50%', value :'50'},{label : '40%', value :'40'},{label : '30%', value :'30'},{label : '20%', value :'20'},{label : '10%', value :'10'},{label : '0%', value :'0'}],
       "ClaimsPast3Years" : [{label : 'No', value : false},{label : 'Yes', value : true}],
       "TotalClaimAmount" : [{label : 'Less than $10,000', value :'0'},{label : 'More than $10,000', value :'10001'}],

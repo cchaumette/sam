@@ -10,8 +10,8 @@
         <md-card-content>
 
           <md-list-item ng-repeat="Benefit in getBenefitsList">
-            <p>{{ Benefit }}</p>
-            <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit]" disabled></md-checkbox>
+            <p>{{ Benefit.label }}</p>
+            <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
           </md-list-item>
           <md-list-item>
             <p></p>
