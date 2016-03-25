@@ -32,11 +32,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.licenseMonth = '';
 
- // var car = {offpeaks :[{label : 'No', value : 'false'}, {label : 'Yes', value : 'true'},],
-   // year:[{label :'2016',''}], car :{}};
-
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
-
 
   $scope.policy = policy;
   $scope.car = policy.car;
@@ -87,12 +83,60 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
   $scope.posts = [];
-
+$scope.checkNCD = function(ncd){
+  if (ncd == 30 || ncd == 40 ||ncd == 50 ){
+    $scope.showAdvanced()
+  }
+};
 
   $scope.showAdvanced = function (ev) {
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: '/templates/dialogNCD.html',
+        parent: angular.element(document.body),
+        targetEvent: ev
+      })
+        .then(function (answer) {
+          $scope.alert = 'You said the information was "' + answer + '".';
+        }, function () {
+          $scope.alert = 'You cancelled the dialog.';
+        });
+
+  };
+
+
+  $scope.CheckClaims = function (claims){
+    if (claims == true){
+      $scope.showClaims_amount = true;
+    }
+    else{
+      $scope.showClaims_amount = false;
+    }
+  }
+  $scope.CheckClaimsAmount = function (amount){
+    if (amount == '0'){
+      $scope.showClaims_number = true;
+    }
+    else{
+      $scope.showReferral()
+    }
+  }
+  $scope.CheckClaimsNumber = function (number){
+    if (number > '2'){
+      $scope.showReferral()
+    }
+
+  }
+  $scope.CheckClaimsNumberWind = function (number){
+    if (number > '2'){
+      $scope.showReferral()
+    }
+
+  }
+  $scope.showReferral = function (ev) {
     $mdDialog.show({
       controller: DialogController,
-      templateUrl: '/templates/dialogClaim.html',
+      templateUrl: '/templates/dialogReferral.html',
       parent: angular.element(document.body),
       targetEvent: ev
     })
@@ -101,8 +145,8 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       }, function () {
         $scope.alert = 'You cancelled the dialog.';
       });
-  };
 
+  };
 }]);
 app.controller('offerCtrl', ['$scope', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,product, $filter, $mdSidenav, $mdDialog) {
 
@@ -214,10 +258,10 @@ app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDi
 
 }]);
 
-function DialogController($scope, $mdDialog) {
+function DialogController($scope, $mdDialog, policy) {
 
   $scope.colors = ["green", "gray", "yellow", "blue", "purple", "red"];
-
+$scope.policy= policy;
   $scope.createPost = function (newPost) {
   };
 

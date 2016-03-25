@@ -12,7 +12,7 @@ app.factory('policy', function() {
         "Make": "FORD",
         "Model": "FOCUS 1.4",
         "YearOfMake": "2000",
-        "OffPeakCar": true,
+        "OffPeakCar": false,
         "Seats": 4,
         "RegistrationNumber": "",
         "EngineNumber": "",
@@ -20,7 +20,11 @@ app.factory('policy', function() {
         "SubModel": "",
         "CubicCapacity": "343",
         "HasFinanceLoan": false,
+        "HasFinanceCompany": "",
+        "PrevCarInsured": false,
         "PrevCarInsurer": "NONE"
+
+
       },
       "Drivers": [
         {
@@ -33,13 +37,14 @@ app.factory('policy', function() {
         //TODO : dynamique
         {},{},{},{}
       ],
-      "NumberOfClaims": "0",
-      "NumberOfWindscreenClaims": "0",
-      "TotalClaimAmount": "0",
+      "NumberOfClaims": "",
+      "NumberOfWindscreenClaims": "",
+      "TotalClaimAmount": "",
       "NCDPoints": "10",
-      "ClaimsPast3Years": false,
+      "ClaimsPast3Years":"",
       "PolicyStartDate": "20160102",
-      "PolicyEndDate": "20170101"
+      "PolicyEndDate": "20170101",
+      "Certificate":true
     },
 
     param :
@@ -54,6 +59,8 @@ app.factory('policy', function() {
         SubModel:{},
         CubicCapacity:{},
         HasFinanceLoan:[{label : 'No', value : false}, {label : 'Yes', value : true} ],
+        HasFinanceCompany:{},
+        PrevCarInsured:[{label : 'No', value : false}, {label : 'Yes', value : true} ],
         PrevCarInsurer:{}
 
       },
@@ -67,8 +74,8 @@ app.factory('policy', function() {
       "ClaimsPast3Years" : [{label : 'No', value : false},{label : 'Yes', value : true}],
       "TotalClaimAmount" : [{label : 'Less than $10,000', value :'0'},{label : 'More than $10,000', value :'10001'}],
       "NumberOfClaims" : [{label : '0', value :'0'},{label : '1', value :'1'},{label : '2', value :'2'},{label : 'more than 2', value :'3'}],
-      "NumberOfWindscreenClaims" : [{label : '0', value :'0'},{label : '1', value :'1'},{label : '2', value :'2'},{label : 'more than 2', value :'3'}]
-
+      "NumberOfWindscreenClaims" : [{label : '0', value :'0'},{label : '1', value :'1'},{label : '2', value :'2'},{label : 'more than 2', value :'3'}],
+      "Certificate": [{value: false, label:'No'}, {value:true, label:'Yes'}]
     }
   }
   return policy;
@@ -2758,9 +2765,7 @@ app.factory('product', function() {
         UsualPremium:{},
         MarketingInfo:[{pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.Excess'}, {pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.PersonalAccident'},{pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.CarAccessoriesReimbursedUpTo2K'},{pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.ChoiceOfCourtesyCar'},{pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.ReimburseCarMarketValueWithNoExcessAtTotalLoss'},{pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.PhoneAssistanceAndRoadSideSupportWhenBreakDown'},{pxObjClas: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.PersonalAccidentForPassenger'}],
         Parameters: [{Name: 'ChangeExcess', pxObjClass: "AXA-FW-GI-Int-API-Parameter", Options: [{Name: 'Zero Excess', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: 'Zero'}, {Name: 'Double Excess', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: 'Double'}]},{Name: 'LimitPerDay', pxObjClass: 'AXA-FW-GI-Int-API-Parameter', Options:[{Name: '$50,000', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: '50000'}, {Name: '$100,000', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: '100000'}, {Name: '$200,000', 'pxObjClass': 'AXA-FW-GI-Int-API-ParameterOption', Value: '200000'}, {Name: '$500,000', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: '500000'}]}, {Name: 'CarType', pxObjClass: 'AXA-FW-GI-Int-API-Parameter', Options:[{Name: 'Standard', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: 'Standard'}, {Name: 'MPV', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: 'MPV'}, {Name: 'Luxury', pxObjClass: 'AXA-FW-GI-Int-API-ParameterOption', Value: 'Luxury'}]}]
-
       }
-
     }
   }
 
