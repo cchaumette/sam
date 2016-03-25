@@ -1,5 +1,6 @@
 
 <md-content class="md-padding" >
+  <form>
 <div layout="row"  layout-xs="column">
   <div flex="33" flex-xs="100">
       <md-card>
@@ -30,6 +31,7 @@
       </md-card>
     </div>
   <div flex="33" flex-xs="100" >
+    <fieldset ng-disabled = "true">
     <md-card >
       <md-card-header class="md-padding">
         <md-card-header-text>
@@ -44,7 +46,7 @@
             <md-tab-body>
               <div ng-disabled="!flow['step2']">
             <p>What is your gender? </p>
-              <md-radio-group ng-model="driver.Gender" layout="row" layout-padding>
+              <md-radio-group ng-model="driver.Gender" layout="row" layout-padding ng-disabled = "true">
                 <md-radio-button ng-repeat="param in policy.param.Drivers.Gender" ng-value=param.value>{{param.label}}</md-radio-button>
               </md-radio-group>
               <p>Are you married?</p>
@@ -83,6 +85,7 @@
         </md-tabs>
       </md-card-content>
     </md-card>
+    </fieldset>
   </div>
   <div flex="33" flex-xs="100" >
     <md-card>
@@ -112,6 +115,7 @@
     </md-card>
   </div>
 </div>
+  </form>
 </md-content>
 <div layout="row" layout-align="end center">
   <md-button> See my premium </md-button>

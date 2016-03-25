@@ -1,129 +1,126 @@
-
 <md-content class="md-padding" layout-xs="column" layout="row">
-<div layout="row" layout-sm="column" flex>
+  <div layout="row" layout-sm="column" flex>
+    <div flex="50" flex-sm="100">
+      <md-card>
+        <md-card-header class="md-padding">
+          <md-card-header-text>
+            <span class="md-title">Choose a plan</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-content>
+
+          <md-list-item ng-repeat="Benefit in getBenefitsList">
+            <p>{{ Benefit }}</p>
+            <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit]" disabled></md-checkbox>
+          </md-list-item>
+          <md-list-item>
+            <p></p>
+            <md-button ng-repeat="Plan in product.Plans" class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button>
+          </md-list-item>
 
 
+<!--
+          <div layout="row" >
+            <div layout="column" layout-align="center center" flex="40">
+              <h3>Benefits</h3>
+            </div>
+            <div  layout="column" layout-align="center center"  flex="15" ng-repeat="Plan in product.Plans">
+              <h3 ng-bind="getMarketingInfo(Plan.MarketingInfo.RecordKey).Fields[0].Value"></h3>
+            </div>
+          </div>
 
-  <div flex="50" flex-sm="100" >
+          <div layout="row" ng-repeat="Benefit in getBenefitsList">
+            <div layout="column" layout-align="center left" flex="40">
+                <p>{{Benefit}}</p>
+            </div>
+            <div  layout="column" layout-align="center center" flex="15" ng-repeat="Plan in product.Plans"  >
+              <md-checkbox class="md-caption" ng-model="Plan['Benefits'][Benefit]" disabled></md-checkbox>
+            </div>
+          </div>
 
-    <md-card>
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title">Choose a plan</span>
-        </md-card-header-text>
-      </md-card-header>
-      <md-card-content>
-        <div layout="row">
-        <div flex="40">
-        <div layout="column" >
-          <h3>Benefits</h3>
-          <p>Benefit 1</p>
-          <p>Benefit 2</p>
-          <p>Benefit 3</p>
-          <p>Benefit 4</p>
-          <p>Benefit 5</p>
-          <p>Benefit 6</p>
-          <p>Benefit 7</p>
+          <div layout="row">
+            <div layout="column" layout-align="center center" flex="40">
+            </div>
+            <div  layout="column" layout-align="center center" flex="15" ng-repeat="Plan in product.Plans">
+              <md-button class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button>
+            </div>
+          </div>
+   -->
+        </md-card-content>
+      </md-card>
+    </div>
 
+    <div flex="25" flex-sm="100">
+      <md-card>
+        <md-card-header class="md-padding">
+          <md-card-header-text>
+            <span class="md-title">Your insurance policy</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-content>
+          <p></p>
+          <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+          <h3>Your plan details</h3>
+          <p>{{product.profil.Plans.MarketingInfo.pxObjClass}}</p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+
+    <div flex="25" flex-sm="100">
+      <md-card>
+        <md-card-header class="md-padding">
+          <md-card-header-text>
+            <span class="md-title">Your quote summary</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-content>
+          <h4>Your plan</h4>
+          <div layout="row">
+            <div flex="60">
+              <p>Essential</p>
+            </div>
+            <div flex="40">
+              <p>$1,208</p>
+            </div>
+          </div>
+          <h4>Your discount</h4>
+          <div layout="row">
+            <div flex="60">
+              <p>Safe driver discount</p>
+            </div>
+            <div flex="40">
+              <p>$120</p>
+            </div>
+          </div>
+          <div layout="row">
+            <div flex="60">
+              <p>NDC 30%</p>
+            </div>
+            <div flex="40">
+              <p>$370</p>
+            </div>
+          </div>
+          <h4>Total</h4>
+          <div layout="row">
+            <div flex="60">
+              <p>including GST</p>
+            </div>
+            <div flex="40">
+              <h2>$708</h2>
+            </div>
+          </div>
+        </md-card-content>
+        <div layout="column">
+          <md-button> purchase this insurance </md-button>
+          <md-button> Save and email my quote </md-button>
         </div>
-        </div>
-        <div flex="20" ng-repeat="RecordName in product.param.Plans.RecordName" >
+      </md-card>
 
-        <div layout="column" layout-align="center center">
-          <h3>{{RecordName.label}}</h3>
-          <p>+</p>
-          <p>+</p>
-          <p>+</p>
-          <p>-</p>
-          <p>-</p>
-          <p>-</p>
-          <p>-</p>
-          <md-button class="md-raised" ng-click="product.profil.Plans.IsSelected = true">Select</md-button>
-        </div>
-        </div>
-
-
-      </div>
-
-      </md-card-content>
-    </md-card>
-
+    </div>
   </div>
-  <div flex="25" flex-sm="100">
-    <md-card>
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title">Your insurance policy</span>
-        </md-card-header-text>
-      </md-card-header>
-      <md-card-content>
-        <p></p>
-        <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-       <h3>Your plan details</h3>
-        <p>{{product.profil.Plans.MarketingInfo.pxObjClass}}</p>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div flex="25" flex-sm="100" >
-
-    <md-card>
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title">Your quote summary</span>
-        </md-card-header-text>
-      </md-card-header>
-      <md-card-content>
-        <h4>Your plan</h4>
-        <div layout="row">
-          <div flex="60">
-            <p>Essential</p>
-          </div>
-          <div flex="40">
-            <p>$1,208</p>
-          </div>
-        </div>
-        <h4>Your discount</h4>
-        <div layout="row">
-          <div flex="60">
-            <p>Safe driver discount</p>
-          </div>
-          <div flex="40">
-            <p>$120</p>
-          </div>
-        </div>
-        <div layout="row">
-          <div flex="60">
-            <p>NDC 30%</p>
-          </div>
-          <div flex="40">
-            <p>$370</p>
-          </div>
-        </div>
-        <h4>Total</h4>
-        <div layout="row">
-          <div flex="60">
-            <p>including GST</p>
-          </div>
-          <div flex="40">
-            <h2>$708</h2>
-          </div>
-        </div>
-
-
-      </md-card-content>
-      <div layout="column">
-        <md-button> purchase this insurance </md-button>
-        <md-button> Save and email my quote </md-button>
-      </div>
-    </md-card>
-
-  </div>
-</div>
-
-
 </md-content>
 
 <div layout="row">
   <md-button> back </md-button>
 </div>
-
