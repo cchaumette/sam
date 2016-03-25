@@ -36,7 +36,7 @@ app.factory('policy', function() {
         "Make": "FORD",
         "Model": "FOCUS 1.4",
         "YearOfMake": "2000",
-        "OffPeakCar": true,
+        "OffPeakCar": false,
         "Seats": 4,
         "RegistrationNumber": "",
         "EngineNumber": "",
@@ -63,7 +63,8 @@ app.factory('policy', function() {
       "NCDPoints": "10",
       "ClaimsPast3Years": false,
       "PolicyStartDate": "20160102",
-      "PolicyEndDate": "20170101"
+      "PolicyEndDate": "20170101",
+      "Certificate":true
     },
 
     param :
@@ -91,8 +92,8 @@ app.factory('policy', function() {
       "ClaimsPast3Years" : [{label : 'No', value : false},{label : 'Yes', value : true}],
       "TotalClaimAmount" : [{label : 'Less than $10,000', value :'0'},{label : 'More than $10,000', value :'10001'}],
       "NumberOfClaims" : [{label : '0', value :'0'},{label : '1', value :'1'},{label : '2', value :'2'},{label : 'more than 2', value :'3'}],
-      "NumberOfWindscreenClaims" : [{label : '0', value :'0'},{label : '1', value :'1'},{label : '2', value :'2'},{label : 'more than 2', value :'3'}]
-
+      "NumberOfWindscreenClaims" : [{label : '0', value :'0'},{label : '1', value :'1'},{label : '2', value :'2'},{label : 'more than 2', value :'3'}],
+      "Certificate": [{value: false, label:'No'}, {value:true, label:'Yes'}]
     }
   }
 
@@ -249,20 +250,25 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
   $scope.posts = [];
-
+$scope.checkNCD = function(ncd){
+  if (ncd == 30 || ncd == 40 ||ncd == 50 ){
+    $scope.showAdvanced()
+  }
+};
 
   $scope.showAdvanced = function (ev) {
-    $mdDialog.show({
-      controller: DialogController,
-      templateUrl: '/templates/dialogClaim.html',
-      parent: angular.element(document.body),
-      targetEvent: ev
-    })
-      .then(function (answer) {
-        $scope.alert = 'You said the information was "' + answer + '".';
-      }, function () {
-        $scope.alert = 'You cancelled the dialog.';
-      });
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: '/templates/dialogNCD.html',
+        parent: angular.element(document.body),
+        targetEvent: ev
+      })
+        .then(function (answer) {
+          $scope.alert = 'You said the information was "' + answer + '".';
+        }, function () {
+          $scope.alert = 'You cancelled the dialog.';
+        });
+
   };
 
 }]);
@@ -342,10 +348,10 @@ app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDi
 
 }]);
 
-function DialogController($scope, $mdDialog) {
+function DialogController($scope, $mdDialog, policy) {
 
   $scope.colors = ["green", "gray", "yellow", "blue", "purple", "red"];
-
+$scope.policy= policy;
   $scope.createPost = function (newPost) {
   };
 

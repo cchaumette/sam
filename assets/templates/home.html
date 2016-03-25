@@ -13,6 +13,7 @@
           <md-radio-group ng-model="policy.profil.Vehicle.OffPeakCar" layout="row" layout-padding>
             <md-radio-button ng-repeat="OffPeakCar in policy.param.Vehicle.OffPeakCar" ng-value="OffPeakCar.value">{{OffPeakCar.label}}</md-radio-button>
           </md-radio-group>
+          <p ng-show="policy.profil.Vehicle.OffPeakCar == true">Enjoy 25% off your premium</p>
           <md-input-container class="md-block" flex-gt-sm >
             <label>Enter your car make and model</label>
             <input ng-model="car.make" ng-keyup="algolia()">
@@ -30,19 +31,21 @@
       </md-card>
     </div>
   <div flex="33" flex-xs="100" >
+    <form>
+      <fieldset ng-disabled="!flow['step2']">
     <md-card >
       <md-card-header class="md-padding">
         <md-card-header-text>
           <span class="md-title">Step 2 - Driver details</span>
         </md-card-header-text>
       </md-card-header>
-      <md-card-content>
+      <md-card-content >
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab ng-repeat="driver in policy.profil.Drivers">
-            <md-tab-label>
+            <md-tab-label >
             <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a></div></md-tab-label>
             <md-tab-body>
-              <div ng-disabled="!flow['step2']">
+              <div>
             <p>What is your gender? </p>
               <md-radio-group ng-model="driver.Gender" layout="row" layout-padding>
                 <md-radio-button ng-repeat="param in policy.param.Drivers.Gender" ng-value=param.value>{{param.label}}</md-radio-button>
@@ -75,7 +78,7 @@
               </div>
             <p>What is your non claim discount bonus?</p>
               <md-radio-group ng-model="policy.profil.NCDPoints" layout="row" layout-sm="column" flex layout-wrap layout-padding>
-                <md-radio-button ng-repeat="NCDPoints in policy.param.NCDPoints" ng-value="NCDPoints.value">{{NCDPoints.label}}</md-radio-button>
+                <md-radio-button ng-repeat="NCDPoints in policy.param.NCDPoints" ng-value="NCDPoints.value" ng-click="checkNCD(NCDPoints.value)">{{NCDPoints.label}}</md-radio-button>
               </md-radio-group>
               </div>
             </md-tab-body>
@@ -83,6 +86,8 @@
         </md-tabs>
       </md-card-content>
     </md-card>
+      </fieldset>
+    </form>
   </div>
   <div flex="33" flex-xs="100" >
     <md-card>
