@@ -3,7 +3,7 @@ var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial','algoliasearch']
 app.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('light-blue')
-    .accentPalette('blue');
+    .accentPalette('red');
 
 });
 
@@ -35,44 +35,12 @@ app.config(['$routeProvider',
         redirectTo: '/home'
       });
   }]);
-app.controller('HomepageCtrl', ['$scope', 'policy','product','$filter', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy,product, $filter, $mdSidenav, $mdDialog, $mdMedia) {
+app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, product, $filter, $mdSidenav, $mdDialog) {
   console.log("== addonCtrl ==");
   $scope.policy = policy;
   $scope.product = product;
-  $scope.policy.packs = [
-    {id:'family', name:'Family protector', selected : false, panel_content:"panel content for FP", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit, cillum proident ne reprehobant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque. Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi quis dolore veniam proident, consequat sed ingeniis."},
-    {id:'duo', name:'Pack duo', selected : false, panel_content:"panel content for duo", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
-    //  {id:'overseas', name:'Overseas protector', selected : false, panel_content:"panel content for overseas protector", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
-    //  {id:'claims', name:'Claims protector', selected : false, panel_content:"panel content for claims", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"}
-  ];
-  $scope.policy.addons = [
-    {id:'excess', name:'Family protector', selected : false, panel_content:"panel content for FP", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit, cillum proident ne reprehobant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque. Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi quis dolore veniam proident, consequat sed ingeniis."},
-    {id:'ncd protector', name:'Pack duo', selected : false, panel_content:"panel content for duo", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
-    {id:'overseas', name:'Overseas protector', selected : false, panel_content:"panel content for overseas protector", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"},
-    {id:'claims', name:'Claims protector', selected : false, panel_content:"panel content for claims", modal_body:  "Fore aut non quem incididunt, varias reprehenderit deserunt que"}
-  ];
 
-  $scope.showAdvanced = function(ev) {
-    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-    $mdDialog.show({
-      controller: DialogController,
-      templateUrl: '/templates/dialogClaim.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true,
-      fullscreen: useFullScreen
-    })
-      .then(function(answer) {
-        $scope.status = 'You said the information was "' + answer + '".';
-      }, function() {
-        $scope.status = 'You cancelled the dialog.';
-      });
-    $scope.$watch(function() {
-      return $mdMedia('xs') || $mdMedia('sm');
-    }, function(wantsFullScreen) {
-      $scope.customFullscreen = (wantsFullScreen === true);
-    });
-  };
+
 
 
 }]);
@@ -194,13 +162,13 @@ $scope.checkNCD = function(ev, ncd){
 
   };
 }]);
-app.controller('offerCtrl', ['$scope', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,product, $filter, $mdSidenav, $mdDialog) {
+app.controller('offerCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, product, $filter, $mdSidenav, $mdDialog) {
 
 
   console.log("== offerCtrl ==");
   $scope.product = product.offer.Products[2];
   $scope.product.Plans =  _.sortBy($scope.product.Plans, 'DisplayOrder');
-
+  $scope.policy = policy;
 
   $scope.getMarketingInfo = function (RecordKey){
      for (var i = 0; i < product.marketing.MarketingInfo.length; ++i) {
@@ -209,7 +177,7 @@ app.controller('offerCtrl', ['$scope', 'product','$filter', '$mdSidenav', '$mdDi
         }
        }
     return null;
-  }
+  };
 
   $scope.getBenefitsList = [
     {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
@@ -280,6 +248,7 @@ app.controller('addonCtrl', ['$scope', 'policy','product','$filter', '$mdSidenav
   $scope.getBenefitsList = [
     {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
     {value:'Windscreen Replacement with Excess OR Repair your windscreen at your preferred location and get $50 cash reward with no excess', label:'Windscreen Replacement'},
+    {value:'Legal Liability', label:'Legal Liability'},
     {value:'Guaranteed Repairs for twelve (12) Months', label:'Guaranteed Repairs for 12 Months'},
     {value:'Delivery of Repaired Car', label:'Delivery of Repaired Car'},
     //  {value:'Reimbursement of 110% of your cars market value in the event of total loss due to flood (without Basic Own Damage Excess)', label:'110% of your cars market value for total loss due to flood'},
@@ -287,7 +256,6 @@ app.controller('addonCtrl', ['$scope', 'policy','product','$filter', '$mdSidenav
     {value:'Loss of Personal Effects in Singapore up to $3,000', label:'Loss of Personal Effects'},
     {value:'Medical and dental expenses up to $1,000 per person for you, your named drivers and your immediate family members', label:'Medical and dental expenses'},
     {value:'Loss or Damage', label:'Loss or Damage'},
-    {value:'Legal Liability', label:'Legal Liability'},
     {value:'Daily Transport Allowance of $100 for a maximum of 10 days', label:'Daily Transport Allowance'},
     {value:'Workshop of Your Choice', label:'Workshop of Your Choice'}
   ];

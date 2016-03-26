@@ -1,10 +1,27 @@
 <md-content class="md-padding" >
-  <h1>Based on your profile, we propose you the most suitable plans</h1>
-
   <div layout="row"  layout-wrap  layout-align="space-around center">
-    <md-card flew="33"  ng-repeat="RecordName in product.param.Plans.RecordName">
-      <md-card-title>
-        <md-card-title-text>
+  <md-card flex="33"  class="md-primary">
+    <md-card-title >
+      <md-card-title-text >
+        <span class="md-headline">Tell us about yourself</span>
+        <span class="md-subhead">in 9 simple questions</span>
+      </md-card-title-text>
+      <md-card-title-media>
+        <div class="md-media-lg card-media"></div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="left center" layout-padding >
+      <p>Lorem ipsum, dolores sim </p>
+    </md-card-actions>
+  </md-card>
+  <div flex="33">
+  <p>Based on your profile, we propose you the most suitable plans</p>
+  </div>
+    </div>
+  <div layout="row"  layout-wrap  layout-align="space-around center">
+    <md-card flew="33"  class="md-primary" ng-repeat="RecordName in product.param.Plans.RecordName">
+      <md-card-title >
+        <md-card-title-text >
           <span class="md-headline">{{RecordName.label}}</span>
           <span class="md-subhead">For the .....</span>
         </md-card-title-text>
@@ -19,6 +36,11 @@
     </md-card>
   </div>
   <div layout="row"  layout-wrap  layout-align="space-around center">
+    <div flew="33"> <p>Add a value packs to suit your specific needs</p></div>
+    <div flew="33"> <p>Customize your cover with the optional add-ons</p></div>
+
+ </div>
+  <div layout="row"  layout-wrap  layout-align="space-around center">
     <md-card flew="33"  >
       <md-card-title>
         <md-card-title-text>
@@ -29,7 +51,6 @@
           <div class="md-media-lg card-media"></div>
         </md-card-title-media>
       </md-card-title>
-
       <md-card-actions layout="row" layout-align="left center" layout-padding >
         <p>Lorem ipsum, dolores sim </p>
       </md-card-actions>
