@@ -3,32 +3,29 @@
 <div layout="row" layout-sm="column" layout-wrap flex>
 
   <div flex="40" flex-sm="100">
-      <md-card>
-        <md-card-header class="md-padding">
-          <md-card-header-text>
-            <span class="md-title">Step 1 - Packs</span>
-          </md-card-header-text>
-        </md-card-header>
-        <md-card-content>
-        <div layout="row">
-          <md-card ng-repeat="p in policy.packs" flex="50" layout-wrap>
-            <md-card-title-text layout-padding>
-
-              <span class="md-subhead">{{p.name}}</span>
-                <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
-              <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
-
-            </md-card-title-text>
-            <md-card-content> <p> {{p.panel_content}}</p></md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="showAdvanced($event)">Know more</md-button>
-            </md-card-actions>
-          </md-card>
-        </div>
-        </md-card-content>
-      </md-card>
-    </div>
-
+    <md-card>
+      <md-card-header class="md-padding">
+        <md-card-header-text>
+          <span class="md-title">Step 1 - Packs</span>
+        </md-card-header-text>
+      </md-card-header>
+      <md-card-content>
+      <div layout="row">
+        <md-card ng-repeat="p in plan.Packs" flex="50" layout-wrap>
+          <md-card-title-text layout-padding>
+            <span class="md-subhead">{{p.Title}}</span>
+            <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+            <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
+          </md-card-title-text>
+          <md-card-content><p>{{p.SubTitle}}</p></md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="showPacks($event, p)">Know more</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+      </md-card-content>
+    </md-card>
+  </div>
   <div flex="35" flex-sm="100" >
 
     <md-card>
@@ -39,11 +36,16 @@
       </md-card-header>
       <md-card-content>
         <div layout="column">
-          <md-card ng-repeat="RecordName in product.param.AddOns.RecordName" layout-padding layout-wrap>
+          <md-card ng-repeat="a in plan.AddOns" layout-padding layout-wrap>
 
               <div layout="row" >
                 <div flex="70">
-              <span class="md-subhead">{{RecordName.label}}</span>
+              <span class="md-subhead">{{a.Title}}</span>
+                  <md-input-container ng-show="a.Parameters" ng-repeat="p in a.Parameters">
+                    <md-select ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
+                      <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
+                    </md-select>
+                  </md-input-container>
                 </div>
                 <div flex="30">
               <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>

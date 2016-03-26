@@ -37,7 +37,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body>
+  <body ng-cloak>
   <div layout="column">
     <md-toolbar layout="row" style="background-color:white;">
       <div class="md-toolbar-tools" >
@@ -46,14 +46,14 @@
           </div>
         <div flex="50"></div>
           <div flex="20">
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>Agent code</label>
+            <md-input-container class="agentcode" flex-gt-sm>
+              <label>Agent Code</label>
               <input ng-model="user.agentcode">
             </md-input-container>
         </div>
       </div>
     </md-toolbar>
-    <div ng-view ng-cloak></div>
+    <div ng-view ></div>
   </div>
 
 
