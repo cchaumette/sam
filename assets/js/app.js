@@ -36,11 +36,9 @@ app.config(['$routeProvider',
       });
   }]);
 app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, product, $filter, $mdSidenav, $mdDialog) {
-  console.log("== addonCtrl ==");
+  console.log("== homepageCtrl ==");
   $scope.policy = policy;
   $scope.product = product;
-
-
 
 
 }]);
@@ -169,6 +167,7 @@ app.controller('offerCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav
   $scope.product = product.offer.Products[2];
   $scope.product.Plans =  _.sortBy($scope.product.Plans, 'DisplayOrder');
   $scope.policy = policy;
+
 
   $scope.getMarketingInfo = function (RecordKey){
      for (var i = 0; i < product.marketing.MarketingInfo.length; ++i) {

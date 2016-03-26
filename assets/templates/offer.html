@@ -10,7 +10,7 @@
         <md-card-content>
 
           <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-          <div ng-repeat="RecordName in product.param.Plans.RecordName">{{RecordName.label}}</div>
+          <p ng-repeat="RecordName in product.param.Plans.RecordName">{{RecordName.label}}</p>
           <md-list-item ng-repeat="Benefit in getBenefitsList">
             <p>{{ Benefit.label }}</p>
 
