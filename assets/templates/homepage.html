@@ -1,0 +1,60 @@
+<md-content class="md-padding" >
+  <h1>Based on your profile, we propose you the most suitable plans</h1>
+
+  <div layout="row"  layout-wrap  layout-align="space-around center">
+    <md-card flew="33"  ng-repeat="RecordName in product.param.Plans.RecordName">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{RecordName.label}}</span>
+          <span class="md-subhead">For the .....</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media"></div>
+        </md-card-title-media>
+      </md-card-title>
+
+      <md-card-actions layout="row" layout-align="left center" layout-padding >
+        <p>Lorem ipsum, dolores sim </p>
+      </md-card-actions>
+    </md-card>
+  </div>
+  <div layout="row"  layout-wrap  layout-align="space-around center">
+    <md-card flew="33"  >
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Value added packs</span>
+          <span class="md-subhead">Get more for less</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media"></div>
+        </md-card-title-media>
+      </md-card-title>
+
+      <md-card-actions layout="row" layout-align="left center" layout-padding >
+        <p>Lorem ipsum, dolores sim </p>
+      </md-card-actions>
+    </md-card>
+
+    <md-card flew="33"  >
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Add-ons options</span>
+          <span class="md-subhead">Customised your cover</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media"></div>
+        </md-card-title-media>
+      </md-card-title>
+
+      <md-card-actions layout="row" layout-align="left center" layout-padding >
+        <p>Lorem ipsum, dolores sim </p>
+      </md-card-actions>
+    </md-card>
+  </div>
+  <section layout="row" layout-sm="column" layout-align="center end" layout-wrap>
+    <md-button>Build your cover now<br><i class="material-icons">&#xE313;</i></md-button>
+   </section>
+</md-content>
+
+
+
