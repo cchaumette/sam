@@ -8,21 +8,20 @@ app.factory('policy', function() {
     profil:
     {
       "Vehicle": {
-        "Make": "FORD",
-        "Model": "FOCUS 1.4",
-        "YearOfMake": "2000",
+        "Make": null,
+        "Model": null,
+        "YearOfMake": null,
         "OffPeakCar": false,
         "Seats": 4,
-        "RegistrationNumber": "",
-        "EngineNumber": "",
-        "ChassisNumber": "",
-        "SubModel": "",
-        "CubicCapacity": "343",
+        "RegistrationNumber": null,
+        "EngineNumber": null,
+        "ChassisNumber": null,
+        "SubModel": null,
+        "CubicCapacity": null,
         "HasFinanceLoan": false,
-        "HasFinanceCompany": "",
+        "HasFinanceCompany": null,
         "PrevCarInsured": false,
-        "PrevCarInsurer": "NONE"
-
+        "PrevCarInsurer": null
 
       },
       "Drivers": [
@@ -61,11 +60,11 @@ app.factory('policy', function() {
       "NumberOfClaims": "",
       "NumberOfWindscreenClaims": "",
       "TotalClaimAmount": "",
-      "NCDPoints": "10",
+      "NCDPoints": null,
       "ClaimsPast3Years":"",
-      "PolicyStartDate": "20160102",
-      "PolicyEndDate": "20170101",
-      "Certificate":true
+      "PolicyStartDate": null,
+      "PolicyEndDate": null,
+      "Certificate":false
     },
 
     param :

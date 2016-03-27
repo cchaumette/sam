@@ -7,6 +7,12 @@ app.config(function($mdThemingProvider) {
 
 });
 
+app.config(function($mdDateLocaleProvider) {
+  $mdDateLocaleProvider.formatDate = function (date) {
+    return moment(date).format('DD/MM/YYYY');
+  };
+});
+
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.

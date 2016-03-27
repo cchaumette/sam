@@ -8,16 +8,14 @@
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-
-          <md-list-item ng-repeat="Benefit in getBenefitsList">
-            <p>{{ Benefit.label }}</p>
-            <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
+          <md-list-item ng-repeat="Benefit in benefitsList">
+            <p>{{Benefit.label}}</p>
+            <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['__Benefits'][Benefit.value]" disabled></md-checkbox>
           </md-list-item>
           <md-list-item>
             <p></p>
             <md-button ng-repeat="Plan in product.Plans" class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button>
           </md-list-item>
-
 
 <!--
           <div layout="row" >
@@ -59,14 +57,12 @@
         </md-card-header>
         <md-card-content>
           <p></p>
-          <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+          <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min" md-max-date="inceptionDate.max"></md-datepicker>
           <h3>Your plan details</h3>
           <p>{{product.profil.Plans.MarketingInfo.pxObjClass}}</p>
         </md-card-content>
       </md-card>
     </div>
-
-
     <div flex="25" flex-sm="100">
       <md-card>
         <md-card-header class="md-padding">
@@ -120,7 +116,6 @@
     </div>
   </div>
 </md-content>
-
 <div layout="row">
-  <md-button> back </md-button>
+  <md-button href="/#/home" >back</md-button>
 </div>

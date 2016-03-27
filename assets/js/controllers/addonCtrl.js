@@ -6,14 +6,6 @@ app.controller('addonCtrl', ['$scope', 'policy','product','$filter', '$mdSidenav
   $scope.policy = policy;
   $scope.product = product;
   $scope.plan = product.offer.Products[2].Plans[0];
-  $scope.getMarketingInfo = function (RecordKey){
-    for (var i = 0; i < product.marketing.MarketingInfo.length; ++i) {
-      if(product.marketing.MarketingInfo[i].RecordKey === RecordKey && product.marketing.MarketingInfo[i].Language === "en"){
-        return product.marketing.MarketingInfo[i];
-      }
-    }
-    return null;
-  }
 
   $scope.getBenefitsList = [
     {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
