@@ -13,11 +13,11 @@
       <div layout="row">
         <md-card ng-repeat="p in plan.Packs" flex="50" layout-wrap>
           <md-card-title-text layout-padding>
-            <span class="md-subhead">{{p.Title}}</span>
+            <span class="md-subhead">{{p.__Benefits.Title}}</span>
             <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
             <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
           </md-card-title-text>
-          <md-card-content><p>{{p.SubTitle}}</p></md-card-content>
+          <md-card-content><p>{{p.__Benefits.SubTitle}}</p></md-card-content>
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="showPacks($event, p)">Know more</md-button>
           </md-card-actions>
