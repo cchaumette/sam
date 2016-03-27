@@ -13,11 +13,11 @@
       <div layout="row">
         <md-card ng-repeat="p in plan.Packs" flex="50" layout-wrap>
           <md-card-title-text layout-padding>
-            <span class="md-subhead">{{p.__Benefits.Title}}</span>
+            <span class="md-subhead">{{p.__label.Title}}</span>
             <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
             <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
           </md-card-title-text>
-          <md-card-content><p>{{p.__Benefits.SubTitle}}</p></md-card-content>
+          <md-card-content><p>{{p.__label.SubTitle}}</p></md-card-content>
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="showPacks($event, p)">Know more</md-button>
           </md-card-actions>
@@ -40,7 +40,7 @@
 
               <div layout="row" >
                 <div flex="70">
-              <span class="md-subhead">{{a.Title}}</span>
+              <span class="md-subhead">{{a.__label.Title}}</span>
                   <md-input-container ng-show="a.Parameters" ng-repeat="p in a.Parameters">
                     <md-select ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
                       <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
