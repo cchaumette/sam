@@ -57,6 +57,9 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     selectedDirection: 'down'
   };
   $scope.checkOffpeak = function (ev, offpeak){
+
+    console.log("===checkOffpeak = " + offpeak)
+
     if(offpeak == true){
       $scope.showAlert(ev)
     }
