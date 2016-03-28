@@ -34,7 +34,8 @@
               <md-radio-button class="md-primary" ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake" value="{{YearOfMake.year}}">{{YearOfMake.year}}</md-radio-button>
             </md-radio-group>
           </md-card-content>
-    </md-card>
+         <md-button style="width: 40%;" layout="center center" class="md-primary md-hue-1" href="#/home"> Back </md-button>
+        </md-card>
       </div>
     <div flex="33" flex-xs="100" >
 
@@ -98,7 +99,6 @@
           </md-card-header-text>
         </md-card-header>
         </md-toolbar>
-
         <md-card-content layout-wrap flex>
           <p>What is your non claim discount bonus?</p>
           <md-radio-group ng-model="policy.profil.NCDPoints" layout="row" layout-sm="column" ng-click="checkNCD($event)" flex layout-wrap layout-padding>
@@ -127,13 +127,18 @@
           </md-radio-group>
           </div>
         </md-card-content>
+        <div layout="column" layout-align="space-between center">
+        <md-button class="md-raised md-accent" href="#/offer"> See my premium </md-button>
+        </div>
       </md-card>
+
+
+
+
     </div>
+
   </div>
 
-  <div layout="row" layout-align="space-between center">
-    <md-button class="md-primary md-hue-1" href="#/home"> Back </md-button>
-    <md-button class="md-raised md-accent" href="#/offer" layout="center end"> See my premium </md-button>
-  </div>
+
 </md-content>
 

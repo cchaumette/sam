@@ -2,7 +2,7 @@ var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial','algoliasearch']
 
 app.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('light-blue')
+    .primaryPalette('blue')
     .accentPalette('red');
 
 });

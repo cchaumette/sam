@@ -49,3 +49,17 @@ md-card{
 .addon-select{
   margin:0px;
 }
+.selection{
+  background-color:#82b1ff;
+  text-align:center;
+}
+.selected-plan{
+  background-color:white;
+  color:#82b1ff;
+}
+.temporary{
+  padding-left: 45px;
+}
+.temporary_button{
+  padding-left: 25px;
+}

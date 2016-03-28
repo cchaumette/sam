@@ -31,5 +31,15 @@ app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','
   $scope.updateSelectedPlan = function(plan){
     product.updateSelectedPlan(plan);
   }
+  $scope.showAdvanced = function (ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogEmail.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals :{currentPack : null }
+    })
+  };
+
 
 }]);

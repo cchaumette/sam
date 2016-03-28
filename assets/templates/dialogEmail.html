@@ -1,0 +1,43 @@
+<md-dialog aria-label="Pack" flex="50">
+  <form>
+  <md-toolbar >
+    <div class="md-toolbar-tools" >
+      <h2 class="md-title-card">Save & email my quote</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="hide()">
+        <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+    <md-dialog-actions>
+    <div layout="column" layout-sm="column" flex layout-padding>
+      <form name="userForm">
+        <p>Enter the email address to send your quotation</p>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Your email</label>
+          <input name="email" ng-model="policyholder.email"
+                 required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+          <div class="hint" ng-show="showHints"></div>
+        </md-input-container>
+        <p>Share this quote with someone else</p>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Additional email</label>
+          <input name="email" ng-model="policyholder.email"
+                 required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+          <div class="hint" ng-show="showHints"></div>
+        </md-input-container>
+      </form>
+
+
+    </div>
+      </md-dialog-actions>
+  <div class="md-actions" layout="row">
+    <md-button ng-click="cancel()" class="md-primary">
+     Cancel
+    </md-button>
+    <md-button ng-click="select()" class="md-primary">
+      Send
+    </md-button>
+  </div>
+  </form>
+</md-dialog>
