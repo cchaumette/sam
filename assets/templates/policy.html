@@ -3,11 +3,13 @@
 <div layout="row" layout-sm="column" flex>
   <div flex="33" flex-sm="100">
       <md-card>
+        <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title">Step 1 - Car details</span>
+            <span class="md-title-card">Step 1 - Car details</span>
           </md-card-header-text>
         </md-card-header>
+          </md-toolbar>
         <md-card-content>
           <div layout="row">
           <md-input-container class="md-block" flex-gt-sm flex="45">
@@ -67,11 +69,13 @@
     </div>
   <div flex="33" flex-sm="100" >
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 2 - Policyholder details</span>
+          <span class="md-title-card">Step 2 - Policyholder details</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content layout-padding>
         <p>Is the main driver the policyholder </p>
         <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder">
@@ -152,11 +156,13 @@
   </div>
   <div flex="33" flex-sm="100" >
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 3 - Drivers details</span>
+          <span class="md-title-card">Step 3 - Drivers details</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab ng-repeat="driver in policy.profil.Drivers">

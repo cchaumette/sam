@@ -1,12 +1,14 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
   <div layout="row" layout-sm="column" flex>
     <div flex="75" flex-sm="100">
-      <md-card>
+      <div class="card-packs">
+        <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title">Plans that suits you best</span>
+            <span class="md-title-card">Plans that suits you best</span>
           </md-card-header-text>
         </md-card-header>
+          </md-toolbar>
         <md-card-content>
           <div layout="row">
             <p>Select a starting date</p>
@@ -20,12 +22,12 @@
             <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT','TPO']">
               <md-content class="md-padding">
                 <div layout="row">
-                  <div layout="column" flex="40"><p>Benefits</p>
+                  <div layout="column" flex="60"><p>Benefits</p>
                     <md-list-item ng-repeat="Benefit in benefitsList">
                       <p>{{ Benefit.label }}</p>
                     </md-list-item>
                   </div>
-                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans"><p>{{Plan.__Name}}</p>
+                  <div layout="column" flex="10" ng-repeat="Plan in product.Plans"><p>{{Plan.__Name}}</p>
                     <md-list-item ng-repeat="Benefit in benefitsList">
                       <md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>
                     </md-list-item>
@@ -40,15 +42,17 @@
             </md-tab>
           </md-tabs>
         </md-card-content>
-      </md-card>
+      </div>
     </div>
     <div flex="25" flex-sm="100">
       <md-card>
+        <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title">Your quote summary</span>
+            <span class="md-title-card">Your quote summary</span>
           </md-card-header-text>
         </md-card-header>
+          </md-toolbar>
         <md-card-content>
           <h4>Your plan</h4>
 
@@ -89,6 +93,8 @@
     </div>
   </div>
 </md-content>
-<div layout="row">
-  <md-button href="#/home">back</md-button>
+<div layout="row" layout-align="space-between center" >
+  <md-button class="md-primary md-hue-1" href="#/home"> Back </md-button>
+  <md-button class="md-raised md-accent" href="#/addon" > Purchase this cover</md-button>
 </div>
+

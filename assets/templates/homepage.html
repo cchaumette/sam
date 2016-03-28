@@ -2,15 +2,17 @@
   <div layout="row"  layout-wrap  layout-align="space-around center">
 
   <md-card flex="33"  class="md-primary">
+    <md-toolbar class="md-primary">
     <md-card-title >
       <md-card-title-text >
-        <span class="md-headline">Tell us about yourself</span>
+        <span class="md-title-card">Tell us about yourself</span>
         <span class="md-subhead">in 9 simple questions</span>
       </md-card-title-text>
       <md-card-title-media>
         <div class="md-media-lg card-media"></div>
       </md-card-title-media>
     </md-card-title>
+      </md-toolbar>
     <md-card-actions layout="row" layout-align="left center" layout-padding >
       <p>Lorem ipsum, dolores sim </p>
     </md-card-actions>
@@ -21,6 +23,7 @@
     </div>
   <div layout="row"  layout-wrap  layout-align="space-around center">
     <md-card flew="33"  class="md-primary" ng-repeat="RecordName in product.param.Plans.RecordName">
+      <md-toolbar class="md-primary">
       <md-card-title >
         <md-card-title-text >
           <span class="md-headline">{{RecordName.label}}</span>
@@ -30,7 +33,7 @@
           <div class="md-media-lg card-media"></div>
         </md-card-title-media>
       </md-card-title>
-
+</md-toolbar>
       <md-card-actions layout="row" layout-align="left center" layout-padding >
         <p>Lorem ipsum, dolores sim </p>
       </md-card-actions>
@@ -43,6 +46,7 @@
  </div>
   <div layout="row"  layout-wrap  layout-align="space-around center">
     <md-card flew="33"  >
+      <md-toolbar class="md-primary">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">Value added packs</span>
@@ -52,12 +56,14 @@
           <div class="md-media-lg card-media"></div>
         </md-card-title-media>
       </md-card-title>
+        </md-toolbar>
       <md-card-actions layout="row" layout-align="left center" layout-padding >
         <p>Lorem ipsum, dolores sim </p>
       </md-card-actions>
     </md-card>
 
     <md-card flew="33"  >
+      <md-toolbar class="md-primary">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">Add-ons options</span>
@@ -67,14 +73,14 @@
           <div class="md-media-lg card-media"></div>
         </md-card-title-media>
       </md-card-title>
-
+</md-toolbar>
       <md-card-actions layout="row" layout-align="left center" layout-padding >
         <p>Lorem ipsum, dolores sim </p>
       </md-card-actions>
     </md-card>
   </div>
-  <section layout="row" layout-sm="column" layout-align="center end" layout-wrap>
-    <md-button>Build your cover now<br><i class="material-icons">&#xE313;</i></md-button>
+  <section layout="row" layout-sm="column" layout-align="center end" layout-wrap >
+    <md-button href="#/home" >Build your cover now<br><i class="material-icons" href="#/home">&#xE313;</i></md-button>
    </section>
 </md-content>
 

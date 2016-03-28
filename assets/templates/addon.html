@@ -4,14 +4,16 @@
 
   <div flex="40" flex-sm="100">
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 1 - Packs</span>
+          <span class="md-title-card">Step 1 - Packs</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
-      <div layout="row" layout-wrap>
-        <md-card flex="45" ng-repeat="p in plan.Packs">
+      <div layout="row" layout-wrap   layout-align="space-around center">
+        <div class="card-packs" flex="45" ng-repeat="p in plan.Packs">
           <md-card-title-text layout-padding>
             <span class="md-subhead">{{p.__label.Title}}</span>
             <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
@@ -21,7 +23,7 @@
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="showPacks($event, p)">Know more</md-button>
           </md-card-actions>
-        </md-card>
+        </div>
       </div>
       </md-card-content>
     </md-card>
@@ -29,11 +31,13 @@
   <div flex="35" flex-sm="100" >
 
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 2 - Add-ons</span>
+          <span class="md-title-card">Step 2 - Add-ons</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
         <div layout="column">
           <md-card ng-repeat="a in plan.AddOns" layout-padding layout-wrap>
@@ -62,11 +66,13 @@
   <div flex="25" flex-sm="100" >
 
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Your quote summary</span>
+          <span class="md-title-card">Your quote summary</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
         <h4>Your plan</h4>
         <div layout="row">
@@ -124,13 +130,18 @@
 
 
       </md-card-content>
-      <div layout="column">
-        <md-button> purchase this insurance </md-button>
-        <md-button> Save and email my quote </md-button>
-      </div>
+
     </md-card>
 
   </div>
 </div>
 
 
+</md-content>
+<div layout="row" layout-align="space-between center" >
+  <md-button class="md-primary md-hue-1" href="#/offer"> Back </md-button>
+  <div layout="column">
+  <md-button class="md-raised md-accent" href="#/policy" > Purchase this cover</md-button>
+  <md-button class="md-raised md-accent" href="#/policy" > Purchase this cover</md-button>
+  </div>
+</div>
