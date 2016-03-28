@@ -28,4 +28,8 @@ app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','
     $scope.updatePolicyEndDate();
   }
 
+  $scope.updateSelectedPlan = function(plan){
+    product.updateSelectedPlan(plan);
+  }
+
 }]);

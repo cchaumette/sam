@@ -53,6 +53,16 @@ app.factory('product', function(offer, marketing) {
        }
      }
 
+
+  product.updateSelectedPlan = function(plan) {
+    for (var i = 0; i < product.selected.Plans.length; i++) {
+      console.log("==updateSelectedPlan");
+      console.log(plan);
+      if (plan == product.selected.Plans[i]) product.selected.Plans[i].IsSelected = true;
+      else product.selected.Plans[i].IsSelected = false;
+    }
+  }
+
    product.set = function () {
      product.setSelected();
      product.setBenefitsTablePerPlan();

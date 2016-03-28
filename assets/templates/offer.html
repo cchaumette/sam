@@ -32,7 +32,7 @@
                       <md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>
                     </md-list-item>
                     <md-list-item>
-                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''">
+                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''" ng-click="updateSelectedPlan(Plan)">
                         {{Plan.UsualPremium}}
                       </md-button>
                     </md-list-item>
