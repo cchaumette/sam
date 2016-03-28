@@ -1,6 +1,6 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
   <div layout="row" layout-sm="column" flex>
-    <div flex="75" flex-sm="100">
+    <div flex="75" flex-sm="100" >
       <div class="card-packs">
         <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
@@ -9,7 +9,7 @@
           </md-card-header-text>
         </md-card-header>
           </md-toolbar>
-        <md-card-content>
+        <md-card-content layout-padding>
           <div layout="row">
             <p>Select a starting date</p>
             <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
@@ -20,20 +20,21 @@
           <md-tabs md-dynamic-height md-border-bottom>
             <!-- ###### TODO CC : DYNAMIQUE ProductName-->
             <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT','TPO']">
-              <md-content class="md-padding">
-                <div layout="row">
-                  <div layout="column" flex="60"><p>Benefits</p>
+              <md-content class="md-padding" >
+                <div layout="row" layout-align="space-around center">
+                  <div layout="column" flex="40"><h3>Benefits</h3>
                     <md-list-item ng-repeat="Benefit in benefitsList">
                       <p>{{ Benefit.label }}</p>
                     </md-list-item>
                   </div>
-                  <div layout="column" flex="10" ng-repeat="Plan in product.Plans"><p>{{Plan.__Name}}</p>
-                    <md-list-item ng-repeat="Benefit in benefitsList">
-                      <md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>
+                  <div layout="column" flex="15" layout="center center" ng-repeat="Plan in product.Plans" ><h3>{{Plan.__Name}}</h3>
+                    <md-list-item ng-repeat="Benefit in benefitsList" >
+                      <!--<md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>-->
+                      <div ng-model="Plan.__Benefits[Benefit.value]" ><span ng-show="Plan.__Benefits[Benefit.value] == true;" layout="center center"><i class="material-icons">done</i></span><span ng-show="Plan.__Benefits[Benefit.value] == false;" layout="center center"><p>-</p></span></div>
                     </md-list-item>
-                    <md-list-item>
-                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''">
-                        {{Plan.UsualPremium}}
+                    <md-list-item layout="start start">
+                      <md-button  ng-class="Plan.IsSelected ? 'md-primary' : ''">
+                      <h3 layout="start center">$ {{Plan.UsualPremium}}</h3>
                       </md-button>
                     </md-list-item>
                   </div>
