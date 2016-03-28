@@ -15,7 +15,13 @@ app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','
     max : moment().add(90, 'days').toDate()
   }
 
-  if($scope.policy.PolicyStartDate == null || !$scope.policy.PolicyStartDate)  $scope.policy.PolicyStartDate = $scope.inceptionDate.min;
+  $scope.updatePolicyEndDate = function(){
+    if($scope.policy.PolicyStartDate) $scope.policy.PolicyEndDate = moment($scope.policy.PolicyStartDate).add(1,'years').add(-1, 'days').toDate()
+  }
 
+  if($scope.policy.PolicyStartDate == null || !$scope.policy.PolicyStartDate)  {
+    $scope.policy.PolicyStartDate = $scope.inceptionDate.min;
+    $scope.updatePolicyEndDate();
+  }
 
 }]);
