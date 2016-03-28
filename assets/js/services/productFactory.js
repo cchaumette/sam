@@ -22,22 +22,19 @@ app.factory('product', function(offer, marketing) {
   }
 
   product.benefitsList = [
-    {value:'Loss or Damage', label:'Loss or Damage'},
-    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
     {value:'Legal Liability', label:'Legal Liability'},
+    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
+    {value:'Loss or Damage', label:'Loss or Damage'},
     {value:'Windscreen Replacement with Excess OR Repair your windscreen at your preferred location and get $50 cash reward with no excess', label:'Windscreen Replacement'},
     {value:'Guaranteed Repairs for twelve (12) Months', label:'Guaranteed Repairs for 12 Months'},
     {value:'Reimbursement of 110% of your car’s market value in the event of total loss (without Basic Own Damage Excess)', label:'110% of your cars market value for total loss'},
+    {value:'Workshop of Your Choice', label:'Workshop of Your Choice'},
     {value:'Delivery of Repaired Car', label:'Delivery of Repaired Car'},
-    {value:'Loss of Personal Effects in Singapore up to $3,000', label:'Loss of Personal Effects'},
     //  {value:'Reimbursement of 110% of your cars market value in the event of total loss due to flood (without Basic Own Damage Excess)', label:'110% of your cars market value for total loss due to flood'},
-
-
     {value:'Medical and dental expenses up to $1,000 per person for you, your named drivers and your immediate family members', label:'Medical and dental expenses'},
-
-
     {value:'Daily Transport Allowance of $100 for a maximum of 10 days', label:'Daily Transport Allowance'},
-    {value:'Workshop of Your Choice', label:'Workshop of Your Choice'}
+    {value:'Loss of Personal Effects in Singapore up to $3,000', label:'Loss of Personal Effects'}
+
   ];
 
    product.setBenefitsTablePerPlan = function() {
