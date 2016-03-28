@@ -64,7 +64,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       $scope.showAlert(ev)
     }
   }
-  $scope.showAlert = function(ev) {
+  /*$scope.showAlert = function(ev) {
     // Appending dialog to document.body to cover sidenav in docs app
     // Modal dialogs should fully cover application
     // to prevent interaction outside of dialog
@@ -78,6 +78,15 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
         .ok('Got it!')
         .targetEvent(ev)
     );
+  };*/
+  $scope.showAlert = function (ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogoffpeak.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals :{currentPack : null }
+    })
   };
 
   $scope.posts = [];
@@ -106,14 +115,16 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       $scope.showClaims_amount = false;
     }
   }
-  $scope.CheckClaimsAmount = function (amount){
-    if (amount == '0'){
+  $scope.CheckClaimsAmount = function (ev){
+    if (policy.profil.TotalClaimAmount == 0){
       $scope.showClaims_number = true;
     }
     else{
-      $scope.showReferral()
+      $scope.showReferral(ev)
     }
-  }
+  };
+
+
   $scope.CheckClaimsNumber = function (number){
     if (number > '2'){
       $scope.showReferral()
@@ -135,11 +146,6 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       parent: angular.element(document.body),
       targetEvent: ev
     })
-      .then(function (answer) {
-        $scope.alert = 'You said the information was "' + answer + '".';
-      }, function () {
-        $scope.alert = 'You cancelled the dialog.';
-      });
 
   };
 }]);

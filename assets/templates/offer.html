@@ -1,7 +1,8 @@
-<md-content class="md-padding" layout-xs="column" layout="row">
-  <div layout="row" layout-sm="column" flex>
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
+  <div layout="row"  layout-xs="column">
     <div flex="75" flex-sm="100" >
-      <div class="card-packs">
+
+        <md-card>
         <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
           <md-card-header-text>
@@ -49,7 +50,8 @@
             </md-tab>
           </md-tabs>
         </md-card-content>
-      </div>
+          </md-card>
+     
     </div>
     <div flex="25" flex-sm="100">
       <md-card>
@@ -99,9 +101,11 @@
       </md-card>
     </div>
   </div>
+
+  <div layout="row" layout-align="space-between center">
+    <md-button class="md-primary md-hue-1" href="#/home"> Back </md-button>
+    <md-button class="md-raised md-accent" href="#/addon" layout="center end"> See my premium </md-button>
+  </div>
 </md-content>
-<div layout="row" layout-align="space-between center" >
-  <md-button class="md-primary md-hue-1" href="#/home"> Back </md-button>
-  <md-button class="md-raised md-accent" href="#/addon" > Purchase this cover</md-button>
-</div>
+
 

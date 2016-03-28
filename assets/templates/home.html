@@ -1,4 +1,4 @@
-<md-content class="md-padding" >
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
   <div layout="row"  layout-xs="column">
     <div flex="33" flex-xs="100">
     <md-card>
@@ -37,6 +37,7 @@
     </md-card>
       </div>
     <div flex="33" flex-xs="100" >
+
           <md-card >
             <md-toolbar class="md-primary">
             <md-card-header class="md-padding">
@@ -86,17 +87,19 @@
               </md-tabs>
             </md-card-content>
           </md-card>
+
     </div>
-    <div flex="33" flex-xs="100" >
+    <div flex="33" flex-xs="100" flex>
       <md-card>
         <md-toolbar class="md-primary">
-        <md-card-header class="md-padding">
+        <md-card-header class="md-padding" >
           <md-card-header-text>
             <span class="md-title-card">Step 3 - Driving experience</span>
           </md-card-header-text>
         </md-card-header>
         </md-toolbar>
-        <md-card-content>
+
+        <md-card-content layout-wrap flex>
           <p>What is your non claim discount bonus?</p>
           <md-radio-group ng-model="policy.profil.NCDPoints" layout="row" layout-sm="column" ng-click="checkNCD($event)" flex layout-wrap layout-padding>
             <md-radio-button class="md-primary" ng-repeat="NCDPoints in policy.param.NCDPoints" ng-value="NCDPoints.value">{{NCDPoints.label}}</md-radio-button>
@@ -107,17 +110,17 @@
           </md-radio-group>
           <div ng-show="showClaims_amount == true">
           <p>What was the total claimable amount? </p>
-          <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row" ng-change="CheckClaimsAmount(policy.profil.TotalClaimAmount)" layout-padding>
-            <md-radio-button class="md-primary" ng-repeat="TotalClaimAmount in policy.param.TotalClaimAmount" ng-value="TotalClaimAmount.value">{{TotalClaimAmount.label}}</md-radio-button>
+          <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row"  ng-click="CheckClaimsAmount($event)" layout-padding>
+            <md-radio-button class="md-primary" ng-repeat="TotalClaimAmount in policy.param.TotalClaimAmount" ng-value="TotalClaimAmount.value" >{{TotalClaimAmount.label}}</md-radio-button>
           </md-radio-group>
           </div>
-          <div ng-show="showClaims_number == true">
+          <div ng-show="showClaims_number == true && showClaims_amount == true">
           <p>How many non windscreen claims? </p>
           <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" ng-change="CheckClaimsNumber(policy.profil.NumberOfClaims)" layout-padding>
             <md-radio-button class="md-primary"  ng-repeat="NumberOfClaims in policy.param.NumberOfClaims" ng-value="NumberOfClaims.value">{{NumberOfClaims.label}}</md-radio-button>
           </md-radio-group>
           </div>
-          <div ng-show="showClaims_number == true">
+          <div ng-show="showClaims_number == true && showClaims_amount == true">
           <p>How many windscreen claims? </p>
           <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" ng-change="CheckClaimsNumberWind(policy.profil.NumberOfWindscreenClaims)" layout-padding>
             <md-radio-button class="md-primary" ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"  ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}</md-radio-button>
@@ -127,11 +130,10 @@
       </md-card>
     </div>
   </div>
+
+  <div layout="row" layout-align="space-between center">
+    <md-button class="md-primary md-hue-1" href="#/home"> Back </md-button>
+    <md-button class="md-raised md-accent" href="#/offer" layout="center end"> See my premium </md-button>
+  </div>
 </md-content>
-
-<div layout="row" layout-align="space-between center" >
-  <md-button class="md-primary md-hue-1" > Back </md-button>
-  <md-button class="md-raised md-accent" href="#/offer" > See my premium </md-button>
-</div>
-
 
