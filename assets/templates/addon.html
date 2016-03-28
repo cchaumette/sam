@@ -12,19 +12,20 @@
       </md-card-header>
         </md-toolbar>
       <md-card-content>
-      <div layout="row" layout-wrap   layout-align="space-around center">
-        <div class="card-packs" flex="45" ng-repeat="p in plan.Packs">
-          <md-card-title-text layout-padding>
-            <span class="md-subhead">{{p.__label.Title}}</span>
-            <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+        <div class="card-packs" ng-repeat="p in plan.Packs">
+          <div class="md-primary toolbar-packs">
+            <div layout="row" layout-align="space-between center">
+            <span class="md-subhead" layout-padding  flex="70">{{p.__label.Title}}</span>
+            <md-button class="md-icon-button" ><md-icon><i class="material-icons" >add</i></md-icon></md-button>
             <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
-          </md-card-title-text>
+            </div>
+            </div>
           <md-card-content><p>{{p.__label.SubTitle}}</p></md-card-content>
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="showPacks($event, p)">Know more</md-button>
           </md-card-actions>
         </div>
-      </div>
+
       </md-card-content>
     </md-card>
   </div>
@@ -39,26 +40,30 @@
       </md-card-header>
         </md-toolbar>
       <md-card-content>
-        <div layout="column">
-          <md-card ng-repeat="a in plan.AddOns" layout-padding layout-wrap>
-
-              <div layout="row" >
-                <div flex="70">
-              <span class="md-subhead">{{a.__label.Title}}</span>
-                  <md-input-container ng-show="a.Parameters" ng-repeat="p in a.Parameters">
-                    <md-select ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
-                      <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
-                    </md-select>
-                  </md-input-container>
-                </div>
-                <div flex="30">
-              <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+        <div layout="column" class="card-addons" ng-repeat="a in plan.AddOns" layout-wrap>
+          <div class="md-primary toolbar-packs">
+            <div layout="row" layout-align="space-between center">
+              <span class="md-subhead" layout-padding  flex="70">{{a.__label.Title}}</span>
+              <md-button class="md-icon-button" ><md-icon><i class="material-icons" >add</i></md-icon></md-button>
               <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
-                </div>
+            </div>
+          </div>
+
+                  <div layout="row"  ng-show="a.Parameters" layout-align="space-between center" layout-padding>
+                    <div ><span>Specify your addon</span></div>
+                    <div flex="50"  ng-repeat="p in a.Parameters" class="container-addon">
+                        <md-select  class="addon-select" ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
+                          <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
+                        </md-select>
+                    </div>
+                  </div>
+
+
+
                 </div>
 
-           </md-card>
-        </div>
+
+
       </md-card-content>
     </md-card>
 

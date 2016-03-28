@@ -10,14 +10,12 @@ md-card{
 .card-packs{
   height:auto;
   display: block;
-  padding: 16px;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
   margin-bottom: 20px;
 }
-.card-packs{
+.card-addons{
   height:auto;
   display: block;
-  padding: 16px;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
   margin-bottom: 20px;
 }
@@ -26,4 +24,28 @@ md-card{
   font-size: 20px;
   font-weight: 500;
   letter-spacing: .005em;
+}
+
+.toolbar-packs{
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+  width: 100%;
+  background-color:#E3ECF5;
+
+  height:40px;
+}
+.container-addon{
+  margin:0px;
+  padding:0px;
+}
+.addon-select{
+  margin:0px;
 }
