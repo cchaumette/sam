@@ -14,7 +14,7 @@
           <div layout="row">
           <md-input-container class="md-block" flex-gt-sm flex="45">
             <label>Car registration number</label>
-            <input class="md-primary" ng-model="policy.profil.Vehicle.RegistrationNumber">
+            <input class="md-primary margin_two_inputs" ng-model="policy.profil.Vehicle.RegistrationNumber">
           </md-input-container>
             <md-input-container class="md-block" flex="45">
               <label>Seating capacity</label>
@@ -41,12 +41,12 @@
           </md-button>
           </div>
 
-          <p layout-padding>Is your car financed with a loan?</p>
-          <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row">
+          <p layout-padding >Is your car financed with a loan?</p>
+          <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding>
             <md-radio-button class="md-primary" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}</md-radio-button>
           </md-radio-group>
 
-         <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true">
+         <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true" layout-padding>
             <label>Select your loan company</label>
             <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
               <md-option class="md-primary" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">{{HasFinanceCompany}}</md-option>
@@ -55,10 +55,10 @@
 
 
           <p layout-padding>Is it your first time insured?</p>
-          <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row">
+          <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding>
             <md-radio-button class="md-primary" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button>
           </md-radio-group>
-          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == true">
+          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == true" layout-padding>
             <label>Select your previous insurer</label>
             <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
               <md-option class="md-primary" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">{{PrevCarInsurer}}</md-option>

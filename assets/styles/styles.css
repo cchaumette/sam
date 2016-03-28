@@ -63,3 +63,8 @@ md-card{
 .temporary_button{
   padding-left: 25px;
 }
+.discount{
+  background-color:#E3F2FD;
+  width:100%;
+  margin:0px;
+}

@@ -106,30 +106,31 @@
 
           <div layout="row">
             <div flex="60">
-              <p>{{plan.__Name}}</p>
+              <span>{{plan.__Name}}</span>
             </div>
             <div flex="40">
-              <p>$ {{plan.UsualPremium}}</p>
+              <span>$ {{plan.UsualPremium}}</span>
             </div>
           </div>
+          <div class="discount">
           <h4>Your discount</h4>
-
           <div layout="row" ng-repeat="discount in plan.Discounts">
             <div flex="60">
-              <p>{{discount.__label}}</p>
+              <span>{{discount.__label}}</span>
             </div>
             <div flex="40">
-              <p>$ {{discount.PayablePremium}}</p>
+              <span>$ {{discount.PayablePremium}}</span>
             </div>
+          </div>
           </div>
           <h4>Total</h4>
 
           <div layout="row">
             <div flex="60">
-              <p>including GST</p>
+              <span>including GST</span>
             </div>
             <div flex="40">
-              <h2>$ {{plan.FinalPremium}}</h2>
+              <span><h4>$ {{plan.FinalPremium}}</h4></span>
             </div>
           </div>
         </md-card-content>
