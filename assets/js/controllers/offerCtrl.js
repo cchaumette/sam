@@ -1,13 +1,17 @@
 /**
  * Created by clement on 27/3/16.
  */
-app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, marketing, offer,product, $filter, $mdSidenav, $mdDialog) {
+app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','plan','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, marketing, offer,product, plan, $filter, $mdSidenav, $mdDialog) {
   console.log("== offerCtrl ==");
 
   product.set();
+  plan.set();
+
   $scope.product = product.selected;
+  $scope.plan = plan.selected;
   $scope.benefitsList = product.benefitsList;
   $scope.policy  = policy.profil;
+
 
   /* inception date */
   $scope.inceptionDate = {

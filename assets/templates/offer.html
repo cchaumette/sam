@@ -55,30 +55,23 @@
 
           <div layout="row">
             <div flex="60">
-              <p>Essential</p>
+              <p>{{plan.__Name}}</p>
             </div>
             <div flex="40">
-              <p>$1,208</p>
+              <p>$ {{plan.UsualPremium}}</p>
             </div>
           </div>
           <h4>Your discount</h4>
 
-          <div layout="row">
+          <div layout="row" ng-repeat="discount in plan.Discounts">
             <div flex="60">
-              <p>Safe driver discount</p>
+              <p>{{discount.__label}}</p>
             </div>
             <div flex="40">
-              <p>$120</p>
+              <p>$ {{discount.PayablePremium}}</p>
             </div>
           </div>
-          <div layout="row">
-            <div flex="60">
-              <p>NDC 30%</p>
-            </div>
-            <div flex="40">
-              <p>$370</p>
-            </div>
-          </div>
+
           <h4>Total</h4>
 
           <div layout="row">
@@ -86,7 +79,7 @@
               <p>including GST</p>
             </div>
             <div flex="40">
-              <h2>$708</h2>
+              <h2>$ {{plan.FinalPremium}}</h2>
             </div>
           </div>
         </md-card-content>

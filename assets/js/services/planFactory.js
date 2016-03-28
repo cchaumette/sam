@@ -54,6 +54,21 @@ app.factory('plan', function(product, marketing) {
     }
   }
 
+  plan.setDiscounts = function () {
+    var mkt;
+    for (var i = 0; i < plan.selected.Discounts.length; ++i) {
+      mkt = marketing.get(plan.selected.Discounts[i].MarketingInfo.RecordKey);
+      plan.selected.Discounts[i]['__label'] = {};
+      for (var j = 0; j < mkt.Fields.length; ++j) {
+        if (mkt.Fields[j].Name.indexOf("Main Title") > -1) {
+          plan.selected.Discounts[i]['__label']= mkt.Fields[j].Value ;
+        }
+      }
+    }
+  }
+
+
+
   plan.set = function () {
     product.setSelected();
     plan.setSelected();
@@ -61,6 +76,8 @@ app.factory('plan', function(product, marketing) {
     console.log( plan.selected);
     plan.setPacks();
     plan.setAddons();
+    plan.setDiscounts();
+
   }
 
   return plan;
