@@ -15,11 +15,11 @@
         <div class="card-packs" ng-repeat="p in plan.Packs">
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
-            <span class="md-subhead" layout-padding  flex="70">{{p.__label.Title}}</span>
-            <md-button class="md-icon-button" ><md-icon><i class="material-icons" ng-show="p.IsSelected != true" ng-click="p.IsSelected = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button"><md-icon><i class="material-icons" ng-show="p.IsSelected == true" ng-click="p.IsSelected = false">delete_sweep</i></md-icon></md-button>
-            </div>
-            </div>
+              <span class="md-subhead" layout-padding  flex="70">{{p.__label.Title}}</span>
+              <md-button class="md-icon-button" ><md-icon><i class="material-icons" ng-show="p.IsSelected != true" ng-click="p.IsSelected = true"  >add</i></md-icon></md-button>
+              <md-button class="md-icon-button"><md-icon><i class="material-icons" ng-show="p.IsSelected == true" ng-click="p.IsSelected = false">delete_sweep</i></md-icon></md-button>
+              </div>
+          </div>
           <md-card-content><p>{{p.__label.SubTitle}}</p></md-card-content>
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="showPacks($event, p)">Know more</md-button>

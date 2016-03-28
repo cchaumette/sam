@@ -32,9 +32,15 @@
                       <!--<md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>-->
                       <div ng-model="Plan.__Benefits[Benefit.value]" ><span ng-show="Plan.__Benefits[Benefit.value] == true;" layout="center center"><i class="material-icons">done</i></span><span ng-show="Plan.__Benefits[Benefit.value] == false;" layout="center center"><p>-</p></span></div>
                     </md-list-item>
+<<<<<<< HEAD
                     <md-list-item layout="start start">
                       <md-button  ng-class="Plan.IsSelected ? 'md-primary' : ''">
                       <h3 layout="start center">$ {{Plan.UsualPremium}}</h3>
+=======
+                    <md-list-item>
+                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''" ng-click="updateSelectedPlan(Plan)">
+                        {{Plan.UsualPremium}}
+>>>>>>> 6f6b544657aec03d3b33ad6907b93c9ba5a81bbf
                       </md-button>
                     </md-list-item>
                   </div>
