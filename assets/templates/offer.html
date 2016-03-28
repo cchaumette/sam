@@ -4,22 +4,48 @@
       <md-card>
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title">Choose a plan</span>
+            <span class="md-title">Plans that suits you best</span>
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-
+<div layout="row">
+  <p>Select a starting date</p>
           <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-          <p ng-repeat="RecordName in product.param.Plans.RecordName">{{RecordName.label}}</p>
-          <md-list-item ng-repeat="Benefit in getBenefitsList">
-            <p>{{ Benefit.label }}</p>
+   <p>End date</p>
+  <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
 
-            <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
-          </md-list-item>
-          <md-list-item>
-            <p></p>
-            <md-button ng-repeat="Plan in product.Plans" class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button>
-          </md-list-item>
+</div>
+  <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{ProductID.label}}" ng-repeat="ProductID in product.param.Product.ProductID" >
+              <md-content class="md-padding">
+
+
+                <div layout="row">
+                  <div layout="column" flex="40"><p>Benefits</p>
+                    <md-list-item ng-repeat="Benefit in getBenefitsList">
+                      <p>{{ Benefit.label }}</p>
+                    </md-list-item>
+                  </div>
+                  <div layout="column" flex="20" ng-repeat="RecordName in product.param.Plans.RecordName">  <p >{{RecordName.label}}</p>
+                    <md-list-item ng-repeat="Benefit in getBenefitsList">
+                      <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
+                    </md-list-item>
+                  </div>
+                </div>
+                <div layout="row">
+                  <div layout="column" flex="40"></div>
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans"><md-button class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button></div>
+                </div>
+
+                <md-list-item>
+                  <p></p>
+
+                </md-list-item>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+
+
 
 
 <!--

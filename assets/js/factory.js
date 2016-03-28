@@ -2799,7 +2799,7 @@ app.factory('product', function() {
         IsSelected: [{value: false}, {value: true}],
         ProductID: [{id: 'PRD00003', label: 'Third Party Only'}, {id: 'PRD00004', label: 'Third Party, Fire & Theft'}, {id: 'PRD00002', label: 'Comprehensive'}],
         pxObjClass: {class: 'AXA-FW-GI-Int-API-Product'},
-        RecordName: [{name: 'SmartDrive_TP', label: 'Third Party Only'}, {name: 'SmartDrive_TPFT', label: 'Third Party, Fire & Theft'}, {name: 'SmartDrive', label: 'Comprehensive'}],
+        RecordName: [{name: 'SmartDrive', label: 'Comprehensive'},{name: 'SmartDrive_TPFT', label: 'Third Party, Fire & Theft'},{name: 'SmartDrive_TP', label: 'Third Party Only'}],
         MarketingInfo: [{pxObjClass: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.SmartDrive'}, {pxObjClass: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.SmartDriveTPFT'}, {pxObjClass: 'AXA-FW-GI-Int-API-MarketingInfo', RecordKey: 'AXA-SG-POL-GI-Motor-Work.SmartDriveComprehensive'}]
 
       },

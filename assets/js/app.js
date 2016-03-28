@@ -165,6 +165,7 @@ app.controller('offerCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav
 
   console.log("== offerCtrl ==");
   $scope.product = product.offer.Products[2];
+  $scope.product=product;
   $scope.product.Plans =  _.sortBy($scope.product.Plans, 'DisplayOrder');
   $scope.policy = policy;
 
