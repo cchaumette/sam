@@ -1,8 +1,6 @@
 
-<md-content class="md-padding" layout-xs="column" layout="row">
-<div layout="row" layout-sm="column" layout-wrap flex>
-
-  <div flex="40" flex-sm="100">
+<md-content class="md-padding"layout="row"  layout-xs="column" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
+  <div flex="33" flex-xs="100">
     <md-card>
       <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
@@ -15,9 +13,9 @@
         <div class="card-packs" ng-repeat="p in plan.Packs">
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
-              <span class="md-subhead" layout-padding  flex="70">{{p.__label.Title}}</span>
-              <md-button class="md-icon-button" ><md-icon><i class="material-icons" ng-show="p.IsSelected != true" ng-click="p.IsSelected = true"  >add</i></md-icon></md-button>
-              <md-button class="md-icon-button"><md-icon><i class="material-icons" ng-show="p.IsSelected == true" ng-click="p.IsSelected = false">delete_sweep</i></md-icon></md-button>
+              <span class="md-subhead" layout-padding layout="end end" flex="70">{{p.__label.Title}}</span>
+              <md-button class="md-icon-button" ng-show="p.IsSelected != true"><md-icon><i class="material-icons"  ng-click="p.IsSelected = true"  >add</i></md-icon></md-button>
+              <md-button class="md-icon-button" ng-show="p.IsSelected == true"><md-icon><i class="material-icons"  ng-click="p.IsSelected = false">close</i></md-icon></md-button>
               </div>
           </div>
           <md-card-content><p>{{p.__label.SubTitle}}</p></md-card-content>
@@ -27,9 +25,11 @@
         </div>
 
       </md-card-content>
+      <md-button class="md-primary md-hue-1" href="#/offer"> Back </md-button>
     </md-card>
+
   </div>
-  <div flex="35" flex-sm="100" >
+  <div flex="33" flex-xs="100" >
 
     <md-card>
       <md-toolbar class="md-primary">
@@ -41,15 +41,12 @@
         </md-toolbar>
       <md-card-content>
         <div layout="column" class="card-addons" ng-repeat="a in plan.AddOns" layout-wrap>
-          <div class="md-primary toolbar-packs">
+          <div class="md-primary toolbar-packs" ng-class="a.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
               <span class="md-subhead" layout-padding  flex="70">{{a.__label.Title}}</span>
-              <md-button class="md-icon-button" ><md-icon><i class="material-icons" >add</i></md-icon></md-button>
-              <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
             </div>
           </div>
-
-                  <div layout="row"  ng-show="a.Parameters" layout-align="space-between center" layout-padding>
+          <div layout="row"  ng-show="a.Parameters" layout-align="space-between center" layout-padding>
                     <div ><span>Specify your addon</span></div>
                     <div flex="50"  ng-repeat="p in a.Parameters" class="container-addon">
                         <md-select  class="addon-select" ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
@@ -57,18 +54,12 @@
                         </md-select>
                     </div>
                   </div>
-
-
-
-                </div>
-
-
-
+        </div>
       </md-card-content>
     </md-card>
 
   </div>
-  <div flex="25" flex-sm="100" >
+  <div flex="33" flex-xs="100" >
 
     <md-card>
       <md-toolbar class="md-primary">
@@ -134,19 +125,15 @@
         </div>
 
 
+          <div layout="column">
+            <md-button class="md-raised md-accent" href="#/addon"> See my premium </md-button>
+            <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
+          </div>
+
       </md-card-content>
 
     </md-card>
 
   </div>
-</div>
-
-
 </md-content>
-<div layout="row" layout-align="space-between center" >
-  <md-button class="md-primary md-hue-1" href="#/offer"> Back </md-button>
-  <div layout="column">
-  <md-button class="md-raised md-accent" href="#/policy" > Purchase this cover</md-button>
-  <md-button class="md-raised md-accent" href="#/policy" > Purchase this cover</md-button>
-  </div>
-</div>
+

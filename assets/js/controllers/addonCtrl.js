@@ -28,4 +28,14 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
       locals :{currentPack : p }
     })
   };
+  $scope.showAdvanced = function (ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogEmail.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals :{currentPack : null }
+    })
+  };
+
 }]);

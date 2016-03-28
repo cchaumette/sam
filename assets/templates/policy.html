@@ -1,5 +1,5 @@
 
-<md-content class="md-padding" layout-xs="column" layout="row">
+<md-content class="md-padding" layout-xs="column" layout="row" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
 <div layout="row" layout-sm="column" flex>
   <div flex="33" flex-sm="100">
       <md-card>
@@ -25,11 +25,11 @@
 
           </div>
           <div layout="row">
-          <md-input-container class="md-block" flex-gt-sm flex="45">
+          <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
             <label>Chassis number</label>
             <input class="md-primary" ng-model="policy.profil.Vehicle.ChassisNumber">
           </md-input-container>
-            <md-input-container class="md-block" flex-gt-sm flex="45">
+            <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
               <label>Engine number</label>
               <input class="md-primary" ng-model="policy.profil.Vehicle.EngineNumber">
             </md-input-container>
@@ -46,7 +46,7 @@
             <md-radio-button class="md-primary" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}</md-radio-button>
           </md-radio-group>
 
-         <md-input-container class="md-block" ng-show="policy.profil.Vehicle.HasFinanceLoan == true">
+         <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true">
             <label>Select your loan company</label>
             <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
               <md-option class="md-primary" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">{{HasFinanceCompany}}</md-option>
@@ -58,7 +58,7 @@
           <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row">
             <md-radio-button class="md-primary" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button>
           </md-radio-group>
-          <md-input-container class="md-block" ng-show="policy.profil.Vehicle.PrevCarInsured == true">
+          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == true">
             <label>Select your previous insurer</label>
             <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
               <md-option class="md-primary" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">{{PrevCarInsurer}}</md-option>
@@ -91,11 +91,11 @@
         <div layout="row" >
           <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>Name</label>
-            <input class="md-primary" class="md-primary" ng-model="policy.profil.PolicyHolder.Surname">
+            <input class="md-primary margin_two_inputs" class="md-primary" ng-model="policy.profil.PolicyHolder.Surname">
           </md-input-container>
           <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>Surname</label>
-            <input class="md-primary" class="md-primary" ng-model="policy.profil.PolicyHolder.GivenName">
+            <input class="md-primary margin_two_inputs" class="md-primary" ng-model="policy.profil.PolicyHolder.GivenName">
           </md-input-container>
         </div>
         <div layout="row" >
@@ -108,13 +108,13 @@
 
           <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
             <label>ID number</label>
-            <input class="md-primary" ng-model="policy.profil.PolicyHolder.IDNumber">
+            <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.IDNumber">
           </md-input-container>
         </div>
           <div layout="row">
             <md-input-container class="md-block" flex-gt-sm flex="50">
             <label>Email</label>
-            <input class="md-primary" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.PolicyHolder.Email"/>
+            <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.PolicyHolder.Email"/>
             <div class="hint" ng-show="showHints"></div>
             <div ng-messages="userForm.email.$error" ng-hide="showHints">
               <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -124,7 +124,7 @@
           </md-input-container>
         <md-input-container class="md-block" flex-gt-sm flex="50">
           <label>Phone number</label>
-          <input class="md-primary" name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.PolicyHolder.Phone"/>
+          <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.PolicyHolder.Phone"/>
           <div class="hint" ng-show="showHints"></div>
           <div ng-messages="userForm.phone.$error" ng-hide="showHints">
             <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -135,18 +135,18 @@
             </div>
         <md-input-container class="md-block" >
           <label>Address</label>
-          <input class="md-primary" ng-model="policy.profil.PolicyHolder.AddressLine1">
+          <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.AddressLine1">
         </md-input-container>
 
           <div layout="row">
             <md-input-container class="md-block" flex="50">
               <label>Unit</label>
-              <input ng-model="policy.profil.PolicyHolder.AddressLine2">
+              <input ng-model="policy.profil.PolicyHolder.AddressLine2" class="margin_two_inputs">
             </md-input-container>
 
         <md-input-container class="md-block" flex="50">
           <label>Post code</label>
-          <input class="md-primary" ng-model="policy.profil.PolicyHolder.PostalCode">
+          <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.PostalCode">
         </md-input-container>
             </div>
         </form>
@@ -175,11 +175,11 @@
               <div layout="row" >
                 <md-input-container class="md-block" flex-gt-sm flex="50">
                   <label>Name</label>
-                  <input class="md-primary" ng-model="policy.profil.Drivers.GivenName">
+                  <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm flex="50">
                   <label>Surname</label>
-                  <input class="md-primary" ng-model="policy.profil.Drivers.Surname">
+                  <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.Surname">
                 </md-input-container>
               </div>
               <div layout="row" >
@@ -191,14 +191,14 @@
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm flex="50">
                   <label>ID number</label>
-                  <input class="md-primary" ng-model="policy.profil.Drivers.IDNumber">
+                  <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.IDNumber">
                 </md-input-container>
               </div>
               <form name="userForm">
                 <div layout="row">
                   <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
                     <label>Email</label>
-                    <input class="md-primary" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
+                    <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
                     <div class="hint" ng-show="showHints"></div>
                     <div ng-messages="userForm.email.$error" ng-hide="showHints">
                       <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -208,7 +208,7 @@
                   </md-input-container>
                   <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
                     <label>Phone number</label>
-                    <input class="md-primary" name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
+                    <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
                     <div class="hint" ng-show="showHints"></div>
                     <div ng-messages="userForm.phone.$error" ng-hide="showHints">
                       <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
