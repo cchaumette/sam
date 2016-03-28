@@ -6,7 +6,7 @@
         <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title-card">Plans that suits you best</span>
+            <span class="md-title-card">Select your plan</span>
           </md-card-header-text>
         </md-card-header>
           </md-toolbar>
@@ -17,7 +17,7 @@
             <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min" md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
 </div>
             <div layout="row" >
-              <p>and an end date</p>
+              <p>and the end date</p>
             <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date" ></md-datepicker>
 </div>
           </div>
@@ -98,7 +98,7 @@
         <md-toolbar class="md-primary">
         <md-card-header class="md-padding">
           <md-card-header-text>
-            <span class="md-title-card">Your quote summary</span>
+            <span class="md-title-card">Your quotation</span>
           </md-card-header-text>
         </md-card-header>
           </md-toolbar>
@@ -135,7 +135,7 @@
           </div>
         </md-card-content>
         <div layout="column" layout-align="space-between center">
-          <md-button class="md-raised md-accent" href="#/addon" layout="center center"> See my premium </md-button>
+          <md-button class="md-raised md-accent" href="#/addon" layout="center center"> Buy now </md-button>
           <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
         </div>
       </md-card>
