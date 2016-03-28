@@ -56,6 +56,26 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     availableDirections: ['up', 'down', 'left', 'right'],
     selectedDirection: 'down'
   };
+  $scope.checkOffpeak = function (ev, offpeak){
+    if(offpeak == true){
+      $scope.showAlert(ev)
+    }
+  }
+  $scope.showAlert = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    // Modal dialogs should fully cover application
+    // to prevent interaction outside of dialog
+    $mdDialog.show(
+      $mdDialog.alert(ev)
+        .parent(angular.element(document.querySelector('#popupContainer')))
+        .clickOutsideToClose(true)
+        .title('Offpeak car discount')
+        .textContent('Offpeak car enjoys a 25% discount.')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
 
   $scope.posts = [];
   $scope.checkNCD = function(ev, ncd){
@@ -103,6 +123,8 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     }
 
   }
+
+
   $scope.showReferral = function (ev) {
     $mdDialog.show({
       controller: DialogController,
