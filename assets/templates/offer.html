@@ -8,7 +8,7 @@
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-          
+
 <div layout="row">
   <p>Select a starting date</p>
           <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
@@ -27,9 +27,9 @@
                       <p>{{ Benefit.label }}</p>
                     </md-list-item>
                   </div>
-                  <div layout="column" flex="20" ng-repeat="RecordName in product.param.Plans.RecordName">  <p >{{RecordName.label}}</p>
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans">  <p >{{Plan.PlanID}}</p>
                     <md-list-item ng-repeat="Benefit in getBenefitsList">
-                      <md-checkbox ng-repeat="Plan in product.Plans"  ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
+                      <md-checkbox   ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
                     </md-list-item>
                   </div>
                 </div>

@@ -10,8 +10,8 @@
         </md-card-header-text>
       </md-card-header>
       <md-card-content>
-      <div layout="row">
-        <md-card ng-repeat="p in plan.Packs" flex="50" layout-wrap>
+      <div layout="row" layout-wrap>
+        <md-card flex="45" ng-repeat="p in plan.Packs">
           <md-card-title-text layout-padding>
             <span class="md-subhead">{{p.Title}}</span>
             <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
