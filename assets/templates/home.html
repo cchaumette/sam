@@ -98,7 +98,7 @@
         </md-toolbar>
         <md-card-content>
           <p>What is your non claim discount bonus?</p>
-          <md-radio-group ng-model="policy.profil.NCDPoints" layout="row" layout-sm="column" ng-click="checkNCD($event,policy.profil.NCDPoints)" flex layout-wrap layout-padding>
+          <md-radio-group ng-model="policy.profil.NCDPoints" layout="row" layout-sm="column" ng-click="checkNCD($event)" flex layout-wrap layout-padding>
             <md-radio-button class="md-primary" ng-repeat="NCDPoints in policy.param.NCDPoints" ng-value="NCDPoints.value">{{NCDPoints.label}}</md-radio-button>
           </md-radio-group>
           <p>Did you have any claims in the past 3 years? </p>

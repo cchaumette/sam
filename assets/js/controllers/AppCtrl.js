@@ -81,8 +81,8 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
   $scope.posts = [];
-  $scope.checkNCD = function(ev, ncd){
-    if (ncd == 30 || ncd == 40 ||ncd == 50 ){
+  $scope.checkNCD = function(ev){
+    if (policy.profil.NCDPoints >= 30 ){
       $scope.showAdvanced(ev)
     }
   };
