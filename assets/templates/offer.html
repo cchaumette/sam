@@ -8,74 +8,38 @@
           </md-card-header-text>
         </md-card-header>
         <md-card-content>
-
-<div layout="row">
-  <p>Select a starting date</p>
-          <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-   <p>End date</p>
-  <md-datepicker ng-model="policy.start_date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-
-</div>
-  <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="{{ProductID.label}}" ng-repeat="ProductID in product.param.Product.ProductID" >
+          <div layout="row">
+            <p>Select a starting date</p>
+            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
+                           md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
+            <p>End date</p>
+            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date" md-min-date="minDate"
+                           md-max-date="maxDate" disabled></md-datepicker>
+          </div>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <!-- ###### TODO CC : DYNAMIQUE ProductName-->
+            <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT','TPO']">
               <md-content class="md-padding">
-
-
                 <div layout="row">
                   <div layout="column" flex="40"><p>Benefits</p>
-                    <md-list-item ng-repeat="Benefit in getBenefitsList">
+                    <md-list-item ng-repeat="Benefit in benefitsList">
                       <p>{{ Benefit.label }}</p>
                     </md-list-item>
                   </div>
-                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans">  <p >{{Plan.PlanID}}</p>
-                    <md-list-item ng-repeat="Benefit in getBenefitsList">
-                      <md-checkbox   ng-model="Plan['Benefits'][Benefit.value]" disabled></md-checkbox>
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans"><p>{{Plan.__Name}}</p>
+                    <md-list-item ng-repeat="Benefit in benefitsList">
+                      <md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>
+                    </md-list-item>
+                    <md-list-item>
+                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''">
+                        {{Plan.UsualPremium}}
+                      </md-button>
                     </md-list-item>
                   </div>
                 </div>
-                <div layout="row">
-                  <div layout="column" flex="40"></div>
-                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans"><md-button class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button></div>
-                </div>
-
-                <md-list-item>
-                  <p></p>
-
-                </md-list-item>
               </md-content>
             </md-tab>
           </md-tabs>
-
-
-
-
-<!--
-          <div layout="row" >
-            <div layout="column" layout-align="center center" flex="40">
-              <h3>Benefits</h3>
-            </div>
-            <div  layout="column" layout-align="center center"  flex="15" ng-repeat="Plan in product.Plans">
-              <h3 ng-bind="getMarketingInfo(Plan.MarketingInfo.RecordKey).Fields[0].Value"></h3>
-            </div>
-          </div>
-
-          <div layout="row" ng-repeat="Benefit in getBenefitsList">
-            <div layout="column" layout-align="center left" flex="40">
-                <p>{{Benefit}}</p>
-            </div>
-            <div  layout="column" layout-align="center center" flex="15" ng-repeat="Plan in product.Plans"  >
-              <md-checkbox class="md-caption" ng-model="Plan['Benefits'][Benefit]" disabled></md-checkbox>
-            </div>
-          </div>
-
-          <div layout="row">
-            <div layout="column" layout-align="center center" flex="40">
-            </div>
-            <div  layout="column" layout-align="center center" flex="15" ng-repeat="Plan in product.Plans">
-              <md-button class="md-raised" ng-click="Plan.IsSelected = true" ng-class="Plan.IsSelected ? 'md-primary' : ''">{{Plan.UsualPremium}}</md-button>
-            </div>
-          </div>
-   -->
         </md-card-content>
       </md-card>
     </div>
@@ -88,6 +52,7 @@
         </md-card-header>
         <md-card-content>
           <h4>Your plan</h4>
+
           <div layout="row">
             <div flex="60">
               <p>Essential</p>
@@ -97,6 +62,7 @@
             </div>
           </div>
           <h4>Your discount</h4>
+
           <div layout="row">
             <div flex="60">
               <p>Safe driver discount</p>
@@ -114,6 +80,7 @@
             </div>
           </div>
           <h4>Total</h4>
+
           <div layout="row">
             <div flex="60">
               <p>including GST</p>
@@ -124,15 +91,13 @@
           </div>
         </md-card-content>
         <div layout="column">
-          <md-button> purchase this insurance </md-button>
-          <md-button> Save and email my quote </md-button>
+          <md-button> purchase this insurance</md-button>
+          <md-button> Save and email my quote</md-button>
         </div>
       </md-card>
-
     </div>
   </div>
 </md-content>
-
 <div layout="row">
-  <md-button> back </md-button>
+  <md-button href="/#/home">back</md-button>
 </div>

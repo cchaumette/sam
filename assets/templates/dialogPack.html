@@ -2,7 +2,7 @@
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>{{currentPack.Title}} - {{currentPack.SubTitle}}</h2>
+        <h2>{{currentPack.__label.Title}} - {{currentPack.__label.SubTitle}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
@@ -10,7 +10,7 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <p ng-repeat="b in currentPack.Benefits">{{b}}</p>
+      <p ng-repeat="b in currentPack.__label.Benefits">{{b}}</p>
     </md-dialog-content>
     <div class="md-actions" layout="row">
       <md-button ng-click="cancel()" class="md-primary">
