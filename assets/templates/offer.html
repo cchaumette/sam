@@ -10,16 +10,19 @@
         </md-card-header>
           </md-toolbar>
         <md-card-content layout-padding>
-          <div layout="row">
+          <div layout="row" layout-padding>
+            <div layout="row" flex="40" >
             <p>Select a starting date</p>
-            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
-                           md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
-            <p>End date</p>
-            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date" disabled></md-datepicker>
+            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min" md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
+</div>
+            <div layout="row" >
+              <p>Select an end date</p>
+            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date" ></md-datepicker>
+</div>
           </div>
           <md-tabs md-dynamic-height md-border-bottom>
             <!-- ###### TODO CC : DYNAMIQUE ProductName-->
-            <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT','TPO']">
+            <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
               <md-content class="md-padding" >
                 <div layout="row" layout-align="space-around center">
                   <div layout="column" flex="40"><h3>Benefits</h3>
@@ -32,16 +35,13 @@
                       <!--<md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>-->
                       <div ng-model="Plan.__Benefits[Benefit.value]" ><span ng-show="Plan.__Benefits[Benefit.value] == true;" layout="center center"><i class="material-icons">done</i></span><span ng-show="Plan.__Benefits[Benefit.value] == false;" layout="center center"><p>-</p></span></div>
                     </md-list-item>
-<<<<<<< HEAD
-                    <md-list-item layout="start start">
+
+                    <md-list-item>
                       <md-button  ng-class="Plan.IsSelected ? 'md-primary' : ''">
                       <h3 layout="start center">$ {{Plan.UsualPremium}}</h3>
-=======
+
                     <md-list-item>
-                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''" ng-click="updateSelectedPlan(Plan)">
-                        {{Plan.UsualPremium}}
->>>>>>> 6f6b544657aec03d3b33ad6907b93c9ba5a81bbf
-                      </md-button>
+                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'md-primary' : ''" ng-click="updateSelectedPlan(Plan)">Select</md-button>
                     </md-list-item>
                   </div>
                 </div>
