@@ -4,57 +4,66 @@
 
   <div flex="40" flex-sm="100">
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 1 - Packs</span>
+          <span class="md-title-card">Step 1 - Packs</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
-      <div layout="row" layout-wrap>
-        <md-card flex="45" ng-repeat="p in plan.Packs">
-          <md-card-title-text layout-padding>
-            <span class="md-subhead">{{p.__label.Title}}</span>
-            <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+        <div class="card-packs" ng-repeat="p in plan.Packs">
+          <div class="md-primary toolbar-packs">
+            <div layout="row" layout-align="space-between center">
+            <span class="md-subhead" layout-padding  flex="70">{{p.__label.Title}}</span>
+            <md-button class="md-icon-button" ><md-icon><i class="material-icons" >add</i></md-icon></md-button>
             <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
-          </md-card-title-text>
+            </div>
+            </div>
           <md-card-content><p>{{p.__label.SubTitle}}</p></md-card-content>
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="showPacks($event, p)">Know more</md-button>
           </md-card-actions>
-        </md-card>
-      </div>
+        </div>
+
       </md-card-content>
     </md-card>
   </div>
   <div flex="35" flex-sm="100" >
 
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Step 2 - Add-ons</span>
+          <span class="md-title-card">Step 2 - Add-ons</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
-        <div layout="column">
-          <md-card ng-repeat="a in plan.AddOns" layout-padding layout-wrap>
-
-              <div layout="row" >
-                <div flex="70">
-              <span class="md-subhead">{{a.__label.Title}}</span>
-                  <md-input-container ng-show="a.Parameters" ng-repeat="p in a.Parameters">
-                    <md-select ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
-                      <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
-                    </md-select>
-                  </md-input-container>
-                </div>
-                <div flex="30">
-              <md-button class="md-icon-button"><md-icon><i class="material-icons" >add</i></md-icon></md-button>
+        <div layout="column" class="card-addons" ng-repeat="a in plan.AddOns" layout-wrap>
+          <div class="md-primary toolbar-packs">
+            <div layout="row" layout-align="space-between center">
+              <span class="md-subhead" layout-padding  flex="70">{{a.__label.Title}}</span>
+              <md-button class="md-icon-button" ><md-icon><i class="material-icons" >add</i></md-icon></md-button>
               <md-button class="md-icon-button"><md-icon><i class="material-icons">delete_sweep</i></md-icon></md-button>
-                </div>
+            </div>
+          </div>
+
+                  <div layout="row"  ng-show="a.Parameters" layout-align="space-between center" layout-padding>
+                    <div ><span>Specify your addon</span></div>
+                    <div flex="50"  ng-repeat="p in a.Parameters" class="container-addon">
+                        <md-select  class="addon-select" ng-model="p.SelectedValue" required ng-show="p.Options.length > 0">
+                          <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
+                        </md-select>
+                    </div>
+                  </div>
+
+
+
                 </div>
 
-           </md-card>
-        </div>
+
+
       </md-card-content>
     </md-card>
 
@@ -62,11 +71,13 @@
   <div flex="25" flex-sm="100" >
 
     <md-card>
+      <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
         <md-card-header-text>
-          <span class="md-title">Your quote summary</span>
+          <span class="md-title-card">Your quote summary</span>
         </md-card-header-text>
       </md-card-header>
+        </md-toolbar>
       <md-card-content>
         <h4>Your plan</h4>
         <div layout="row">
@@ -124,13 +135,18 @@
 
 
       </md-card-content>
-      <div layout="column">
-        <md-button> purchase this insurance </md-button>
-        <md-button> Save and email my quote </md-button>
-      </div>
+
     </md-card>
 
   </div>
 </div>
 
 
+</md-content>
+<div layout="row" layout-align="space-between center" >
+  <md-button class="md-primary md-hue-1" href="#/offer"> Back </md-button>
+  <div layout="column">
+  <md-button class="md-raised md-accent" href="#/policy" > Purchase this cover</md-button>
+  <md-button class="md-raised md-accent" href="#/policy" > Purchase this cover</md-button>
+  </div>
+</div>

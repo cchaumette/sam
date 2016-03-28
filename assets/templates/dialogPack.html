@@ -1,15 +1,15 @@
-<md-dialog aria-label="--"  flex="100">
+<md-dialog aria-label="--">
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>{{currentPack.__label.Title}} - {{currentPack.__label.SubTitle}}</h2>
+        <h2 class="md-title-card">{{currentPack.__label.Title}} - {{currentPack.__label.SubTitle}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
-    <md-dialog-content>
+    <md-dialog-content layout-padding>
       <p ng-repeat="b in currentPack.__label.Benefits">{{b}}</p>
     </md-dialog-content>
     <div class="md-actions" layout="row">
@@ -17,7 +17,7 @@
         cancel
       </md-button>
       <md-button ng-click="select()" class="md-primary">
-        submit
+       Add this pack
       </md-button>
     </div>
   </form>
