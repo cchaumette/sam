@@ -127,13 +127,13 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.CheckClaimsNumber = function (number){
     if (number > '2'){
-      $scope.showReferral()
+      $scope.showReferral(ev)
     }
 
   }
   $scope.CheckClaimsNumberWind = function (number){
     if (number > '2'){
-      $scope.showReferral()
+      $scope.showReferral(ev)
     }
 
   }
@@ -144,7 +144,8 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       controller: DialogController,
       templateUrl: '/templates/dialogReferral.html',
       parent: angular.element(document.body),
-      targetEvent: ev
+      targetEvent: ev,
+      locals :{currentPack : null }
     })
 
   };
