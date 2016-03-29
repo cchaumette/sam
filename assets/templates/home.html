@@ -61,12 +61,12 @@
                     <input class="md-primary"  ng-model="driver.Age">
                   </md-input-container>
                     <div layout="row">
-                    <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="70">
+                    <md-input-container class="md-block " flex-gt-sm flex="70">
                         <label>Which year was your driving license issued?</label>
                         <input ng-model="driver.license">
                       </md-input-container >
 
-                      <div md-input-container flex="30" ng-show="driver.license >='2015'">
+                      <div md-input-container class="margin_two_inputs" flex="30" ng-show="driver.license >='2015'">
 
                           <label>Month</label>
                           <md-select ng-model="driver.licenseMonth" required>
