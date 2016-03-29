@@ -3,6 +3,8 @@
  */
 app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$mdSidenav', '$mdDialog', '$mdMedia', function ($scope,policy,product,plan, $filter, $mdSidenav, $mdDialog, $mdMedia) {
   console.log("== addonCtrl ==");
+  product.set();
+
 
   plan.set();
   $scope.policy = policy;
@@ -37,5 +39,7 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
       locals :{currentPack : null }
     })
   };
+
+
 
 }]);

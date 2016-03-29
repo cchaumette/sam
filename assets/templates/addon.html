@@ -1,6 +1,6 @@
 
 <md-content class="md-padding"layout="row"  layout-xs="column" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
-  <div flex="33" flex-xs="100">
+  <div flex="" flex-xs="100">
     <md-card>
       <md-toolbar class="md-primary">
       <md-card-header class="md-padding">
@@ -29,7 +29,7 @@
     </md-card>
 
   </div>
-  <div flex="33" flex-xs="100" >
+  <div flex="40" flex-xs="100" >
 
     <md-card>
       <md-toolbar class="md-primary">
@@ -59,85 +59,81 @@
     </md-card>
 
   </div>
-  <div flex="33" flex-xs="100" >
-
+  <div flex="25" flex-xs="100">
     <md-card>
+
       <md-toolbar class="md-primary">
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title-card">Your quotation</span>
-        </md-card-header-text>
-      </md-card-header>
-        </md-toolbar>
-      <md-card-content>
-        <h4>Your plan</h4>
-        <div layout="row">
-          <div flex="60">
-            <span>Flexi</span>
-          </div>
-          <div flex="40">
-            <span>$1,208</span>
+        <md-card-header class="md-padding">
+          <md-card-header-text>
+            <span class="md-title-card">Your quotation</span>
+          </md-card-header-text>
+        </md-card-header>
+      </md-toolbar>
+      <md-card-content >
+        <div>
+          <h4>Your plan</h4>
+          <div layout="row">
+            <div flex="60">
+              <span>{{plan.__Name}}</span>
+            </div>
+            <div flex="40">
+              <span>$ {{plan.UsualPremium}}</span>
+            </div>
           </div>
         </div>
-        <h4>Your packs & add-ons</h4>
-        <div layout="row">
-          <div flex="60">
-            <span>Overseas</span>
+        <div>
+          <h4>Your packs & add-ons</h4>
+          <div layout="row">
+            <div flex="60">
+              <span>Overseas</span>
+            </div>
+            <div flex="40">
+              <span>$208</span>
+            </div>
           </div>
-          <div flex="40">
-            <span>$208</span>
-          </div>
-         </div>
-        <div layout="row">
-          <div flex="60">
-            <span>Excess</span>
-          </div>
-          <div flex="40">
-            <span>$120</span>
+
+          <div layout="row">
+            <div flex="60">
+              <span>Excess</span>
+            </div>
+            <div flex="40">
+              <span>$120</span>
+            </div>
           </div>
         </div>
         <div class="discount">
-        <h4>Your discount</h4>
+          <h4>Your discount</h4>
 
-        <div layout="row">
-          <div flex="60">
-            <span>Safe driver discount</span>
-          </div>
-          <div flex="40">
-            <span>- $120</span>
+          <div layout="row" ng-repeat="discount in plan.Discounts">
+            <div flex="60">
+              <span>{{discount.__label}}</span>
+            </div>
+            <div flex="40">
+              <span>$ {{discount.PayablePremium}}</span>
+            </div>
           </div>
         </div>
-        <div layout="row">
-          <div flex="60">
-            <span>NDC 30%</span>
-          </div>
-
-          <div flex="40">
-            <span>- $370</span>
-          </div>
-        </div>
-        </div>
-        <h4>Total</h4>
-        <div layout="row">
-          <div flex="60">
-            <span>including GST</span>
-          </div>
-          <div flex="40">
-            <span><h4>$1046</h4></span>
+        <div>
+          <h4>Total</h4>
+          <div layout="row">
+            <div flex="60">
+              <span>including GST</span>
+            </div>
+            <div flex="40">
+              <span><h4>$ {{plan.FinalPremium}}</h4></span>
+            </div>
           </div>
         </div>
-
-
-          <div layout="column">
-            <md-button class="md-raised md-accent" href="#/policy"> Buy Now</md-button>
-            <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
-            <md-button class="md-primary md-hue-1" href="#/offer" > Back to plan details</md-button>
-          </div>
-
+        <div layout="column">
+          <md-button class="md-raised md-accent" href="#/addon" > Buy now </md-button>
+          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
+          <md-button class="md-primary md-hue-1" href="#/home" > Back to quote details</md-button>
+        </div>
       </md-card-content>
 
-    </md-card>
 
+    </md-card>
   </div>
+
 </md-content>
 
