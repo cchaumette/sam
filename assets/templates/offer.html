@@ -10,7 +10,8 @@
             </md-card-header-text>
           </md-card-header>
         </md-toolbar>
-        <md-card-content layout-padding hide-xs>
+
+        <md-card-content layout-padding>
           <div layout="row" layout-padding>
             <div layout="row" flex="50">
               <p>Select your policy starting date</p>
@@ -98,9 +99,10 @@
             </md-tab>
           </md-tabs>
         </md-card-content>
-
+</div>
 <!-- ****  MOBILE   *** -->
-        <md-card-content layout-padding show-gt-xs>
+        <!--
+        <md-card-content layout-padding layout-xs>
           <div layout="column" layout-wrap>
             <p>Select your policy starting date</p>
             <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
@@ -109,7 +111,6 @@
             <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
           </div>
           <md-tabs md-dynamic-height md-border-bottom>
-            <!-- ###### TODO CC : DYNAMIQUE ProductName-->
             <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
               <md-content class="md-padding">
                 <div ng-show="ProductName == 'TPFT & TPO'"><span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.</span>
@@ -139,6 +140,7 @@
           </md-tabs>
         </md-card-content>
       </md-card>
+      -->
 <!-- *** END MOBILE *** -->
 
     </div>
@@ -193,10 +195,7 @@
         </md-content>
       </md-sidenav>
     </section>
-
   </div>
-
-
 </md-content>
 
 
