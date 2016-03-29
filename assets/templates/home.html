@@ -10,16 +10,10 @@
           </md-card-header>
           </md-toolbar>
           <md-card-content>
-
-
             <p>Are you insuring an off-peak car?</p>
             <md-radio-group ng-model="policy.profil.Vehicle.OffPeakCar" ng-change="checkOffpeak($event,policy.profil.Vehicle.OffPeakCar)" layout="row" layout-padding>
               <md-radio-button class="md-primary" ng-repeat="OffPeakCar in policy.param.Vehicle.OffPeakCar" ng-value="OffPeakCar.value">{{OffPeakCar.label}}</md-radio-button>
             </md-radio-group>
-
-
-            <p ng-show="policy.profil.Vehicle.OffPeakCar == true" layout-padding>Enjoy 25% off your premium</p>
-
             <md-input-container class="md-block" flex-gt-sm >
               <label>Enter your car make and select the model</label>
               <input ng-model="car.make" ng-keyup="algolia()" class="md-primary">
@@ -34,7 +28,6 @@
               <md-radio-button class="md-primary" ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake" value="{{YearOfMake.year}}">{{YearOfMake.year}}</md-radio-button>
             </md-radio-group>
           </md-card-content>
-
         </md-card>
       </div>
     <div flex="33" flex-xs="100" >
@@ -131,12 +124,7 @@
         <md-button class="md-raised md-accent" href="#/offer"> Buy now</md-button>
         </div>
       </md-card>
-
-
-
-
     </div>
-
   </div>
 
 
