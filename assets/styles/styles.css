@@ -68,3 +68,8 @@ md-card{
   width:100%;
   margin:0px;
 }
+.md-subheader{
+  background-color:#E3F2FD;
+  margin-bottom:10px;
+  margin-top:10px
+}
