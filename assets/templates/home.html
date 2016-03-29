@@ -109,13 +109,13 @@
           </div>
           <div ng-show="showClaims_number == true && showClaims_amount == true">
           <p>How many of these were non-windscreen claims?</p>
-          <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" ng-change="CheckClaimsNumber(policy.profil.NumberOfClaims)" layout-padding>
+          <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" ng-change="CheckClaimsNumber(policy.profil.NumberOfClaims)">
             <md-radio-button class="md-primary"  ng-repeat="NumberOfClaims in policy.param.NumberOfClaims" ng-value="NumberOfClaims.value">{{NumberOfClaims.label}}</md-radio-button>
           </md-radio-group>
           </div>
           <div ng-show="showClaims_number == true && showClaims_amount == true">
           <p>How many of these were windscreen claims?</p>
-          <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" ng-change="CheckClaimsNumberWind(policy.profil.NumberOfWindscreenClaims)" layout-padding>
+          <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" ng-change="CheckClaimsNumberWind(policy.profil.NumberOfWindscreenClaims)">
             <md-radio-button class="md-primary" ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"  ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}</md-radio-button>
           </md-radio-group>
           </div>
