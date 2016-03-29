@@ -10,8 +10,7 @@
             </md-card-header-text>
           </md-card-header>
         </md-toolbar>
-
-        <md-card-content layout-padding>
+        <md-card-content layout-padding hide-xs>
           <div layout="row" layout-padding>
             <div layout="row" flex="50">
               <p>Select your policy starting date</p>
@@ -99,10 +98,9 @@
             </md-tab>
           </md-tabs>
         </md-card-content>
-</div>
+
 <!-- ****  MOBILE   *** -->
-        <!--
-        <md-card-content layout-padding layout-xs>
+        <md-card-content layout-padding hide-gt-xs>
           <div layout="column" layout-wrap>
             <p>Select your policy starting date</p>
             <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
@@ -111,6 +109,7 @@
             <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
           </div>
           <md-tabs md-dynamic-height md-border-bottom>
+            <!-- ###### TODO CC : DYNAMIQUE ProductName-->
             <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
               <md-content class="md-padding">
                 <div ng-show="ProductName == 'TPFT & TPO'"><span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.</span>
@@ -140,25 +139,20 @@
           </md-tabs>
         </md-card-content>
       </md-card>
-      -->
 <!-- *** END MOBILE *** -->
 
     </div>
-    <section layout="row" flex>
-      <md-sidenav
-        class="md-sidenav-left"
-        md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-md')"
-        md-disable-backdrop
-        md-whiteframe="4">
+    <div flex="25" flex-xs="100">
+    <md-card>
+
         <md-toolbar class="md-theme-indigo">
-          <h1 class="md-toolbar-tools">Sidenav Left</h1>
+          <h1 class="md-toolbar-tools">Your quotation</h1>
         </md-toolbar>
         <md-content layout-padding ng-controller="LeftCtrl">
           <md-button ng-click="close()" class="md-primary" hide-gt-md>
             Close Sidenav Left
           </md-button>
-          <p hide-md show-gt-md>
+
           <h4>Your plan</h4>
 
           <div layout="row">
@@ -191,11 +185,19 @@
               <span><h4>$ {{plan.FinalPremium}}</h4></span>
             </div>
           </div>
-          </p>
+
+          <div layout="column">
+            <md-button class="md-raised md-accent" href="#/addon" > Buy now </md-button>
+            <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
+            <md-button class="md-primary md-hue-1" href="#/home" > Back to quote details</md-button>
+          </div>
         </md-content>
-      </md-sidenav>
-    </section>
+
+
+    </md-card>
   </div>
+</div>
+
 </md-content>
 
 

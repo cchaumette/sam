@@ -10,16 +10,10 @@
           </md-card-header>
           </md-toolbar>
           <md-card-content>
-
-
             <p>Are you insuring an off-peak car?</p>
             <md-radio-group ng-model="policy.profil.Vehicle.OffPeakCar" ng-change="checkOffpeak($event,policy.profil.Vehicle.OffPeakCar)" layout="row" layout-padding>
               <md-radio-button class="md-primary" ng-repeat="OffPeakCar in policy.param.Vehicle.OffPeakCar" ng-value="OffPeakCar.value">{{OffPeakCar.label}}</md-radio-button>
             </md-radio-group>
-
-
-            <p ng-show="policy.profil.Vehicle.OffPeakCar == true" layout-padding>Enjoy 25% off your premium</p>
-
             <md-input-container class="md-block" flex-gt-sm >
               <label>Enter your car make and select the model</label>
               <input ng-model="car.make" ng-keyup="algolia()" class="md-primary">
@@ -34,7 +28,6 @@
               <md-radio-button class="md-primary" ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake" value="{{YearOfMake.year}}">{{YearOfMake.year}}</md-radio-button>
             </md-radio-group>
           </md-card-content>
-
         </md-card>
       </div>
     <div flex="33" flex-xs="100" >
@@ -68,15 +61,15 @@
                     <input class="md-primary"  ng-model="driver.Age">
                   </md-input-container>
                     <div layout="row">
-                    <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="70">
+                    <md-input-container class="md-block " flex-gt-sm flex="70">
                         <label>Which year was your driving license issued?</label>
                         <input ng-model="driver.license">
                       </md-input-container >
 
-                      <div md-input-container flex="30" ng-show="driver.license >='2015'">
+                      <div md-input-container class="margin_two_inputs" flex="30" ng-show="driver.license >='2015'">
 
                           <label>Month</label>
-                          <md-select ng-model="driver.licenseMonth" required>
+                          <md-select style="margin-top:2px;" ng-model="driver.licenseMonth" required>
                             <md-option ng-repeat="m in months" value="{{m}}">{{m}}</md-option>
                           </md-select>
                         </md-input-container>
@@ -131,12 +124,7 @@
         <md-button class="md-raised md-accent" href="#/offer"> Buy now</md-button>
         </div>
       </md-card>
-
-
-
-
     </div>
-
   </div>
 
 
