@@ -25,23 +25,40 @@
             <!-- ###### TODO CC : DYNAMIQUE ProductName-->
             <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
               <md-content class="md-padding" >
-                <div ng-show="ProductName == 'TPFT & TPO'"><span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.</span></div>
-                <div layout="row" >
-                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="40" ><h3>Benefits</h3>
-                    <md-list-item ng-repeat="Benefit in benefitsList">
-                      <p>{{ Benefit.label }}</p>
-                    </md-list-item>
-                  </div>
-                  <div layout="column" flex="15" style="text-align:center;" layout="center center" ng-repeat="Plan in product.Plans" ng-class="Plan.IsSelected ? 'selection' : ''" ng-show="ProductName != 'TPFT & TPO'"><h3>{{Plan.__Name}}</h3>
-                    <md-list-item ng-repeat="Benefit in benefitsList" style="text-align:center;">
-                      <!--<md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>-->
-                      <div ng-model="Plan.__Benefits[Benefit.value]" ><span ng-show="Plan.__Benefits[Benefit.value] == true;"  style="text-align:center;"><i class="material-icons temporary">done</i></span><span ng-show="Plan.__Benefits[Benefit.value] == false;" layout="center center"><p>-</p></span></div>
-                    </md-list-item>
+                <div ng-show="ProductName == 'TPFT & TPO'">
+                  <span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.
+                  </span>
+                </div>
 
-                    <md-list-item class="temporary_button">
-                      <md-button class="md-raised" ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)"> $ {{Plan.UsualPremium}}</md-button>
-                    </md-list-item>
+                <div layout="row" >
+                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="40">
+                      <h3>Benefits</h3>
                   </div>
+                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''" >
+                      <h3>{{Plan.__Name}}</h3>
+                  </div>
+                </div>
+                <div layout="row" ng-repeat="Benefit in benefitsList"
+                     ng-show="ProductName != 'TPFT & TPO'">
+                  <div layout="column" flex="40">
+                      {{ Benefit.label }}
+                  </div>
+                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''">
+                    <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
+                  </div>
+                </div>
+                <div layout="row" >
+                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="40">
+
+                  </div>
+                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="15" ng-repeat="Plan in product.Plans"
+                       style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''">
+                    <md-button class="md-raised" ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)"> $ {{Plan.UsualPremium}}</md-button>
+                  </div>
+                </div>
+
+
+<!--
                   <div layout="column" ayout-align="start center" ng-show="ProductName == 'TPFT & TPO'" flex="40" ><h3>Benefits</h3>
                     <div layout="column" >
                       <p>Legal Liability</p>
@@ -51,7 +68,6 @@
                   </div>
                   <div layout="column" flex="15" style="" layout="center center" ng-class="Plan2.IsSelected ? 'selection' : ''" ng-show="ProductName == 'TPFT & TPO'"><h3 style="text-align:center;">TPO</h3>
                     <div layout="column" style="text-align:center;">
-                      <!--<md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>-->
                       <p style="text-align:center;"><i class="material-icons ">done</i></p>
                       <p style="text-align:center;"><i class="material-icons ">-</i></p>
                       <p style="text-align:center;"><i class="material-icons ">-</i></p>
@@ -68,7 +84,6 @@
 
                   <div layout="column" flex="15" style="" layout="center center" ng-class="Plan1.IsSelected ? 'selection' : ''" ng-show="ProductName == 'TPFT & TPO'"><h3 style="text-align:center;">TPFT</h3>
                     <div layout="column" style="text-align:center;">
-                      <!--<md-checkbox ng-model="Plan.__Benefits[Benefit.value]" disabled></md-checkbox>-->
                       <p style="text-align:center;"><i class="material-icons ">done</i></p>
                       <p style="text-align:center;"><i class="material-icons ">done</i></p>
                       <p style="text-align:center;"><i class="material-icons ">done</i></p>
@@ -82,9 +97,9 @@
                       <md-button class="md-raised" ng-class="Plan1.IsSelected ? 'selected plan' : ''" ng-click="Plan1.IsSelected = true; Plan2.IsSelected = false">Select</md-button>
                     </md-list-item>
                   </div>
+-->
 
 
-                </div>
               </md-content>
             </md-tab>
           </md-tabs>

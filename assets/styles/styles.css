@@ -50,8 +50,9 @@ md-card{
   margin:0px;
 }
 .selection{
-  background-color:#82b1ff;
+  background-color:rgb(33,150,243);
   text-align:center;
+  color: white;
 }
 .selected-plan{
   background-color:white;
