@@ -142,15 +142,11 @@
 <!-- *** END MOBILE *** -->
 
     </div>
-    <section layout="row" flex>
-      <md-sidenav
-        class="md-sidenav-left"
-        md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-md')"
-        md-disable-backdrop
-        md-whiteframe="4">
+    <div flex="25" flex-xs="100">
+    <md-card>
+
         <md-toolbar class="md-theme-indigo">
-          <h1 class="md-toolbar-tools">Sidenav Left</h1>
+          <h1 class="md-toolbar-tools">Your quotation</h1>
         </md-toolbar>
         <md-content layout-padding ng-controller="LeftCtrl">
           <md-button ng-click="close()" class="md-primary" hide-gt-md>
@@ -191,11 +187,10 @@
           </div>
           </p>
         </md-content>
-      </md-sidenav>
-    </section>
 
+    </md-card>
   </div>
-
+</div>
 
 </md-content>
 
