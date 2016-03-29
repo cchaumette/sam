@@ -52,6 +52,9 @@ app.factory('plan', function(product, marketing) {
        }
      }
     }
+
+    plan.selected.AddOns = plan.selected.AddOns.slice(0,5);
+
   }
 
   plan.setDiscounts = function () {
