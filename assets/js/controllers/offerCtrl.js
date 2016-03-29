@@ -31,6 +31,23 @@ app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','
   $scope.updateSelectedPlan = function(plan){
     product.updateSelectedPlan(plan);
   }
+
+
+  /**
+   *  TODO use GTOM API
+   */
+  $scope.PlansForNOCOMP = [
+    {__Name:'TPFT',UsualPremium :'$753.23',IsSelected :true, __Benefits :{'Legal Liability' : true,'Loss Or Damage By Fire & Theft':true,'24/7 Towing & Transportation in Singapore or Overseas':true}},
+    {__Name:'TPO',UsualPremium :'$353.73', __Benefits :{'Legal Liability' : true}}
+  ];
+  $scope.BenefitsForNOCOMP = [
+    {value:'Legal Liability', label:'Legal Liability'},
+    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
+    {value:'Loss Or Damage By Fire & Theft', label:'Loss Or Damage By Fire & Theft'},
+  ];
+
+
+
   $scope.showAdvanced = function (ev) {
     $mdDialog.show({
       controller: DialogController,

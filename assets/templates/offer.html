@@ -1,143 +1,145 @@
-<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
-  <div layout="row"  layout-xs="column" style="min-height:100%;">
-    <div flex="75" flex-xs="100" >
-
-        <md-card>
+<md-content class="md-padding"
+            style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
+  <div layout="row" layout-xs="column" style="min-height:100%;">
+    <div flex="75" flex-xs="100">
+      <md-card>
         <md-toolbar class="md-primary">
-        <md-card-header class="md-padding">
-          <md-card-header-text>
-            <span class="md-title-card">Select your plan</span>
-          </md-card-header-text>
-        </md-card-header>
-          </md-toolbar>
+          <md-card-header class="md-padding">
+            <md-card-header-text>
+              <span class="md-title-card">Select your plan</span>
+            </md-card-header-text>
+          </md-card-header>
+        </md-toolbar>
         <md-card-content layout-padding hide-xs>
           <div layout="row" layout-padding>
-            <div layout="row" flex="50" >
-            <p>Select your policy starting date</p>
-            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min" md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
-</div>
-            <div layout="row" >
+            <div layout="row" flex="50">
+              <p>Select your policy starting date</p>
+              <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date"
+                             md-min-date="inceptionDate.min" md-max-date="inceptionDate.max"
+                             ng-change="updatePolicyEndDate()"></md-datepicker>
+            </div>
+            <div layout="row">
               <p>and the end date</p>
-            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date" ></md-datepicker>
-</div>
+              <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
+            </div>
           </div>
           <md-tabs md-dynamic-height md-border-bottom>
             <!-- ###### TODO CC : DYNAMIQUE ProductName-->
-            <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
-              <md-content class="md-padding" >
-                <div ng-show="ProductName == 'TPFT & TPO'">
-                  <span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.
-                  </span>
-                </div>
-
-                <div layout="row" >
-                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="40">
-                      <h3>Benefits</h3>
-                  </div>
-                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''" >
-                      <h3>{{Plan.__Name}}</h3>
-                  </div>
-                </div>
-                <div layout="row" ng-repeat="Benefit in benefitsList"
-                     ng-show="ProductName != 'TPFT & TPO'">
+            <md-tab label="COMPREHENSIVE">
+              <md-content class="md-padding">
+                <div layout="row">
                   <div layout="column" flex="40">
-                      {{ Benefit.label }}
+                    <h3>Benefits</h3>
                   </div>
-                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''">
+                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;"
+                       ng-class="Plan.IsSelected ? 'selection' : ''">
+                    <h3>{{Plan.__Name}}</h3>
+                  </div>
+                </div>
+                <div layout="row" ng-repeat="Benefit in benefitsList">
+                  <div layout="column" flex="40">
+                    {{ Benefit.label }}
+                  </div>
+                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;"
+                       ng-class="Plan.IsSelected ? 'selection' : ''">
                     <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
                   </div>
                 </div>
-                <div layout="row" >
-                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="40">
-
+                <div layout="row">
+                  <div layout="column" flex="40">
+                    &nbsp;
                   </div>
-                  <div layout="column" ng-show="ProductName != 'TPFT & TPO'" flex="15" ng-repeat="Plan in product.Plans"
+                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans"
                        style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''">
-                    <md-button class="md-raised" ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)"> $ {{Plan.UsualPremium}}</md-button>
+                    <md-button class="md-raised" ng-class="Plan.IsSelected ? 'selected plan' : ''"
+                               ng-click="updateSelectedPlan(Plan)"> $ {{Plan.UsualPremium}}
+                    </md-button>
                   </div>
                 </div>
-
-
-<!--
-                  <div layout="column" ayout-align="start center" ng-show="ProductName == 'TPFT & TPO'" flex="40" ><h3>Benefits</h3>
-                    <div layout="column" >
-                      <p>Legal Liability</p>
-                      <p>Loss Or Damage By Fire & Theft</p>
-                      <p>24/7 Towing In Singapore</p>
-                    </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="TPFT & TPO">
+              <md-content class="md-padding">
+                <div>
+                  <p>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of
+                    their COE life who have years of driving experience in Singapore.
+                  </p>
+                </div>
+                <div layout="row">
+                  <div layout="column" flex="40">
+                    <h3>Benefits</h3>
                   </div>
-                  <div layout="column" flex="15" style="" layout="center center" ng-class="Plan2.IsSelected ? 'selection' : ''" ng-show="ProductName == 'TPFT & TPO'"><h3 style="text-align:center;">TPO</h3>
-                    <div layout="column" style="text-align:center;">
-                      <p style="text-align:center;"><i class="material-icons ">done</i></p>
-                      <p style="text-align:center;"><i class="material-icons ">-</i></p>
-                      <p style="text-align:center;"><i class="material-icons ">-</i></p>
-                    </div>
-
-                    <md-list-item class="temporary_button">
-                      <md-button  >
-                        <h3 layout="start center">$475</h3>
-                    </md-list-item>
-                    <md-list-item class="temporary_button">
-                      <md-button class="md-raised" ng-class="Plan2.IsSelected ? 'selected plan' : ''" ng-click="Plan2.IsSelected = true; Plan1.IsSelected = false">Select</md-button>
-                    </md-list-item>
+                  <div layout="column" flex="15" ng-repeat="Plan in PlansForNOCOMP" style="text-align:center;"
+                       ng-class="Plan.IsSelected ? 'selection' : ''">
+                    <h3>{{Plan.__Name}}</h3>
                   </div>
-
-                  <div layout="column" flex="15" style="" layout="center center" ng-class="Plan1.IsSelected ? 'selection' : ''" ng-show="ProductName == 'TPFT & TPO'"><h3 style="text-align:center;">TPFT</h3>
-                    <div layout="column" style="text-align:center;">
-                      <p style="text-align:center;"><i class="material-icons ">done</i></p>
-                      <p style="text-align:center;"><i class="material-icons ">done</i></p>
-                      <p style="text-align:center;"><i class="material-icons ">done</i></p>
-                    </div>
-
-                    <md-list-item class="temporary_button">
-                      <md-button  >
-                        <h3 layout="start center">$ 628</h3>
-                    </md-list-item>
-                    <md-list-item class="temporary_button">
-                      <md-button class="md-raised" ng-class="Plan1.IsSelected ? 'selected plan' : ''" ng-click="Plan1.IsSelected = true; Plan2.IsSelected = false">Select</md-button>
-                    </md-list-item>
+                </div>
+                <div layout="row" ng-repeat="Benefit in BenefitsForNOCOMP">
+                  <div layout="column" flex="40">
+                    {{ Benefit.label}}
                   </div>
--->
-
-
+                  <div layout="column" flex="15" ng-repeat="Plan in PlansForNOCOMP" style="text-align:center;"
+                       ng-class="Plan.IsSelected ? 'selection' : ''">
+                    <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
+                  </div>
+                </div>
+                <div layout="row">
+                  <div layout="column" flex="40">
+                    &nbsp;
+                  </div>
+                  <div layout="column" flex="15" ng-repeat="Plan in PlansForNOCOMP"
+                       style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''">
+                    <md-button class="md-raised" ng-class="Plan.IsSelected ? 'selected plan' : ''"
+                               ng-click="updateSelectedPlan(Plan)"> $ {{Plan.UsualPremium}}
+                    </md-button>
+                  </div>
+                </div>
               </md-content>
             </md-tab>
           </md-tabs>
         </md-card-content>
-          <md-card-content layout-padding show-gt-xs>
-            <div layout="column" layout-wrap >
-                <p>Select your policy starting date</p>
-                <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min" md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
-                <p>and the end date</p>
-                <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date" ></md-datepicker>
-            </div>
-            <md-tabs md-dynamic-height md-border-bottom>
-              <!-- ###### TODO CC : DYNAMIQUE ProductName-->
-              <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
-                <md-content class="md-padding" >
-                  <div ng-show="ProductName == 'TPFT & TPO'"><span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.</span></div>
-                  <section ng-show="ProductName != 'TPFT & TPO'" ng-repeat="Plan in product.Plans" >
-                    <div ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)" >
-                      <md-subheader ng-class="Plan.IsSelected ? 'selection' : ''" ><div layout="row" layout-align="space-between center" ><span>{{Plan.__Name}}</span><span>$ {{Plan.UsualPremium}}</span></div> </md-subheader>
+
+<!-- ****  MOBILE   *** -->
+        <md-card-content layout-padding show-gt-xs>
+          <div layout="column" layout-wrap>
+            <p>Select your policy starting date</p>
+            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
+                           md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
+            <p>and the end date</p>
+            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
+          </div>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <!-- ###### TODO CC : DYNAMIQUE ProductName-->
+            <md-tab label="{{ProductName}}" ng-repeat="ProductName in ['COMPREHENSIVE','TPFT & TPO']">
+              <md-content class="md-padding">
+                <div ng-show="ProductName == 'TPFT & TPO'"><span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.</span>
+                </div>
+                <section ng-show="ProductName != 'TPFT & TPO'" ng-repeat="Plan in product.Plans">
+                  <div ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)">
+                    <md-subheader ng-class="Plan.IsSelected ? 'selection' : ''">
+                      <div layout="row" layout-align="space-between center"><span>{{Plan.__Name}}</span><span>$ {{Plan.UsualPremium}}</span>
+                      </div>
+                    </md-subheader>
                     <div ng-show="Plan.IsSelected == true">
-                      <md-list-item ng-repeat="Benefit in benefitsList" ng-show="Plan.__Benefits[Benefit.value] == true;">
-                        <p  >{{ Benefit.label }}</p>
+                      <md-list-item ng-repeat="Benefit in benefitsList"
+                                    ng-show="Plan.__Benefits[Benefit.value] == true;">
+                        <p>{{ Benefit.label }}</p>
                       </md-list-item>
                     </div>
                   </div>
-                  </section>
-                  <div layout="column">
-                    <md-button class="md-raised md-accent" href="#/addon" > Buy now </md-button>
-                    <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
-                    <md-button class="md-primary md-hue-1" href="#/home" > Back to quote details</md-button>
-                  </div>
-
-
-                </md-content>
-              </md-tab>
-            </md-tabs>
-          </md-card-content>
-          </md-card>
+                </section>
+                <div layout="column">
+                  <md-button class="md-raised md-accent" href="#/addon"> Buy now</md-button>
+                  <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
+                  </md-button>
+                  <md-button class="md-primary md-hue-1" href="#/home"> Back to quote details</md-button>
+                </div>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-card-content>
+      </md-card>
+<!-- *** END MOBILE *** -->
 
     </div>
     <section layout="row" flex>
@@ -167,6 +169,7 @@
           </div>
           <div class="discount">
             <h4>Your discount</h4>
+
             <div layout="row" ng-repeat="discount in plan.Discounts">
               <div flex="60">
                 <span>{{discount.__label}}</span>
@@ -189,7 +192,7 @@
           </p>
         </md-content>
       </md-sidenav>
-      </section>
+    </section>
 
   </div>
 
