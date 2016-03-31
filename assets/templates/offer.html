@@ -1,37 +1,22 @@
-<md-content class="md-padding"
-            style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
-  <div layout="row" layout-xs="column" style="min-height:100%;">
+<md-content class="md-padding" layout="row"  layout-align="space-around center" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 83%; background-position-x: right;">
+  <div layout="row"  flex="100" layout-xs="column"  layout-margin >
     <div flex="75" flex-xs="100">
-      <md-card>
         <md-toolbar class="md-primary">
-          <md-card-header class="md-padding">
-            <md-card-header-text>
-              <span class="md-title-card">Select your plan</span>
-            </md-card-header-text>
-          </md-card-header>
-        </md-toolbar>
-        <md-card-content hide-xs>
           <div layout="row">
-            <div layout="row" flex="50" >
-              <p>Select your policy starting date</p>
-              <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date"
-                             md-min-date="inceptionDate.min" md-max-date="inceptionDate.max"
-                             ng-change="updatePolicyEndDate()"></md-datepicker>
-            </div>
-            <div layout="row">
-              <p>and the end date</p>
-              <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
-            </div>
+            <h2 class="md-title-card">Select your plan</h2>
           </div>
+        </md-toolbar>
+        <md-content class="step" layout-padding hide-xs>
           <md-tabs md-dynamic-height md-border-bottom>
             <!-- ###### TODO CC : DYNAMIQUE ProductName-->
             <md-tab label="COMPREHENSIVE">
               <md-content class="md-padding">
+
                 <div layout="row">
                   <div layout="column" flex="40">
                     <h3>Benefits</h3>
                   </div>
-                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;"
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
                        ng-class="Plan.IsSelected ? 'selection' : ''">
                     <h3>{{Plan.__Name}}</h3>
                   </div>
@@ -40,7 +25,7 @@
                   <div layout="column" flex="40">
                     {{ Benefit.label }}
                   </div>
-                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans" style="text-align:center;"
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
                        ng-class="Plan.IsSelected ? 'selection' : ''">
                     <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
                   </div>
@@ -49,7 +34,7 @@
                   <div layout="column" flex="40">
                     &nbsp;
                   </div>
-                  <div layout="column" flex="15" ng-repeat="Plan in product.Plans"
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans"
                        style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : ''">
                     <md-button class="md-raised" ng-class="Plan.IsSelected ? 'selected plan' : ''"
                                ng-click="updateSelectedPlan(Plan)"> $ {{Plan.UsualPremium}}
@@ -94,13 +79,15 @@
                     </md-button>
                   </div>
                 </div>
-              </md-content>
-            </md-tab>
-          </md-tabs>
-        </md-card-content>
 
+              </md-content>
+
+            </md-tab>
+
+          </md-tabs>
+        </md-content>
 <!-- ****  MOBILE   *** -->
-        <md-card-content layout-padding hide-gt-xs>
+        <md-content layout-padding hide-gt-xs>
           <div layout="column" layout-wrap>
             <p>Select your policy starting date</p>
             <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
@@ -137,21 +124,16 @@
               </md-content>
             </md-tab>
           </md-tabs>
-        </md-card-content>
-      </md-card>
+        </md-content>
+
 <!-- *** END MOBILE *** -->
 
     </div>
-    <div flex="25" flex-xs="100">
-    <md-card>
+    <div flex="25" flex-xs="100" >
       <md-toolbar class="md-primary">
-        <md-card-header class="md-padding">
-          <md-card-header-text>
-            <span class="md-title-card">Your quotation</span>
-          </md-card-header-text>
-        </md-card-header>
+            <h2 class="md-title-card">Your quotation</h2>
       </md-toolbar>
-        <md-card-content >
+        <md-content class="step" layout-padding>
           <div>
           <h4>Your plan</h4>
           <div layout="row">
@@ -186,18 +168,33 @@
             </div>
           </div>
           </div>
-          <div layout="column">
-            <md-button class="md-raised md-accent" href="#/addon" > Buy now </md-button>
-            <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
-            <md-button class="md-primary md-hue-1" href="#/home" > Back to quote details</md-button>
-          </div>
-        </md-card-content>
-
-
-    </md-card>
+        </md-content>
   </div>
 </div>
-
 </md-content>
 
 
+<footer >
+  <md-button class="own_button md-raised action" href="#/addon"> Buy now</md-button>
+  <md-button class=" md-accent action" href="#/addon"> Save and email my quote</md-button>
+  <!--<md-button aria-label="menu" class="md-fab md-primary action action-fab"  ng-click="showAdvanced($event)">
+    <md-icon md-svg-src="images/ic_email_white_24px.svg"></md-icon>
+    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+     Save and email my quote
+    </md-tooltip>
+  </md-button>-->
+  <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+    <md-icon md-svg-src="images/ic_chat_bubble_white_24px.svg"></md-icon>
+    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+      Ask us a question
+    </md-tooltip>
+  </md-button>
+  <!--<md-button aria-label="menu" class="md-fab md-primary action-back action-fab">
+    <md-icon md-svg-src="images/ic_undo_white_24px.svg"></md-icon>
+    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+      Ask us a question
+    </md-tooltip>
+  </md-button>-->
+  <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i class="material-icons">keyboard_arrow_left</i>Back</md-button>
+
+</footer>

@@ -45,6 +45,8 @@ app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSide
   console.log("== homepageCtrl ==");
   $scope.policy = policy;
   $scope.product = product;
+
+
 }]);
 
 

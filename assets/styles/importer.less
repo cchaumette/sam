@@ -34,8 +34,21 @@
 @axa-red: #FF1821;
 @axa-red_active: #FF1821;
 @axa-lightblue: #4975BA;
+@font-face {
+  font-family: 'myaxa-sg';
+  src: url(./fonts/myaxa-sg.eot) format('eot'),
+  url(./fonts/myaxa-sg.woff) format('woff'),
+  url(./fonts/myaxa-sg.ttf) format('truetype'),
+  url(./fonts/myaxa-sg.svg) format('svg');
+}
+body{
 
-
+  font-family: 'myaxa-sg', arial, serif;
+}
+.md-tooltip{
+  background-color:white;
+  color:black;
+}
 
 .agentcode {
   font-size: 0.8em;
@@ -49,9 +62,16 @@ label{
 }
 input{
   color:black;
+
 }
 .md-card {
   opacity:0.8;}
 .md-content{
   background-image: url('/images/bg.jpg'); background-repeat: no-repeat;background-size: 100%; background-position-x: right;
 }
+.button-choice{
+  background-color:white !important;
+  min-width: 60px;
+  padding:2px;
+}
+

@@ -1,84 +1,64 @@
-<md-content class="md-padding" >
-  <div layout="row"  layout-wrap  layout-align="space-around center">
-
-  <md-card flex="33"  class="md-primary">
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
+ <div layout="row"  layout-align="space-around center">
+   <div flex="25">
     <md-toolbar class="md-primary">
-    <md-card-title >
-      <md-card-title-text >
-        <span class="md-title-card">Tell us about yourself</span>
-        <span class="md-subhead">in 9 simple questions</span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <div class="md-media-lg card-media"></div>
-      </md-card-title-media>
-    </md-card-title>
-      </md-toolbar>
-    <md-card-actions layout="row" layout-align="left center" layout-padding >
-      <p>Lorem ipsum, dolores sim </p>
-    </md-card-actions>
-  </md-card>
-  <div flex="33">
-  <p>Based on your profile, we propose you the most suitable plans</p>
-  </div>
-    </div>
-  <div layout="row"  layout-wrap  layout-align="space-around center">
-    <md-card flew="33"  class="md-primary" ng-repeat="RecordName in product.param.Plans.RecordName">
-      <md-toolbar class="md-primary">
-      <md-card-title >
-        <md-card-title-text >
-          <span class="md-headline">{{RecordName.label}}</span>
-          <span class="md-subhead">For the .....</span>
-        </md-card-title-text>
-        <md-card-title-media>
-          <div class="md-media-lg card-media"></div>
-        </md-card-title-media>
-      </md-card-title>
-</md-toolbar>
-      <md-card-actions layout="row" layout-align="left center" layout-padding >
-        <p>Lorem ipsum, dolores sim </p>
-      </md-card-actions>
-    </md-card>
-  </div>
-  <div layout="row"  layout-wrap  layout-align="space-around center">
-    <div flew="33"> <p>Add a value packs to suit your specific needs</p></div>
-    <div flew="33"> <p>Customize your cover with the optional add-ons</p></div>
-
+     <div class="md-toolbar-tools">
+       <h2 class="md-flex">Step 1 - Tell us about yourself</h2>
+     </div>
+   </md-toolbar>
+    <md-content flex layout-padding>
+     <ul layout-padding>
+       <li> 9 simple questions to answer</li>
+       <li> Less than 2 minutes to get a quote</li>
+     </ul>
+   </md-content>
+   </div>
+   <div flex="25">
+     <md-toolbar class="md-primary">
+       <div class="md-toolbar-tools">
+         <h2 class="md-flex">Step 2 - Choose your plan</h2>
+       </div>
+     </md-toolbar>
+     <md-content flex layout-padding>
+       <ul layout-padding>
+         <li> Clear plans comparison to ease your choice</li>
+         <li> Professional advise on demand to help you make your choice</li>
+       </ul>
+     </md-content>
+   </div>
  </div>
-  <div layout="row"  layout-wrap  layout-align="space-around center">
-    <md-card flew="33"  >
-      <md-toolbar class="md-primary">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Value added packs</span>
-          <span class="md-subhead">Get more for less</span>
-        </md-card-title-text>
-        <md-card-title-media>
-          <div class="md-media-lg card-media"></div>
-        </md-card-title-media>
-      </md-card-title>
-        </md-toolbar>
-      <md-card-actions layout="row" layout-align="left center" layout-padding >
-        <p>Lorem ipsum, dolores sim </p>
-      </md-card-actions>
-    </md-card>
 
-    <md-card flew="33"  >
+  <div layout="row"  layout-align="space-around center">
+    <div flex="25"></div>
+    <div flex="25">
       <md-toolbar class="md-primary">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Add-ons options</span>
-          <span class="md-subhead">Customised your cover</span>
-        </md-card-title-text>
-        <md-card-title-media>
-          <div class="md-media-lg card-media"></div>
-        </md-card-title-media>
-      </md-card-title>
-</md-toolbar>
-      <md-card-actions layout="row" layout-align="left center" layout-padding >
-        <p>Lorem ipsum, dolores sim </p>
-      </md-card-actions>
-    </md-card>
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Step 3 - Customise your coverage</h2>
+        </div>
+      </md-toolbar>
+      <md-content flex layout-padding>
+        <ul layout-padding>
+          <li> Value added packs to cover your specific driving habits</li>
+          <li> Awesome options to cover that little things that make it tailored to you</li>
+        </ul>
+      </md-content>
+    </div>
+    <div flex="25">
+      <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Step 4 - Policy details</h2>
+        </div>
+      </md-toolbar>
+      <md-content flex layout-padding>
+        <ul layout-padding>
+          <li> The details of the car and drivers to be insured</li>
+          <li> Fast and secure online payment</li>
+        </ul>
+      </md-content>
+    </div>
   </div>
+
+
   <section layout="row" layout-sm="column" layout-align="center end" layout-wrap >
     <md-button href="#/home" >Build your cover now<br><i class="material-icons" href="#/home">&#xE313;</i></md-button>
    </section>

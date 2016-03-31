@@ -3,8 +3,8 @@
   margin-top: 0px;
 }
 
-md-card{
-  min-height: 620px;
+.step{
+  height: 450px;
 }
 
 .card-packs{
@@ -71,4 +71,40 @@ md-card{
   background-color:#E3F2FD;
   margin-bottom:10px;
   margin-top:10px
+}
+.md-title-card{
+  padding-left:16px;
+}
+
+
+.action{
+  float:right;
+  margin-right:30px;
+}
+.action-back{
+  float:left;
+  margin-left:30px;
+  margin-top: 2px;
+}
+footer{
+  height:7%;
+  margin-top:10px;
+}
+.own_button{
+  background-color:white;
+  border: solid 2px rgb(255,82,82);
+  color:rgb(255,82,82)!important;
+}
+.space{
+  padding-top:18px;
+  padding-bottom:18px;
+}
+.space-up{
+  margin-top:18px;
+}
+.space-down{
+  margin-bottom:18px;
+}
+.input-down{
+  margin-bottom: 0px;
 }

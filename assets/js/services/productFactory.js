@@ -67,6 +67,9 @@ app.factory('product', function(offer, marketing) {
    product.set = function () {
      product.setSelected();
      product.setBenefitsTablePerPlan();
+     product.selected.Plans.pop();
+
+     product.selected.Plans = _.sortBy(product.selected.Plans, 'UsualPremium');
    }
 
   return product;

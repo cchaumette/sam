@@ -1,15 +1,10 @@
-
-<md-content class="md-padding"layout="row"  layout-xs="column" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
-  <div flex="" flex-xs="100">
-    <md-card>
-      <md-toolbar class="md-primary">
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title-card">Add custom packs</span>
-        </md-card-header-text>
-      </md-card-header>
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
+  <div layout="row"  layout-xs="column"  layout-margin>
+    <div flex layout="column" flex-xs="100">
+  <md-toolbar class="md-primary">
+          <h2 class="md-title-card">Add custom packs</h2>
         </md-toolbar>
-      <md-card-content>
+      <md-content class="step" layout-padding>
         <div class="card-packs" ng-repeat="p in plan.Packs">
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
@@ -23,23 +18,13 @@
             <md-button ng-click="showPacks($event, p)">Know more</md-button>
           </md-card-actions>
         </div>
-
-      </md-card-content>
-
-    </md-card>
-
+      </md-content>
   </div>
-  <div flex="40" flex-xs="100" >
-
-    <md-card>
+  <div flex="40" layout="column" flex-xs="100" >
       <md-toolbar class="md-primary">
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title-card">Select add-ons</span>
-        </md-card-header-text>
-      </md-card-header>
+          <h2 class="md-title-card">Select add-ons</h2>
         </md-toolbar>
-      <md-card-content>
+      <md-content class="step" layout-padding>
         <div layout="column" class="card-addons" ng-repeat="a in plan.AddOns" layout-wrap>
           <div class="md-primary toolbar-packs" ng-class="a.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
@@ -55,21 +40,14 @@
                     </div>
                   </div>
         </div>
-      </md-card-content>
-    </md-card>
-
+      </md-content>
   </div>
-  <div flex="25" flex-xs="100">
-    <md-card>
-
+  <div flex="25" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-        <md-card-header class="md-padding">
-          <md-card-header-text>
-            <span class="md-title-card">Your quotation</span>
-          </md-card-header-text>
-        </md-card-header>
+            <h2 class="md-title-card">Your quotation</h2>
+
       </md-toolbar>
-      <md-card-content >
+      <md-content class="step" layout-padding>
         <div>
           <h4>Your plan</h4>
           <div layout="row">
@@ -122,11 +100,8 @@
           <md-button class="md-primary md-hue-1" href="#/offer" > Back to plan details</md-button>
 
         </div>
-      </md-card-content>
-
-
-    </md-card>
+      </md-content>
   </div>
-
+</div>
 </md-content>
 
