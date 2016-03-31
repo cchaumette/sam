@@ -2,7 +2,7 @@
   <div layout="row"  layout-xs="column"  layout-margin>
     <div flex layout="column" flex-xs="100">
   <md-toolbar class="md-primary">
-          <h2 class="md-title-card">Add custom packs</h2>
+          <md-title layout-margin layout-padding>Add custom packs</md-title>
         </md-toolbar>
       <md-content class="step" layout-padding>
         <div class="card-packs" ng-repeat="p in plan.Packs">
@@ -22,7 +22,7 @@
   </div>
   <div flex="40" layout="column" flex-xs="100" >
       <md-toolbar class="md-primary">
-          <h2 class="md-title-card">Select add-ons</h2>
+          <md-title layout-margin layout-padding>Select add-ons</md-title>
         </md-toolbar>
       <md-content class="step" layout-padding>
         <div layout="column" class="card-addons" ng-repeat="a in plan.AddOns" layout-wrap>
@@ -44,12 +44,12 @@
   </div>
   <div flex="25" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-            <h2 class="md-title-card">Your quotation</h2>
+            <md-title layout-margin layout-padding>Your quotation</md-title>
 
       </md-toolbar>
       <md-content class="step" layout-padding>
         <div>
-          <h4>Your plan</h4>
+          <h4 class="category-summary">Your plan</h4>
           <div layout="row">
             <div flex="60">
               <span>{{plan.__Name}}</span>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div>
-          <h4>Your packs & add-ons</h4>
+          <h4 class="category-summary">Your packs & add-ons</h4>
           <div layout="row">
             <div flex="60">
               <span>Excess</span>
@@ -70,8 +70,8 @@
             </div>
           </div>
         </div>
-        <div class="discount">
-          <h4>Your discount</h4>
+        <div class="discount" >
+          <h4 class="category-summary">Your discount</h4>
 
           <div layout="row" ng-repeat="discount in plan.Discounts">
             <div flex="60">
@@ -84,7 +84,7 @@
         </div>
 
         <div>
-          <h4>Total</h4>
+          <h4 class="category-summary">Total</h4>
           <div layout="row">
             <div flex="60">
               <span>including GST</span>
@@ -94,14 +94,20 @@
             </div>
           </div>
         </div>
-        <div layout="column">
-          <md-button class="md-raised md-accent" href="#/policy" > Buy now </md-button>
-          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
-          <md-button class="md-primary md-hue-1" href="#/offer" > Back to plan details</md-button>
-
-        </div>
       </md-content>
   </div>
 </div>
 </md-content>
 
+<footer >
+  <md-button class=" md-raised md-accent action" href="#/policy"> Buy now</md-button>
+  <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+  <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+    <md-icon md-svg-src="images/ic_chat_bubble_white_24px.svg"></md-icon>
+    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+      Ask us a question
+    </md-tooltip>
+  </md-button>
+  <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/offer"><i class="material-icons">keyboard_arrow_left</i>Back</md-button>
+
+</footer>

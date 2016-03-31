@@ -35,43 +35,53 @@
 @axa-red_active: #FF1821;
 @axa-lightblue: #4975BA;
 @font-face {
-  font-family: 'myaxa-sg';
-  src: url(./fonts/myaxa-sg.eot) format('eot'),
-  url(./fonts/myaxa-sg.woff) format('woff'),
-  url(./fonts/myaxa-sg.ttf) format('truetype'),
-  url(./fonts/myaxa-sg.svg) format('svg');
+  font-family: 'myaxa-sg' ;
+  src: url(fonts/myaxa-sg.eot) format('eot') ,
+  url(fonts/myaxa-sg.woff) format('woff'),
+  url(fonts/myaxa-sg.ttf) format('truetype'),
+  url(fonts/myaxa-sg.svg) format('svg');
 }
+
 body{
 
   font-family: 'myaxa-sg', arial, serif;
+  font-family: Arial,sans-serif;
+  font-size:14px;
+  color:#808080;
+
 }
 .md-tooltip{
   background-color:white;
-  color:black;
+  color:grey;
+}
+.md-button, .md-content, .md-caption, .md-input-container .md-placeholder, .md-label,.md-input-container label{
+  color:grey;
 }
 
 .agentcode {
   font-size: 0.8em;
 }
-label{
-  color:black;
+label, input, p, span{
+  color:#808080;
 }
 
 .pack-selected{
   background-color:#82b1ff !important;
 }
-input{
-  color:black;
 
-}
 .md-card {
   opacity:0.8;}
 .md-content{
   background-image: url('/images/bg.jpg'); background-repeat: no-repeat;background-size: 100%; background-position-x: right;
 }
 .button-choice{
-  background-color:white !important;
+  border-bottom:solid 1px rgba(0,0,0,0.12);
+  border-radius:0;
+  padding:0px;
+  /*background-color:white !important;
   min-width: 60px;
-  padding:2px;
+  margin:2px;
+ */
+
 }
 

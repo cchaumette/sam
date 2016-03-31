@@ -1,0 +1,81 @@
+<md-content class="md-padding" layout="row"  layout-align="space-around center" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 83%; background-position-x: right;">
+<div layout="row" flex="100" layout-xs="column" layout-margin>
+    <div flex="50" layout="column" flex-xs="100">
+        <md-toolbar class="md-primary">
+          <md-title layout-margin layout-padding>Your insurance summary</md-title>
+          </md-toolbar>
+        <md-content class="step" layout-padding>
+          <h4 class="category-summary">Your car</h4>
+          <div layout="row">
+            <div flex="50">
+              <p>Car make and model: <b>Toyota Yaris</b></p>
+              <p>Manufacturing year: <b>2015</b></p>
+              <p>Seating capacity: <b>5</b></p>
+              <p>Loan company: <b>5</b></p>
+              </div>
+            <div flex="50">
+              <p>Registration number: <b>SG543GH</b></p>
+              <p>Engine number: <b>12345678987</b></p>
+              <p>Chassis number: <b>12345678987</b></p>
+              <p>Previous insurer: <b>AIG</b></p>
+              </div>
+            </div>
+
+          <div layout="row">
+
+            <div flex="50">
+              <h4 class="category-summary">The policyholder</h4>
+              <p>Name: <b>Richard</b></p>
+              <p>Surname: <b>Chung</b></p>
+              <p>Email: <b>richard@gamil.com</b></p>
+              <p>Telephone: <b>98989898</b></p>
+              <p>Address: <b>Tampines avenue 7, #12-07 Block 123, Singapore 586743</b></p>
+              <p>Nationality: <b>Singaporean</b></p>
+              <p>ID: <b>S8378765C</b></p>
+            </div>
+            <div flex="50">
+              <h4 class="category-summary">The policyholder</h4>
+              <p>Registration number: <b>SG543GH</b></p>
+              <p>Engine number: <b>12345678987</b></p>
+              <p>Chassis number: <b>12345678987</b></p>
+              <p>Previous insurer: <b>AIG</b></p>
+            </div>
+          </div>
+
+        </md-content>
+    </div>
+    <div flex="25" layout="column" flex-xs="100">
+      <md-toolbar class="md-primary">
+          <md-title layout-margin layout-padding>Terms and conditions</md-title>
+        </md-toolbar>
+      <md-content class="step" layout-padding>
+       
+      </md-content>
+  </div>
+    <div flex="25" layout="column" flex-xs="100">
+
+      <md-toolbar class="md-primary">
+          <md-title layout-margin layout-padding>Payment</md-title>
+
+        </md-toolbar>
+      <md-content class="step" layout-padding>
+
+      </md-content>
+  </div>
+</div>
+</md-content>
+
+<footer >
+  <md-button class=" md-raised md-accent action" href="#/payment"> Proceed to payment</md-button>
+  <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+  <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+    <md-icon md-svg-src="images/ic_chat_bubble_white_24px.svg"></md-icon>
+    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+      Ask us a question
+    </md-tooltip>
+  </md-button>
+  <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i class="material-icons">keyboard_arrow_left</i>Back</md-button>
+
+</footer>
+
+

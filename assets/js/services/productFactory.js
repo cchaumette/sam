@@ -70,6 +70,7 @@ app.factory('product', function(offer, marketing) {
      product.selected.Plans.pop();
 
      product.selected.Plans = _.sortBy(product.selected.Plans, 'UsualPremium');
+
    }
 
   return product;

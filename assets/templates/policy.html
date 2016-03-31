@@ -1,15 +1,10 @@
-<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 100%; background-position-x: right;">
-  <div layout="row"  layout-xs="column">
-    <div flex="33" flex-xs="100">
-      <md-card>
+<md-content class="md-padding" layout="row"  layout-align="space-around center" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 83%; background-position-x: right;">
+<div layout="row" flex="100" layout-xs="column" layout-margin>
+    <div flex="33" layout="column" flex-xs="100">
         <md-toolbar class="md-primary">
-        <md-card-header class="md-padding">
-          <md-card-header-text>
-            <span class="md-title-card">Step 1 - Car details</span>
-          </md-card-header-text>
-        </md-card-header>
+          <md-title layout-margin layout-padding>Car details</md-title>
           </md-toolbar>
-        <md-card-content>
+        <md-content class="step" layout-padding>
           <div layout="row">
           <md-input-container class="md-block" flex-gt-sm flex="45">
             <label>Car registration number</label>
@@ -57,25 +52,19 @@
           <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding>
             <md-radio-button class="md-primary" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button>
           </md-radio-group>
-          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == true" layout-padding>
+          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == false" layout-padding>
             <label>Select your previous insurer</label>
             <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
               <md-option class="md-primary" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">{{PrevCarInsurer}}</md-option>
             </md-select>
           </md-input-container>
-        </md-card-content>
-      </md-card>
+        </md-content>
     </div>
-    <div flex="33" flex-xs="100">
-    <md-card>
+    <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title-card">Step 2 - Policyholder details</span>
-        </md-card-header-text>
-      </md-card-header>
+          <md-title layout-margin layout-padding>Policyholder details</md-title>
         </md-toolbar>
-      <md-card-content layout-padding>
+      <md-content class="step" layout-padding>
         <p>Is the main driver the policyholder </p>
         <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder">
           <md-radio-button class="md-primary" class="md-primary" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder" ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button>
@@ -149,20 +138,15 @@
         </md-input-container>
             </div>
         </form>
-      </md-card-content>
-    </md-card>
-
+      </md-content>
   </div>
-    <div flex="33" flex-xs="100">
-    <md-card>
+    <div flex="33" layout="column" flex-xs="100">
+
       <md-toolbar class="md-primary">
-      <md-card-header class="md-padding">
-        <md-card-header-text>
-          <span class="md-title-card">Step 3 - Drivers details</span>
-        </md-card-header-text>
-      </md-card-header>
+          <md-title layout-margin layout-padding>Drivers details</md-title>
+
         </md-toolbar>
-      <md-card-content>
+      <md-content class="step" layout-padding>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab ng-repeat="driver in policy.profil.Drivers">
             <md-tab-label>
@@ -233,17 +217,22 @@
             </md-tab-body>
           </md-tab>
         </md-tabs>
-      </md-card-content>
-      <md-button class="md-raised md-accent" href="#/policy"> Proceed to payment</md-button>
-      <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote</md-button>
-      <md-button class="md-primary md-hue-1" href="#/offer" > Back to add-ons</md-button>
-    </md-card>
-
+      </md-content>
   </div>
 </div>
-
-
 </md-content>
 
+<footer >
+  <md-button class=" md-raised md-accent action" href="#/payment"> Proceed to payment</md-button>
+  <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+  <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+    <md-icon md-svg-src="images/ic_chat_bubble_white_24px.svg"></md-icon>
+    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+      Ask us a question
+    </md-tooltip>
+  </md-button>
+  <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i class="material-icons">keyboard_arrow_left</i>Back</md-button>
+
+</footer>
 
 

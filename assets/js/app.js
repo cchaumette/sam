@@ -37,6 +37,10 @@ app.config(['$routeProvider',
         templateUrl: 'templates/policy.html',
         controller: 'policyCtrl'
       }).
+      when('/payment', {
+        templateUrl: 'templates/payment.html',
+        controller: 'paymentCtrl'
+      }).
       otherwise({
         redirectTo: '/home'
       });
@@ -51,6 +55,17 @@ app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSide
 
 
 app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog) {
+  $scope.policy = policy;
+  console.log("== policyCtrl ==");
+  $scope.showHints = true;
+  $scope.user = {
+    name: "",
+    email: "",
+    social: "123456789",
+    phone: "N/A"
+  };
+}]);
+app.controller('paymentCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog) {
   $scope.policy = policy;
   console.log("== policyCtrl ==");
   $scope.showHints = true;
