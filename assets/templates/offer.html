@@ -23,6 +23,23 @@
               <md-content class="md-padding">
 
                 <div layout="row">
+                  <div layout="column">
+                    <h4>Benefits</h4>
+                    <div ng-repeat="Benefit in benefitsList"  layout="column"  style="line-height:1.8;">
+                      {{ Benefit.label }}
+                    </div>
+                    </div>
+                  <div layout="column" flex="20" ng-repeat="Plan in product.Plans"  style="text-align:center;" ng-click="updateSelectedPlan(Plan)" ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
+                    <h4 class="input-down input-up plan-name" style="padding-top:5px;">{{Plan.__Name}}</h4>
+                    <h3 class="input-up">$ {{Plan.UsualPremium}}</h3>
+                    <div ng-repeat="Benefit in benefitsList"  layout="column"  style="line-height:1.8;">
+                      <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
+                      <span ng-show="Plan.__Benefits[Benefit.value] != true;">-</span>
+                    </div>
+                  </div>
+                </div>
+
+              <!--  <div layout="row">
                   <div layout="column" flex="40">
 
 
@@ -44,7 +61,7 @@
                        ng-click="updateSelectedPlan(Plan)" >
                     <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
                   </div>
-                 </div>
+                 </div>-->
 
 
 
