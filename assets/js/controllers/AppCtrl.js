@@ -9,6 +9,8 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
 
+  $scope.rangeYearOfmake = 0;
+
   $scope.policy = policy;
   $scope.car = policy.car;
 

@@ -24,9 +24,13 @@
           <div class="space-up" >
             <p>Which year was your car manufactured?</p>
         <section layout="row" layout-sm="column" layout-align="space-around center"  flex layout-wrap layout-padding>
-          <md-button class="button-choice " ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake" value="{{YearOfMake.year}}" >{{YearOfMake.year}}</md-button>
+          <md-button class="button-choice" ng-click="rangeYearOfmake = 0" ng-show="rangeYearOfmake == 1"> << </md-button>
+          <md-button class="button-choice" ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake[rangeYearOfmake]" value="{{YearOfMake.year}}" >{{YearOfMake.year}}</md-button>
+          <md-button class="button-choice" ng-click="rangeYearOfmake = 1" ng-show="rangeYearOfmake == 0"> >> </md-button>
         </section>
-            </div>
+
+          </div>
+
           </div>
           </md-content>
     </div>
