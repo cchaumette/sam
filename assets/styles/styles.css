@@ -128,4 +128,9 @@ color:rgb(33, 150, 243);
 }
 
 
-
+.details{
+  font-size: 12px;
+}
+.accordion{
+  border-bottom:solid 1px rgb(33, 150, 243);
+}

@@ -26,7 +26,7 @@
                   <div layout="column">
                     <h4>Benefits</h4>
                     <div ng-repeat="Benefit in benefitsList"  layout="column"  style="line-height:1.8;">
-                      {{ Benefit.label }}
+                     <div layout="row"> <span class="icon-accessories" style="font-size:24px;"></span>{{ Benefit.label }}</div>
                     </div>
                     </div>
                   <div layout="column" flex="20" ng-repeat="Plan in product.Plans"  style="text-align:center;" ng-click="updateSelectedPlan(Plan)" ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
