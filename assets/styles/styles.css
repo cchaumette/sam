@@ -126,14 +126,6 @@ color:rgb(33, 150, 243);
   margin-bottom:10px;
   margin-top: 10px;
 }
-@font-face {
-  font-family: 'myaxa-sg' ;
-  src: url(../fonts/myaxa-sg.eot) format('eot') ,
-  url(../fonts/myaxa-sg.woff) format('woff'),
-  url(../fonts/myaxa-sg.ttf) format('truetype'),
-  url(../fonts/myaxa-sg.svg) format('svg');
-}
-
 
 
 
