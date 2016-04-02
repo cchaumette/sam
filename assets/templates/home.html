@@ -39,10 +39,13 @@
         <md-title layout-margin layout-padding>Driver details</md-title>
             </md-toolbar>
       <md-content class="step" layout-padding>
-              <md-tabs md-dynamic-height md-border-bottom>
-                <md-tab>
+              <md-tabs md-dynamic-height md-border-bottom md-autoselect>
+                <md-tab ng-repeat="driver in policy.profil.Drivers">
                   <md-tab-label >
-                  <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">Main driver</a></div></md-tab-label>
+                    <div layout="row"><i class="material-icons">person</i>
+                      <a style="font-size:10px;">{{driver.__label}}</a>
+                    </div>
+                  </md-tab-label>
                   <md-tab-body>
                     <div md-padding class="space-up">
                   <p >Gender of the driver</p>
@@ -77,7 +80,8 @@
                     </div>
                     </div>
                     <div layout="row" layout-align="end center">
-                    <md-button layout="row" class="md-primary " ><i class="material-icons" style=" padding-right: 8px;">person_add</i> Add a driver</md-button>
+                      <md-button layout="row" class="md-secondary"  ng-click="removeDriver($index)" ng-show="$index > 0">Remove {{driver.__label}}</md-button>
+                      <md-button layout="row" class="md-primary"  ng-click="addDriver()" ng-show="isAddDriverEnable()"><i class="material-icons" style=" padding-right: 8px;">person_add</i> Add a driver</md-button>
                     </div>
                   </md-tab-body>
                 </md-tab>

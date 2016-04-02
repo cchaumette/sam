@@ -35,6 +35,28 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   ];
 
 
+
+  $scope.addDriver = function(){
+    if($scope.isAddDriverEnable){
+      console.log("== addDriver ==");
+      $scope.policy.profil.Drivers.push({__label : "Driver " + (policy.profil.Drivers.length +1) });
+    }
+  };
+
+  $scope.isAddDriverEnable = function(){
+    var _isAddDriverEnable = false;
+    if(policy.profil.Drivers.length < 5) {
+      _isAddDriverEnable = true;
+    }
+    return _isAddDriverEnable;
+  }
+
+  $scope.removeDriver = function(index){
+    console.log("== removeDriver =" + index);
+    $scope.policy.profil.Drivers.splice(index, 1);
+  };
+
+
   $scope.flowOne = function(){
     $scope.flow.step1 = true,
       $scope.flow.step2 = true,
