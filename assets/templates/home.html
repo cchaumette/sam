@@ -25,7 +25,12 @@
             <p>Which year was your car manufactured?</p>
         <section layout="row" layout-sm="column" layout-align="space-around center"  flex layout-wrap layout-padding>
           <md-button class="button-choice" ng-click="rangeYearOfmake = 0" ng-show="rangeYearOfmake == 1"> << </md-button>
-          <md-button class="button-choice" ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake[rangeYearOfmake]" value="{{YearOfMake.year}}" >{{YearOfMake.year}}</md-button>
+          <md-button class="button-choice"
+                     ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake[rangeYearOfmake]"
+                     ng-click="policy.profil.Vehicle.YearOfMake = YearOfMake.year"
+                     ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'md-primary' : '' "
+            >{{YearOfMake.year}}
+          </md-button>
           <md-button class="button-choice" ng-click="rangeYearOfmake = 1" ng-show="rangeYearOfmake == 0"> >> </md-button>
         </section>
 
@@ -35,14 +40,15 @@
           </md-content>
     </div>
     <div flex="33" layout="column" flex-xs="100" >
-      <md-toolbar class="md-primary">
+     <md-toolbar>
         <md-title layout-margin layout-padding>Driver details</md-title>
             </md-toolbar>
+
       <md-content class="step" layout-padding>
-              <md-tabs md-dynamic-height md-border-bottom md-autoselect>
+              <md-tabs md-dynamic-height md-border-bottom md-autoselect >
                 <md-tab ng-repeat="driver in policy.profil.Drivers">
-                  <md-tab-label >
-                    <div layout="row"><i class="material-icons">person</i>
+                  <md-tab-label>
+                    <div layout="row" class="md-primary"><i class="material-icons">person</i>
                       <a style="font-size:10px;">{{driver.__label}}</a>
                     </div>
                   </md-tab-label>
@@ -96,7 +102,14 @@
         <div md-padding class="space-up">
           <p>What is your non-claim discount bonus?</p>
         <section layout="row" layout-sm="column"  layout-align="space-around center" flex layout-wrap layout-padding>
-          <md-button class=" button-choice" ng-repeat="NCDPoints in policy.param.NCDPoints" ng-value="NCDPoints.value">{{NCDPoints.label}}</md-button>
+          <md-button class=" button-choice"
+                     ng-repeat="NCDPoints in policy.param.NCDPoints"
+                     ng-value="NCDPoints.value"
+                     ng-click="policy.profil.NCDPoints = NCDPoints.value"
+                     ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-primary' : '' "
+            >
+            {{NCDPoints.label}}
+          </md-button>
         </section>
         <div md-padding class="space-up">
           <p >Have you made any claims in the past 3 years?</p>
