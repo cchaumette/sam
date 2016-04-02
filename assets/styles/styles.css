@@ -43,6 +43,8 @@
 }
 .addon-select{
   margin:0px;
+
+
 }
 .selection{
   background-color:#82b1ff;
@@ -50,6 +52,10 @@
   color:white;
 
 }
+.addon-selected{
+  color:#82b1ff;
+}
+
 .selected-plan{
   background-color:white;
   color:#82b1ff;
@@ -99,6 +105,10 @@ footer{
 .space-up{
   margin-top:28px;
 }
+.checkbox-addon{
+  margin-top:14px;
+  float:right;
+}
 .space-down{
   margin-bottom:28px;
 }
@@ -139,6 +149,9 @@ color:rgb(33, 150, 243);
 
   margin-right:5px;
   font-size:20px;
+  color:#666666;
+}
+.premium{
   color:#666666;
 }
 .benefits-plan{
