@@ -55,7 +55,7 @@
           <md-tab ng-repeat="driver in policy.profil.Drivers">
             <md-tab-label>
               <div layout="row" class="md-primary"><i class="material-icons">person</i>
-                <a style="font-size:10px;">{{driver.__label}}</a>
+                <a style="font-size:10px;" ng-class="driverAdded == true ? 'selection':''">{{driver.__label}}</a>
               </div>
             </md-tab-label>
             <md-tab-body>
@@ -150,20 +150,19 @@
           </div>
           <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
             <p>How many of these were non-windscreen claims?</p>
-            <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
-              <md-button class="button-choice " ng-repeat="NumberOfClaims in policy.param.NumberOfClaims"
-                         ng-value="NumberOfClaims.value">{{NumberOfClaims.label}}
-              </md-button>
-            </section>
+            <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" layout-align="space-around center"
+                            ng-click="CheckClaimsNumber($event)" layout-padding>
+              <md-radio-button class="md-primary" ng-repeat="NumberOfClaims in policy.param.NumberOfClaims"
+                               ng-value="NumberOfClaims.value">{{NumberOfClaims.label}}
+              </md-radio-button>
           </div>
           <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
             <p>How many of these were windscreen claims?</p>
-            <section layout="row" layout-align="space-around center" layout-sm="column" flex layout-wrap layout-padding>
-              <md-button class="button-choice "
-                         ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"
-                         ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}
-              </md-button>
-            </section>
+            <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" layout-align="space-around center"
+                            ng-click="CheckClaimsNumberWind($event)" layout-padding>
+              <md-radio-button class="md-primary" ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"
+                               ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}
+              </md-radio-button>
           </div>
         </div>
       </md-content>

@@ -116,9 +116,10 @@ app.factory('policy', function() {
       "NCDPoints" : [{label : '50%', value :'50'},{label : '40%', value :'40'},{label : '30%', value :'30'},{label : '20%', value :'20'},{label : '10%', value :'10'},{label : '0%', value :'0'}],
       "ClaimsPast3Years" : [{label : 'No', value : false},{label : 'Yes', value : true}],
       "TotalClaimAmount" : [{label : 'Less than $10,000', value :'0'},{label : 'More than $10,000', value :'10001'}],
-      "NumberOfClaims" : [{label : '0', value :'0'},{label : '1 to 2', value :'1'},{label : 'more than 2', value :'2'}],
-      "NumberOfWindscreenClaims" : [{label : '0', value :'0'},{label : '1 to 2', value :'1'},{label : 'more than 2', value :'2'}],
-      "Certificate": [{value: false, label:'No'}, {value:true, label:'Yes'}]
+      "NumberOfClaims" : [{label : 'less than 2', value :'0'},{label : 'more than 2', value :'2'}],
+      "NumberOfWindscreenClaims" : [{label : 'less than 2', value :'0'},{label : 'more than 2', value :'2'}],
+      "Certificate": [{value: false, label:'No'}, {value:true, label:'Yes'}],
+
     }
   }
   return policy;

@@ -31,42 +31,71 @@
 
         <div ng-repeat="a in plan.AddOns">
           <div layout="row" layout-align="space-between center" class="accordion">
-            <span  flex="70"><p><b><span class="icon-accessories" style="font-size:24px;"></span> {{a.__label.Title}}</b></p></span>
-            <span  flex="10">$ 64</span>
-                  <span flex="10">
-                    <!--<md-checkbox ng-model="data.cb1" aria-label="Checkbox 1"  >
-                  </md-checkbox>--></span>
-           <md-button class="md-icon-button" ng-show="a.IsSelected != true"><md-icon><i class="material-icons"  ng-click="a.IsSelected = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button" ng-show="a.IsSelected == true"><md-icon><i class="material-icons"  ng-click="a.IsSelected = false">remove</i></md-icon></md-button>
+            <span  flex="70"><p><b><span class="icon-accessories" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;" ></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b></p></span>
+            <span  flex="10" ><b><span ng-class="a.IsSelected == true ? 'addon-selected':''">$ 64</span></b></span>
+
+           <md-button class="md-icon-button" ng-show="a.show != true"><md-icon><i class="material-icons"  ng-click="a.show = true" ng-class="a.IsSelected == true ? 'addon-selected':''" >add</i></md-icon></md-button>
+            <md-button class="md-icon-button" ng-show="a.show == true"><md-icon><i class="material-icons"  ng-click="a.show = false" ng-class="a.IsSelected == true ? 'addon-selected':''">remove</i></md-icon></md-button>
 
           </div>
-        <div ng-show="a.IsSelected == true">
+        <div ng-show="a.show == true">
           <div ng-show="a.__label.Title == 'Voluntary Excess'">
-            <p class="details">Zero excess at claims</p>
+           <div layout="row" layout-align="space-between center">
+             <div flex="80" ><p class="details">Waive your excess </p></div>
+             <div flex="20"><md-checkbox aria-label="zero_excess" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+           </div>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80" ><p class="details">Double your excess and save on your premium</p></div>
+              <div flex="20"><md-checkbox  aria-label="double_excess" ng-model="a.IsSelected"  class="checkbox-addon"></md-checkbox></div>
+            </div>
+
           </div>
           <div ng-show="a.__label.Title == 'Personal Accident for Driver'">
-            <p class="details">We gives you the amount of the sum insured in the event of invalidity following a car accident</p>
-            <md-select layout-padding placeholder="Select a sum insured" class="addon-select" ng-model="p.SelectedValue" required >
+            <div layout="row" layout-align="space-between center">
+              <div flex="80"><p class="details">We gives you a lum sum of money in the event of invalidity following a car accident</p></div>
+              <div flex="20"><md-checkbox aria-label="pa_driver" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+            </div>
+            <div flex="80" >
+            <md-select layout-padding placeholder="Select a sum insured" class="addon-select input-up" ng-model="p.SelectedValue" required >
               <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
             </md-select>
+              </div>
           </div>
           <div ng-show="a.__label.Title == 'Car Accessories $2000'">
-            <p class="details">We cover your car accesories up to $2,000 in the event of theft or damage</p>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80" layout-padding><p class="details">We cover your car accesories up to $2,000 in the event of theft or damage</p></div>
+              <div flex="20"><md-checkbox aria-label="accessories" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+            </div>
           </div>
           <div ng-show="a.__label.Title == 'Courtesy Car in Singapore'">
-            <p class="details">We lend you a car while your car is at a workshop following an accident</p>
-            <md-select layout-padding placeholder="Select your car type" class="addon-select" ng-model="p.SelectedValue" required >
-              <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
-            </md-select>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80"> <p class="details">We lend you a car while your car is at a workshop following an accident</p></div>
+              <div flex="20"><md-checkbox aria-label="pa_driver" ng-model="plan.selected.AddOns.PADriver" class="checkbox-addon"></md-checkbox></div>
+            </div>
+            <div flex="80" >
+              <md-select layout-padding placeholder="Select a sum insured" class="addon-select input-up" ng-model="p.SelectedValue" required >
+                <md-option ng-repeat="opt in p.Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
+              </md-select>
+            </div>
           </div>
           <div ng-show="a.__label.Title == 'Phone Assistance and Roadside Support'">
-            <p class="details">We send you on the road assistance in the event of a breakdown and accident</p>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80" layout-padding><p class="details">We send you on the road assistance in the event of a breakdown and accident</p></div>
+              <div flex="20"><md-checkbox aria-label="assistance" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+            </div>
           </div>
           <div ng-show="a.__label.Title == 'Car Protector'">
-            <p class="details">Your NCD  won't be impacted by the first claim you make under this policy</p>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80" layout-padding><p class="details">Your NCD  won't be impacted by the first claim you make under this policy</p></div>
+              <div flex="20"><md-checkbox aria-label="ncd" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+            </div>
           </div>
           <div ng-show="a.__label.Title == 'Personal Accident for Passengers'">
-            <p class="details">Your passengers are entitled to a lump sum of $20,000 in the event of a car accident</p>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80" layout-padding> <p class="details">Your passengers are entitled to a lump sum of $20,000 in the event of a car accident</p></div>
+              <div flex="20"><md-checkbox aria-label="PAPassenger" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+            </div>
+
           </div>
 
         </div>
@@ -227,7 +256,7 @@
   <md-button class=" md-raised md-accent action" href="#/policy"> Buy now</md-button>
   <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
   <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
-    <md-icon md-svg-src="images/ic_chat_bubble_white_24px.svg"></md-icon>
+    <md-icon md-svg-src="images/webchat.svg"></md-icon>
     <md-tooltip md-visible="demo.showTooltip" md-direction="left">
       Ask us a question
     </md-tooltip>

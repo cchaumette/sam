@@ -77,6 +77,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       _isAddDriverEnable = true;
     }
     return _isAddDriverEnable;
+
   }
 
   $scope.removeDriver = function(index){
@@ -182,14 +183,15 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
 
-  $scope.CheckClaimsNumber = function (number){
-    if (number > '2'){
+  $scope.CheckClaimsNumber = function (ev) {
+    if (policy.profil.NumberOfClaims != 0) {
       $scope.showReferral(ev)
     }
 
-  }
+  };
+
   $scope.CheckClaimsNumberWind = function (number){
-    if (number > '2'){
+    if (policy.profil.NumberOfWindscreenClaims != 0) {
       $scope.showReferral(ev)
     }
 

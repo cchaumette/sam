@@ -166,7 +166,7 @@
                 </md-input-container>
               </div>
               <div layout="row" >
-                <md-input-container class="md-block" flex="45">
+                <md-input-container class="md-block" flex="50">
                   <label>Nationality</label>
                   <md-select ng-model="policy.profil.Drivers.Nationality">
                     <md-option class="md-primary" ng-repeat="Nationality in policy.param.Drivers.Nationality">{{Nationality}}</md-option>
@@ -200,15 +200,13 @@
                     </div>
                   </md-input-container>
                 </div>
+                <label>Occupation</label>
+                <md-select ng-model="policy.profil.Drivers.Occupation" class="input-up" layout-padding>
+                  <md-option class="md-primary" ng-repeat="Occupation in policy.param.Drivers.Occupation">{{Occupation}}</md-option>
+                </md-select>
 
-                <md-datepicker class="md-block"  md-placeholder="Date of birth" md-min-date="minDate" md-max-date="maxDate" flex="100"></md-datepicker>
+                    <md-datepicker class="md-block "  md-placeholder="Date of birth" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
 
-                  <md-input-container class="md-block" >
-                    <label>Occupation</label>
-                    <md-select ng-model="policy.profil.Drivers.Occupation">
-                      <md-option class="md-primary" ng-repeat="Occupation in policy.param.Drivers.Occupation">{{Occupation}}</md-option>
-                    </md-select>
-                  </md-input-container>
 
               </form>
 
@@ -226,7 +224,7 @@
   <md-button class=" md-raised md-accent action" href="#/payment"> Proceed to payment</md-button>
   <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
   <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
-    <md-icon md-svg-src="images/ic_chat_bubble_white_24px.svg"></md-icon>
+    <md-icon md-svg-src="images/webchat.svg"></md-icon>
     <md-tooltip md-visible="demo.showTooltip" md-direction="left">
       Ask us a question
     </md-tooltip>
