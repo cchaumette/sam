@@ -5,7 +5,8 @@ app.config(function($mdThemingProvider) {
     .primaryPalette('blue')
     .accentPalette('red');
 
-});
+})
+
 
 app.config(function($mdDateLocaleProvider) {
   $mdDateLocaleProvider.formatDate = function (date) {

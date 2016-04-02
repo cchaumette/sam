@@ -4,6 +4,31 @@
 		{
 			"icon": {
 				"paths": [
+					"M589.136 5.504h-150.4c-25.024 0-27.616 14.56-27.76 19.648v26.416c0.128 5.984 2.304 23.088 23.376 23.088h155.136c19.472 0 23.008-12.96 23.536-20v-22.832c-0.016-24.080-18.368-26.224-23.888-26.32z",
+					"M962.784 484.24c-0.256-0.144-0.272-0.304-0.544-0.448-12.24-6.928-16.848-15.456-16.848-15.456l-187.584-314.128c-0.368-0.704-7.424-13.504-13.12-22.288-2.128-2.992-6.768-8.064-14.16-8.064h-209.984c-4.672 0-22.928 0-47.216 0-68.624 0-186.048 0-186.048 0s-11.024 0.496-22.992 21.184c-10.72 18.384-160.576 277.984-193.984 336.144-24.272 4.336-42.928 28.064-42.928 56.896v265.744c0 32.16 22.736 57.68 50.8 57.68h50.8v127.376c0 15.84 10.224 28.608 22.976 28.608h81.968c12.464 0 22.928-12.768 22.928-28.608v-127.376h511.536v128.416c0 15.792 10.224 28.56 22.736 28.56h80.928c12.496 0 22.672-12.768 22.672-28.56v-128.416h51.040c28.128 0 50.816-25.536 50.816-57.68v-265.744c0.016-25.040-14.128-45.92-33.792-53.84zM298.496 187.664c0 0 6.128-12.016 34.704-12.016h175.376c0 0 1.6 0.048 3.792 0h182.288c7.584 0.944 19.040 4.784 27.44 18.848l170.784 285.952h-763.872l169.488-292.784zM218.384 758.768c-48.448 0-87.744-39.28-87.744-87.728s39.296-87.792 87.744-87.792 87.744 39.344 87.744 87.792-39.28 87.728-87.744 87.728zM806.96 758.768c-48.464 0-87.744-39.28-87.744-87.728s39.28-87.792 87.744-87.792c48.448 0 87.728 39.344 87.728 87.792s-39.28 87.728-87.728 87.728z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 0,
+				"tags": [
+					"taxi"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 40,
+				"id": 0,
+				"prevSize": 32,
+				"code": 59667,
+				"name": "taxi"
+			},
+			"setIdx": 0,
+			"setId": 2,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
 					"M481.366 228.784c0 44.917-36.413 81.33-81.33 81.33s-81.33-36.413-81.33-81.33c0-44.917 36.413-81.33 81.33-81.33s81.33 36.413 81.33 81.33z",
 					"M702.616 228.786c0 44.917-36.413 81.33-81.33 81.33s-81.33-36.413-81.33-81.33c0-44.917 36.413-81.33 81.33-81.33s81.33 36.413 81.33 81.33z",
 					"M213.814 412.724c0 31.733-25.725 57.458-57.458 57.458s-57.458-25.725-57.458-57.458c0-31.733 25.725-57.458 57.458-57.458s57.458 25.725 57.458 57.458z",
@@ -23,13 +48,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 13,
+				"order": 41,
 				"id": 26,
 				"prevSize": 32,
 				"code": 59648,
 				"name": "family"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 0
 		},
@@ -50,13 +75,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 14,
+				"order": 42,
 				"id": 25,
 				"prevSize": 32,
 				"code": 59649,
 				"name": "assistance"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 1
 		},
@@ -82,13 +107,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 15,
+				"order": 43,
 				"id": 24,
 				"prevSize": 32,
 				"code": 59650,
 				"name": "driver"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 2
 		},
@@ -115,13 +140,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 16,
+				"order": 44,
 				"id": 23,
 				"prevSize": 32,
 				"code": 59651,
 				"name": "passenger"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 3
 		},
@@ -145,13 +170,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 17,
+				"order": 45,
 				"id": 22,
 				"prevSize": 32,
 				"code": 59652,
 				"name": "protector"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 4
 		},
@@ -172,13 +197,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 18,
+				"order": 46,
 				"id": 21,
 				"prevSize": 32,
 				"code": 59653,
 				"name": "excess"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 5
 		},
@@ -199,13 +224,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 19,
+				"order": 47,
 				"id": 20,
 				"prevSize": 32,
 				"code": 59654,
 				"name": "accessories2"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 6
 		},
@@ -227,13 +252,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 20,
+				"order": 48,
 				"id": 19,
 				"prevSize": 32,
 				"code": 59655,
 				"name": "overseas"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 7
 		},
@@ -254,13 +279,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 21,
+				"order": 49,
 				"id": 18,
 				"prevSize": 32,
 				"code": 59656,
 				"name": "repair"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 8
 		},
@@ -282,13 +307,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 22,
+				"order": 50,
 				"id": 17,
 				"prevSize": 32,
 				"code": 59657,
 				"name": "delivery"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 9
 		},
@@ -313,13 +338,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 23,
+				"order": 51,
 				"id": 16,
 				"prevSize": 32,
 				"code": 59658,
 				"name": "marketvalue"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 10
 		},
@@ -340,13 +365,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 24,
+				"order": 52,
 				"id": 15,
 				"prevSize": 32,
 				"code": 59659,
 				"name": "windscreen"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 11
 		},
@@ -370,13 +395,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 25,
+				"order": 53,
 				"id": 14,
 				"prevSize": 32,
 				"code": 59660,
 				"name": "loss"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 12
 		},
@@ -399,13 +424,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 26,
+				"order": 54,
 				"id": 13,
 				"prevSize": 32,
 				"code": 59661,
 				"name": "towing"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 13
 		},
@@ -426,13 +451,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 27,
+				"order": 55,
 				"id": 12,
 				"prevSize": 32,
 				"code": 59662,
 				"name": "courtesy"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 14
 		},
@@ -455,13 +480,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 28,
+				"order": 56,
 				"id": 11,
 				"prevSize": 32,
 				"code": 59663,
 				"name": "accessories"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 15
 		},
@@ -482,13 +507,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 29,
+				"order": 57,
 				"id": 10,
 				"prevSize": 32,
 				"code": 59664,
 				"name": "phone"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 16
 		},
@@ -510,13 +535,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 30,
+				"order": 58,
 				"id": 9,
 				"prevSize": 32,
 				"code": 59665,
 				"name": "medical"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 17
 		},
@@ -537,82 +562,15 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 31,
+				"order": 59,
 				"id": 8,
 				"prevSize": 32,
 				"code": 59666,
 				"name": "value"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 18
-		},
-		{
-			"icon": {
-				"paths": [
-					"M512.069 813.819h-276.562v87.275c0 106.245-153.7 107.509-153.7 0v-87.275h-81.807v-273.313c0-73.359 59.007-112.125 92.329-116.356l84.121-214.821c15.835-40.907 50.144-75.871 114.804-75.871h120.185v-56.088c0-22.433 12.167-33.824 31.96-33.824h138.496c19.794 0 31.96 11.391 31.96 33.824v56.088h118.805c64.66 0 98.969 34.964 114.804 75.871l84.121 214.821c33.322 4.231 92.39 42.997 92.39 116.356v273.313h-81.807v87.275c0 107.509-153.7 106.245-153.7 0v-87.275h-276.401z",
-					"M511.905 419.090h-332.483l63.335-166.215c7.918-23.753 19.799-40.907 47.51-41.163h443.387c27.711 0.256 39.588 17.411 47.505 41.163l63.335 166.215h-332.589z",
-					"M161.103 646.735c-39.208 0-70.996-32.438-70.996-72.445s31.789-72.443 70.996-72.443c39.208 0 70.994 32.435 70.994 72.443s-31.786 72.445-70.994 72.445z",
-					"M862.815 646.735c39.208 0 70.994-32.438 70.994-72.445s-31.786-72.443-70.994-72.443c-39.208 0-70.996 32.435-70.996 72.443s31.789 72.445 70.996 72.445z"
-				],
-				"attrs": [
-					{
-						"fill": "rgb(0, 0, 0)"
-					},
-					{
-						"fill": "rgb(255, 255, 255)"
-					},
-					{
-						"fill": "rgb(255, 255, 255)"
-					},
-					{
-						"fill": "rgb(255, 255, 255)"
-					}
-				],
-				"isMulticolor": true,
-				"grid": 0,
-				"tags": [
-					"taxi"
-				],
-				"colorPermutations": {
-					"12552552551": [
-						0,
-						1,
-						1,
-						1
-					]
-				}
-			},
-			"attrs": [
-				{
-					"fill": "rgb(0, 0, 0)"
-				},
-				{
-					"fill": "rgb(255, 255, 255)"
-				},
-				{
-					"fill": "rgb(255, 255, 255)"
-				},
-				{
-					"fill": "rgb(255, 255, 255)"
-				}
-			],
-			"properties": {
-				"order": 32,
-				"id": 7,
-				"prevSize": 32,
-				"code": 59667,
-				"codes": [
-					59667,
-					59668,
-					59669,
-					59670
-				],
-				"name": "taxi"
-			},
-			"setIdx": 0,
-			"setId": 1,
-			"iconIdx": 19
 		},
 		{
 			"icon": {
@@ -632,13 +590,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 33,
+				"order": 61,
 				"id": 6,
 				"prevSize": 32,
 				"code": 59671,
 				"name": "truck"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 20
 		},
@@ -659,13 +617,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 34,
+				"order": 62,
 				"id": 5,
 				"prevSize": 32,
 				"code": 59672,
 				"name": "legal"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 21
 		},
@@ -696,13 +654,13 @@
 				}
 			],
 			"properties": {
-				"order": 35,
+				"order": 63,
 				"id": 4,
 				"prevSize": 32,
 				"code": 59673,
 				"name": "webchat"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 22
 		},
@@ -723,13 +681,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 36,
+				"order": 64,
 				"id": 3,
 				"prevSize": 32,
 				"code": 59674,
 				"name": "delete"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 23
 		},
@@ -750,13 +708,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 37,
+				"order": 65,
 				"id": 2,
 				"prevSize": 32,
 				"code": 59675,
 				"name": "edit"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 24
 		},
@@ -777,13 +735,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 38,
+				"order": 66,
 				"id": 1,
 				"prevSize": 32,
 				"code": 59676,
 				"name": "menu"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 25
 		},
@@ -804,13 +762,13 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 39,
+				"order": 67,
 				"id": 0,
 				"prevSize": 32,
 				"code": 59677,
 				"name": "settings"
 			},
-			"setIdx": 0,
+			"setIdx": 1,
 			"setId": 1,
 			"iconIdx": 26
 		}
