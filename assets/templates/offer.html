@@ -223,55 +223,6 @@
         </md-tabs>
       </md-content>
     </div>
-    <div flex="25"  layout="column" flex-xs="100" >
-      <md-toolbar class="md-primary">
-        <md-title layout-margin layout-padding>Your quotation</md-title>
-      </md-toolbar>
-      <md-content class="step" layout-padding>
-        <div>
-          <h4 class="category-summary">Your plan</h4>
-          <div layout="row">
-            <div flex="60">
-              <span>{{plan.__Name}}</span>
-            </div>
-            <div flex="40">
-              <span>$ {{plan.UsualPremium}}</span>
-            </div>
-          </div>
-          <div layout="row">
-            <div flex="60">
-              <i>Excess</i>
-            </div>
-            <div flex="40">
-              <i>$ 1200</i>
-            </div>
-          </div>
-        </div>
-        <div class="discount">
-          <h4 class="category-summary">Your discount</h4>
-
-          <div layout="row" ng-repeat="discount in plan.Discounts">
-            <div flex="60">
-              <span>{{discount.__label}}</span>
-            </div>
-            <div flex="40">
-              <span>$ {{discount.PayablePremium}}</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h4 class="category-summary">Total</h4>
-          <div layout="row">
-            <div flex="60">
-              <span>including GST</span>
-            </div>
-            <div flex="40">
-              <span><h4>$ {{plan.FinalPremium}}</h4></span>
-            </div>
-          </div>
-        </div>
-      </md-content>
-    </div>
   </div>
   <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
     <md-toolbar class="md-theme-light">
@@ -279,11 +230,55 @@
     </md-toolbar>
     <md-content ng-controller="RightCtrl" layout-padding>
       <form>
-        <md-input-container>
-          <label for="testInput">Test input</label>
-          <input type="text" id="testInput"
-                 ng-model="data" md-autofocus>
-        </md-input-container>
+        <div flex="25"  layout="column" flex-xs="100" >
+          <md-toolbar class="md-primary">
+            <md-title layout-margin layout-padding>Your quotation</md-title>
+          </md-toolbar>
+          <md-content class="step" layout-padding>
+            <div>
+              <h4 class="category-summary">Your plan</h4>
+              <div layout="row">
+                <div flex="60">
+                  <span>{{plan.__Name}}</span>
+                </div>
+                <div flex="40">
+                  <span>$ {{plan.UsualPremium}}</span>
+                </div>
+              </div>
+              <div layout="row">
+                <div flex="60">
+                  <i>Excess</i>
+                </div>
+                <div flex="40">
+                  <i>$ 1200</i>
+                </div>
+              </div>
+            </div>
+            <div class="discount">
+              <h4 class="category-summary">Your discount</h4>
+
+              <div layout="row" ng-repeat="discount in plan.Discounts">
+                <div flex="60">
+                  <span>{{discount.__label}}</span>
+                </div>
+                <div flex="40">
+                  <span>$ {{discount.PayablePremium}}</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="category-summary">Total</h4>
+              <div layout="row">
+                <div flex="60">
+                  <span>including GST</span>
+                </div>
+                <div flex="40">
+                  <span><h4>$ {{plan.FinalPremium}}</h4></span>
+                </div>
+              </div>
+            </div>
+          </md-content>
+        </div>
       </form>
       <md-button ng-click="close()" class="md-primary">
         Close Sidenav Right
