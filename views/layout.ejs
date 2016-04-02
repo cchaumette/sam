@@ -38,28 +38,36 @@
     <!--
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">-->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
 
   <body ng-cloak >
-  <div layout="column" >
-    <md-toolbar layout="row" style="background-color:white;height:7%;">
-      <div class="md-toolbar-tools" >
-          <div flex="30">
-            <span><img src="/images/axa_logo.jpg"  style=" padding-top: 20px;padding-left: 30px;padding-bottom: 20px; height: 70px;"></span>
-          </div>
-        <div flex="50"></div>
-          <div flex="20">
-            <md-input-container class="agentcode" flex-gt-sm>
-              <label>Agent Code</label>
-              <input ng-model="user.agentcode">
-            </md-input-container>
-        </div>
+  <header>
+    <div layout="row">
+      <div flex="30"  layout="row" layout-align=" center">
+        <span><img src="/images/axa_logo.jpg"  style="height: 30px;"></span>
       </div>
-    </md-toolbar>
-    <div ng-view></div>
+      <div flex="50"></div>
+      <div flex="20">
+        <md-input-container class="agentcode" flex-gt-sm>
+          <label>Agent Code</label>
+          <input ng-model="user.agentcode">
+        </md-input-container>
+      </div>
+    </div>
+  </header>
+
+  <div layout="row"  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; background-position-x: right;" >
+      <div layout="row" layout-xs="column" layout-margin ng-view style=" height:80%" layout-align="center center">
+        </div>
   </div>
+
+  <footer>
+    <div layout="row" layout-align="right center">
+    <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()"> Buy now</md-button>
+    </div>
+  </footer>
 
 
 
@@ -112,7 +120,6 @@
 
     -->
 
-    </div>
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/angular.min.js"></script>
