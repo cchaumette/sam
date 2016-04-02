@@ -22,8 +22,8 @@ app.factory('product', function(offer, marketing) {
   }
 
   product.benefitsList = [
-    {value:'Legal Liability', label:'Legal Liability'},
-    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
+    {value:'Legal Liability', label:'Legal Liability', icon:'icon-legal'},
+    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home',icon:'icon-medical'},
     {value:'Loss or Damage', label:'Loss or Damage'},
     {value:'Windscreen Replacement with Excess OR Repair your windscreen at your preferred location and get $50 cash reward with no excess', label:'Windscreen Replacement'},
     {value:'Guaranteed Repairs for twelve (12) Months', label:'Guaranteed Repairs for 12 Months'},
