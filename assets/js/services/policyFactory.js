@@ -30,11 +30,9 @@ app.factory('policy', function() {
           "MaritalStatus": "MARRIED",
           "DateOfBirth": "19761231",
           "YearsOfDrivingExp": "6",
-          "PostalCode": "999999"
-        },
-
-        //TODO : dynamique
-        {},{},{},{}
+          "PostalCode": "999999",
+          "__label" : 'Main Driver'
+        }
       ],
       "PolicyHolder": [{
         "IsCorporateClient": "Individual",
