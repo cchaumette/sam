@@ -8,9 +8,9 @@
         <div md-padding >
           <md-input-container class="md-block " flex-gt-sm >
             <label class="space-up">Enter your car make and select the model</label>
-            <input ng-model="car.make" ng-keyup="algolia()" class="md-primary">
+            <input ng-model="carSearch" ng-keyup="algolia()" class="md-primary">
             <div ng-show="car.car_id == null">
-              <div ng-repeat="hit in hits" ng-click="searchTo(hit.make + ' ' + hit.model, hit.item)">
+              <div ng-repeat="hit in hits" ng-click="searchTo(hit)">
                 {{hit.make}} {{hit.model}}
               </div>
             </div>
@@ -39,7 +39,7 @@
           </div>
           </md-content>
     </div>
-    <div flex="33" layout="column" flex-xs="100" >
+    <div flex="33" layout="column" flex-xs="100">
      <md-toolbar>
         <md-title layout-margin layout-padding>Driver details</md-title>
      </md-toolbar>
@@ -95,7 +95,7 @@
     </div>
 
 
-    <div flex="33" layout="column" flex-xs="100" style="margin-left: -32.66%;">
+    <div flex="33" layout="column" flex-xs="100" style="margin-left: -32.9%;" ng-show="!step2IsVisible()">
       <md-toolbar>
         <md-title layout-margin layout-padding >Driver details</md-title>
       </md-toolbar>
@@ -104,7 +104,7 @@
     </div>
 
 
-    <div flex="33"  layout="column" flex-xs="100" >
+    <div flex="33"  layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Driving experience</md-title>
         </md-toolbar>
@@ -151,7 +151,7 @@
     </div>
   </div>
 
-  <div flex="33" layout="column" flex-xs="100" style="margin-left: -32.66%;">
+  <div flex="33" layout="column" flex-xs="100" style="margin-left: -33.33%;" ng-show="!step3IsVisible()">
     <md-toolbar>
       <md-title layout-margin layout-padding>Driving experience</md-title>
     </md-toolbar>
@@ -162,5 +162,5 @@
 </md-content>
 
 <footer>
-  <md-button class="md-raised own_button action" href="#/offer"> Buy now</md-button>
+  <md-button class="md-raised own_button action" href="#/offer" ng-disabled="!offerIsEnabled()"> Buy now</md-button>
 </footer>

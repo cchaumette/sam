@@ -4,37 +4,65 @@
 app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','algolia', function ($scope, policy, $filter, $mdSidenav, $mdDialog,algolia) {
 
   console.log("== AppCtrl ==");
-
   $scope.licenseMonth = '';
-
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
-
   $scope.rangeYearOfmake = 0;
 
   $scope.policy = policy;
-  $scope.car = policy.car;
+  $scope.car = policy.profil.Vehicle;
 
   var clientAlgolia = algolia.Client('BGXJZLELLV', 'f73fe5af31d85d2206be16d5a51718b0');
   var indexAlgolia = clientAlgolia.initIndex('car_list_dev');
 
-  $scope.search = {value:""};
-
   $scope.algolia = function () {
-    console.log("car = " + $scope.car.make);
-    $scope.car.car_id = null;
-    indexAlgolia.search( $scope.car.make).then(function(content){$scope.hits = content.hits;});
+    console.log("car = " + $scope.carSearch);
+    $scope.policy.profil.Vehicle.car_id = null;
+    $scope.policy.profil.Vehicle.Make = null;
+   $scope.policy.profil.Vehicle.Model= null;
+    indexAlgolia.search( $scope.carSearch).then(function(content){$scope.hits = content.hits;});
   };
   $scope.range = _.range;
-  $scope.searchTo = function(car, car_id) {
-    $scope.car.make = car;
-    $scope.car.car_id = car_id;
+  $scope.searchTo = function(hit) {
+    $scope.policy.profil.Vehicle.Make = hit.make;
+    $scope.policy.profil.Vehicle.Model = hit.model;
+    $scope.policy.profil.Vehicle.car_id = hit.item;
+    $scope.carSearch = hit.make + " " +  hit.model;
   }
 
   $scope.flow = [
-    {step1:true, step2:false, step3:false}
+    {step1:true, step2:false, step3:false, offer:false}
   ];
 
 
+  $scope.step2IsVisible = function () {
+    $scope.flow.step1 = false;
+    if($scope.policy.profil.Vehicle.Make != null
+        && $scope.policy.profil.Vehicle.Model != null
+        && $scope.policy.profil.Vehicle.YearOfMake != null) $scope.flow.step1 = true;
+    return $scope.flow.step1;
+  }
+
+  $scope.step3IsVisible = function () {
+    $scope.flow.step2 = true;
+    $scope.policy.profil.Drivers.forEach(function(driver, index)
+      {
+        $scope.flow.step2 = $scope.flow.step2
+                   && driver.Gender !=null
+                   && driver.MaritalStatus !=null
+                   && driver.Age
+                   && driver.license;
+      }
+    )
+    return $scope.flow.step1 && $scope.flow.step2;
+  }
+
+  $scope.offerIsEnabled = function(){
+    $scope.flow.step3 = false;
+    if($scope.policy.profil.NCDPoints != null && policy.profil.ClaimsPast3Years == false) $scope.flow.step3 = true;
+    $scope.flow.offer = $scope.flow.step1 && $scope.flow.step2 && $scope.flow.step3;
+
+    return $scope.flow.offer;
+  }
 
   $scope.addDriver = function(){
     if($scope.isAddDriverEnable){
@@ -164,7 +192,6 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   }
 
-
   $scope.showReferral = function (ev) {
     $mdDialog.show({
       controller: DialogController,
@@ -173,6 +200,6 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       targetEvent: ev,
       locals :{currentPack : null }
     })
-
   };
+
 }]);
