@@ -41,9 +41,9 @@ app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','
     {__Name:'TPO',UsualPremium :'$353.73', __Benefits :{'Legal Liability' : true}}
   ];
   $scope.BenefitsForNOCOMP = [
-    {value:'Legal Liability', label:'Legal Liability'},
-    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home'},
-    {value:'Loss Or Damage By Fire & Theft', label:'Loss Or Damage By Fire & Theft'},
+    {value:'Legal Liability', label:'Legal Liability', icon:'icon-legal'},
+    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home', icon:'icon-towing'},
+    {value:'Loss Or Damage By Fire & Theft', label:'Loss Or Damage By Fire & Theft', icon:'icon-loss'},
   ];
 
 

@@ -23,17 +23,17 @@ app.factory('product', function(offer, marketing) {
 
   product.benefitsList = [
     {value:'Legal Liability', label:'Legal Liability', icon:'icon-legal'},
-    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home',icon:'icon-medical'},
-    {value:'Loss or Damage', label:'Loss or Damage'},
-    {value:'Windscreen Replacement with Excess OR Repair your windscreen at your preferred location and get $50 cash reward with no excess', label:'Windscreen Replacement'},
-    {value:'Guaranteed Repairs for twelve (12) Months', label:'Guaranteed Repairs for 12 Months'},
-    {value:'Reimbursement of 110% of your car’s market value in the event of total loss (without Basic Own Damage Excess)', label:'110% of your cars market value for total loss'},
-    {value:'Workshop of Your Choice', label:'Workshop of Your Choice'},
-    {value:'Delivery of Repaired Car', label:'Delivery of Repaired Car'},
+    {value:'24/7 Towing & Transportation in Singapore or Overseas', label:'24/7 Towing & transport back home',icon:'icon-towing'},
+    {value:'Loss or Damage', label:'Loss or Damage',icon:'icon-loss'},
+    {value:'Windscreen Replacement with Excess OR Repair your windscreen at your preferred location and get $50 cash reward with no excess', label:'Windscreen Replacement', icon:'icon-windscreen'},
+    {value:'Guaranteed Repairs for twelve (12) Months', label:'Guaranteed Repairs for 12 Months', icon:'icon-protector'},
+    {value:'Reimbursement of 110% of your car’s market value in the event of total loss (without Basic Own Damage Excess)', label:'110% of your cars market value for total loss',icon:'icon-marketvalue'},
+    {value:'Workshop of Your Choice', label:'Workshop of Your Choice',icon:'icon-repair'},
+    {value:'Delivery of Repaired Car', label:'Delivery of Repaired Car',icon:'icon-delivery'},
     //  {value:'Reimbursement of 110% of your cars market value in the event of total loss due to flood (without Basic Own Damage Excess)', label:'110% of your cars market value for total loss due to flood'},
-    {value:'Medical and dental expenses up to $1,000 per person for you, your named drivers and your immediate family members', label:'Medical and dental expenses'},
-    {value:'Daily Transport Allowance of $100 for a maximum of 10 days', label:'Daily Transport Allowance'},
-    {value:'Loss of Personal Effects in Singapore up to $3,000', label:'Loss of Personal Effects'}
+    {value:'Medical and dental expenses up to $1,000 per person for you, your named drivers and your immediate family members', label:'Medical and dental expenses',icon:'icon-medical'},
+    {value:'Daily Transport Allowance of $100 for a maximum of 10 days', label:'Daily Transport Allowance', icon:'icon-taxi'},
+    {value:'Loss of Personal Effects in Singapore up to $3,000', label:'Loss of Personal Effects',icon:'icon-phone'}
 
   ];
 

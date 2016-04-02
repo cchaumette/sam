@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?i1c3wg');
-    src:    url('fonts/icomoon.eot?i1c3wg#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?i1c3wg') format('truetype'),
-        url('fonts/icomoon.woff?i1c3wg') format('woff'),
-        url('fonts/icomoon.svg?i1c3wg#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?kv23jk');
+    src:    url('fonts/icomoon.eot?kv23jk#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?kv23jk') format('truetype'),
+        url('fonts/icomoon.woff?kv23jk') format('woff'),
+        url('fonts/icomoon.svg?kv23jk#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,6 +24,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-taxi:before {
+    content: "\e913";
+}
 .icon-family:before {
     content: "\e900";
 }
@@ -80,25 +83,6 @@
 }
 .icon-value:before {
     content: "\e912";
-}
-.icon-taxi .path1:before {
-    content: "\e913";
-    color: rgb(0, 0, 0);
-}
-.icon-taxi .path2:before {
-    content: "\e914";
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
-}
-.icon-taxi .path3:before {
-    content: "\e915";
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
-}
-.icon-taxi .path4:before {
-    content: "\e916";
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
 }
 .icon-truck:before {
     content: "\e917";
