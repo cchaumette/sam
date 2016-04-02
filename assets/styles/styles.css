@@ -83,14 +83,15 @@
   margin-top: 2px;
 }
 footer{
-  height:7%;
+
   margin-top:10px;
 }
 .own_button{
   background-color:white;
-  border: solid 2px rgb(255,82,82);
+  border: solid 1px rgb(255,82,82);
   color:rgb(255,82,82)!important;
 }
+
 .space{
   padding-top:18px;
   padding-bottom:18px;

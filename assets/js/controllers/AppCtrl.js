@@ -134,6 +134,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     );
   };*/
   $scope.showAlert = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/templates/dialogoffpeak.html',
@@ -151,6 +152,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
   $scope.showAdvanced = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/templates/dialogNCD.html',
@@ -162,6 +164,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
 
   $scope.CheckClaims = function (claims){
+
     if (claims == true){
       $scope.showClaims_amount = true;
     }
@@ -193,6 +196,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   }
 
   $scope.showReferral = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/templates/dialogReferral.html',

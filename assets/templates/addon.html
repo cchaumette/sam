@@ -9,9 +9,8 @@
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
               <span class="md-subhead" layout-padding layout="end end" flex="70">{{p.__label.Title}}</span>
-              <md-button class="md-icon-button" ng-show="p.IsSelected != true"><md-icon><i class="material-icons"  ng-click="p.IsSelected = true"  >add</i></md-icon></md-button>
-              <md-button class="md-icon-button" ng-show="p.IsSelected == true"><md-icon><i class="material-icons"  ng-click="p.IsSelected = false">close</i></md-icon></md-button>
-              </div>
+              <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" ng-model="" class="input-down"></md-checkbox>
+             </div>
           </div>
           <md-card-content>
             <p>{{p.__label.SubTitle}}</p>

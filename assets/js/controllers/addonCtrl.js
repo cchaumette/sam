@@ -31,6 +31,7 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
     })
   };
   $scope.showAdvanced = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/templates/dialogEmail.html',
