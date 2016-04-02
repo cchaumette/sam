@@ -42,5 +42,16 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
   };
 
 
+ $scope.addonsLabels = {
+  "ChangeExcess" : {icon : 'icon-accessories' , label: "Zero excess at claim"} ,
+  "PersonalAccident" : {icon: 'icon-overseas' , label:  "We gives you the amount of the sum insured in the event of invalidity following a car accident"},
+  "CarAccessoriesReimbursedUpTo2K" : {icon: 'icon-delivery' , label : "We cover your car accesories up to $2,000 in the event of theft or damage"},
+  "CourtesyCar" : {icon: 'icon-marketvalue', label :"Select your car type", label : "We send you on the road assistance in the event of a breakdown and accident"},
+  "ReimburseCarMarketValueWithNoExcessAtTotalLoss" : {icon: 'icon-windscreen'},
+  "PhoneAssitanceAndRoadsideSupport" : {icon: 'icon-windscreen', label:"Phone Assistance and Roadside Support"},
+  "PAForPassengers" : {icon: 'icon-loss', label:"Your passengers are entitled to a lump sum of $20,000 in the event of a car accident"}
+  }
+
+
 
 }]);
