@@ -143,29 +143,21 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     })
   };
 
-  $scope.showReferral = function (ev) {
-    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-    $mdDialog.show({
-      controller: DialogController,
-      templateUrl: '/templates/dialogReferral.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      locals :{policy : policy.param , currentPack: null}
-    })
-  };
 
   $scope.CheckClaims = function (ev){
 
     if (policy.profil.ClaimsPast3Years == true){
       $scope.showReferral(ev)
     }
-
-  };
+    else{
+      $scope.showClaims_amount = false;
+    }
+  }
 
 
   $scope.CheckClaimsAmount = function (ev){
     if (policy.profil.TotalClaimAmount == 0){
-      $scope.showClaims_number = false;
+      $scope.showClaims_number = true;
     }
     else{
       $scope.showClaims_number = true;
@@ -187,16 +179,16 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     }
 
   }
-  function DialogController($scope, $mdDialog, currentPack, policy) {
-    $scope.currentPack = currentPack;
-    $scope.select = function () {
-      if(currentPack) currentPack.IsSelected = true;
-      $mdDialog.hide();
-    };
-    $scope.cancel = function () {
-      $mdDialog.cancel();
-    };
 
-  }
+  $scope.showReferral = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogReferral.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals :{currentPack:null, policy : policy }
+    })
+  };
 
 }]);
