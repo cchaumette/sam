@@ -36,8 +36,8 @@
           </div>
 
           <p layout-padding >Is your car financed with a loan?</p>
-          <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding>
-            <md-radio-button class="md-primary" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}</md-radio-button>
+          <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding layout="start center">
+            <div flex="33" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan" ><md-radio-button class="md-primary" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}</md-radio-button></div>
           </md-radio-group>
 
          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true" layout-padding>
@@ -49,8 +49,8 @@
 
 
           <p layout-padding>Is it your first time insured?</p>
-          <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding>
-            <md-radio-button class="md-primary" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button>
+          <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding layout="start center">
+            <div flex="33" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured"> <md-radio-button class="md-primary"  ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button></div>
           </md-radio-group>
           <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == false" layout-padding>
             <label>Select your previous insurer</label>
@@ -66,8 +66,8 @@
         </md-toolbar>
       <md-content class="step" layout-padding>
         <p>Is the main driver the policyholder </p>
-        <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder">
-          <md-radio-button class="md-primary" class="md-primary" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder" ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button>
+        <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder" layout="start center">
+          <div flex="33" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder"><md-radio-button class="md-primary" class="md-primary"  ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button></div>
         </md-radio-group>
         <div ng-show="policy.profil.IsMainDriverPolicyHolder == false">
 

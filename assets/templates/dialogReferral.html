@@ -12,28 +12,30 @@
     <md-dialog-actions>
       <div  class="space-up">
         <p>What was the total claimable amount? </p>
-        <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row" layout-align="space-around center"
+        <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row" layout-align="start center"
                         ng-click="CheckClaimsAmount($event)" layout-padding>
-          <md-radio-button class="md-primary" ng-repeat="TotalClaimAmount in policy.param.TotalClaimAmount"
+          <div flex="33" ng-repeat="TotalClaimAmount in policy.param.TotalClaimAmount">
+          <md-radio-button class="md-primary"
                            ng-value="TotalClaimAmount.value">{{TotalClaimAmount.label}}
-          </md-radio-button>
+          </md-radio-button></div>
         </md-radio-group>
       </div>
       <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
         <p>How many of these were non-windscreen claims?</p>
-        <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" layout-align="space-around center"
+        <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" layout-align="start center"
                         ng-click="CheckClaimsNumber($event)" layout-padding>
-          <md-radio-button class="md-primary" ng-repeat="NumberOfClaims in policy.param.NumberOfClaims"
+          <div flex="33" ng-repeat="NumberOfClaims in policy.param.NumberOfClaims">
+          <md-radio-button class="md-primary"
                            ng-value="NumberOfClaims.value">{{NumberOfClaims.label}}
-          </md-radio-button>
+          </md-radio-button></div>
       </div>
       <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
         <p>How many of these were windscreen claims?</p>
-        <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" layout-align="space-around center"
+        <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" layout-align="start center"
                         ng-click="CheckClaimsNumberWind($event)" layout-padding>
-          <md-radio-button class="md-primary" ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"
+          <div flex="33" ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"><md-radio-button class="md-primary"
                            ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}
-          </md-radio-button>
+          </md-radio-button></div>
       </div>
    <!-- <div layout="column" layout-sm="column" flex layout-padding>
       <p>Our underwriting team will review your profile and come back to you within 48h. Kindly let us your contact details.</p>
