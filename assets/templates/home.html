@@ -124,8 +124,7 @@
           <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
             <md-button class=" button-choice"
                        ng-repeat="NCDPoints in policy.param.NCDPoints"
-                       ng-value="NCDPoints.value"
-                       ng-click="policy.profil.NCDPoints = NCDPoints.value"
+                       ng-click="checkNCD($event, NCDPoints.value)"
                        ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-primary' : '' "
               >
               {{NCDPoints.label}}
