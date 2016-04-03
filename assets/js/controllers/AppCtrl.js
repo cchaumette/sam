@@ -1,7 +1,7 @@
 /**
  * Created by clement on 27/3/16.
  */
-app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','algolia', function ($scope, policy, $filter, $mdSidenav, $mdDialog,algolia) {
+app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','$mdMedia','algolia', function ($scope, policy, $filter, $mdSidenav, $mdDialog,$mdMedia,algolia) {
 
   console.log("== AppCtrl ==");
   $scope.licenseMonth = '';
