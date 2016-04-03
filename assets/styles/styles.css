@@ -51,7 +51,7 @@
 .selection{
   background-color:#82b1ff;
   text-align:center;
-  color:white;
+  color:white!important;
 
 }
 .addon-selected{

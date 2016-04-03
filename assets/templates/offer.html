@@ -45,7 +45,7 @@
 
                    <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
                         ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
-                     <h4 class="input-down input-up plan-name" style="padding-top:5px;">{{Plan.__Name}}</h4>
+                     <h4 class="input-down input-up plan-name" ng-class="Plan.IsSelected ? 'selection' :''" style="padding-top:5px;">{{Plan.__Name}}</h4>
                      <h3 class="input-up" style="margin-bottom:0px;">$ {{Plan.UsualPremium}}</h3>
                    </div>
                  </div>
