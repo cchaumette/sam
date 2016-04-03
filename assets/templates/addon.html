@@ -8,7 +8,7 @@
         <div class="card-packs" ng-repeat="p in plan.Packs">
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
-              <span class="md-subhead" layout-padding layout="end end" flex="70">{{p.__label.Title}}</span>
+              <span class="md-subhead"  layout="end end" flex="70"><span class="{{packsLabels[p.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;"></span><span>{{p.__label.Title}}</span></span>
               <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" ng-model="" class="input-down"></md-checkbox>
              </div>
           </div>
