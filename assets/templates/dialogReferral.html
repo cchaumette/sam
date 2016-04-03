@@ -1,25 +1,23 @@
-<md-dialog aria-label="Pack" flex="auto">
+<md-dialog aria-label="Claims" flex="auto">
   <form>
   <md-toolbar >
     <div class="md-toolbar-tools" >
       <h2 class="md-title-card">Claims history</h2>
       <span flex></span>
-      <md-button class="md-icon-button" ng-click="cancel()">
+      <md-button class="md-icon-button" ng-click="close()">
         <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
       </md-button>
     </div>
   </md-toolbar>
-    <md-dialog-actions>
-      <div  class="space-up">
+    <md-dialog-actions>{{policy}}
         <p>What was the total claimable amount? </p>
-        <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row" layout-align="start center"
-                        ng-click="CheckClaimsAmount($event)" layout-padding>
+        <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row" layout-padding>
           <div flex="33" ng-repeat="TotalClaimAmount in policy.param.TotalClaimAmount">
           <md-radio-button class="md-primary"
                            ng-value="TotalClaimAmount.value">{{TotalClaimAmount.label}}
           </md-radio-button></div>
         </md-radio-group>
-      </div>
+
       <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
         <p>How many of these were non-windscreen claims?</p>
         <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" layout-align="start center"

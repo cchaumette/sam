@@ -25,15 +25,15 @@
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Select add-ons</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step" style="padding-left:16px; padding-right:16px;" >
         <div ng-repeat="a in plan.AddOns">
           <div layout="row" layout-align="space-between center" class="accordion">
 
-            <span flex="80" ng-class="a.IsSelected == true ? 'addon-selected':''"><p><b><span
-              class="{{addonsLabels[a.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''"
+            <span flex="80" ng-class="a.IsSelected == true ? 'addon-selected':''" ><p><b>
+              <span class="{{addonsLabels[a.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''"
               style="font-size:24px;"></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b>
             </p></span>
-            <span flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''">$ 64</span>
+            <span flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''" layout="center center"><b>$ 64</b></span>
 
             <md-button class="md-icon-button" ng-show="a.Show != true">
               <md-icon><i class="material-icons" ng-class="a.IsSelected == true ? 'addon-selected':''"
