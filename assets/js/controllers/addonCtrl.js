@@ -59,5 +59,18 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
   }
 
 
+  $scope.updateParamsAddon = function(addon, optList, idx){
+    if(optList[idx].isSelected == true) {
+      optList[idx].isSelected = false;
+      addon.IsSelected = false;
+    }
+    else{
+      addon.IsSelected = true;
+      for (var i= 0; i < optList.length; i++){
+         if(i == idx) optList[i].isSelected = true;
+         else optList[i].isSelected = false;
+      }
+    }
+  }
 
 }]);
