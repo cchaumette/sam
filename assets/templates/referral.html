@@ -1,0 +1,45 @@
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height:83%; background-position-x: right;" layout="row" layout-align="space-around center">
+
+    <div flex="50" layout-fill flex-xs="100">
+      <md-toolbar class="md-primary">
+        <md-title layout-margin layout-padding>Referral</md-title>
+      </md-toolbar>
+      <md-content class="step" layout-padding>
+        <div layout="row" ng-hide="policy.referral == true">
+        <div layout="column" layout-sm="column" flex layout-padding>
+          <p>Our underwriting team will review your profile. Kindly let us your contact details.</p>
+          <md-input-container class="md-block input-down" flex-gt-sm >
+            <label>Your name</label>
+            <input ng-model="driver.Age">
+          </md-input-container>
+          <form name="userForm">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Your email</label>
+              <input name="email" ng-model="policyholder.email"
+                     required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+              <div class="hint" ng-show="showHints"></div>
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Your phone number</label>
+              <input name="phone" ng-model="policyholder.phone"
+                     required minlength="8" maxlength="8" ng-pattern="" />
+              <div class="hint" ng-show="showHints"></div>
+
+            </md-input-container>
+          </form>
+
+        </div>
+    </div>
+        <div ng-show="policy.referral == true"  layout-padding >
+        <p style="font-size:18px; text-align:center;" > Thank you, your details have been sent to our underwriting team. We will come back to you within 5 working days.</p>
+        </div>
+    </div>
+      </md-content>
+    </div>
+
+
+</md-content>
+<footer>
+  <md-button class=" md-raised md-accent action" ng-click="policy.referral = true"> Submit</md-button>
+</footer>

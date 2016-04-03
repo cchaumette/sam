@@ -25,6 +25,10 @@ app.config(['$routeProvider',
         templateUrl: 'templates/home.html',
         controller: 'AppCtrl'
       }).
+      when('/referral', {
+        templateUrl: 'templates/referral.html',
+        controller: 'ReferralCtrl'
+      }).
       when('/offer', {
         templateUrl: 'templates/offer.html',
         controller: 'offerCtrl'
@@ -54,6 +58,11 @@ app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSide
 
 }]);
 
+app.controller('ReferralCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog) {
+  $scope.policy = policy;
+  console.log("== ReferralCtrl ==");
+
+}]);
 
 app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog) {
   $scope.policy = policy;

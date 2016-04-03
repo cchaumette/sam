@@ -132,12 +132,9 @@
           </section>
           <div md-padding class="space-up">
             <p>Have you made any claims in the past 3 years?</p>
-            <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center"
-                            ng-change="CheckClaims($event)" layout-padding>
+            <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center" ng-change="CheckClaims($event)" layout-padding>
               <div flex="33" ng-repeat="ClaimsPast3Years in policy.param.ClaimsPast3Years">
-              <md-radio-button class="md-primary"
-                               ng-value="ClaimsPast3Years.value"
-              ">{{ClaimsPast3Years.label}}</md-radio-button></div>
+              <md-radio-button class="md-primary" ng-value="ClaimsPast3Years.value">{{ClaimsPast3Years.label}}</md-radio-button></div>
             </md-radio-group>
           </div>
 
@@ -154,5 +151,6 @@
   </div>
 </md-content>
 <footer>
-  <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()"> Buy now</md-button>
+  <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()" ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' "> Buy now</md-button>
+  <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!offerIsEnabled()" ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">Test</md-button>
 </footer>

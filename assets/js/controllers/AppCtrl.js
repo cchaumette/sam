@@ -157,7 +157,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.CheckClaimsAmount = function (ev){
     if (policy.profil.TotalClaimAmount == 0){
-      $scope.showClaims_number = true;
+      $scope.showClaims_number = false;
     }
     else{
       $scope.showClaims_number = true;
