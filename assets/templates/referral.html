@@ -1,5 +1,4 @@
 <md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height:83%; background-position-x: right;" layout="row" layout-align="space-around center">
-
     <div flex="50" layout-fill flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Referral</md-title>
@@ -28,18 +27,14 @@
 
             </md-input-container>
           </form>
-
         </div>
     </div>
         <div ng-show="policy.referral == true"  layout-padding >
         <p style="font-size:18px; text-align:center;" > Thank you, your details have been sent to our underwriting team. We will come back to you within 5 working days.</p>
         </div>
+        <md-button ng-hide="policy.referral == true"  class=" md-raised md-accent action" ng-click="policy.referral = true"> Submit</md-button>
     </div>
       </md-content>
     </div>
-
-
 </md-content>
-<footer>
-  <md-button class=" md-raised md-accent action" ng-click="policy.referral = true"> Submit</md-button>
-</footer>
+
