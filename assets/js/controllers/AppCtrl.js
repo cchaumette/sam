@@ -53,7 +53,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
                    && driver.license;
       }
     )
-    return $scope.flow.step1 && $scope.flow.step2;
+    return $scope.flow.step1 && $scope.flow.step2 || true;
   }
 
   $scope.offerIsEnabled = function(){
@@ -187,7 +187,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       templateUrl: '/templates/dialogReferral.html',
       parent: angular.element(document.body),
       targetEvent: ev,
-      locals :{currentPack : null }
+      locals :{currentPack:null, policy : policy }
     })
   };
 

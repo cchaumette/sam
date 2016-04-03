@@ -177,6 +177,7 @@ app.controller('paymentCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdD
 
 function DialogController($scope, $mdDialog, currentPack, policy) {
   $scope.currentPack = currentPack;
+  $scope.policy = policy
   $scope.select = function () {
     if(currentPack) currentPack.IsSelected = true;
     $mdDialog.hide();
