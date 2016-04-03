@@ -63,6 +63,13 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
     return $scope.flow.offer;
   }
+  $scope.referralIsEnabled = function(){
+    $scope.flow.step3 = false;
+    if($scope.policy.profil.NCDPoints != null && policy.profil.ClaimsPast3Years == true) $scope.flow.step3 = true;
+    $scope.flow.offer = $scope.flow.step1 && $scope.flow.step2 && $scope.flow.step3;
+
+    return $scope.flow.offer;
+  }
 
   $scope.addDriver = function(){
     if($scope.isAddDriverEnable){
