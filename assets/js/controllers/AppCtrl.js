@@ -103,14 +103,6 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
 
-  $scope.demo = {
-    topDirections: ['left', 'up'],
-    bottomDirections: ['down', 'right'],
-    availableModes: ['md-fling', 'md-scale'],
-    selectedMode: 'md-fling',
-    availableDirections: ['up', 'down', 'left', 'right'],
-    selectedDirection: 'down'
-  };
   $scope.checkOffpeak = function (ev, offpeak){
 
     console.log("===checkOffpeak = " + offpeak)
@@ -119,21 +111,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
       $scope.showAlert(ev)
     }
   }
-  /*$scope.showAlert = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    // Modal dialogs should fully cover application
-    // to prevent interaction outside of dialog
-    $mdDialog.show(
-      $mdDialog.alert(ev)
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title('Offpeak car discount')
-        .textContent('Offpeak car enjoys a 25% discount.')
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        .targetEvent(ev)
-    );
-  };*/
+
   $scope.showAlert = function (ev) {
     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
@@ -146,7 +124,9 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
   $scope.posts = [];
-  $scope.checkNCD = function(ev){
+
+  $scope.checkNCD = function(ev, NCDPoints){
+    policy.profil.NCDPoints =NCDPoints ;
     if (policy.profil.NCDPoints >= 30 ){
       $scope.showAdvanced(ev)
     }
@@ -164,9 +144,9 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   };
 
 
-  $scope.CheckClaims = function (claims){
+  $scope.CheckClaims = function (ev){
 
-    if (claims == true){
+    if (policy.profil.ClaimsPast3Years == true){
       $scope.showReferral(ev)
     }
     else{
