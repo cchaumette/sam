@@ -164,3 +164,8 @@ color:rgb(33, 150, 243);
   text-align:center;
 
 }
+.md-tooltip .md-content {
+  position: relative;
+  opacity: 0;
+  color:red;
+}

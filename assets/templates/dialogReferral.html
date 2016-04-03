@@ -4,7 +4,7 @@
     <div class="md-toolbar-tools" >
       <h2 class="md-title-card">Claims history</h2>
       <span flex></span>
-      <md-button class="md-icon-button" ng-click="close()">
+      <md-button class="md-icon-button" ng-click="cancel()">
         <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
       </md-button>
     </div>
@@ -32,36 +32,6 @@
             <md-radio-button class="md-primary" ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}</md-radio-button>
           </div>
       </div>
-   <!-- <div layout="column" layout-sm="column" flex layout-padding>
-      <p>Our underwriting team will review your profile and come back to you within 48h. Kindly let us your contact details.</p>
-      <md-input-container class="md-block" flex-gt-sm >
-        <label>Your name</label>
-        <input ng-model="driver.Age">
-      </md-input-container>
-      <form name="userForm">
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Your email</label>
-          <input name="email" ng-model="policyholder.email"
-                 required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-          <div class="hint" ng-show="showHints"></div>
-
-        </md-input-container>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Your phone number</label>
-          <input name="phone" ng-model="policyholder.phone"
-                 required minlength="8" maxlength="8" ng-pattern="" />
-          <div class="hint" ng-show="showHints"></div>
-          <div ng-messages="userForm.phone.$error" ng-hide="showHints">
-            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-              Enter a valid phone number.
-            </div>
-          </div>
-        </md-input-container>
-      </form>
-
-    </div>
-    </div>
-      </md-dialog-actions>-->
       </div>
   </md-dialog-actions>
 

@@ -6,9 +6,10 @@
       </md-toolbar>
       <md-content class="step" layout-padding>
         <div md-padding>
+
           <md-input-container class="md-block " flex-gt-sm>
             <label class="space-up">Enter your car make and select the model</label>
-            <input ng-model="carSearch" ng-keyup="algolia()" class="md-primary">
+            <input ng-model="carSearch" ng-keyup="algolia()" class="md-primary" required>
 
             <div ng-show="car.car_id == null">
               <div ng-repeat="hit in hits" ng-click="searchTo(hit)">
@@ -79,12 +80,12 @@
               </div>
               <md-input-container class="md-block input-down input-down" flex-gt-sm>
                 <label>How old is the driver?</label>
-                <input class="md-primary" ng-model="driver.Age">
+                <input class="md-primary" ng-model="driver.Age" required>
               </md-input-container>
               <div layout="row">
                 <md-input-container class="md-block input-down" flex-gt-sm flex="70">
                   <label>Which year was your driving license issued?</label>
-                  <input ng-model="driver.license">
+                  <input ng-model="driver.license" required>
                 </md-input-container>
                 <div md-input-container class="margin_two_inputs" flex="30" ng-show="driver.license >='2015'">
                   <p>Month</p>
