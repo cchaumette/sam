@@ -167,18 +167,21 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   $scope.CheckClaims = function (claims){
 
     if (claims == true){
-      $scope.showClaims_amount = true;
+      $scope.showReferral(ev)
     }
     else{
       $scope.showClaims_amount = false;
     }
   }
+
+
   $scope.CheckClaimsAmount = function (ev){
     if (policy.profil.TotalClaimAmount == 0){
       $scope.showClaims_number = true;
     }
     else{
-      $scope.showReferral(ev)
+      $scope.showClaims_number = true;
+
     }
   };
 

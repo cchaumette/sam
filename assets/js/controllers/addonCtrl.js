@@ -53,9 +53,9 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
   }
 
   $scope.packsLabels = {
-    "PackFamily" : {icon : 'icon-family'} ,
-    "PackOversea" : {icon: 'icon-overseas'},
-    "PackFinance2" : {icon: 'icon-protector'}
+    "PackFamily" : {icon : 'icon-family', label:'Medical expenses for driver and passengers, no additional excess for young driver and more benefits to cover your family in the event of a car accident'} ,
+    "PackOversea" : {icon: 'icon-overseas', label:'An array of beneifts to cover your road trips to Malaysia and Thailand from car rental to accomodation'},
+    "PackFinance2" : {icon: 'icon-protector', label:'We go the extra miles to the side effects of a car accident, get transport allowance, repair done at your preferred workshop and more '}
   }
 
 

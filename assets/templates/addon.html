@@ -1,5 +1,4 @@
-<md-content class="md-padding"
-            style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
   <div layout="row" layout-xs="column" layout-margin>
     <div flex layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
@@ -9,15 +8,15 @@
         <div class="card-packs" ng-repeat="p in plan.Packs">
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
-              <span class="md-subhead"  layout="end end" flex="70"><span class="{{packsLabels[p.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;"></span><span>{{p.__label.Title}}</span></span>
+              <span   layout="end end" flex="70"><b><span class="{{packsLabels[p.RecordName].icon}}" style="font-size:24px;" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;"></span><span> {{p.__label.Title}}</span></b></span>
               <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" ng-model="" class="input-down"></md-checkbox>
             </div>
           </div>
           <md-card-content>
-            <p>{{p.__label.SubTitle}}</p>
+            <p class="details">{{packsLabels[p.RecordName].label}}</p>
           </md-card-content>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="showPacks($event, p)">Know more</md-button>
+            <md-button ng-click="showPacks($event, p)" class="input-up input-down">Know more</md-button>
           </md-card-actions>
         </div>
       </md-content>

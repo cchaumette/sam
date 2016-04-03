@@ -31,11 +31,13 @@
   flex-direction: column;
   position: relative;
   z-index: 2;
-  font-size: 20px;
+  font-size: 15px;
   width: 100%;
   background-color:#E3F2FD;
-
+  color:#808080;
   height:40px;
+  padding:10px;
+
 }
 .container-addon{
   margin:0px;

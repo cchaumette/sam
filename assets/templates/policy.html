@@ -70,10 +70,7 @@
           <md-radio-button class="md-primary" class="md-primary" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder" ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button>
         </md-radio-group>
         <div ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-        <p>Is the policyholder a corporation?</p>
-        <md-radio-group class="md-primary" layout="row" ng-model="policy.profil.PolicyHolder.IsCorporateClient">
-          <md-radio-button class="md-primary" ng-repeat="IsCorporateClient in policy.param.PolicyHolder.IsCorporateClient" ng-value="IsCorporateClient.value">{{IsCorporateClient.label}}</md-radio-button>
-        </md-radio-group>
+
         </div>
         <form name="userForm">
         <div layout="row" >

@@ -2,7 +2,7 @@
   <form>
   <md-toolbar >
     <div class="md-toolbar-tools" >
-      <h2 class="md-title-card">Referral advise</h2>
+      <h2 class="md-title-card">Claims history</h2>
       <span flex></span>
       <md-button class="md-icon-button" ng-click="cancel()">
         <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog"></md-icon>
@@ -10,7 +10,32 @@
     </div>
   </md-toolbar>
     <md-dialog-actions>
-    <div layout="column" layout-sm="column" flex layout-padding>
+      <div  class="space-up">
+        <p>What was the total claimable amount? </p>
+        <md-radio-group ng-model="policy.profil.TotalClaimAmount" layout="row" layout-align="space-around center"
+                        ng-click="CheckClaimsAmount($event)" layout-padding>
+          <md-radio-button class="md-primary" ng-repeat="TotalClaimAmount in policy.param.TotalClaimAmount"
+                           ng-value="TotalClaimAmount.value">{{TotalClaimAmount.label}}
+          </md-radio-button>
+        </md-radio-group>
+      </div>
+      <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
+        <p>How many of these were non-windscreen claims?</p>
+        <md-radio-group ng-model="policy.profil.NumberOfClaims" layout="row" layout-align="space-around center"
+                        ng-click="CheckClaimsNumber($event)" layout-padding>
+          <md-radio-button class="md-primary" ng-repeat="NumberOfClaims in policy.param.NumberOfClaims"
+                           ng-value="NumberOfClaims.value">{{NumberOfClaims.label}}
+          </md-radio-button>
+      </div>
+      <div ng-show="showClaims_number == true && showClaims_amount == true" class="space-up">
+        <p>How many of these were windscreen claims?</p>
+        <md-radio-group ng-model="policy.profil.NumberOfWindscreenClaims" layout="row" layout-align="space-around center"
+                        ng-click="CheckClaimsNumberWind($event)" layout-padding>
+          <md-radio-button class="md-primary" ng-repeat="NumberOfWindscreenClaims in policy.param.NumberOfWindscreenClaims"
+                           ng-value="NumberOfWindscreenClaims.value">{{NumberOfWindscreenClaims.label}}
+          </md-radio-button>
+      </div>
+   <!-- <div layout="column" layout-sm="column" flex layout-padding>
       <p>Our underwriting team will review your profile and come back to you within 48h. Kindly let us your contact details.</p>
       <md-input-container class="md-block" flex-gt-sm >
         <label>Your name</label>
@@ -22,11 +47,7 @@
           <input name="email" ng-model="policyholder.email"
                  required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
           <div class="hint" ng-show="showHints"></div>
-          <div ng-messages="userForm.email.$error" ng-hide="showHints">
-            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-              Your email must be between 10 and 100 characters long and look like an e-mail address.
-            </div>
-          </div>
+
         </md-input-container>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Your phone number</label>
@@ -41,7 +62,7 @@
         </md-input-container>
       </form>
 
-    </div>
+    </div>-->
       </md-dialog-actions>
   <div class="md-actions" layout="row">
     <md-button ng-click="cancel()" class="md-primary">
