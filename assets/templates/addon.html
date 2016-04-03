@@ -28,24 +28,25 @@
       <md-content class="step" layout-padding>
         <div ng-repeat="a in plan.AddOns">
           <div layout="row" layout-align="space-between center" class="accordion">
-<<<<<<< HEAD
-            <span  flex="70"><p><b><span ng-class="addonsLabels[a.RecordName].icon" style="font-size:24px;"></span> {{a.__label.Title}}</b></p></span>
-            <span  flex="10">$ 64</span>
-                  <span flex="10">
-                    <!--<md-checkbox ng-model="data.cb1" aria-label="Checkbox 1"  >
-                  </md-checkbox>--></span>
-           <md-button class="md-icon-button" ng-show="a.IsSelected != true"><md-icon><i class="material-icons"  ng-click="a.IsSelected = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button" ng-show="a.IsSelected == true"><md-icon><i class="material-icons"  ng-click="a.IsSelected = false">remove</i></md-icon></md-button>
+
+            <span  flex="80" ng-class="a.IsSelected == true ? 'addon-selected':''"><p><b><span class="{{addonsLabels[a.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;"></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b></p></span>
+            <span  flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''">$ 64</span>
+
+            <md-button class="md-icon-button" ng-show="a.Show != true"><md-icon><i class="material-icons"  ng-class="a.IsSelected == true ? 'addon-selected':''" ng-click="a.Show = true" >add</i></md-icon></md-button>
+            <md-button class="md-icon-button" ng-show="a.Show == true"><md-icon><i class="material-icons"  ng-class="a.IsSelected == true ? 'addon-selected':''" ng-click="a.Show = false">remove</i></md-icon></md-button>
           </div>
-        <div ng-show="a.IsSelected == true">
+        <div ng-show="a.Show == true">
           <div>
-            <p class="details">{{addonsLabels[a.RecordName].label}}</p>
+            <div layout="row" layout-align="space-between center">
+              <div flex="80" layout-padding><p class="details">{{addonsLabels[a.RecordName].label}}</p></div>
+            <div flex="20"><md-checkbox aria-label="pa_driver" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox></div>
+            </div>
             <md-select layout-padding placeholder="Select a sum insured" class="addon-select" ng-model="p.SelectedValue" required ng-show="a.Parameters[0]">
               <md-option ng-repeat="opt in a.Parameters[0].Options" value="{{opt.Value}}">{{opt.Name}}</md-option>
             </md-select>
           </div>
-=======
-            <span  flex="70"><p><b><span class="icon-accessories" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;" ></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b></p></span>
+
+            <!--<span  flex="70"><p><b><span class="icon-accessories" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;" ></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b></p></span>
             <span  flex="10" ><b><span ng-class="a.IsSelected == true ? 'addon-selected':''">$ 64</span></b></span>
 
            <md-button class="md-icon-button" ng-show="a.show != true"><md-icon><i class="material-icons"  ng-click="a.show = true" ng-class="a.IsSelected == true ? 'addon-selected':''" >add</i></md-icon></md-button>
@@ -112,7 +113,7 @@
 
           </div>
 
->>>>>>> c4f3ddc3a1aa54a44e0b777ce4fc780e6e09b538
+>>>>>>> c4f3ddc3a1aa54a44e0b777ce4fc780e6e09b538-->
         </div>
 
 </div>
