@@ -1,4 +1,4 @@
-<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height:83%; background-position-x: right;" layout="row" layout-align="space-around center">
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
   <div layout="row" layout-xs="column" layout-margin>
     <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
@@ -108,13 +108,15 @@
         </md-tabs>
       </md-content>
     </div>
-    <div flex="33" layout="column" flex-xs="100" style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
+
+     <div flex="33" hide-xs layout="column"  style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
       <md-toolbar style="width: 90%">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
       <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 90%">
       </md-content>
     </div>
+
     <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Driving experience</md-title>
@@ -142,14 +144,16 @@
         </div>
       </md-content>
     </div>
-    <div flex="33" layout="column" flex-xs="100" style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
+
+    <div flex="33" hide-xs layout="column"  style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
       <md-toolbar style="width: 90%">
         <md-title layout-margin layout-padding>Driving experience</md-title>
       </md-toolbar>
       <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 90%">
       </md-content>
     </div>
-  </div>
+
+    </div>
 </md-content>
 <footer>
   <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()" ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' "> Buy now</md-button>

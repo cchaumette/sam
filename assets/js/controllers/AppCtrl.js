@@ -53,7 +53,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
                    && driver.license;
       }
     )
-    return $scope.flow.step1 && $scope.flow.step2 || true;
+    return $scope.flow.step1 && $scope.flow.step2;
   }
 
   $scope.offerIsEnabled = function(){

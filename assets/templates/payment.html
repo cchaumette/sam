@@ -1,5 +1,5 @@
-<md-content class="md-padding" layout="row"  layout-align="space-around center" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 83%; background-position-x: right;">
-<div layout="row" flex="100" layout-xs="column" layout-margin>
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
+  <div layout="row" layout-xs="column" layout-margin>
     <div flex="50" layout="column" flex-xs="100">
         <md-toolbar class="md-primary">
           <md-title layout-margin layout-padding>Your insurance summary</md-title>
@@ -109,7 +109,7 @@
             </md-tabs>
           </div>
 
-          <div flex="50" flex-offset="50" layout="column" >
+          <div layout="column" >
           <div layout="row" layout-align="space-between center"> <p> premium before discount</p><h3 class="input-up input-down premium"> $ 2,000</h3></div>
           <div layout="row" layout-align="space-between center">  <p> discount</p><h3 class="input-up input-down premium"> $ 500</h3></div>
           <md-divider></md-divider>
@@ -189,13 +189,19 @@
           <iframe name="wirecard" height="200px" ng-src="{{currentProjectUrl}}" ng-show="false"></iframe>
         </div>
 
+        <div hide-gt-xs layout="column">
+          <md-button class="md-raised md-accent" > Buy now</md-button>
+          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
+          </md-button>
+          <md-button class="md-primary md-hue-1" href="#/policy"> Back to quote details</md-button>
 
+        </div>
       </md-content>
   </div>
 </div>
 </md-content>
 
-<footer >
+<footer hide-xs>
   <md-button class=" md-raised md-accent action" ng-value="payStatus.message" data-ng-click="makePayment()" ng-hide="payment_ok == true;"> Proceed to payment</md-button>
   <div id="card-container" ng-hide="payment_ok == true;"></div>
 

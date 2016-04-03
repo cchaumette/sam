@@ -1,5 +1,5 @@
-<md-content class="md-padding" layout="row"  layout-align="space-around center" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 83%; background-position-x: right;">
-<div layout="row" flex="100" layout-xs="column" layout-margin>
+<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
+<div layout="row" layout-xs="column" layout-margin>
     <div flex="33" layout="column" flex-xs="100">
         <md-toolbar class="md-primary">
           <md-title layout-margin layout-padding>Car details</md-title>
@@ -138,10 +138,8 @@
       </md-content>
   </div>
     <div flex="33" layout="column" flex-xs="100">
-
       <md-toolbar class="md-primary">
           <md-title layout-margin layout-padding>Drivers details</md-title>
-
         </md-toolbar>
       <md-content class="step" layout-padding>
         <md-tabs md-dynamic-height md-border-bottom>
@@ -212,12 +210,20 @@
             </md-tab-body>
           </md-tab>
         </md-tabs>
+        <div hide-gt-xs layout="column">
+          <md-button class="md-raised md-accent" href="#/payment"> Buy now</md-button>
+          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
+          </md-button>
+          <md-button class="md-primary md-hue-1" href="#/addon"> Back to quote details</md-button>
+
+        </div>
       </md-content>
+
   </div>
 </div>
 </md-content>
 
-<footer >
+<footer hide-xs >
   <md-button class=" md-raised md-accent action" href="#/payment"> Proceed to payment</md-button>
   <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
   <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">

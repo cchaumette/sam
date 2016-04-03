@@ -123,12 +123,19 @@
             </div>
           </div>
         </div>
-      </md-content>
+
+        <div hide-gt-xs layout="column">
+            <md-button class="md-raised md-accent" href="#/policy"> Buy now</md-button>
+            <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
+            </md-button>
+            <md-button class="md-primary md-hue-1" href="#/offer"> Back to quote details</md-button>
+
+          </div>
+        </div>
     </div>
-  </div>
 </md-content>
 
-<footer>
+<footer hide-xs>
   <md-button class=" md-raised md-accent action" href="#/policy"> Buy now</md-button>
   <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
   <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
