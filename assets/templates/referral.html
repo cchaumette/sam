@@ -1,9 +1,12 @@
-<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height:83%; background-position-x: right;" layout="row" layout-align="space-around center">
-    <div flex="50" layout-fill flex-xs="100">
+
+
+    <md-content layout="row" style="background-color:transparent; display:flex; height: calc(100% - 138px) !important;" layout="row"    layout-align="space-around center">
+      <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="center center">
+      <div  layout-fill>
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Referral</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step" layout-padding layout-fill>
         <div layout="row" ng-hide="policy.referral == true">
         <div layout="column" layout-sm="column" flex layout-padding>
           <p>Our underwriting team will review your profile. Kindly let us your contact details.</p>
@@ -34,7 +37,8 @@
         </div>
         <md-button ng-hide="policy.referral == true"  class=" md-raised md-accent action" ng-click="policy.referral = true"> Submit</md-button>
     </div>
+        </div>
       </md-content>
-    </div>
-</md-content>
+
+
 
