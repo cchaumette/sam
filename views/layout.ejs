@@ -42,7 +42,7 @@
 
   </head>
 
-  <body ng-cloak  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat;  background-position-x: right; " layout-fill  >
+  <body ng-cloak  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat;  background-position-x: right; "   >
 
 
   <md-toolbar layout="row" style="background-color:white;">
@@ -60,7 +60,7 @@
       </div>
     </md-toolbar>
 
-    <div ng-view style="display:flex;" layout-align="space-around center" layout-margin layout-padding></div>
+    <div ng-view layout-margin style="display:flex; height: calc(100% - 138px) !important;"  layout="row"    layout-align="space-around center"></div>
 
 
   <footer > <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()" ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' "> Buy now</md-button>
