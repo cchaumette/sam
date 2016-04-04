@@ -1,9 +1,11 @@
 /**
  * Created by clement on 27/3/16.
  */
-app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','$mdMedia','algolia', function ($scope, policy, $filter, $mdSidenav, $mdDialog,$mdMedia,algolia) {
+app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','$mdMedia','algolia','$route', function ($scope, policy, $filter, $mdSidenav, $mdDialog,$mdMedia,algolia,$route) {
 
   console.log("== AppCtrl ==");
+
+
   $scope.licenseMonth = '';
   $scope.months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
   $scope.rangeYearOfmake = 0;

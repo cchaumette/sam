@@ -19,11 +19,13 @@ app.config(['$routeProvider',
     $routeProvider.
       when('/homepage', {
         templateUrl: 'templates/homepage.html',
-        controller: 'HomepageCtrl'
+        controller: 'HomepageCtrl',
+        state : 'homepage'
       }).
       when('/home', {
         templateUrl: 'templates/home.html',
-        controller: 'AppCtrl'
+        controller: 'AppCtrl',
+        state : 'home'
       }).
       when('/referral', {
         templateUrl: 'templates/referral.html',

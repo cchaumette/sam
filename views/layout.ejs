@@ -38,7 +38,7 @@
     <!--
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">-->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
 
@@ -58,29 +58,47 @@
         </div>
       </div>
     </md-toolbar>
-    <div ng-view></div>
+    <div ng-view style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; background-position-x: right;"></div>
   </div>
 
+  <footer ng-controller="footerCtrl">
     <!--
-        Client-side Templates
-        ========================
+    <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()" ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' "> Buy now</md-button>
+    <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()" ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">Proceed</md-button>
+-->
+{{st}}
+    <md-button class=" md-raised md-accent action" href="#/addon">Buy now</md-button>
+    <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+        Ask us a question
+      </md-tooltip>
+    </md-button>
+    <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/home"><i class="material-icons">keyboard_arrow_left</i>Back</md-button>
+  </footer>
 
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
 
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
+  <!--
+      Client-side Templates
+      ========================
 
-        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
+      HTML templates are important prerequisites of modern, rich client applications.
+      To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+      that you load these templates client-side.
 
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
+      By default, your Gruntfile is configured to automatically load and precompile
+      client-side JST templates in your `assets/templates` folder, then
+      include them here automatically (between TEMPLATES and TEMPLATES END).
+
+      To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Import templates from other directories
+          + Use a different template engine (handlebars, jade, dust, etc.)
+          + Internationalize your client-side templates using a server-side
+            stringfile before they're served.
+  -->
 
     <!--TEMPLATES-->
     <script type="text/javascript" src="/jst.js"></script>
@@ -127,8 +145,10 @@
     <script src="/js/app.js"></script>
     <script src="/js/controllers/AppCtrl.js"></script>
     <script src="/js/controllers/addonCtrl.js"></script>
+    <script src="/js/controllers/footerCtrl.js"></script>
     <script src="/js/controllers/offerCtrl.js"></script>
     <script src="/js/controllers/policyCtrl.js"></script>
+    <script src="/js/services/flowServices.js"></script>
     <script src="/js/services/marketingFactory.js"></script>
     <script src="/js/services/offerFactory.js"></script>
     <script src="/js/services/planFactory.js"></script>

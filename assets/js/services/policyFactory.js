@@ -123,5 +123,4 @@ app.factory('policy', function() {
     }
   }
   return policy;
-  policy.param.Vehicle.YearOfMake.year.pop();
 });
