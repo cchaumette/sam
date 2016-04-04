@@ -90,8 +90,27 @@
   margin-left:30px;
   margin-top: 2px;
 }
-footer{
-  height:44px;
+footer {
+  width: 100%;
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px 15px;
+  position: fixed;
+  display: block;
+  clear: both;
+  background-color:white;
+}
+.md-toolbar{
+  width: 100%;
+  height: auto;
+  top: 0px;
+  left: 0px;
+  padding: 5px 15px;
+  position: fixed;
+  display: block;
+  clear: both;
+  background-color:white;
 }
 .own_button{
   background-color:white;

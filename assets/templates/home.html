@@ -1,6 +1,6 @@
-<md-content class="md-padding" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; height: 78%; background-position-x: right;">
-  <div layout="row" layout-xs="column" layout-margin>
-    <div flex="33" layout="column" flex-xs="100">
+<md-content layout="row" layout-align="space-around center"  style="background-color:transparent;">
+  <div layout="row" layout-xs="column" >
+    <div flex="33"  layout="column" flex-xs="100" style="margin-right:8px;">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Car details</md-title>
       </md-toolbar>
@@ -47,7 +47,7 @@
         </div>
       </md-content>
     </div>
-    <div flex="33" layout="column" flex-xs="100">
+    <div flex="33" layout="column" flex-xs="100" style="margin-right:8px;">
       <md-toolbar>
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
@@ -154,8 +154,6 @@
     </div>
 
     </div>
+
 </md-content>
-<footer>
-  <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()" ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' "> Buy now</md-button>
-  <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()" ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">Proceed</md-button>
-</footer>
+

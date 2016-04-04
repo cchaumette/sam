@@ -38,13 +38,14 @@
     <!--
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">-->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
 
-  <body ng-cloak >
-  <div layout="column" >
-    <md-toolbar layout="row" style="background-color:white;height:7%;">
+  <body ng-cloak  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat;  background-position-x: right; " layout-fill  >
+
+
+  <md-toolbar layout="row" style="background-color:white;">
       <div class="md-toolbar-tools" >
           <div flex="30">
             <span><img src="/images/axa_logo.jpg"  style=" padding-top: 20px;padding-left: 30px;padding-bottom: 20px; height: 70px;"></span>
@@ -58,8 +59,13 @@
         </div>
       </div>
     </md-toolbar>
-    <div ng-view></div>
-  </div>
+
+    <div ng-view style="display:flex;" layout-align="space-around center" layout-margin layout-padding></div>
+
+
+  <footer > <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()" ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' "> Buy now</md-button>
+      <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()" ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">Proceed</md-button>
+    </footer>
 
     <!--
         Client-side Templates
