@@ -1,4 +1,4 @@
-<md-content layout="row"   style="background-color:transparent;" layout-fill>
+<md-content layout="row" hide-xs  style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="75" layout="column" flex-xs="100">
         <md-toolbar class="md-primary">
@@ -51,7 +51,9 @@
                  </div>
                  <div layout="row" ng-repeat="Benefit in benefitsList" >
                    <div layout="column" flex="40">
-                     <div layout="row"><span class="benefits-plan"> <span class="{{Benefit.icon}} icon-benefits" ></span> {{ Benefit.label }}</span></div>
+                     <div layout="row"><span class="benefits-plan"> <span class="{{Benefit.icon}} icon-benefits" ></span> {{ Benefit.label }}</span>
+                       <md-tooltip class="white-tooltip"> Description of the benefit</md-tooltip>
+                     </div>
                    </div>
                    <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
                         ng-class="Plan.IsSelected ? 'selection' : ''"
@@ -150,7 +152,7 @@
 <!-- *** END LAPTOP *** -->
 
 <!-----MOBILE----->
-<md-content hide-gt-xs  layout="row"  layout-align="space-around center" style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; background-position-x: right;">
+<md-content hide-gt-xs  layout="row"  style="background-color:transparent;" layout-fill>
   <div layout="row"  layout-xs="column"  layout-margin style=" width: 100%;">
     <div layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
@@ -288,16 +290,4 @@
 </md-content>
 <!-- *** END MOBILE *** -->
 
-<footer  >
 
-  <md-button class=" md-raised md-accent action" href="#/addon"> Buy now</md-button>
-  <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
-  <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
-    <md-icon md-svg-src="images/webchat.svg"></md-icon>
-    <md-tooltip md-visible="demo.showTooltip" md-direction="left">
-      Ask us a question
-    </md-tooltip>
-  </md-button>
-  <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/home"><i class="material-icons">keyboard_arrow_left</i>Back</md-button>
-
-</footer>
