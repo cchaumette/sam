@@ -1,7 +1,6 @@
-<md-content layout="row"   style="background-color:transparent;" layout-fill>
+<md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
-    <div flex layout="column" flex-xs="100"  >
-
+    <div flex layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Add custom packs</md-title>
       </md-toolbar>
@@ -9,7 +8,13 @@
         <div class="card-packs" ng-repeat="p in plan.Packs">
           <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
             <div layout="row" layout-align="space-between center">
-              <span   layout="end end" flex="70"><b><span class="{{packsLabels[p.RecordName].icon}}" style="font-size:24px;" ng-class="a.IsSelected == true ? 'addon-selected':''" style="font-size:24px;"></span><span> {{p.__label.Title}}</span></b></span>
+              <span layout="end end" flex="70"><b>
+                <span class="{{packsLabels[p.RecordName].icon}}"
+                                                        style="font-size:24px;"
+                                                        ng-class="a.IsSelected == true ? 'addon-selected':''"
+                                                        style="font-size:24px;"></span>
+                <span> {{p.__label.Title}}</span></b>
+              </span>
               <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" ng-model="" class="input-down"></md-checkbox>
             </div>
           </div>
@@ -21,22 +26,20 @@
           </md-card-actions>
         </div>
       </md-content>
-
     </div>
-    <div flex="40" layout="column" flex-xs="100"  >
-      <md-toolbar class="md-primary" >
+    <div flex="40" layout="column" flex-xs="100">
+      <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Select add-ons</md-title>
       </md-toolbar>
-      <md-content class="step" style="padding-top:0px;padding-bottom:16px; " layout-padding >
+      <md-content class="step" style="padding-top:0px;padding-bottom:16px; " layout-padding>
         <div ng-repeat="a in plan.AddOns">
           <div layout="row" layout-align="space-between center" class="accordion">
-
-            <span flex="80" ng-class="a.IsSelected == true ? 'addon-selected':''" ><p><b>
+            <span flex="80" ng-class="a.IsSelected == true ? 'addon-selected':''"><p><b>
               <span class="{{addonsLabels[a.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''"
-              style="font-size:24px;"></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b>
+                    style="font-size:24px;"></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b>
             </p></span>
-            <span flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''" layout="center center"><b>$ 64</b></span>
-
+            <span flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''" layout="center center"><b>$
+              64</b></span>
             <md-button class="md-icon-button" ng-show="a.Show != true">
               <md-icon><i class="material-icons" ng-class="a.IsSelected == true ? 'addon-selected':''"
                           ng-click="a.Show = true">add</i></md-icon>
@@ -54,7 +57,6 @@
                   <md-checkbox aria-label="pa_driver" ng-model="a.IsSelected" class="checkbox-addon"></md-checkbox>
                 </div>
               </div>
-
               <div layout="row" layout-align="space-between center" ng-show="a.Parameters[0]"
                    ng-repeat="opt in a.Parameters[0].Options">
                 <div flex="80"><p class="details">{{opt.Name}}</p></div>
@@ -63,16 +65,14 @@
                                ng-click="updateParamsAddon(a, a.Parameters[0].Options, $index)"></md-checkbox>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </md-content>
     </div>
-    <div flex="25" layout="column" flex-xs="100" >
+    <div flex="25" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Your quotation</md-title>
-
       </md-toolbar>
       <md-content class="step" layout-padding>
         <div>
@@ -111,7 +111,6 @@
             </div>
           </div>
         </div>
-
         <div>
           <h4 class="category-summary">Total</h4>
 
@@ -124,15 +123,25 @@
             </div>
           </div>
         </div>
-
         <div hide-gt-xs layout="column">
-            <md-button class="md-raised md-accent" href="#/policy"> Buy now</md-button>
-            <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
-            </md-button>
-            <md-button class="md-primary md-hue-1" href="#/offer"> Back to quote details</md-button>
-
-          </div>
+          <md-button class="md-raised md-accent" href="#/policy"> Buy now</md-button>
+          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
+          </md-button>
+          <md-button class="md-primary md-hue-1" href="#/offer"> Back to quote details</md-button>
         </div>
     </div>
+  </div>
+  <footer hide-xs>
+    <md-button class=" md-raised md-accent action" href="#/policy"> Buy now</md-button>
+    <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+        Ask us a question
+      </md-tooltip>
+    </md-button>
+    <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/offer"><i
+      class="material-icons">keyboard_arrow_left</i>Back
+    </md-button>
+  </footer>
 </md-content>
-

@@ -28,12 +28,18 @@
 // @import 'pages/signup.less';
 //
 // etc.
-
+/*FONT*/
 @axa-blue: #103184;
 @axa-blue_active: #103184;
 @axa-red: #FF1821;
 @axa-red_active: #FF1821;
 @axa-lightblue: #4975BA;
+@axa-grey:#6F6F6F;
+@axa-grey-light: #D6D6D6;
+@axa-coral:rgb(255,82,82);
+@axa-auto:#2196f3;
+@axa-auto-light:#90caf9;
+
 
 @font-face {
   font-family: 'myaxa';
@@ -50,43 +56,194 @@ body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
+  color: @axa-grey;
   background-color: #EEEEEE; }
 
-.md-content.md-default-theme, .md-content{
-  color:grey;
+h2, label, p, b, {
+  color:@axa-grey;
 }
 
-.md-content, .md-caption, .md-input-container .md-placeholder, .md-label,.md-input-container label, .md-input{
-  color:grey;
+footer {
+  width: 100%;
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px 15px;
+  position: fixed;
+  display: block;
+  clear: both;
+  background-color:white;
 }
 
+md-content, md-caption, md-input-container md-placeholder, md-label,md-input-container label, md-input,md-content.md-default-theme, md-content{
+  color:@axa-grey;
+}
+/*LAYOUT*/
+
+.step{
+  height: 500px;
+}
+.margin_two_inputs{
+  margin-top: 0px;
+}
+.md-toolbar{
+  width: 100%;
+  height: auto;
+  top: 0px;
+  left: 0px;
+  padding: 5px 15px;
+  position: fixed;
+  display: block;
+  clear: both;
+  background-color:white;
+}
+.space-up{
+  margin-top:28px;
+}
+.input-down{
+  margin-bottom: 0px;
+}
+.input-up{
+  margin-top: 0px;
+}
+.category-summary {
+  border-bottom: solid 1px @axa-grey-light;
+  margin-bottom:10px;
+  margin-top: 10px;
+}
+/*BUTTON*/
+.own_button{
+  background-color:white;
+  border: solid 1px @axa-coral;
+  color:@axa-coral !important;
+}
+.action{
+  float:right;
+  margin-right:30px;
+}
+.button-choice{
+  border-bottom:solid 1px @axa-grey-light;
+  border-radius:0;
+  padding:0px;
+  color:@axa-grey;
+}
+.action-back{
+  float:left;
+  margin-left:30px;
+  margin-top: 2px;
+}
+
+/**/
+
+
+.accordion{
+  border-bottom:solid 1px @axa-auto;
+}
+
+md-tooltip.white-tooltip .md-content {
+  background-color: white;
+  color: @axa-auto;
+  font-size:12px;
+}
+
+/*HOME PAGE*/
 .agentcode {
   font-size: 14px;
   float: right;
   margin-right: 20px;
 }
-label, p, b{
-  color:#808080;
+/* ADDON PAGE*/
+
+.card-packs{
+  height:auto;
+  display: block;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+  margin-bottom: 20px;
 }
-
-
+.checkbox-addon{
+  margin-top:14px;
+  float:right;
+}
 .pack-selected{
-  background-color:#82b1ff !important;
+  background-color:@axa-auto-light !important;
+}
+.toolbar-packs{
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  font-size: 15px;
+  width: 100%;
+  background-color:#E3F2FD;
+  color:@axa-grey;
+  height:40px;
+  padding:10px;
 }
 
-.md-card {
-  opacity:0.8;}
+.selection{
+  background-color:@axa-auto-light;
+  text-align:center;
+  color:white!important;
+}
 
-.button-choice{
-  border-bottom:solid 1px rgba(0,0,0,0.12);
-  border-radius:0;
-  padding:0px;
-  color:grey;
-  /*background-color:white !important;
-  min-width: 60px;
-  margin:2px;
- */
+.addon-selected{
+  color:@axa-auto-light;
+}
+
+.selected-plan{
+  background-color:white;
+  color:@axa-auto-light;
+}
+
+.discount{
+  background-color:#E3F2FD;
+}
+
+.details{
+  font-size: 12px;
+}
+
+/* OFFER PAGE*/
+.md-subheader{
+  background-color:#E3F2FD;
+  margin-bottom:10px;
+  margin-top:10px
+}
+.date-alignment{
+  margin-top:-56px;
+}
+
+.preselect:hover{
+  background-color:#E3F2FD;
+}
+
+.plan-name{
+  color:@axa-auto;
+  font-style: italic;
+}
+.icon-benefits{
+
+  margin-right:5px;
+  font-size:20px;
+  color:@axa-grey;
+}
+.benefits-plan{
+  padding:5px;
+}
+.selection-mobile{
+  background-color:@axa-auto-light;
+  text-align:center;
 
 }
+
+/*MODAL*/
+.md-title-card{
+  padding-left:16px;
+}
+
 

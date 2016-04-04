@@ -1,27 +1,29 @@
 <md-dialog aria-label="Pack" flex="50">
   <form>
-  <md-toolbar >
-    <div class="md-toolbar-tools" >
-      <h2 class="md-title-card">Offpeak Car Discount</h2>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="cancel()">
-        <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog" ng-click="select()"></md-icon>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="md-title-card">Offpeak Car Discount</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/images/delete.svg" aria-label="Close dialog" ng-click="select()"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-actions>
+      <div layout="column" layout-sm="column" flex layout-padding>
+        <p>Offpeak car enjoys a 25% discount. AXA gives the highest discount on the market</p>
+        <md-radio-group ng-model="policy.profil.Certificate" layout="row" layout-padding>
+          <md-radio-button ng-repeat="Certificate in policy.param.Certificate" ng-value="Certificate.value">
+            {{Certificate.label}}
+          </md-radio-button>
+        </md-radio-group>
+
+      </div>
+    </md-dialog-actions>
+    <div class="md-actions" layout="row">
+      <md-button ng-click="select()" class="md-primary">
+        Got it!
       </md-button>
     </div>
-  </md-toolbar>
-    <md-dialog-actions>
-    <div layout="column" layout-sm="column" flex layout-padding>
-      <p>Offpeak car enjoys a 25% discount. AXA gives the highest discount on the market</p>
-      <md-radio-group ng-model="policy.profil.Certificate" layout="row" layout-padding>
-        <md-radio-button ng-repeat="Certificate in policy.param.Certificate" ng-value="Certificate.value">{{Certificate.label}}</md-radio-button>
-      </md-radio-group>
-
-    </div>
-      </md-dialog-actions>
-  <div class="md-actions" layout="row">
-    <md-button ng-click="select()" class="md-primary">
-     Got it!
-    </md-button>
-  </div>
   </form>
 </md-dialog>

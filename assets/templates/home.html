@@ -1,32 +1,28 @@
-<md-content layout="row"   style="background-color:transparent;" layout-fill>
+<md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
-    <div flex="33"  layout="column" flex-xs="100">
+    <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Car details</md-title>
       </md-toolbar>
       <md-content class="step" layout-padding>
         <div md-padding>
-
           <md-input-container class="md-block " flex-gt-sm>
             <label class="space-up">Enter your car make and select the model</label>
             <input ng-model="carSearch" ng-keyup="algolia()" class="md-primary" required>
 
             <div ng-show="car.car_id == null">
-              <div ng-repeat="hit in hits" ng-click="searchTo(hit)">
-                {{hit.make}} {{hit.model}}
-              </div>
+              <div ng-repeat="hit in hits" ng-click="searchTo(hit)">{{hit.make}} {{hit.model}}</div>
             </div>
           </md-input-container>
           <div class="space-up">
             <p>Are you insuring an off-peak car?</p>
-
-             <md-radio-group ng-model="policy.profil.Vehicle.OffPeakCar" ng-change="checkOffpeak($event,policy.profil.Vehicle.OffPeakCar)" layout="row"
-                             layout-align="start center" layout-padding>
-             <div flex="33" ng-repeat="OffPeakCar in policy.param.Vehicle.OffPeakCar">
-               <md-radio-button class="md-primary "
-                                ng-value="OffPeakCar.value">{{OffPeakCar.label}}
-               </md-radio-button>
-             </div>
+            <md-radio-group ng-model="policy.profil.Vehicle.OffPeakCar"
+                            ng-change="checkOffpeak($event,policy.profil.Vehicle.OffPeakCar)" layout="row"
+                            layout-align="start center" layout-padding>
+              <div flex="33" ng-repeat="OffPeakCar in policy.param.Vehicle.OffPeakCar">
+                <md-radio-button class="md-primary " ng-value="OffPeakCar.value">{{OffPeakCar.label}}
+                </md-radio-button>
+              </div>
             </md-radio-group>
           </div>
           <div class="space-up">
@@ -37,8 +33,8 @@
               <md-button class="button-choice"
                          ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake[rangeYearOfmake]"
                          ng-click="policy.profil.Vehicle.YearOfMake = YearOfMake.year"
-                         ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'md-primary' : '' "
-                >{{YearOfMake.year}}
+                         ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'md-primary' : '' ">
+                {{YearOfMake.year}}
               </md-button>
               <md-button class="button-choice" ng-click="rangeYearOfmake = 1" ng-show="rangeYearOfmake == 0"> >>
               </md-button>
@@ -47,7 +43,7 @@
         </div>
       </md-content>
     </div>
-    <div flex="33" layout="column" flex-xs="100" >
+    <div flex="33" layout="column" flex-xs="100">
       <md-toolbar>
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
@@ -62,10 +58,13 @@
             <md-tab-body>
               <div md-padding class="space-up">
                 <p>Gender of the driver</p>
-                <md-radio-group layout="row" ng-model="driver.Gender" layout="row" layout-align="start center" layout-padding>
-                  <div flex="33" ng-repeat="param in policy.param.Drivers.Gender"> <md-radio-button class="md-primary"
-                                   ng-value=param.value>{{param.label}}
-                  </md-radio-button></div>
+                <md-radio-group layout="row" ng-model="driver.Gender" layout="row" layout-align="start center"
+                                layout-padding>
+                  <div flex="33" ng-repeat="param in policy.param.Drivers.Gender">
+                    <md-radio-button class="md-primary"
+                                     ng-value=param.value>{{param.label}}
+                    </md-radio-button>
+                  </div>
                 </md-radio-group>
               </div>
               <div md-padding class="space-up">
@@ -73,9 +72,10 @@
                 <md-radio-group ng-model="driver.MaritalStatus" layout="row" layout-align="start center"
                                 layout-padding>
                   <div flex="33" ng-repeat="param in policy.param.Drivers.MaritalStatus">
-                  <md-radio-button class="md-primary"
-                                   ng-value=param.value>{{param.label}}
-                  </md-radio-button></div>
+                    <md-radio-button class="md-primary"
+                                     ng-value=param.value>{{param.label}}
+                    </md-radio-button>
+                  </div>
                 </md-radio-group>
               </div>
               <md-input-container class="md-block input-down input-down" flex-gt-sm>
@@ -108,15 +108,13 @@
         </md-tabs>
       </md-content>
     </div>
-
-     <div flex="33" hide-xs layout="column"  style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
+    <div flex="33" hide-xs layout="column" style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
       <md-toolbar style="width: 90%">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
       <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 90%">
       </md-content>
     </div>
-
     <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Driving experience</md-title>
@@ -125,35 +123,42 @@
         <div md-padding class="space-up">
           <p>What is your non-claim discount bonus?</p>
           <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
-            <md-button class=" button-choice"
-                       ng-repeat="NCDPoints in policy.param.NCDPoints"
+            <md-button class=" button-choice" ng-repeat="NCDPoints in policy.param.NCDPoints"
                        ng-click="checkNCD($event, NCDPoints.value)"
-                       ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-primary' : '' "
-              >
-              {{NCDPoints.label}}
+                       ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-primary' : '' ">{{NCDPoints.label}}
             </md-button>
           </section>
           <div md-padding class="space-up">
             <p>Have you made any claims in the past 3 years?</p>
-            <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center" ng-change="CheckClaims($event)" layout-padding>
+            <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center"
+                            ng-change="CheckClaims($event)" layout-padding>
               <div flex="33" ng-repeat="ClaimsPast3Years in policy.param.ClaimsPast3Years">
-              <md-radio-button class="md-primary" ng-value="ClaimsPast3Years.value">{{ClaimsPast3Years.label}}</md-radio-button></div>
+                <md-radio-button class="md-primary" ng-value="ClaimsPast3Years.value">{{ClaimsPast3Years.label}}
+                </md-radio-button>
+              </div>
             </md-radio-group>
           </div>
-
         </div>
       </md-content>
     </div>
-
-    <div flex="33" hide-xs layout="column"  style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
+    <div flex="33" hide-xs layout="column" style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
       <md-toolbar style="width: 90%">
         <md-title layout-margin layout-padding>Driving experience</md-title>
       </md-toolbar>
       <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 90%">
       </md-content>
     </div>
-
-    </div>
-
+  </div>
+  <footer>
+    <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()"
+               ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">
+      Buy now
+    </md-button>
+    <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()"
+               ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">
+      Proceed
+    </md-button>
+  </footer>
 </md-content>
+
 

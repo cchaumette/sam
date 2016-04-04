@@ -1,151 +1,197 @@
-<md-content layout="row"   style="background-color:transparent;" layout-fill>
+<md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="50" layout="column" flex-xs="100">
-        <md-toolbar class="md-primary">
-          <md-title layout-margin layout-padding>Your insurance summary</md-title>
-          </md-toolbar>
-        <md-content class="step" layout-padding>
+      <md-toolbar class="md-primary">
+        <md-title layout-margin layout-padding>Your insurance summary</md-title>
+      </md-toolbar>
+      <md-content class="step" layout-padding>
         <label>Please check carefully the details of your insurance summary before proceeding to payment</label>
-          <div layout="row" layout-align="space-between center" class="accordion">
-            <span  flex="70"><p><b><span class="icon-plan" style="font-size:28px;"></span> Your plan</b></p></span>
-            <md-button class="md-icon-button" ng-show="policy.plandetails != true"><md-icon><i class="material-icons"  ng-click="policy.plandetails = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button" ng-show="policy.plandetails == true"><md-icon><i class="material-icons"  ng-click="policy.plandetails = false">remove</i></md-icon></md-button>
+
+        <div layout="row" layout-align="space-between center" class="accordion">
+          <span flex="70"><p><b><span class="icon-plan" style="font-size:28px;"></span> Your plan</b></p></span>
+          <md-button class="md-icon-button" ng-show="policy.plandetails != true">
+            <md-icon><i class="material-icons" ng-click="policy.plandetails = true">add</i></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-show="policy.plandetails == true">
+            <md-icon><i class="material-icons" ng-click="policy.plandetails = false">remove</i></md-icon>
+          </md-button>
+        </div>
+        <div layout="row" ng-show="policy.plandetails == true">
+          <div flex="50">
+            <p>Cover: <b>Comprehensive</b></p>
+
+            <p>Plan: <b>Flexi</b></p>
+
+            <p>Start date: <b>12/12/2016</b></p>
+
+            <p>End date: <b>11/12/2017</b></p>
           </div>
-          <div layout="row" ng-show="policy.plandetails == true">
-            <div flex="50">
-              <p>Cover: <b>Comprehensive</b></p>
-              <p>Plan: <b>Flexi</b></p>
-              <p>Start date: <b>12/12/2016</b></p>
-              <p>End date: <b>11/12/2017</b></p>
-            </div>
-            <div flex="50">
-              <p>Packs: <b>Overseas</b></p>
-              <p>Options:
+          <div flex="50">
+            <p>Packs: <b>Overseas</b></p>
+
+            <p>Options:
               <b>Zero excesss</b>/<b>Car accessories</b></p>
-              <p>Discount:<b> Safe driver discount</b></p>
-            </div>
-          </div>
-          <div layout="row" layout-align="space-between center" class="accordion" >
-            <span  flex="70"><p><b><span class="icon-car" style="font-size:28px;"></span> Your car</b></p></span>
-            <md-button class="md-icon-button" ng-show="policy.cardetails != true"><md-icon><i class="material-icons"  ng-click="policy.cardetails = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button" ng-show="policy.cardetails == true"><md-icon><i class="material-icons"  ng-click="policy.cardetails = false">remove</i></md-icon></md-button>
-          </div>
-          <div layout="row" ng-show="policy.cardetails == true">
-            <div flex="50">
-              <p>Car make and model: <b>Toyota Yaris</b></p>
-              <p>Manufacturing year: <b>2015</b></p>
-              <p>Seating capacity: <b>5</b></p>
-              <p>Loan company: <b>5</b></p>
-            </div>
-            <div flex="50">
-              <p>Registration number: <b>SG543GH</b></p>
-              <p>Engine number: <b>12345678987</b></p>
-              <p>Chassis number: <b>12345678987</b></p>
-              <p>Previous insurer: <b>AIG</b></p>
-            </div>
-          </div>
-          <div layout="row" layout-align="space-between center" class="accordion">
-            <span  flex="70"><p><b><span class="icon-policyholder" style="font-size:28px;"></span> Policyholder</b></p></span>
-            <md-button class="md-icon-button" ng-show="policy.policyholder_details != true"><md-icon><i class="material-icons"  ng-click="policy.policyholder_details = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button" ng-show="policy.policyholder_details == true"><md-icon><i class="material-icons"  ng-click="policy.policyholder_details = false">remove</i></md-icon></md-button>
-          </div>
-          <div layout="row" ng-show="policy.policyholder_details == true">
-            <div flex="50">
-              <p>Name: <b>Richard</b></p>
-              <p>Surname: <b>Chung</b></p>
-              <p>Nationality:<b>Singaporean</b></p>
-              <p>ID:<b>S8787876C</b></p>
 
-            </div>
-            <div flex="50">
-              <p>Email: <b>richard@gmail.com</b></p>
-              <p>Phone: <b>98989898</b></p>
-              <p>Address: <b>SG543GH</b></p>
-              <p>Post code: <b>12345678987</b></p>
-
-            </div>
+            <p>Discount:<b> Safe driver discount</b></p>
           </div>
-          <div layout="row" layout-align="space-between center" class="accordion">
-            <span  flex="70"><p><b><span class="icon-driver" style="font-size:28px;"></span> Drivers</b></p></span>
-            <md-button class="md-icon-button" ng-show="policy.driver_details != true"><md-icon><i class="material-icons"  ng-click="policy.driver_details = true"  >add</i></md-icon></md-button>
-            <md-button class="md-icon-button" ng-show="policy.driver_details == true"><md-icon><i class="material-icons"  ng-click="policy.driver_details = false">remove</i></md-icon></md-button>
-          </div>
-          <div layout="row" ng-show="policy.driver_details == true">
+        </div>
+        <div layout="row" layout-align="space-between center" class="accordion">
+          <span flex="70"><p><b><span class="icon-car" style="font-size:28px;"></span> Your car</b></p></span>
+          <md-button class="md-icon-button" ng-show="policy.cardetails != true">
+            <md-icon><i class="material-icons" ng-click="policy.cardetails = true">add</i></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-show="policy.cardetails == true">
+            <md-icon><i class="material-icons" ng-click="policy.cardetails = false">remove</i></md-icon>
+          </md-button>
+        </div>
+        <div layout="row" ng-show="policy.cardetails == true">
+          <div flex="50">
+            <p>Car make and model: <b>Toyota Yaris</b></p>
 
-            <md-tabs md-dynamic-height md-border-bottom flex="100" layout-align="space-between center" >
-              <md-tab ng-repeat="driver in policy.profil.Drivers">
-                <md-tab-label>
-                  <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a></div>
-                </md-tab-label>
-                <md-tab-body>
-                  <md-content  layout="row" class="md-padding" >
-                    <div flex="33">
-                      <p>Name: <b>Richard</b></p>
-                      <p>Surname: <b>Chung</b></p>
-                      <p>Nationality:<b>Singaporean</b></p>
-                    </div>
-                    <div flex="33">
-                      <p>ID:<b>S8787876C</b></p>
-                      <p>DOB: <b>10/10/1945</b></p>
-                      <p>Occupation: <b>Employee</b></p>
-                    </div>
-                    <div flex="33">
-                      <p>Marital status: <b>Married</b></p>
-                      <p>Gender: <b>Female</b></p>
-                      <p>Driving licence year: <b>1967</b></p>
-                    </div>
-                  </md-content>
-                </md-tab-body>
-              </md-tab>
-              <md-tab>
-                <md-tab-label>
-                  <div layout="row"><span class="icon-loss"></span><a style="font-size:10px;">Claims history</a></div>
-                </md-tab-label>
-                <md-tab-body>
-                  <md-content  layout="row" class="md-padding" >
-                  </md-content>
-                </md-tab-body>
-              </md-tab>
-            </md-tabs>
-          </div>
+            <p>Manufacturing year: <b>2015</b></p>
 
-          <div layout="column" >
-          <div layout="row" layout-align="space-between center"> <p> premium before discount</p><h3 class="input-up input-down premium"> $ 2,000</h3></div>
-          <div layout="row" layout-align="space-between center">  <p> discount</p><h3 class="input-up input-down premium"> $ 500</h3></div>
+            <p>Seating capacity: <b>5</b></p>
+
+            <p>Loan company: <b>5</b></p>
+          </div>
+          <div flex="50">
+            <p>Registration number: <b>SG543GH</b></p>
+
+            <p>Engine number: <b>12345678987</b></p>
+
+            <p>Chassis number: <b>12345678987</b></p>
+
+            <p>Previous insurer: <b>AIG</b></p>
+          </div>
+        </div>
+        <div layout="row" layout-align="space-between center" class="accordion">
+          <span flex="70"><p><b><span class="icon-policyholder" style="font-size:28px;"></span> Policyholder</b>
+          </p></span>
+          <md-button class="md-icon-button" ng-show="policy.policyholder_details != true">
+            <md-icon><i class="material-icons" ng-click="policy.policyholder_details = true">add</i></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-show="policy.policyholder_details == true">
+            <md-icon><i class="material-icons" ng-click="policy.policyholder_details = false">remove</i></md-icon>
+          </md-button>
+        </div>
+        <div layout="row" ng-show="policy.policyholder_details == true">
+          <div flex="50">
+            <p>Name: <b>Richard</b></p>
+
+            <p>Surname: <b>Chung</b></p>
+
+            <p>Nationality:<b>Singaporean</b></p>
+
+            <p>ID:<b>S8787876C</b></p>
+          </div>
+          <div flex="50">
+            <p>Email: <b>richard@gmail.com</b></p>
+
+            <p>Phone: <b>98989898</b></p>
+
+            <p>Address: <b>SG543GH</b></p>
+
+            <p>Post code: <b>12345678987</b></p>
+          </div>
+        </div>
+        <div layout="row" layout-align="space-between center" class="accordion">
+          <span flex="70"><p><b><span class="icon-driver" style="font-size:28px;"></span> Drivers</b></p></span>
+          <md-button class="md-icon-button" ng-show="policy.driver_details != true">
+            <md-icon><i class="material-icons" ng-click="policy.driver_details = true">add</i></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-show="policy.driver_details == true">
+            <md-icon><i class="material-icons" ng-click="policy.driver_details = false">remove</i></md-icon>
+          </md-button>
+        </div>
+        <div layout="row" ng-show="policy.driver_details == true">
+          <md-tabs md-dynamic-height md-border-bottom flex="100" layout-align="space-between center">
+            <md-tab ng-repeat="driver in policy.profil.Drivers">
+              <md-tab-label>
+                <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a>
+                </div>
+              </md-tab-label>
+              <md-tab-body>
+                <md-content layout="row" class="md-padding">
+                  <div flex="33">
+                    <p>Name: <b>Richard</b></p>
+
+                    <p>Surname: <b>Chung</b></p>
+
+                    <p>Nationality:<b>Singaporean</b></p>
+                  </div>
+                  <div flex="33">
+                    <p>ID:<b>S8787876C</b></p>
+
+                    <p>DOB: <b>10/10/1945</b></p>
+
+                    <p>Occupation: <b>Employee</b></p>
+                  </div>
+                  <div flex="33">
+                    <p>Marital status: <b>Married</b></p>
+
+                    <p>Gender: <b>Female</b></p>
+
+                    <p>Driving licence year: <b>1967</b></p>
+                  </div>
+                </md-content>
+              </md-tab-body>
+            </md-tab>
+            <md-tab>
+              <md-tab-label>
+                <div layout="row"><span class="icon-loss"></span><a style="font-size:10px;">Claims history</a></div>
+              </md-tab-label>
+              <md-tab-body>
+                <md-content layout="row" class="md-padding">
+                </md-content>
+              </md-tab-body>
+            </md-tab>
+          </md-tabs>
+        </div>
+        <div layout="column">
+          <div layout="row" layout-align="space-between center"><p> premium before discount</p>
+
+            <h3 class="input-up input-down premium"> $ 2,000</h3></div>
+          <div layout="row" layout-align="space-between center"><p> discount</p>
+
+            <h3 class="input-up input-down premium"> $ 500</h3></div>
           <md-divider></md-divider>
-            <div layout="row" layout-align="space-between center"> <p> total premium to pay</p><h2 class="input-up input-down premium"> $ 1,500</h2></div>
-         </div>
+          <div layout="row" layout-align="space-between center"><p> total premium to pay</p>
 
-
-
-
-        </md-content>
+            <h2 class="input-up input-down premium"> $ 1,500</h2></div>
+        </div>
+      </md-content>
     </div>
     <div flex="35" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-          <md-title layout-margin layout-padding>Terms and conditions</md-title>
-        </md-toolbar>
+        <md-title layout-margin layout-padding>Terms and conditions</md-title>
+      </md-toolbar>
       <md-content class="step" layout-padding>
-       <md-checkbox> Please check the box to confirm that you have read and agreed
-          with the policy terms, conditions and exclusions </md-checkbox>
+        <md-checkbox> Please check the box to confirm that you have read and agreed
+          with the policy terms, conditions and exclusions
+        </md-checkbox>
         <md-checkbox class="input-down"> Data Protection Act</md-checkbox>
-        <p class="input-up" style="text-align:justify;font-size:12px;">I confirm that the information I have provided is my personal data and, where it is not my personal data, that I have the consent of the owner of such personal data to provide such information.
-          By providing this information, I understand and give my consent for AXA Insurance Singapore and AXA Life Insurance Singapore (collectively “AXA”) and their respective representatives or agents to:
-          Collect, use, store, transfer and/ or disclose the information, to or with all such persons (including any member of the AXA Group or any third party service provider, and whether within or outside of Singapore) for the purpose of enabling AXA to provide me with services required of an insurance provider, including the evaluating, processing, administering and/ or managing of my relationship and policy(ies) with AXA, and for the purposes set out in AXA’s Data Use Statement which can be found at http://www.axa.com.sg ("Purposes").
-          Collect, use, store, transfer and/ or disclose personal data about me and those whose personal data I have provided from sources other than myself for the Purposes.
-          Contact me to share with me information about products and services from AXA that may be of interest to me by post, e-mail, fax, sms and phone calls.
+        <p class="input-up" style="text-align:justify;font-size:12px;">I confirm that the information I have provided is
+          my personal data and, where it is not my personal data, that I have the consent of the owner of such personal
+          data to provide such information.
+          By providing this information, I understand and give my consent for AXA Insurance Singapore and AXA Life
+          Insurance Singapore (collectively “AXA”) and their respective representatives or agents to:
+          Collect, use, store, transfer and/ or disclose the information, to or with all such persons (including any
+          member of the AXA Group or any third party service provider, and whether within or outside of Singapore) for
+          the purpose of enabling AXA to provide me with services required of an insurance provider, including the
+          evaluating, processing, administering and/ or managing of my relationship and policy(ies) with AXA, and for
+          the purposes set out in AXA’s Data Use Statement which can be found at http://www.axa.com.sg ("Purposes").
+          Collect, use, store, transfer and/ or disclose personal data about me and those whose personal data I have
+          provided from sources other than myself for the Purposes.
+          Contact me to share with me information about products and services from AXA that may be of interest to me by
+          post, e-mail, fax, sms and phone calls.
         </p>
       </md-content>
-  </div>
+    </div>
     <div flex="25" layout="column" flex-xs="100">
-
       <md-toolbar class="md-primary">
-          <md-title layout-margin layout-padding>Payment</md-title>
-
-        </md-toolbar>
+        <md-title layout-margin layout-padding>Payment</md-title>
+      </md-toolbar>
       <md-content class="step" layout-padding>
-
-
         <div ng-show="payStatus.status == 'start'">
           <form action="#"
                 name="cardForm"
@@ -155,50 +201,66 @@
                 data-placeholders="cardPlaceholders"
                 data-options="cardOptions"
                 data-messages="cardMessages">
-
             <p>Your <b>card number</b></p>
-            <input class="input_own" style="width: 100%;" placeholder="" type="text" name="CardNumber" card-number data-ng-model="card.number" />
+            <input class="input_own" style="width: 100%;" placeholder="" type="text" name="CardNumber" card-number
+                   data-ng-model="card.number"/>
+
             <p style="padding-top:10px;"><b>Full name</b> as on card</p>
-            <input class="input_own"  style="width: 100%;" placeholder="" type="text" name="CardName" card-name data-ng-model="card.name" />
+            <input class="input_own" style="width: 100%;" placeholder="" type="text" name="CardName" card-name
+                   data-ng-model="card.name"/>
+
             <div layout="row">
               <div class="col-md-6" style="    padding-left: 0px;">
                 <p style="padding-top:10px;"><b>Expiry date</b></p>
-                <input placeholder="MM / YYYY" type="text" name="CardExpiry" card-expiry data-ng-model="card.expiry" />
+                <input placeholder="MM / YYYY" type="text" name="CardExpiry" card-expiry data-ng-model="card.expiry"/>
               </div>
               <div class="col-md-6" style="    padding-left: 0px;">
                 <p style="padding-top:10px;"><b>CVV</b></p>
-                <input placeholder="CVC" type="text" name="CardCvc" card-cvc data-ng-model="card.cvc" style="width: 100px"/>
+                <input placeholder="CVC" type="text" name="CardCvc" card-cvc data-ng-model="card.cvc"
+                       style="width: 100px"/>
               </div>
             </div>
           </form>
           <div style="text-align: center" ng-show="payStatus.status == 'processing'">
             <h3>...Payment processing...</h3>
           </div>
-
           <div style="text-align: center" ng-show="payStatus.status == 'ok'">
             <h3>Thanks you for you payment</h3>
+
             <p>Reference {{ref}} / confirmation #{{payStatus.confirmation_number}}</p>
+
             <p style="font-size:20px;">You are now covered. You will receive your policy documents by email shortly.</p>
           </div>
-
           <div style="text-align: center" ng-show="payStatus.status == 'error'">
             <h3>Error during the payment</h3>
+
             <p>{{payStatus.error_message}}</p>
           </div>
-
           <iframe name="wirecard" height="200px" ng-src="{{currentProjectUrl}}" ng-show="false"></iframe>
         </div>
-
         <div hide-gt-xs layout="column">
-          <md-button class="md-raised md-accent" > Buy now</md-button>
+          <md-button class="md-raised md-accent"> Buy now</md-button>
           <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
           </md-button>
           <md-button class="md-primary md-hue-1" href="#/policy"> Back to quote details</md-button>
-
         </div>
       </md-content>
+    </div>
   </div>
-</div>
+  <footer hide-xs>
+    <md-button class=" md-raised md-accent action" ng-value="payStatus.message" data-ng-click="makePayment()"
+               ng-hide="payment_ok == true;"> Proceed to payment
+    </md-button>
+    <div id="card-container" ng-hide="payment_ok == true;"></div>
+    <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+        Ask us a question
+      </md-tooltip>
+    </md-button>
+    <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i
+      class="material-icons">keyboard_arrow_left</i>Back
+    </md-button>
+  </footer>
 </md-content>
-
-

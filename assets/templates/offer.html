@@ -1,110 +1,93 @@
-<md-content layout="row" hide-xs  style="background-color:transparent;" layout-fill>
+<md-content layout="row" hide-xs style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="75" layout="column" flex-xs="100">
-        <md-toolbar class="md-primary">
-          <div layout="row">
-            <md-title layout-margin layout-padding>Select your plan</md-title>
-          </div>
-        </md-toolbar>
-        <md-content class="step" layout-padding >
-          <div layout="row" layout-align="end end" style="padding:0px;">
-            <p style="margin-bottom: 10px;">Cover my car from </p>
-            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
-                           md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
-            <p style="margin-bottom: 10px; margin-left:20px;">to</p>
-            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
-          </div>
+      <md-toolbar class="md-primary">
+        <div layout="row">
+          <md-title layout-margin layout-padding>Select your plan</md-title>
+        </div>
+      </md-toolbar>
+      <md-content class="step" layout-padding>
+        <div layout="row" layout-align="end end" style="padding:0px;">
+          <p style="margin-bottom: 10px;">Cover my car from </p>
+          <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
+                         md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
+          <p style="margin-bottom: 10px; margin-left:20px;">to</p>
+          <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
+        </div>
+        <md-tabs md-dynamic-height md-border-bottom class="date-alignment">
+          <!-- ###### TODO CC : DYNAMIQUE ProductName-->
+          <md-tab label="COMPREHENSIVE">
+            <md-content class="md-padding">
+              <div layout="row">
+                <div layout="column" flex="40">
+                  <h3>Benefits</h3>
+                </div>
+                <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
+                     ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
+                  <h4 class="input-down input-up plan-name" ng-class="Plan.IsSelected ? 'selection' :''"
+                      style="padding-top:5px;">{{Plan.__Name}}</h4>
 
-
-
-          <md-tabs md-dynamic-height md-border-bottom class="date-alignment" >
-            <!-- ###### TODO CC : DYNAMIQUE ProductName-->
-             <md-tab label="COMPREHENSIVE">
-               <md-content class="md-padding">
-                 <!--   <div layout="row">
-                     <div layout="column">
-                       <h4>Benefits</h4>
-                       <div ng-repeat="Benefit in benefitsList"  layout="column"  style="line-height:1.8;">
-                        <div layout="row" style="min-height:30px;"> <span class="{{Benefit.icon}}" style="font-size:24px;"></span>{{ Benefit.label }}</div>
-                       </div>
-                       </div>
-                     <div layout="column" flex="20" ng-repeat="Plan in product.Plans"  style="text-align:center;" ng-click="updateSelectedPlan(Plan)" ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
-                       <h4 class="input-down input-up plan-name" style="padding-top:5px;">{{Plan.__Name}}</h4>
-                       <h3 class="input-up">$ {{Plan.UsualPremium}}</h3>
-                       <div ng-repeat="Benefit in benefitsList"  layout="column"  style="line-height:1.8;">
-                         <i style="min-height:30px;" class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
-                         <span style="min-height:30px;" ng-show="Plan.__Benefits[Benefit.value] != true;">-</span>
-                       </div>
-                     </div>
-                   </div>-->
-
-                <div layout="row">
-                   <div layout="column" flex="40">
-                     <h3>Benefits</h3>
-                   </div>
-
-                   <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
-                        ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
-                     <h4 class="input-down input-up plan-name" ng-class="Plan.IsSelected ? 'selection' :''" style="padding-top:5px;">{{Plan.__Name}}</h4>
-                     <h3 class="input-up" style="margin-bottom:0px;">$ {{Plan.UsualPremium}}</h3>
-                   </div>
-                 </div>
-                 <div layout="row" ng-repeat="Benefit in benefitsList" >
-                   <div layout="column" flex="40">
-                     <div layout="row"><span class="benefits-plan"> <span class="{{Benefit.icon}} icon-benefits" ></span> {{ Benefit.label }}</span>
-                       <md-tooltip class="white-tooltip"> Description of the benefit</md-tooltip>
-                     </div>
-                   </div>
-                   <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
-                        ng-class="Plan.IsSelected ? 'selection' : ''"
-                        ng-click="updateSelectedPlan(Plan)" ><span class="benefits-plan">
+                  <h3 class="input-up" style="margin-bottom:0px;">$ {{Plan.UsualPremium}}</h3>
+                </div>
+              </div>
+              <div layout="row" ng-repeat="Benefit in benefitsList">
+                <div layout="column" flex="40">
+                  <div layout="row"><span class="benefits-plan"> <span class="{{Benefit.icon}} icon-benefits"></span> {{ Benefit.label }}</span>
+                    <md-tooltip class="white-tooltip"> Description of the benefit</md-tooltip>
+                  </div>
+                </div>
+                <div layout="column" flex="20" ng-repeat="Plan in product.Plans" style="text-align:center;"
+                     ng-class="Plan.IsSelected ? 'selection' : ''"
+                     ng-click="updateSelectedPlan(Plan)"><span class="benefits-plan">
                      <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
                      <span ng-show="Plan.__Benefits[Benefit.value] != true;">-</span></span>
-                   </div>
-                  </div>
-
-
-
-              </md-content>
-            </md-tab>
-            <md-tab label="TPFT & TPO">
-              <md-content class="md-padding">
-                <div>
-                  <p>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of
-                    their COE life who have years of driving experience in Singapore.
-                  </p>
                 </div>
-                <div layout="row">
-                  <div layout="column" flex="40">
-                    <h3>Benefits</h3>
-                  </div>
-                    <div layout="column" flex="20" ng-repeat="Plan in PlansForNOCOMP" style="text-align:center;" ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
-                      <h4 class="input-down input-up plan-name" style="padding-top:5px;">{{Plan.__Name}}</h4>
-                      <h3 class="input-up" style="margin-bottom:0px;">$ {{Plan.UsualPremium}}</h3>
-                    </div>
+              </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="TPFT & TPO">
+            <md-content class="md-padding">
+              <div>
+                <p>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of
+                  their COE life who have years of driving experience in Singapore.
+                </p>
+              </div>
+              <div layout="row">
+                <div layout="column" flex="40">
+                  <h3>Benefits</h3>
                 </div>
-                <div layout="row" ng-repeat="Benefit in BenefitsForNOCOMP">
-                  <div layout="column" flex="40">
-                    <div layout="row"><span class="benefits-plan"> <span class="{{Benefit.icon}} icon-benefits" ></span> {{ Benefit.label }}</span></div>
-                  </div>
-                  <div layout="column" flex="20" ng-repeat="Plan in PlansForNOCOMP" style="text-align:center;"
-                       ng-class="Plan.IsSelected ? 'selection' : ''" ng-click="updateSelectedPlan(Plan)" >
-                    <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
-                    <span ng-show="Plan.__Benefits[Benefit.value] != true;">-</span></span>
+                <div layout="column" flex="20" ng-repeat="Plan in PlansForNOCOMP" style="text-align:center;"
+                     ng-class="Plan.IsSelected ? 'selection' : 'preselect'">
+                  <h4 class="input-down input-up plan-name" style="padding-top:5px;">{{Plan.__Name}}</h4>
+
+                  <h3 class="input-up " style="margin-bottom:0px;" ng-class="Plan.IsSelected ? 'selection' : ''">$
+                    {{Plan.UsualPremium}}</h3>
+                </div>
+              </div>
+              <div layout="row" ng-repeat="Benefit in BenefitsForNOCOMP">
+                <div layout="column" flex="40">
+                  <div layout="row"><span class="benefits-plan"> <span class="{{Benefit.icon}} icon-benefits"></span> {{ Benefit.label }}</span>
                   </div>
                 </div>
-              </md-content>
-            </md-tab>
-          </md-tabs>
-        </md-content>
+                <div layout="column" flex="20" ng-repeat="Plan in PlansForNOCOMP" style="text-align:center;"
+                     ng-class="Plan.IsSelected ? 'selection' : ''" ng-click="updateSelectedPlan(Plan)">
+                  <i class="material-icons" ng-show="Plan.__Benefits[Benefit.value] == true;">done</i>
+                  <span ng-show="Plan.__Benefits[Benefit.value] != true;">-</span></span>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-content>
     </div>
-    <div flex="25"  layout="column" flex-xs="100" >
+    <div flex="25" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-            <md-title layout-margin layout-padding>Your quotation</md-title>
+        <md-title layout-margin layout-padding>Your quotation</md-title>
       </md-toolbar>
-        <md-content class="step" layout-padding>
-          <div>
+      <md-content class="step" layout-padding>
+        <div>
           <h4 class="category-summary">Your plan</h4>
+
           <div layout="row">
             <div flex="60">
               <span>{{plan.__Name}}</span>
@@ -113,29 +96,30 @@
               <span>$ {{plan.UsualPremium}}</span>
             </div>
           </div>
-            <div layout="row">
-              <div flex="60">
-                <i>Excess</i>
-              </div>
-              <div flex="40">
-                <i>$ 1200</i>
-              </div>
+          <div layout="row">
+            <div flex="60">
+              <i>Excess</i>
+            </div>
+            <div flex="40">
+              <i>$ 1200</i>
             </div>
           </div>
-          <div class="discount">
-            <h4 class="category-summary">Your discount</h4>
+        </div>
+        <div class="discount">
+          <h4 class="category-summary">Your discount</h4>
 
-            <div layout="row" ng-repeat="discount in plan.Discounts">
-              <div flex="60">
-                <span>{{discount.__label}}</span>
-              </div>
-              <div flex="40">
-                <span>$ {{discount.PayablePremium}}</span>
-              </div>
+          <div layout="row" ng-repeat="discount in plan.Discounts">
+            <div flex="60">
+              <span>{{discount.__label}}</span>
+            </div>
+            <div flex="40">
+              <span>$ {{discount.PayablePremium}}</span>
             </div>
           </div>
-          <div>
+        </div>
+        <div>
           <h4 class="category-summary">Total</h4>
+
           <div layout="row">
             <div flex="60">
               <span>including GST</span>
@@ -144,23 +128,36 @@
               <span><h4>$ {{plan.FinalPremium}}</h4></span>
             </div>
           </div>
-          </div>
-        </md-content>
+        </div>
+      </md-content>
+    </div>
   </div>
-</div>
+  <footer hide-xs>
+    <md-button class=" md-raised md-accent action" href="#/addon"> Buy now</md-button>
+    <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+        Ask us a question
+      </md-tooltip>
+    </md-button>
+    <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/home"><i
+      class="material-icons">keyboard_arrow_left</i>Back
+    </md-button>
+  </footer>
 </md-content>
 <!-- *** END LAPTOP *** -->
 
 <!-----MOBILE----->
-<md-content hide-gt-xs  layout="row"  style="background-color:transparent;" layout-fill>
-  <div layout="row"  layout-xs="column"  layout-margin style=" width: 100%;">
+<md-content hide-gt-xs layout="row" style="background-color:transparent;" layout-fill>
+  <div layout="row" layout-xs="column" layout-margin style=" width: 100%;">
     <div layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
         <div layout="row">
           <md-title layout-margin layout-padding>Select your plan</md-title>
         </div>
       </md-toolbar>
-      <md-content class="step" layout-padding >
+      <md-content class="step" layout-padding>
         <div layout="column" layout-wrap>
           <p class="input-up">Select your policy starting date</p>
           <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
@@ -200,7 +197,7 @@
             <md-content class="md-padding">
               <div ng-show="ProductName == 'TPFT & TPO'"><span>Theft and Third Party Only & Third Party, Fire covers are best for drivers of cars at the end of their COE life who have years of driving experience in Singapore.</span>
               </div>
-              <section ng-show="ProductName != 'TPFT & TPO'" ng-repeat="Plan in PlansForNOCOMP" >
+              <section ng-show="ProductName != 'TPFT & TPO'" ng-repeat="Plan in PlansForNOCOMP">
                 <div ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)">
                   <md-subheader ng-class="Plan.IsSelected ? 'selection-mobile' : ''">
                     <div layout="row" layout-align="space-between center"><span>{{Plan.__Name}}</span><span>$ {{Plan.UsualPremium}}</span>
@@ -232,13 +229,14 @@
     </md-toolbar>
     <md-content ng-controller="RightCtrl" layout-padding>
       <form>
-        <div flex="25"  layout="column" flex-xs="100" >
+        <div flex="25" layout="column" flex-xs="100">
           <md-toolbar class="md-primary">
             <md-title layout-margin layout-padding>Your quotation</md-title>
           </md-toolbar>
           <md-content class="step" layout-padding>
             <div>
               <h4 class="category-summary">Your plan</h4>
+
               <div layout="row">
                 <div flex="60">
                   <span>{{plan.__Name}}</span>
@@ -270,6 +268,7 @@
             </div>
             <div>
               <h4 class="category-summary">Total</h4>
+
               <div layout="row">
                 <div flex="60">
                   <span>including GST</span>

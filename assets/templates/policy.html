@@ -1,127 +1,154 @@
-<md-content layout="row"   style="background-color:transparent;" layout-fill>
+<md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="33" layout="column" flex-xs="100">
-        <md-toolbar class="md-primary">
-          <md-title layout-margin layout-padding>Car details</md-title>
-          </md-toolbar>
-        <md-content class="step" layout-padding>
-          <div layout="row">
+      <md-toolbar class="md-primary">
+        <md-title layout-margin layout-padding>Car details</md-title>
+      </md-toolbar>
+      <md-content class="step" layout-padding>
+        <div layout="row">
           <md-input-container class="md-block" flex-gt-sm flex="45">
             <label>Car registration number</label>
             <input class="md-primary margin_two_inputs" ng-model="policy.profil.Vehicle.RegistrationNumber" required>
           </md-input-container>
-            <md-input-container class="md-block" flex="45">
-              <label>Seating capacity</label>
-              <md-select ng-model="policy.param.Vehicle.Seats">
-                <md-option class="md-primary" ng-repeat="Seats in policy.param.Vehicle.Seats" ng-value="Seats.value">{{Seats.value}}</md-option>
-              </md-select>
-            </md-input-container>
-
-          </div>
-          <div layout="row">
+          <md-input-container class="md-block" flex="45">
+            <label>Seating capacity</label>
+            <md-select ng-model="policy.param.Vehicle.Seats">
+              <md-option class="md-primary" ng-repeat="Seats in policy.param.Vehicle.Seats" ng-value="Seats.value">
+                {{Seats.value}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+        <div layout="row">
           <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
             <label>Chassis number</label>
-            <input class="md-primary" ng-model="policy.profil.Vehicle.ChassisNumber"required>
+            <input class="md-primary" ng-model="policy.profil.Vehicle.ChassisNumber" required>
           </md-input-container>
-            <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
-              <label>Engine number</label>
-              <input class="md-primary" ng-model="policy.profil.Vehicle.EngineNumber"required>
-            </md-input-container>
-          <md-button class="md-fab md-primary md-block" aria-label="link to LTA"  target="_blank" href="https://vrl.lta.gov.sg/lta/vrl/action/pubfunc?ID=EnquireTransferFee" >
+          <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
+            <label>Engine number</label>
+            <input class="md-primary" ng-model="policy.profil.Vehicle.EngineNumber" required>
+          </md-input-container>
+          <md-button class="md-fab md-primary md-block" aria-label="link to LTA" target="_blank"
+                     href="https://vrl.lta.gov.sg/lta/vrl/action/pubfunc?ID=EnquireTransferFee">
             <md-tooltip class="white-tooltip">
               Click to find your chassis number on LTA website
             </md-tooltip>
             LTA
           </md-button>
+        </div>
+        <p layout-padding>Is your car financed with a loan?</p>
+        <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding
+                        layout="start center">
+          <div flex="33" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan">
+            <md-radio-button class="md-primary" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}
+            </md-radio-button>
           </div>
-
-          <p layout-padding >Is your car financed with a loan?</p>
-          <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding layout="start center">
-            <div flex="33" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan" ><md-radio-button class="md-primary" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}</md-radio-button></div>
-          </md-radio-group>
-
-         <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true" layout-padding>
-            <label>Select your loan company</label>
-            <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
-              <md-option class="md-primary" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">{{HasFinanceCompany}}</md-option>
-            </md-select>
-          </md-input-container>
-
-
-          <p layout-padding>Is it your first time insured?</p>
-          <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding layout="start center">
-            <div flex="33" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured"> <md-radio-button class="md-primary"  ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}</md-radio-button></div>
-          </md-radio-group>
-          <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == false" layout-padding>
-            <label>Select your previous insurer</label>
-            <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
-              <md-option class="md-primary" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">{{PrevCarInsurer}}</md-option>
-            </md-select>
-          </md-input-container>
-        </md-content>
+        </md-radio-group>
+        <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true"
+                            layout-padding>
+          <label>Select your loan company</label>
+          <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
+            <md-option class="md-primary" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">
+              {{HasFinanceCompany}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <p layout-padding>Is it your first time insured?</p>
+        <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding
+                        layout="start center">
+          <div flex="33" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured">
+            <md-radio-button class="md-primary" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}
+            </md-radio-button>
+          </div>
+        </md-radio-group>
+        <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == false"
+                            layout-padding>
+          <label>Select your previous insurer</label>
+          <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
+            <md-option class="md-primary" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">
+              {{PrevCarInsurer}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-content>
     </div>
     <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-          <md-title layout-margin layout-padding>Policyholder details</md-title>
-        </md-toolbar>
+        <md-title layout-margin layout-padding>Policyholder details</md-title>
+      </md-toolbar>
       <md-content class="step" layout-padding>
         <p>Is the main driver the policyholder </p>
         <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder" layout="start center">
-          <div flex="33" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder"><md-radio-button class="md-primary" class="md-primary"  ng-value="IsMainDriverPolicyHolder.value">{{IsMainDriverPolicyHolder.label}}</md-radio-button></div>
+          <div flex="33" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder">
+            <md-radio-button class="md-primary" class="md-primary" ng-value="IsMainDriverPolicyHolder.value">
+              {{IsMainDriverPolicyHolder.label}}
+            </md-radio-button>
+          </div>
         </md-radio-group>
         <div ng-show="policy.profil.IsMainDriverPolicyHolder == false">
 
         </div>
         <form name="userForm">
-        <div layout="row" >
-          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-            <label>Name</label>
-            <input class="md-primary margin_two_inputs" name="name" ng-model="policy.profil.PolicyHolder.Surname"required>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-            <label>Surname</label>
-            <input class="md-primary margin_two_inputs"  ng-model="policy.profil.PolicyHolder.GivenName">
-          </md-input-container>
-        </div>
-        <div layout="row" >
-          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-            <label>Nationality</label>
-            <md-select ng-model="policy.profil.PolicyHolder.Nationality">
-              <md-option class="md-primary" ng-repeat="Nationality in policy.param.PolicyHolder.Nationality">{{Nationality}}</md-option>
-            </md-select>
-          </md-input-container>
+          <div layout="row">
+            <md-input-container class="md-block" flex-gt-sm flex="50"
+                                ng-show="policy.profil.IsMainDriverPolicyHolder == false">
+              <label>Name</label>
+              <input class="md-primary margin_two_inputs" name="name" ng-model="policy.profil.PolicyHolder.Surname"
+                     required>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm flex="50"
+                                ng-show="policy.profil.IsMainDriverPolicyHolder == false">
+              <label>Surname</label>
+              <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.GivenName">
+            </md-input-container>
+          </div>
+          <div layout="row">
+            <md-input-container class="md-block" flex-gt-sm flex="50"
+                                ng-show="policy.profil.IsMainDriverPolicyHolder == false">
+              <label>Nationality</label>
+              <md-select ng-model="policy.profil.PolicyHolder.Nationality">
+                <md-option class="md-primary" ng-repeat="Nationality in policy.param.PolicyHolder.Nationality">
+                  {{Nationality}}
+                </md-option>
+              </md-select>
+            </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-            <label>ID number</label>
-            <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.IDNumber">
-          </md-input-container>
-        </div>
+            <md-input-container class="md-block" flex-gt-sm flex="50"
+                                ng-show="policy.profil.IsMainDriverPolicyHolder == false">
+              <label>ID number</label>
+              <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.IDNumber">
+            </md-input-container>
+          </div>
           <div layout="row">
             <md-input-container class="md-block" flex-gt-sm flex="50">
-            <label>Email</label>
-            <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.PolicyHolder.Email"/>
-            <div class="hint" ng-show="showHints"></div>
-            <div ng-messages="userForm.email.$error" ng-hide="showHints">
-              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                Your email must be between 10 and 100 characters long and look like an e-mail address.
+              <label>Email</label>
+              <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100"
+                     ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.PolicyHolder.Email"/>
+
+              <div class="hint" ng-show="showHints"></div>
+              <div ng-messages="userForm.email.$error" ng-hide="showHints">
+                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                  Your email must be between 10 and 100 characters long and look like an e-mail address.
+                </div>
               </div>
-            </div>
-          </md-input-container>
-        <md-input-container class="md-block" flex-gt-sm flex="50">
-          <label>Phone number</label>
-          <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.PolicyHolder.Phone"/>
-          <div class="hint" ng-show="showHints"></div>
-          <div ng-messages="userForm.phone.$error" ng-hide="showHints">
-            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-             Enter a valid phone number.
-            </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm flex="50">
+              <label>Phone number</label>
+              <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8"
+                     ng-pattern="" ng-model="policy.profil.PolicyHolder.Phone"/>
+
+              <div class="hint" ng-show="showHints"></div>
+              <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                  Enter a valid phone number.
+                </div>
+              </div>
+            </md-input-container>
           </div>
-        </md-input-container>
-            </div>
-        <md-input-container class="md-block" >
-          <label>Address</label>
-          <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.AddressLine1" required>
-        </md-input-container>
+          <md-input-container class="md-block">
+            <label>Address</label>
+            <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.AddressLine1" required>
+          </md-input-container>
 
           <div layout="row">
             <md-input-container class="md-block" flex="50">
@@ -129,84 +156,90 @@
               <input ng-model="policy.profil.PolicyHolder.AddressLine2" class="margin_two_inputs" required>
             </md-input-container>
 
-        <md-input-container class="md-block" flex="50">
-          <label>Post code</label>
-          <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.PostalCode" required>
-        </md-input-container>
-            </div>
+            <md-input-container class="md-block" flex="50">
+              <label>Post code</label>
+              <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.PostalCode" required>
+            </md-input-container>
+          </div>
         </form>
       </md-content>
-  </div>
+    </div>
     <div flex="33" layout="column" flex-xs="100">
       <md-toolbar class="md-primary">
-          <md-title layout-margin layout-padding>Drivers details</md-title>
-        </md-toolbar>
+        <md-title layout-margin layout-padding>Drivers details</md-title>
+      </md-toolbar>
       <md-content class="step" layout-padding>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab ng-repeat="driver in policy.profil.Drivers">
             <md-tab-label>
-              <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a></div>
+              <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a>
+              </div>
             </md-tab-label>
             <md-tab-body>
               <md-content class="md-padding">
-
-              <div layout="row" >
-                <md-input-container class="md-block" flex-gt-sm flex="50">
-                  <label>Name</label>
-                  <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName" required>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm flex="50">
-                  <label>Surname</label>
-                  <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.Surname" required>
-                </md-input-container>
-              </div>
-              <div layout="row" >
-                <md-input-container class="md-block" flex="50">
-                  <label>Nationality</label>
-                  <md-select ng-model="policy.profil.Drivers.Nationality">
-                    <md-option class="md-primary" ng-repeat="Nationality in policy.param.Drivers.Nationality">{{Nationality}}</md-option>
-                  </md-select>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm flex="50">
-                  <label>ID number</label>
-                  <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.IDNumber" required>
-                </md-input-container>
-              </div>
-              <form name="userForm">
                 <div layout="row">
-                  <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
-                    <label>Email</label>
-                    <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
-                    <div class="hint" ng-show="showHints"></div>
-                    <div ng-messages="userForm.email.$error" ng-hide="showHints">
-                      <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Your email must be between 10 and 100 characters long and look like an e-mail address.
-                      </div>
-                    </div>
+                  <md-input-container class="md-block" flex-gt-sm flex="50">
+                    <label>Name</label>
+                    <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName" required>
                   </md-input-container>
-                  <md-input-container class="md-block" flex-gt-sm flex="50" ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
-                    <label>Phone number</label>
-                    <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8" ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
-                    <div class="hint" ng-show="showHints"></div>
-                    <div ng-messages="userForm.phone.$error" ng-hide="showHints">
-                      <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Enter a valid phone number.
-                      </div>
-                    </div>
+                  <md-input-container class="md-block" flex-gt-sm flex="50">
+                    <label>Surname</label>
+                    <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.Surname" required>
                   </md-input-container>
                 </div>
-                <label>Occupation</label>
-                <md-select ng-model="policy.profil.Drivers.Occupation" class="input-up" layout-padding>
-                  <md-option class="md-primary" ng-repeat="Occupation in policy.param.Drivers.Occupation">{{Occupation}}</md-option>
-                </md-select>
+                <div layout="row">
+                  <md-input-container class="md-block" flex="50">
+                    <label>Nationality</label>
+                    <md-select ng-model="policy.profil.Drivers.Nationality">
+                      <md-option class="md-primary" ng-repeat="Nationality in policy.param.Drivers.Nationality">
+                        {{Nationality}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex-gt-sm flex="50">
+                    <label>ID number</label>
+                    <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.IDNumber" required>
+                  </md-input-container>
+                </div>
+                <form name="userForm">
+                  <div layout="row">
+                    <md-input-container class="md-block" flex-gt-sm flex="50"
+                                        ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
+                      <label>Email</label>
+                      <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100"
+                             ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
 
-                    <md-datepicker class="md-block "  md-placeholder="Date of birth" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+                      <div class="hint" ng-show="showHints"></div>
+                      <div ng-messages="userForm.email.$error" ng-hide="showHints">
+                        <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                          Your email must be between 10 and 100 characters long and look like an e-mail address.
+                        </div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm flex="50"
+                                        ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
+                      <label>Phone number</label>
+                      <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8"
+                             ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
 
-
-              </form>
-
-
-            </md-content>
+                      <div class="hint" ng-show="showHints"></div>
+                      <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                        <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                          Enter a valid phone number.
+                        </div>
+                      </div>
+                    </md-input-container>
+                  </div>
+                  <label>Occupation</label>
+                  <md-select ng-model="policy.profil.Drivers.Occupation" class="input-up" layout-padding>
+                    <md-option class="md-primary" ng-repeat="Occupation in policy.param.Drivers.Occupation">
+                      {{Occupation}}
+                    </md-option>
+                  </md-select>
+                  <md-datepicker class="md-block " md-placeholder="Date of birth" md-min-date="minDate"
+                                 md-max-date="maxDate"></md-datepicker>
+                </form>
+              </md-content>
             </md-tab-body>
           </md-tab>
         </md-tabs>
@@ -218,8 +251,19 @@
 
         </div>
       </md-content>
-
+    </div>
   </div>
-</div>
+  <footer hide-xs>
+    <md-button class=" md-raised md-accent action" href="#/payment"> Proceed to payment</md-button>
+    <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+        Ask us a question
+      </md-tooltip>
+    </md-button>
+    <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i
+      class="material-icons">keyboard_arrow_left</i>Back
+    </md-button>
+  </footer>
 </md-content>
-
