@@ -12,7 +12,7 @@
                 <span class="{{packsLabels[p.RecordName].icon}} addon-title" style="font-size:24px;" ng-class="p.IsSelected == true ? 'addon-selected':''"></span>
                 <span class="addon-title" ng-class="p.IsSelected == true ? 'addon-selected':''"> {{p.__label.Title}}</span></b>
               </span>
-              <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" ng-model="" class="input-down"></md-checkbox>
+              <md-checkbox ng-model="p.IsSelected" aria-label="pack selected" class="input-down"></md-checkbox>
             </div>
 
           <md-card-content>
