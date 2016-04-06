@@ -1,12 +1,46 @@
 var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial','algoliasearch']);
 
+
+
 app.config(function($mdThemingProvider) {
+  $mdThemingProvider.definePalette('axaMotor', {
+    '50': 'ffffff',
+    '100': 'e5f3fa',
+    '200': 'cce7f5',
+    '300': 'b2dbf0',
+    '400': '4cabdc',
+    '500': '004467',
+    '600': '005f90',
+    '700': '004467',
+    '800': '0088ce',
+    '900': '00283d',
+    'A100': '001b29',
+    'A200': '004467',
+    'A400': '004467',
+    'A700': 'd50000',
+    'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
+                                        // on this palette should be dark or light
+    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+      '200', '300', '400', 'A100'],
+    'contrastLightColors': undefined    // could also specify this if default was 'dark'
+  });
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('red');
+    .primaryPalette('axaMotor', {
+      'default': '500', // by default use shade 400 from the pink palette for primary intentions
+      'hue-1': '100'// use shade 100 for the <code>md-hue-1</code> class
 
-})
+    })
+    // If you specify less than all of the keys, it will inherit from the
+    // default shades
+    .accentPalette('axaMotor', {
+      'default': '800' // use shade 200 for default, and keep all other shades the same
+    })
+    .backgroundPalette('axaMotor', {
+      'default': '50' // use shade 200 for default, and keep all other shades the same
+    })
 
+
+});
 
 app.config(function($mdDateLocaleProvider) {
   $mdDateLocaleProvider.formatDate = function (date) {
@@ -49,7 +83,8 @@ app.config(['$routeProvider',
       otherwise({
         redirectTo: '/home'
       });
-  }]);
+  }
+]);
 app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, product, $filter, $mdSidenav, $mdDialog) {
   console.log("== homepageCtrl ==");
   $scope.policy = policy;
@@ -196,6 +231,7 @@ function DialogController($scope, $mdDialog, currentPack, policy) {
   };
 
 }
+
 
 app.filter('getIndex', function () {
   return function (input, id) {

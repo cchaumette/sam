@@ -37,8 +37,8 @@
 @axa-grey:#6F6F6F;
 @axa-grey-light: #D6D6D6;
 @axa-coral:rgb(255,82,82);
-@axa-auto:#2196f3;
-@axa-auto-light:#90caf9;
+@axa-auto:#0088ce;
+@axa-auto-dark:#004467;
 
 
 @font-face {
@@ -57,9 +57,9 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: @axa-grey;
-  background-color: #EEEEEE; }
+  background-color: #e5f3fa; }
 
-label, p, b, {
+label, p, b,a {
   color:@axa-grey;
 }
 
@@ -75,13 +75,24 @@ footer {
   background-color:white;
 }
 
-md-content, md-caption, md-input-container md-placeholder, md-label,md-input-container label, md-input,md-content.md-default-theme, md-content{
+md-content, md-caption, md-input-container md-placeholder, md-label,md-input-container label, md-content.md-default-theme, md-content{
   color:@axa-grey;
+}
+md-input-container.md-default-theme .md-input, md-input-container .md-input{
+  color:@axa-auto !important;
 }
 /*LAYOUT*/
 
 .step{
   height: 500px;
+
+}
+.shadow{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+}
+.shadow:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 }
 .margin_two_inputs{
   margin-top: 0px;
@@ -111,6 +122,10 @@ md-content, md-caption, md-input-container md-placeholder, md-label,md-input-con
   margin-bottom:10px;
   margin-top: 10px;
 }
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar{
+  color: @axa-auto;
+  background: @axa-auto;
+}
 /*BUTTON*/
 .own_button{
   background-color:white;
@@ -122,7 +137,6 @@ md-content, md-caption, md-input-container md-placeholder, md-label,md-input-con
   margin-right:30px;
 }
 .button-choice{
-  border-bottom:solid 1px @axa-grey-light;
   border-radius:0;
   padding:0px;
   color:@axa-grey;
@@ -132,18 +146,24 @@ md-content, md-caption, md-input-container md-placeholder, md-label,md-input-con
   margin-left:30px;
   margin-top: 2px;
 }
+md-input-container .md-input-focused .md-input{
+  border-color:transparent;
+}
 
 /**/
 
 
 .accordion{
-  border-bottom:solid 1px @axa-auto;
+  border-bottom:solid 1px @axa-auto-dark;
 }
 
 md-tooltip.white-tooltip .md-content {
   background-color: white;
   color: @axa-auto;
   font-size:12px;
+}
+.toolbar-border{
+  border-bottom:solid 2px @axa-auto;
 }
 
 /*HOME PAGE*/
@@ -165,7 +185,7 @@ md-tooltip.white-tooltip .md-content {
   float:right;
 }
 .pack-selected{
-  background-color:@axa-auto-light !important;
+  background-color:@axa-auto-dark !important;
 }
 .toolbar-packs{
   box-sizing: border-box;
@@ -186,22 +206,22 @@ md-tooltip.white-tooltip .md-content {
 }
 
 .selection{
-  background-color:@axa-auto-light;
+  background-color:@axa-auto-dark;
   text-align:center;
   color:white !important;
 }
 
 .addon-selected{
-  color:@axa-auto-light !important;
+  color:@axa-auto-dark !important;
 }
 
 .selected-plan{
   background-color:white;
-  color:@axa-auto-light;
+  color:@axa-auto-dark;
 }
 
 .discount{
-  background-color:#E3F2FD;
+  background-color:#cce7f5;
 }
 
 .details{
@@ -210,7 +230,7 @@ md-tooltip.white-tooltip .md-content {
 
 /* OFFER PAGE*/
 .md-subheader{
-  background-color:#E3F2FD;
+  background-color:@axa-auto-dark;
   margin-bottom:10px;
   margin-top:10px
 }
@@ -219,7 +239,8 @@ md-tooltip.white-tooltip .md-content {
 }
 
 .preselect:hover{
-  background-color:#E3F2FD;
+  background-color:#cce7f5;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 }
 
 .plan-name{
@@ -236,7 +257,7 @@ md-tooltip.white-tooltip .md-content {
   padding:5px;
 }
 .selection-mobile{
-  background-color:@axa-auto-light;
+  background-color:@axa-auto-dark;
   text-align:center;
 
 }
