@@ -6,13 +6,14 @@
           <md-title layout-margin layout-padding>Select your plan</md-title>
         </div>
       </md-toolbar>
+
       <md-content class="step" layout-padding>
         <div layout="row" layout-align="end end" style="padding:0px;">
           <p style="margin-bottom: 10px;">Cover my car from </p>
-          <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
-                         md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()"></md-datepicker>
+          <md-datepicker style="z-index: 1;" ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
+                         md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()" layout-wrap></md-datepicker>
           <p style="margin-bottom: 10px; margin-left:20px;">to</p>
-          <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
+          <md-datepicker style="z-index: 1;"ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
         </div>
         <md-tabs md-dynamic-height md-border-bottom class="date-alignment">
           <!-- ###### TODO CC : DYNAMIQUE ProductName-->
@@ -137,7 +138,7 @@
     <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
     <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
       <md-icon md-svg-src="images/webchat.svg"></md-icon>
-      <md-tooltip md-visible="demo.showTooltip" md-direction="left">
+      <md-tooltip  class="white-tooltip" md-visible="demo.showTooltip" md-direction="left">
         Ask us a question
       </md-tooltip>
     </md-button>

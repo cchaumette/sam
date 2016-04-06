@@ -6,13 +6,14 @@
       <md-toolbar class="md-primary">
         <md-title layout-margin layout-padding>Referral</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding layout-fill>
+      <md-content class="step"  layout-fill>
         <div layout="row" ng-hide="policy.referral == true">
         <div layout="column" layout-sm="column" flex layout-padding>
-          <p>Our underwriting team will review your profile. Kindly let us your contact details.</p>
+          <p>Due to your claims history we are not able to proceed with your quote right now, our underwriting team will review your profile. Kindly let us your contact details.</p>
+
           <md-input-container class="md-block input-down" flex-gt-sm >
             <label>Your name</label>
-            <input ng-model="driver.Age">
+            <input ng-model="driver.Age" required>
           </md-input-container>
           <form name="userForm">
             <md-input-container class="md-block" flex-gt-sm>
