@@ -9,7 +9,6 @@
           <md-input-container class="md-block" flex-gt-sm>
             <label class="space-up">Enter your car make and select the model</label>
             <input ng-model="carSearch" ng-keyup="algolia()" class="md-accent" required style="box-shadow:transparent;">
-
             <div ng-show="car.car_id == null">
               <div ng-repeat="hit in hits" ng-click="searchTo(hit)" class="preselect">{{hit.make}} {{hit.model}}</div>
             </div>
