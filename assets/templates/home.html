@@ -152,12 +152,12 @@
   <footer>
 
     <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()"
-               ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">
+               ng-hide="policy.profil.ClaimsPast3Years == true ">
       Buy now
     </md-button>
 
     <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()"
-               ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">
+               ng-show="policy.profil.ClaimsPast3Years == true">
       Proceed
     </md-button>
     <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
