@@ -1,23 +1,20 @@
 <md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Add custom packs</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
-        <div class="card-packs" ng-repeat="p in plan.Packs">
-          <div class="toolbar-packs" ng-class="p.IsSelected == true ? 'pack-selected' : ''">
+      <md-content class="step shadow" layout-padding>
+        <div class="card-packs " ng-repeat="p in plan.Packs">
+
             <div layout="row" layout-align="space-between center">
-              <span layout="end end" flex="70"><b>
-                <span class="{{packsLabels[p.RecordName].icon}}"
-                                                        style="font-size:24px;"
-                                                        ng-class="a.IsSelected == true ? 'addon-selected':''"
-                                                        style="font-size:24px;"></span>
-                <span> {{p.__label.Title}}</span></b>
+              <span layout="end end" flex="70" ><b>
+                <span class="{{packsLabels[p.RecordName].icon}} addon-title" style="font-size:24px;" ng-class="p.IsSelected == true ? 'addon-selected':''"></span>
+                <span class="addon-title" ng-class="p.IsSelected == true ? 'addon-selected':''"> {{p.__label.Title}}</span></b>
               </span>
               <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" ng-model="" class="input-down"></md-checkbox>
             </div>
-          </div>
+
           <md-card-content>
             <p class="details">{{packsLabels[p.RecordName].label}}</p>
           </md-card-content>
@@ -28,24 +25,24 @@
       </md-content>
     </div>
     <div flex="40" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Select add-ons</md-title>
       </md-toolbar>
-      <md-content class="step" style="padding-top:0px;padding-bottom:16px; " layout-padding>
+      <md-content class="step shadow" style="padding-top:0px;padding-bottom:16px; " layout-padding>
         <div ng-repeat="a in plan.AddOns">
           <div layout="row" layout-align="space-between center" class="accordion">
             <span flex="80" ng-class="a.IsSelected == true ? 'addon-selected':''"><p><b>
-              <span class="{{addonsLabels[a.RecordName].icon}}" ng-class="a.IsSelected == true ? 'addon-selected':''"
-                    style="font-size:24px;"></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''">{{a.__label.Title}}</span></b>
+              <span class="{{addonsLabels[a.RecordName].icon}} addon-title" ng-class="a.IsSelected == true ? 'addon-selected':''"
+                    style="font-size:24px;"></span> <span ng-class="a.IsSelected == true ? 'addon-selected':''" class="addon-title">{{a.__label.Title}}</span></b>
             </p></span>
-            <span flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''" layout="center center"><b>$
+            <span flex="10" ng-class="a.IsSelected == true ? 'addon-selected':''" layout="center center"><b ng-class="a.IsSelected == true ? 'addon-selected':''" class="addon-title">$
               64</b></span>
-            <md-button class="md-icon-button" ng-show="a.Show != true">
-              <md-icon><i class="material-icons" ng-class="a.IsSelected == true ? 'addon-selected':''"
+            <md-button class="md-icon-button " ng-show="a.Show != true">
+              <md-icon><i class="material-icons addon-title" ng-class="a.IsSelected == true ? 'addon-selected':''"
                           ng-click="a.Show = true">add</i></md-icon>
             </md-button>
             <md-button class="md-icon-button" ng-show="a.Show == true">
-              <md-icon><i class="material-icons" ng-class="a.IsSelected == true ? 'addon-selected':''"
+              <md-icon><i class="material-icons addon-title" ng-class="a.IsSelected == true ? 'addon-selected':''"
                           ng-click="a.Show = false">remove</i></md-icon>
             </md-button>
           </div>
@@ -71,10 +68,10 @@
       </md-content>
     </div>
     <div flex="25" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Your quotation</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <div>
           <h4 class="category-summary">Your plan</h4>
 

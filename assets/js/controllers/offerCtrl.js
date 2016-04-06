@@ -31,6 +31,9 @@ app.controller('offerCtrl', ['$scope','policy' ,'marketing','offer', 'product','
   $scope.updateSelectedPlan = function(plan){
     product.updateSelectedPlan(plan);
   }
+  $scope.updateHoverPlan = function(plan){
+    product.updateHoverPlan(plan);
+  }
 
 
   /**
