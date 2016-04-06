@@ -47,16 +47,13 @@
 
   <md-toolbar layout="row" style="background-color:white;">
       <div class="md-toolbar-tools" >
-          <div flex="30">
+          <div flex="50">
             <span><img src="/images/axa_logo.jpg"  style=" padding-top: 20px;padding-left: 30px;padding-bottom: 20px; height: 70px;"></span>
           </div>
         <div flex="50"></div>
-          <div flex="20">
-            <md-input-container class="agentcode" flex-gt-sm>
-              <label>Agent Code</label>
-              <input ng-model="user.agentcode">
-            </md-input-container>
-        </div>
+
+        <md-button ng-click="showAgent($event)" style="color:grey;"> Agent code </md-button>
+
       </div>
     </md-toolbar>
 

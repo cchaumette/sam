@@ -11,7 +11,7 @@
             <input ng-model="carSearch" ng-keyup="algolia()" class="md-primary" required>
 
             <div ng-show="car.car_id == null">
-              <div ng-repeat="hit in hits" ng-click="searchTo(hit)">{{hit.make}} {{hit.model}}</div>
+              <div ng-repeat="hit in hits" ng-click="searchTo(hit)" >{{hit.make}} {{hit.model}}</div>
             </div>
           </md-input-container>
           <div class="space-up">

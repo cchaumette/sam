@@ -119,6 +119,16 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     }
   }
 
+  $scope.showAgent = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogAgent.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals :{currentPack : null }
+    })
+  };
   $scope.showAlert = function (ev) {
     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
