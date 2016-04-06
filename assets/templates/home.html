@@ -150,13 +150,21 @@
     </div>
   </div>
   <footer>
+
     <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()"
                ng-hide="policy.profil.TotalClaimAmount == '10001' || policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">
       Buy now
     </md-button>
+
     <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()"
                ng-show="policy.profil.TotalClaimAmount == '10001'|| policy.profil.NumberOfClaims == '2'|| policy.profil.NumberOfWindscreenClaims == '2' ">
       Proceed
+    </md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      <md-tooltip  class="white-tooltip" md-visible="demo.showTooltip" md-direction="left">
+        Ask us a question
+      </md-tooltip>
     </md-button>
   </footer>
 </md-content>
