@@ -1,10 +1,10 @@
 <md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="50" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Your insurance summary</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <label>Please check carefully the details of your insurance summary before proceeding to payment</label>
 
         <div layout="row" layout-align="space-between center" class="accordion">
@@ -162,10 +162,10 @@
       </md-content>
     </div>
     <div flex="35" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Terms and conditions</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <md-checkbox> Please check the box to confirm that you have read and agreed
           with the policy terms, conditions and exclusions
         </md-checkbox>
@@ -188,10 +188,10 @@
       </md-content>
     </div>
     <div flex="25" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Payment</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <div ng-show="payStatus.status == 'start'">
           <form action="#"
                 name="cardForm"

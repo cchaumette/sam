@@ -1,17 +1,16 @@
 <md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
-    <div flex="33" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+    <div flex="33" layout="column" flex-xs="100" >
+      <md-toolbar class="md-primary toolbar-border ">
         <md-title layout-margin layout-padding>Car details</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <div md-padding>
-          <md-input-container class="md-block " flex-gt-sm>
+          <md-input-container class="md-block" flex-gt-sm>
             <label class="space-up">Enter your car make and select the model</label>
-            <input ng-model="carSearch" ng-keyup="algolia()" class="md-primary" required>
-
+            <input ng-model="carSearch" ng-keyup="algolia()" class="md-accent" required style="box-shadow:transparent;">
             <div ng-show="car.car_id == null">
-              <div ng-repeat="hit in hits" ng-click="searchTo(hit)" >{{hit.make}} {{hit.model}}</div>
+              <div ng-repeat="hit in hits" ng-click="searchTo(hit)" class="preselect">{{hit.make}} {{hit.model}}</div>
             </div>
           </md-input-container>
           <div class="space-up">
@@ -20,7 +19,7 @@
                             ng-change="checkOffpeak($event,policy.profil.Vehicle.OffPeakCar)" layout="row"
                             layout-align="start center" layout-padding>
               <div flex="33" ng-repeat="OffPeakCar in policy.param.Vehicle.OffPeakCar">
-                <md-radio-button class="md-primary " ng-value="OffPeakCar.value">{{OffPeakCar.label}}
+                <md-radio-button class="md-accent" ng-value="OffPeakCar.value">{{OffPeakCar.label}}
                 </md-radio-button>
               </div>
             </md-radio-group>
@@ -28,15 +27,15 @@
           <div class="space-up">
             <p>Which year was your car manufactured?</p>
             <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
-              <md-button class="button-choice" ng-click="rangeYearOfmake = 0" ng-show="rangeYearOfmake == 1"> <<
+              <md-button class="button-choice shadow" ng-click="rangeYearOfmake = 0" ng-show="rangeYearOfmake == 1"> <<
               </md-button>
-              <md-button class="button-choice"
+              <md-button class="button-choice shadow "
                          ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake[rangeYearOfmake]"
                          ng-click="policy.profil.Vehicle.YearOfMake = YearOfMake.year"
-                         ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'md-primary' : '' ">
+                         ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'md-accent' : '' ">
                 {{YearOfMake.year}}
               </md-button>
-              <md-button class="button-choice" ng-click="rangeYearOfmake = 1" ng-show="rangeYearOfmake == 0"> >>
+              <md-button class="button-choice shadow" ng-click="rangeYearOfmake = 1" ng-show="rangeYearOfmake == 0"> >>
               </md-button>
             </section>
           </div>
@@ -44,15 +43,15 @@
       </md-content>
     </div>
     <div flex="33" layout="column" flex-xs="100">
-      <md-toolbar>
+      <md-toolbar  class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
-        <md-tabs md-dynamic-height md-border-bottom md-autoselect>
-          <md-tab ng-repeat="driver in policy.profil.Drivers">
-            <md-tab-label>
-              <div layout="row" class="md-primary"><i class="material-icons">person</i>
-                <a style="font-size:10px;" ng-class="driverAdded == true ? 'selection':''">{{driver.__label}}</a>
+      <md-content class="step shadow" layout-padding>
+        <md-tabs md-dynamic-height md-border-bottom md-autoselect >
+          <md-tab ng-repeat="driver in policy.profil.Drivers" >
+            <md-tab-label >
+              <div layout="row" class="md-accent"><i class="material-icons md-accent">person</i>
+                <a style="font-size:10px;" >{{driver.__label}}</a>
               </div>
             </md-tab-label>
             <md-tab-body>
@@ -61,7 +60,7 @@
                 <md-radio-group layout="row" ng-model="driver.Gender" layout="row" layout-align="start center"
                                 layout-padding>
                   <div flex="33" ng-repeat="param in policy.param.Drivers.Gender">
-                    <md-radio-button class="md-primary"
+                    <md-radio-button class="md-accent"
                                      ng-value=param.value>{{param.label}}
                     </md-radio-button>
                   </div>
@@ -72,7 +71,7 @@
                 <md-radio-group ng-model="driver.MaritalStatus" layout="row" layout-align="start center"
                                 layout-padding>
                   <div flex="33" ng-repeat="param in policy.param.Drivers.MaritalStatus">
-                    <md-radio-button class="md-primary"
+                    <md-radio-button class="md-accent"
                                      ng-value=param.value>{{param.label}}
                     </md-radio-button>
                   </div>
@@ -80,7 +79,7 @@
               </div>
               <md-input-container class="md-block input-down input-down" flex-gt-sm>
                 <label>How old is the driver?</label>
-                <input class="md-primary" ng-model="driver.Age" required>
+                <input class="md-accent" ng-model="driver.Age" required>
               </md-input-container>
               <div layout="row">
                 <md-input-container class="md-block input-down" flex-gt-sm flex="70">
@@ -88,8 +87,8 @@
                   <input ng-model="driver.license" required>
                 </md-input-container>
                 <div md-input-container class="margin_two_inputs" flex="30" ng-show="driver.license >='2015'">
-                  <p>Month</p>
-                  <md-select style="margin-top: -28px;" ng-model="driver.licenseMonth" required>
+                  <p class="md-caption" style="margin-top: 0px;">Month</p>
+                  <md-select style="margin-top: -10px;" ng-model="driver.licenseMonth" required>
                     <md-option ng-repeat="m in months" value="{{m}}">{{m}}</md-option>
                   </md-select>
                   </md-input-container>
@@ -99,7 +98,7 @@
                 <md-button layout="row" class="md-secondary" ng-click="removeDriver($index)" ng-show="$index > 0">Remove
                   {{driver.__label}}
                 </md-button>
-                <md-button layout="row" class="md-primary" ng-click="addDriver()" ng-show="isAddDriverEnable()"><i
+                <md-button layout="row" class="md-accent" ng-click="addDriver()" ng-show="isAddDriverEnable()"><i
                   class="material-icons" style=" padding-right: 8px;">person_add</i> Add a driver
                 </md-button>
               </div>
@@ -109,31 +108,31 @@
       </md-content>
     </div>
     <div flex="33" hide-xs layout="column" style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
-      <md-toolbar style="width: 90%">
+      <md-toolbar  class="md-primary toolbar-border" style="width: 100%">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 90%">
+      <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 100%">
       </md-content>
     </div>
     <div flex="33" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Driving experience</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <div md-padding class="space-up">
           <p>What is your non-claim discount bonus?</p>
           <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
-            <md-button class=" button-choice" ng-repeat="NCDPoints in policy.param.NCDPoints"
+            <md-button class="button-choice shadow" ng-repeat="NCDPoints in policy.param.NCDPoints"
                        ng-click="checkNCD($event, NCDPoints.value)"
-                       ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-primary' : '' ">{{NCDPoints.label}}
+                       ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-accent' : '' ">{{NCDPoints.label}}
             </md-button>
           </section>
           <div md-padding class="space-up">
             <p>Have you made any claims in the past 3 years?</p>
             <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center"
-                            ng-change="CheckClaims($event)" layout-padding>
+                            ng-change="CheckClaims($event)" class="md-accent" layout-padding>
               <div flex="33" ng-repeat="ClaimsPast3Years in policy.param.ClaimsPast3Years">
-                <md-radio-button class="md-primary" ng-value="ClaimsPast3Years.value">{{ClaimsPast3Years.label}}
+                <md-radio-button class="md-accent" ng-value="ClaimsPast3Years.value">{{ClaimsPast3Years.label}}
                 </md-radio-button>
               </div>
             </md-radio-group>
@@ -142,21 +141,21 @@
       </md-content>
     </div>
     <div flex="33" hide-xs layout="column" style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
-      <md-toolbar style="width: 90%">
+      <md-toolbar  class="md-primary toolbar-border" style="width: 100%">
         <md-title layout-margin layout-padding>Driving experience</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 90%">
+      <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; width: 100%">
       </md-content>
     </div>
   </div>
   <footer>
 
-    <md-button class=" md-raised md-accent action" href="#/offer" ng-disabled="!offerIsEnabled()"
+    <md-button class=" md-raised md-primary action" href="#/offer" ng-disabled="!offerIsEnabled()"
                ng-hide="policy.profil.ClaimsPast3Years == true ">
       Buy now
     </md-button>
 
-    <md-button class=" md-raised md-accent action" href="#/referral" ng-disabled="!referralIsEnabled()"
+    <md-button class=" md-raised md-primary action" href="#/referral" ng-disabled="!referralIsEnabled()"
                ng-show="policy.profil.ClaimsPast3Years == true">
       Proceed
     </md-button>

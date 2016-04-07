@@ -1,10 +1,10 @@
 <md-content layout="row" style="background-color:transparent;" layout-fill>
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="33" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Car details</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <div layout="row">
           <md-input-container class="md-block" flex-gt-sm flex="45">
             <label>Car registration number</label>
@@ -13,7 +13,7 @@
           <md-input-container class="md-block" flex="45">
             <label>Seating capacity</label>
             <md-select ng-model="policy.param.Vehicle.Seats">
-              <md-option class="md-primary" ng-repeat="Seats in policy.param.Vehicle.Seats" ng-value="Seats.value">
+              <md-option class="md-primary preselect" ng-repeat="Seats in policy.param.Vehicle.Seats" ng-value="Seats.value">
                 {{Seats.value}}
               </md-option>
             </md-select>
@@ -38,9 +38,9 @@
         </div>
         <p layout-padding>Is your car financed with a loan?</p>
         <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding
-                        layout="start center">
+                        layout="start center" class="md-accent">
           <div flex="33" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan">
-            <md-radio-button class="md-primary" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}
+            <md-radio-button class="md-accent" ng-value="HasFinanceLoan.value">{{HasFinanceLoan.label}}
             </md-radio-button>
           </div>
         </md-radio-group>
@@ -48,7 +48,7 @@
                             layout-padding>
           <label>Select your loan company</label>
           <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
-            <md-option class="md-primary" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">
+            <md-option class="md-primary preselect" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">
               {{HasFinanceCompany}}
             </md-option>
           </md-select>
@@ -57,7 +57,7 @@
         <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding
                         layout="start center">
           <div flex="33" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured">
-            <md-radio-button class="md-primary" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}
+            <md-radio-button class="md-accent" ng-value="PrevCarInsured.value">{{PrevCarInsured.label}}
             </md-radio-button>
           </div>
         </md-radio-group>
@@ -65,7 +65,7 @@
                             layout-padding>
           <label>Select your previous insurer</label>
           <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
-            <md-option class="md-primary" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">
+            <md-option class="md-primary preselect" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">
               {{PrevCarInsurer}}
             </md-option>
           </md-select>
@@ -73,14 +73,14 @@
       </md-content>
     </div>
     <div flex="33" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Policyholder details</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <p>Is the main driver the policyholder </p>
         <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder" layout="start center">
           <div flex="33" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder">
-            <md-radio-button class="md-primary" class="md-primary" ng-value="IsMainDriverPolicyHolder.value">
+            <md-radio-button class="md-accent" class="md-primary" ng-value="IsMainDriverPolicyHolder.value">
               {{IsMainDriverPolicyHolder.label}}
             </md-radio-button>
           </div>
@@ -107,7 +107,7 @@
                                 ng-show="policy.profil.IsMainDriverPolicyHolder == false">
               <label>Nationality</label>
               <md-select ng-model="policy.profil.PolicyHolder.Nationality">
-                <md-option class="md-primary" ng-repeat="Nationality in policy.param.PolicyHolder.Nationality">
+                <md-option class="md-primary preselect" ng-repeat="Nationality in policy.param.PolicyHolder.Nationality">
                   {{Nationality}}
                 </md-option>
               </md-select>
@@ -165,10 +165,10 @@
       </md-content>
     </div>
     <div flex="33" layout="column" flex-xs="100">
-      <md-toolbar class="md-primary">
+      <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Drivers details</md-title>
       </md-toolbar>
-      <md-content class="step" layout-padding>
+      <md-content class="step shadow" layout-padding>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab ng-repeat="driver in policy.profil.Drivers">
             <md-tab-label>
@@ -191,7 +191,7 @@
                   <md-input-container class="md-block" flex="50">
                     <label>Nationality</label>
                     <md-select ng-model="policy.profil.Drivers.Nationality">
-                      <md-option class="md-primary" ng-repeat="Nationality in policy.param.Drivers.Nationality">
+                      <md-option class="md-primary preselect" ng-repeat="Nationality in policy.param.Drivers.Nationality">
                         {{Nationality}}
                       </md-option>
                     </md-select>
@@ -232,7 +232,7 @@
                   </div>
                   <label>Occupation</label>
                   <md-select ng-model="policy.profil.Drivers.Occupation" class="input-up" layout-padding>
-                    <md-option class="md-primary" ng-repeat="Occupation in policy.param.Drivers.Occupation">
+                    <md-option class="md-primary preselect" ng-repeat="Occupation in policy.param.Drivers.Occupation">
                       {{Occupation}}
                     </md-option>
                   </md-select>
