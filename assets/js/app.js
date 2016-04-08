@@ -1,4 +1,4 @@
-var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial','algoliasearch']);
+var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial','algoliasearch', 'gavruk.card']);
 
 
 
@@ -113,20 +113,15 @@ app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDi
 app.controller('paymentCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog','$sce', '$timeout', '$http', function ($scope, policy,  $filter, $mdSidenav, $mdDialog, $sce, $timeout, $http) {
   $scope.policy = policy;
   console.log("== policyCtrl ==");
-  $scope.showHints = true;
-  $scope.user = {
-    name: "",
-    email: "",
-    social: "123456789",
-    phone: "N/A"
-  };
+  console.log("payment one!");
+
   $scope.ref = "";
   var url_endpoint = 'http://axa-digital-sit.getvalue.com.sg/api/pahsbc'
   var timer = 0;
 
   $scope.payStatus = {message : "Pay!", status: 'start'};
   var error_message;
-
+console.log("check payment status " + $scope.payStatus.status)
   $scope.checkStatus = function () {
     timer = timer + 1;
     console.log("check status =" + $scope.ref);
@@ -215,6 +210,8 @@ app.controller('paymentCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdD
     debug: true,
     formatting: true
   };
+
+
 
 
 }]);

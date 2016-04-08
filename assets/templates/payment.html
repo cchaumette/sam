@@ -147,6 +147,7 @@
             </md-tab>
           </md-tabs>
         </div>
+        <div layout="row" flex="50" flex-offset="50">
         <div layout="column">
           <div layout="row" layout-align="space-between center"><p> premium before discount</p>
 
@@ -158,6 +159,7 @@
           <div layout="row" layout-align="space-between center"><p> total premium to pay</p>
 
             <h2 class="input-up input-down premium"> $ 1,500</h2></div>
+        </div>
         </div>
       </md-content>
     </div>
@@ -193,6 +195,51 @@
       </md-toolbar>
       <md-content class="step shadow" layout-padding>
         <div ng-show="payStatus.status == 'start'">
+          <form  action="#"
+                name="cardForm"
+                data-card
+                data-width="300"
+                data-card-container="#card-container"
+                data-placeholders="cardPlaceholders"
+                data-options="cardOptions"
+                data-messages="cardMessages">
+            <p>Your card number</p>
+            <input class="input_own creditcard_input" placeholder="" type="text" name="CardNumber" card-number data-ng-model="card.number" required/>
+            <p style="padding-top:10px;">Full name as on card</p>
+            <input class="input_own creditcard_input" placeholder="" type="text" name="CardName" card-name data-ng-model="card.name" required/>
+            <div layout="row" style="margin-top:16px;">
+              <div flex="50">
+                <p>Expiry date</p>
+                <input class="creditcard_input" placeholder="MM / YYYY" type="text" name="CardExpiry" card-expiry data-ng-model="card.expiry" required/>
+              </div>
+              <div flex="50" style="margin-left:20px">
+                <p>CVV</p>
+                <input class="creditcard_input" placeholder="CVC" type="text" name="CardCvc" card-cvc data-ng-model="card.cvc"required/>
+              </div>
+            </div>
+          </form>
+          <iframe name="wirecard" height="200px" ng-src="{{currentProjectUrl}}" ng-show="false"></iframe>
+        </div>
+
+
+        <div style="text-align: center" ng-show="payStatus.status == 'processing'">
+          <h3>...Payment processing...</h3>
+        </div>
+
+        <div style="text-align: center" ng-show="payStatus.status == 'ok'">
+          <h3>Thanks you for you payment</h3>
+          <p>Reference {{ref}} / confirmation #{{payStatus.confirmation_number}}</p>
+          <p style="font-size:20px;">You are now covered. You will receive your policy documents by email shortly.</p>
+        </div>
+
+        <div style="text-align: center" ng-show="payStatus.status == 'error'">
+          <h3>Error during the payment</h3>
+          <p>{{payStatus.error_message}}</p>
+        </div>
+
+
+        <div id="card-container" ng-hide="payment_ok == true;"></div>
+       <!-- <div ng-show="payStatus.status == 'start'">
           <form action="#"
                 name="cardForm"
                 data-card
@@ -243,13 +290,12 @@
           <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
           </md-button>
           <md-button class="md-primary md-hue-1" href="#/policy"> Back to quote details</md-button>
-        </div>
+        </div>-->
       </md-content>
     </div>
   </div>
   <footer hide-xs>
-    <md-button class=" md-raised md-accent action" ng-value="payStatus.message" data-ng-click="makePayment()"
-               ng-hide="payment_ok == true;"> Proceed to payment
+    <md-button class=" md-raised md-accent action" type="button" class="btn hsbc_button" ng-value="payStatus.message" data-ng-click="makePayment()" ng-hide="payment_ok == true;"> Proceed to payment
     </md-button>
     <div id="card-container" ng-hide="payment_ok == true;"></div>
     <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>

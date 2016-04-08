@@ -36,7 +36,7 @@
             LTA
           </md-button>
         </div>
-        <p layout-padding>Is your car financed with a loan?</p>
+        <p class="input-down" layout-padding>Is your car financed with a loan?</p>
         <md-radio-group ng-model="policy.profil.Vehicle.HasFinanceLoan" layout="row" layout-padding
                         layout="start center" class="md-accent">
           <div flex="33" ng-repeat="HasFinanceLoan in policy.param.Vehicle.HasFinanceLoan">
@@ -53,7 +53,7 @@
             </md-option>
           </md-select>
         </md-input-container>
-        <p layout-padding>Is it your first time insured?</p>
+        <p class="input-down" layout-padding>Is it your first time insured?</p>
         <md-radio-group ng-model="policy.profil.Vehicle.PrevCarInsured" layout="row" layout-padding
                         layout="start center">
           <div flex="33" ng-repeat="PrevCarInsured in policy.param.Vehicle.PrevCarInsured">
@@ -77,7 +77,7 @@
         <md-title layout-margin layout-padding>Policyholder details</md-title>
       </md-toolbar>
       <md-content class="step shadow" layout-padding>
-        <p>Is the main driver the policyholder </p>
+        <p class="input-down">Is the main driver the policyholder </p>
         <md-radio-group layout="row" ng-model="policy.profil.IsMainDriverPolicyHolder" layout="start center">
           <div flex="33" ng-repeat="IsMainDriverPolicyHolder in policy.param.IsMainDriverPolicyHolder">
             <md-radio-button class="md-accent" class="md-primary" ng-value="IsMainDriverPolicyHolder.value">
@@ -89,8 +89,8 @@
 
         </div>
         <form name="userForm">
-          <div layout="row">
-            <md-input-container class="md-block" flex-gt-sm flex="50"
+          <div layout="row" >
+            <md-input-container class="md-block " flex-gt-sm flex="50"
                                 ng-show="policy.profil.IsMainDriverPolicyHolder == false">
               <label>Name</label>
               <input class="md-primary margin_two_inputs" name="name" ng-model="policy.profil.PolicyHolder.Surname"
@@ -177,7 +177,7 @@
             </md-tab-label>
             <md-tab-body>
               <md-content class="md-padding">
-                <div layout="row">
+                <div layout="row" class="space-up">
                   <md-input-container class="md-block" flex-gt-sm flex="50">
                     <label>Name</label>
                     <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName" required>
@@ -230,8 +230,8 @@
                       </div>
                     </md-input-container>
                   </div>
-                  <label>Occupation</label>
-                  <md-select ng-model="policy.profil.Drivers.Occupation" class="input-up" layout-padding>
+
+                  <md-select ng-model="policy.profil.Drivers.Occupation" placeholder="Occupation" class="input-up" layout-padding>
                     <md-option class="md-primary preselect" ng-repeat="Occupation in policy.param.Drivers.Occupation">
                       {{Occupation}}
                     </md-option>

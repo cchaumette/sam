@@ -1,6 +1,8 @@
 <md-content layout="row" style="background-color:transparent;" layout-fill>
+
   <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
     <div flex="33" layout="column" flex-xs="100" >
+
       <md-toolbar class="md-primary toolbar-border ">
         <md-title layout-margin layout-padding>Car details</md-title>
       </md-toolbar>
@@ -14,7 +16,7 @@
             </div>
           </md-input-container>
           <div class="space-up">
-            <p>Are you insuring an off-peak car?</p>
+            <p class="input-down">Are you insuring an off-peak car?</p>
             <md-radio-group ng-model="policy.profil.Vehicle.OffPeakCar"
                             ng-change="checkOffpeak($event,policy.profil.Vehicle.OffPeakCar)" layout="row"
                             layout-align="start center" layout-padding>
@@ -25,7 +27,7 @@
             </md-radio-group>
           </div>
           <div class="space-up">
-            <p>Which year was your car manufactured?</p>
+            <p class="input-down">Which year was your car manufactured?</p>
             <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
               <md-button class="button-choice shadow" ng-click="rangeYearOfmake = 0" ng-show="rangeYearOfmake == 1"> <<
               </md-button>
@@ -56,7 +58,7 @@
             </md-tab-label>
             <md-tab-body>
               <div md-padding class="space-up">
-                <p>Gender of the driver</p>
+                <p class="input-down">Gender of the driver</p>
                 <md-radio-group layout="row" ng-model="driver.Gender" layout="row" layout-align="start center"
                                 layout-padding>
                   <div flex="33" ng-repeat="param in policy.param.Drivers.Gender">
@@ -67,7 +69,7 @@
                 </md-radio-group>
               </div>
               <div md-padding class="space-up">
-                <p>Is the driver married?</p>
+                <p class="input-down">Is the driver married?</p>
                 <md-radio-group ng-model="driver.MaritalStatus" layout="row" layout-align="start center"
                                 layout-padding>
                   <div flex="33" ng-repeat="param in policy.param.Drivers.MaritalStatus">
@@ -120,7 +122,7 @@
       </md-toolbar>
       <md-content class="step shadow" layout-padding>
         <div md-padding class="space-up">
-          <p>What is your non-claim discount bonus?</p>
+          <p class="input-down">What is your non-claim discount bonus?</p>
           <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
             <md-button class="button-choice shadow" ng-repeat="NCDPoints in policy.param.NCDPoints"
                        ng-click="checkNCD($event, NCDPoints.value)"
@@ -128,7 +130,7 @@
             </md-button>
           </section>
           <div md-padding class="space-up">
-            <p>Have you made any claims in the past 3 years?</p>
+            <p class="input-down">Have you made any claims in the past 3 years?</p>
             <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center"
                             ng-change="CheckClaims($event)" class="md-accent" layout-padding>
               <div flex="33" ng-repeat="ClaimsPast3Years in policy.param.ClaimsPast3Years">
