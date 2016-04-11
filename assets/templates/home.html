@@ -9,7 +9,7 @@
       <md-content class="step shadow" layout-padding>
         <div md-padding>
           <md-input-container class="md-block" flex-gt-sm>
-            <label class="space-up">Enter your car make and select the model</label>
+            <label class="space-up"><a>Enter your car make and select the model</a></label>
             <input ng-model="carSearch" ng-keyup="algolia()" class="md-accent" required style="box-shadow:transparent;">
             <div ng-show="car.car_id == null">
               <div ng-repeat="hit in hits" ng-click="searchTo(hit)" class="preselect">{{hit.make}} {{hit.model}}</div>
@@ -80,12 +80,12 @@
                 </md-radio-group>
               </div>
               <md-input-container class="md-block input-down input-down" flex-gt-sm>
-                <label>How old is the driver?</label>
+                <label><a>How old is the driver?</a></label>
                 <input class="md-accent" ng-model="driver.Age" required>
               </md-input-container>
               <div layout="row">
                 <md-input-container class="md-block input-down" flex-gt-sm flex="70">
-                  <label>Which year was your driving license issued?</label>
+                  <label><a>Which year was your driving license issued?</a></label>
                   <input ng-model="driver.license" required>
                 </md-input-container>
                 <div md-input-container class="margin_two_inputs" flex="30" ng-show="driver.license >='2015'">
