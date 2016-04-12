@@ -74,6 +74,17 @@
                                 layout-padding>
                   <div flex="33" ng-repeat="param in policy.param.Drivers.MaritalStatus">
                     <md-radio-button class="md-accent"
+                                     ng-value=param.value >{{param.label}}
+                    </md-radio-button>
+                  </div>
+                </md-radio-group>
+              </div>
+              <div md-padding class="space-up" ng-show="policy.profil.Drivers.length >= 2 && driver.MaritalStatus == 'MARRIED'">
+                <p class="input-down">Is this your spouse?</p>
+                <md-radio-group ng-model="driver.Spouse" layout="row" layout-align="start center"
+                                layout-padding>
+                  <div flex="33" ng-repeat="param in policy.param.Drivers.Spouse">
+                    <md-radio-button class="md-accent"
                                      ng-value=param.value>{{param.label}}
                     </md-radio-button>
                   </div>
