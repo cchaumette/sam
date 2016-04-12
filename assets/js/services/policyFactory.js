@@ -28,6 +28,7 @@ app.factory('policy', function() {
         {
           "Gender": "MALE",
           "MaritalStatus": "MARRIED",
+          "Spouse":true,
           "DateOfBirth": "19761231",
           "YearsOfDrivingExp": "6",
           "PostalCode": "999999",
@@ -90,6 +91,7 @@ app.factory('policy', function() {
         Title : [{label :'main driver'}],
         Gender :[{label : 'Male', value : "MALE"}, {label : 'Female', value : "FEMALE"} ],
         MaritalStatus :[{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ],
+        Spouse:[{label:'Yes', value: true}, {label:'No', value:false}],
         DateOfBirth:{}
       },
       "PolicyHolder":

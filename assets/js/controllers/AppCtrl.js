@@ -160,6 +160,21 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     })
   };
 
+  $scope.checkSpouse= function (ev){
+    if (policy.profil.MaritalStatus == 'MARRIED'){
+      $scope.showSpouse(ev)
+    }
+  };
+  $scope.showSpouse = function (ev) {
+    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/templates/dialogSpouse.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals :{currentPack:null, policy : policy }
+    })
+  };
 
   $scope.CheckClaims = function (ev){
 

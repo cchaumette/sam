@@ -7,11 +7,11 @@
       <md-content class="step shadow" layout-padding>
         <div layout="row">
           <md-input-container class="md-block" flex-gt-sm flex="45">
-            <label>Car registration number</label>
+            <label><a>Car registration number</a></label>
             <input class="md-primary margin_two_inputs" ng-model="policy.profil.Vehicle.RegistrationNumber" required>
           </md-input-container>
           <md-input-container class="md-block" flex="45">
-            <label>Seating capacity</label>
+            <label><a>Seating capacity</a></label>
             <md-select ng-model="policy.param.Vehicle.Seats">
               <md-option class="md-primary preselect" ng-repeat="Seats in policy.param.Vehicle.Seats" ng-value="Seats.value">
                 {{Seats.value}}
@@ -21,11 +21,11 @@
         </div>
         <div layout="row">
           <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
-            <label>Chassis number</label>
+            <label><a>Chassis number</a></label>
             <input class="md-primary" ng-model="policy.profil.Vehicle.ChassisNumber" required>
           </md-input-container>
           <md-input-container class="md-block margin_two_inputs" flex-gt-sm flex="45">
-            <label>Engine number</label>
+            <label><a>Engine number</a></label>
             <input class="md-primary" ng-model="policy.profil.Vehicle.EngineNumber" required>
           </md-input-container>
           <md-button class="md-fab md-primary md-block" aria-label="link to LTA" target="_blank"
@@ -46,7 +46,7 @@
         </md-radio-group>
         <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.HasFinanceLoan == true"
                             layout-padding>
-          <label>Select your loan company</label>
+          <label><a>Select your loan company</a></label>
           <md-select ng-model="policy.profil.Vehicle.HasFinanceCompany">
             <md-option class="md-primary preselect" ng-repeat="HasFinanceCompany in policy.param.Vehicle.HasFinanceCompany">
               {{HasFinanceCompany}}
@@ -63,7 +63,7 @@
         </md-radio-group>
         <md-input-container class="md-block margin_two_inputs" ng-show="policy.profil.Vehicle.PrevCarInsured == false"
                             layout-padding>
-          <label>Select your previous insurer</label>
+          <label><a>Select your previous insurer</a></label>
           <md-select ng-model="policy.profil.Vehicle.PrevCarInsurer">
             <md-option class="md-primary preselect" ng-repeat="PrevCarInsurer in policy.param.Vehicle.PrevCarInsurer">
               {{PrevCarInsurer}}
@@ -92,20 +92,20 @@
           <div layout="row" >
             <md-input-container class="md-block " flex-gt-sm flex="50"
                                 ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-              <label>Name</label>
+              <label><a>Name</a></label>
               <input class="md-primary margin_two_inputs" name="name" ng-model="policy.profil.PolicyHolder.Surname"
                      required>
             </md-input-container>
             <md-input-container class="md-block" flex-gt-sm flex="50"
                                 ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-              <label>Surname</label>
+              <label><a>Surname</a></label>
               <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.GivenName">
             </md-input-container>
           </div>
           <div layout="row">
             <md-input-container class="md-block" flex-gt-sm flex="50"
                                 ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-              <label>Nationality</label>
+              <label><a>Nationality</a></label>
               <md-select ng-model="policy.profil.PolicyHolder.Nationality">
                 <md-option class="md-primary preselect" ng-repeat="Nationality in policy.param.PolicyHolder.Nationality">
                   {{Nationality}}
@@ -115,13 +115,13 @@
 
             <md-input-container class="md-block" flex-gt-sm flex="50"
                                 ng-show="policy.profil.IsMainDriverPolicyHolder == false">
-              <label>ID number</label>
+              <label><a>ID number</a></label>
               <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.IDNumber">
             </md-input-container>
           </div>
           <div layout="row">
             <md-input-container class="md-block" flex-gt-sm flex="50">
-              <label>Email</label>
+              <label><a>Email</a></label>
               <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100"
                      ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.PolicyHolder.Email"/>
 
@@ -133,7 +133,7 @@
               </div>
             </md-input-container>
             <md-input-container class="md-block" flex-gt-sm flex="50">
-              <label>Phone number</label>
+              <label><a>Phone number</a></label>
               <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8"
                      ng-pattern="" ng-model="policy.profil.PolicyHolder.Phone"/>
 
@@ -146,18 +146,18 @@
             </md-input-container>
           </div>
           <md-input-container class="md-block">
-            <label>Address</label>
+            <label><a>Address</a></label>
             <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.AddressLine1" required>
           </md-input-container>
 
           <div layout="row">
             <md-input-container class="md-block" flex="50">
-              <label>Unit</label>
+              <label><a>Unit</a></label>
               <input ng-model="policy.profil.PolicyHolder.AddressLine2" class="margin_two_inputs" required>
             </md-input-container>
 
             <md-input-container class="md-block" flex="50">
-              <label>Post code</label>
+              <label><a>Post code</a></label>
               <input class="md-primary margin_two_inputs" ng-model="policy.profil.PolicyHolder.PostalCode" required>
             </md-input-container>
           </div>
@@ -179,17 +179,17 @@
               <md-content class="md-padding">
                 <div layout="row" class="space-up">
                   <md-input-container class="md-block" flex-gt-sm flex="50">
-                    <label>Name</label>
+                    <label><a>Name</a></label>
                     <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName" required>
                   </md-input-container>
                   <md-input-container class="md-block" flex-gt-sm flex="50">
-                    <label>Surname</label>
+                    <label><a>Surname</a></label>
                     <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.Surname" required>
                   </md-input-container>
                 </div>
                 <div layout="row">
                   <md-input-container class="md-block" flex="50">
-                    <label>Nationality</label>
+                    <label><a>Nationality</a></label>
                     <md-select ng-model="policy.profil.Drivers.Nationality">
                       <md-option class="md-primary preselect" ng-repeat="Nationality in policy.param.Drivers.Nationality">
                         {{Nationality}}
@@ -197,7 +197,7 @@
                     </md-select>
                   </md-input-container>
                   <md-input-container class="md-block" flex-gt-sm flex="50">
-                    <label>ID number</label>
+                    <label><a>ID number</a></label>
                     <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.IDNumber" required>
                   </md-input-container>
                 </div>
@@ -205,7 +205,7 @@
                   <div layout="row">
                     <md-input-container class="md-block" flex-gt-sm flex="50"
                                         ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
-                      <label>Email</label>
+                      <label><a>Email</a></label>
                       <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100"
                              ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
 
@@ -218,7 +218,7 @@
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm flex="50"
                                         ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
-                      <label>Phone number</label>
+                      <label><a>Phone number</a></label>
                       <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8"
                              ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
 
