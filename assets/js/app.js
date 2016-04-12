@@ -47,6 +47,15 @@ app.config(function($mdDateLocaleProvider) {
     return moment(date).format('DD/MM/YYYY');
   };
 });
+app.config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'http://axa-digital-sit.getvalue.com.sg/**'
+  ]);
+
+});
 
 app.config(['$routeProvider',
   function($routeProvider) {
