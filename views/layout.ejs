@@ -43,7 +43,7 @@
   </head>
 
 
-  <body ng-cloak  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat;  "   >
+  <body ng-cloak  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; background-size:cover; "   >
 
 
   <md-toolbar layout="row" style="    background-color: white;">
@@ -58,31 +58,32 @@
       </div>
     </md-toolbar>
 
-    <div ng-view layout-margin style="display:flex; height: calc(100% - 138px) !important;"  layout="row"    layout-align="space-around center"></div>
+  <div ng-view layout-margin layout="row"    layout-align="space-around center"></div>
 
 
 
 
-    <!--
-        Client-side Templates
-        ========================
 
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
+  <!--
+      Client-side Templates
+      ========================
 
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
+      HTML templates are important prerequisites of modern, rich client applications.
+      To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+      that you load these templates client-side.
 
-        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
+      By default, your Gruntfile is configured to automatically load and precompile
+      client-side JST templates in your `assets/templates` folder, then
+      include them here automatically (between TEMPLATES and TEMPLATES END).
 
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
+      To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Import templates from other directories
+          + Use a different template engine (handlebars, jade, dust, etc.)
+          + Internationalize your client-side templates using a server-side
+            stringfile before they're served.
+  -->
 
     <!--TEMPLATES-->
     <script type="text/javascript" src="/jst.js"></script>

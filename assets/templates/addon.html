@@ -1,5 +1,5 @@
-<md-content layout="row" style="background-color:transparent;" layout-fill>
-  <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
+<md-content style="background-color:transparent;" flex="auto">
+  <div layout="row" layout-xs="column" layout-margin  layout-align="space-around center">
     <div flex="33"flex flex-xs="100">
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Add custom packs</md-title>
@@ -67,7 +67,7 @@
         </div>
       </md-content>
     </div>
-    <div flex="33"  flex-xs="100">
+    <div flex="33"  flex-xs="100" style="width:100%;">
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Your quotation</md-title>
       </md-toolbar>
@@ -120,12 +120,6 @@
             </div>
           </div>
         </div>
-        <div hide-gt-xs layout="column">
-          <md-button class="md-raised md-accent" href="#/policy"> Buy now</md-button>
-          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
-          </md-button>
-          <md-button class="md-primary md-hue-1" href="#/offer"> Back to quote details</md-button>
-        </div>
     </div>
   </div>
   <footer hide-xs>
@@ -140,5 +134,21 @@
     <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/offer"><i
       class="material-icons">keyboard_arrow_left</i>Back
     </md-button>
+  </footer>
+  <footer hide-gt-xs>
+    <div layout="row">
+      <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/offer"><i
+        class="material-icons">keyboard_arrow_left</i>
+      </md-button>
+
+      <md-button aria-label="menu" class="md-fab md-mini md-primary  action-fab"ng-click="showAdvanced($event)">
+        <md-icon md-svg-src="images/mail.svg"></md-icon>
+      </md-button>
+      <md-button aria-label="menu" class="md-fab md-mini md-primary  action-fab">
+        <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      </md-button>
+      <md-button class=" md-raised md-primary action" href="#/policy"> Buy now</md-button>
+
+    </div>
   </footer>
 </md-content>

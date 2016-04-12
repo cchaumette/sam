@@ -1,6 +1,5 @@
-<md-content layout="row" style="background-color:transparent;" layout-fill flex="grow">
-
-  <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
+<md-content style="background-color:transparent;" flex="auto">
+  <div layout="row" layout-xs="column" layout-margin  layout-align="space-around center">
     <div flex="33"  flex-xs="100" >
 
       <md-toolbar class="md-primary toolbar-border ">
@@ -44,11 +43,12 @@
         </div>
       </md-content>
     </div>
-    <div flex="33"  flex-xs="100">
+    <div flex="33"  flex-xs="100" style="width:100%;">
       <md-toolbar  class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
       <md-content class="step shadow" layout-padding>
+
         <md-tabs md-dynamic-height md-border-bottom md-autoselect >
           <md-tab ng-repeat="driver in policy.profil.Drivers" >
             <md-tab-label >
@@ -151,6 +151,7 @@
             </md-radio-group>
           </div>
         </div>
+
       </md-content>
     </div>
     <div flex="33" hide-xs style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
@@ -160,7 +161,9 @@
       <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important;">
       </md-content>
     </div>
+
   </div>
+
   <footer>
 
     <md-button class=" md-raised md-primary action" href="#/offer" ng-disabled="!offerIsEnabled()"

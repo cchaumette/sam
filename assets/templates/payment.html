@@ -1,5 +1,5 @@
-<md-content layout="row" style="background-color:transparent;" layout-fill>
-  <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
+<md-content layout="row" style="background-color:transparent;">
+  <div layout="row" layout-xs="column" layout-margin  layout-align="space-around center">
     <div flex="33"  flex-xs="100">
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Your insurance summary</md-title>
@@ -144,11 +144,11 @@
             </md-tab>
           </md-tabs>
         </div>
-        <div layout="row" flex="50" flex-offset="50">
+        <div layout="row" >
         <div layout="column">
-          <div layout="row" layout-align="space-between center"><p> premium before discount</p>
+          <div layout="row" layout-align="space-between center"><p> premium before discount </p>
 
-            <h3 class="input-up input-down premium"> $ 2,000</h3></div>
+            <h3 class="input-up input-down premium" style="margin-left:10px;"> $ 2,000</h3></div>
           <div layout="row" layout-align="space-between center"><p> discount</p>
 
             <h3 class="input-up input-down premium"> $ 500</h3></div>
@@ -186,7 +186,7 @@
         </p>
       </md-content>
     </div>
-    <div flex="33" flex-xs="100">
+    <div flex="33" flex-xs="100" style="width:100%;">
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Payment</md-title>
       </md-toolbar>
@@ -219,7 +219,7 @@
         </div>
 
 
-        <div style="text-align: center" ng-show="payStatus.status == 'processing'">
+        <div style="text-align: center; " ng-show="payStatus.status == 'processing'">
           <h3>...Payment processing...</h3>
         </div>
 
@@ -288,13 +288,14 @@
           </md-button>
           <md-button class="md-primary md-hue-1" href="#/policy"> Back to quote details</md-button>
         </div>-->
+        <md-button class=" md-raised md-accent action" type="button" style="padding-top:0px;padding-bottom:0px;margin-right:10px; " ng-value="payStatus.message" data-ng-click="makePayment()" ng-hide="payStatus.status == 'processing';"> Proceed to payment
+        </md-button>
+
       </md-content>
-    </div>
+       </div>
   </div>
   <footer hide-xs>
-    <md-button class=" md-raised md-accent action" type="button" class="btn hsbc_button" ng-value="payStatus.message" data-ng-click="makePayment()" ng-hide="payment_ok == true;"> Proceed to payment
-    </md-button>
-    <div id="card-container" ng-hide="payment_ok == true;"></div>
+
     <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
     <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
       <md-icon md-svg-src="images/webchat.svg"></md-icon>

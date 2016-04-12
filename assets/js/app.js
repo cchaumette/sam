@@ -130,7 +130,9 @@ app.controller('paymentCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdD
 
   $scope.payStatus = {message : "Pay!", status: 'start'};
   var error_message;
+
 console.log("check payment status " + $scope.payStatus.status)
+
   $scope.checkStatus = function () {
     timer = timer + 1;
     console.log("check status =" + $scope.ref);

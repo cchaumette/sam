@@ -1,5 +1,5 @@
-<md-content layout="row" hide-xs style="background-color:transparent;" layout-fill>
-  <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
+<md-content style="background-color:transparent;" flex="auto" hide-xs >
+  <div layout="row" layout-xs="column" layout-margin layout-padding layout-fill >
     <div flex="70" layout="column" flex-xs="100">
       <md-toolbar class="md-primary toolbar-border">
         <div layout="row">
@@ -135,7 +135,7 @@
       </md-content>
     </div>
   </div>
-  <footer hide-xs>
+  <footer>
     <md-button class=" md-raised md-primary action" href="#/addon"> Buy now</md-button>
     <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
     <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
@@ -178,9 +178,11 @@
                 <div ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)">
                   <md-subheader ng-class="Plan.IsSelected ? 'selection-mobile' : ''">
                     <div layout="row" layout-align="space-between center"><span>{{Plan.__Name}}</span><span>$ {{Plan.UsualPremium}}</span>
+                      <span ng-show="Plan.IsSelected != true"><i class="material-icons">keyboard_arrow_down</i></span>
+
                     </div>
                   </md-subheader>
-                  <div ng-show="Plan.IsSelected == true">
+                  <div ng-show="Plan.IsSelected == true" class="mobile-plan">
                     <md-list-item ng-repeat="Benefit in benefitsList"
                                   ng-show="Plan.__Benefits[Benefit.value] == true;">
                       <p>{{ Benefit.label }}</p>
@@ -188,12 +190,7 @@
                   </div>
                 </div>
               </section>
-              <div layout="column">
-                <md-button class="md-raised md-accent" href="#/addon"> Buy now</md-button>
-                <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
-                </md-button>
-                <md-button class="md-primary md-hue-1" href="#/home"> Back to quote details</md-button>
-              </div>
+
             </md-content>
           </md-tab>
           <md-tab label="TPFT & TPO">
@@ -204,6 +201,7 @@
                 <div ng-class="Plan.IsSelected ? 'selected plan' : ''" ng-click="updateSelectedPlan(Plan)">
                   <md-subheader ng-class="Plan.IsSelected ? 'selection-mobile' : ''">
                     <div layout="row" layout-align="space-between center"><span>{{Plan.__Name}}</span><span>$ {{Plan.UsualPremium}}</span>
+                      <span ng-show="Plan.IsSelected != true"><i class="material-icons">keyboard_arrow_down</i></span>
                     </div>
                   </md-subheader>
                   <div ng-show="Plan.IsSelected == true">
@@ -214,81 +212,29 @@
                   </div>
                 </div>
               </section>
-              <div layout="column">
-                <md-button class="md-raised md-primary" href="#/addon"> Buy now</md-button>
-                <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
-                </md-button>
-                <md-button class="md-primary md-hue-1" href="#/home"> Back to quote details</md-button>
-              </div>
+
             </md-content>
           </md-tab>
         </md-tabs>
       </md-content>
     </div>
   </div>
-  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-    <md-toolbar class="md-theme-light">
-      <h1 class="md-toolbar-tools">Sidenav Right</h1>
-    </md-toolbar>
-    <md-content ng-controller="RightCtrl" layout-padding>
-      <form>
-        <div flex="25" layout="column" flex-xs="100">
-          <md-toolbar class="md-primary">
-            <md-title layout-margin layout-padding>Your quotation</md-title>
-          </md-toolbar>
-          <md-content class="step shadow" layout-padding>
-            <div>
-              <h4 class="category-summary">Your plan</h4>
-
-              <div layout="row">
-                <div flex="60">
-                  <span>{{plan.__Name}}</span>
-                </div>
-                <div flex="40">
-                  <span>$ {{plan.UsualPremium}}</span>
-                </div>
-              </div>
-              <div layout="row">
-                <div flex="60">
-                  <i>Excess</i>
-                </div>
-                <div flex="40">
-                  <i>$ 1200</i>
-                </div>
-              </div>
-            </div>
-            <div class="discount">
-              <h4 class="category-summary">Your discount</h4>
-
-              <div layout="row" ng-repeat="discount in plan.Discounts">
-                <div flex="60">
-                  <span>{{discount.__label}}</span>
-                </div>
-                <div flex="40">
-                  <span>$ {{discount.PayablePremium}}</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h4 class="category-summary">Total</h4>
-
-              <div layout="row">
-                <div flex="60">
-                  <span>including GST</span>
-                </div>
-                <div flex="40">
-                  <span><h4>$ {{plan.FinalPremium}}</h4></span>
-                </div>
-              </div>
-            </div>
-          </md-content>
-        </div>
-      </form>
-      <md-button ng-click="close()" class="md-primary">
-        Close Sidenav Right
+  <footer>
+    <div layout="row">
+      <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/home"><i
+        class="material-icons">keyboard_arrow_left</i>
       </md-button>
-    </md-content>
-  </md-sidenav>
+
+    <md-button aria-label="menu" class="md-fab md-mini md-primary  action-fab"ng-click="showAdvanced($event)">
+      <md-icon md-svg-src="images/mail.svg"></md-icon>
+    </md-button>
+    <md-button aria-label="menu" class="md-fab md-mini md-primary  action-fab">
+      <md-icon md-svg-src="images/webchat.svg"></md-icon>
+    </md-button>
+      <md-button class=" md-raised md-primary action" href="#/addon"> Buy now</md-button>
+
+    </div>
+  </footer>
 </md-content>
 <!-- *** END MOBILE *** -->
 

@@ -29,15 +29,12 @@
 //
 // etc.
 /*FONT*/
-@axa-blue: #103184;
-@axa-blue_active: #103184;
-@axa-red: #FF1821;
-@axa-red_active: #FF1821;
-@axa-lightblue: #4975BA;
+
 @axa-grey:#6F6F6F;
 @axa-grey-light: #D6D6D6;
 @axa-auto:#0088ce;
 @axa-auto-dark:#004467;
+@axa-auto-light:#e5f3fa;
 
 
 @font-face {
@@ -158,7 +155,6 @@ md-input-container .md-input-focused .md-input{
   border-color:transparent;
 }
 
-/**/
 
 
 .accordion{
@@ -180,6 +176,39 @@ md-tooltip.white-tooltip .md-content {
   float: right;
   margin-right: 20px;
 }
+
+
+/* OFFER PAGE*/
+.md-subheader{
+  border:solid 1px @axa-auto;
+  margin-top:10px
+}
+.date-alignment{
+  margin-top:-56px;
+}
+
+.plan-name{
+  color:@axa-auto;
+  font-style: italic;
+}
+.icon-benefits{
+
+  margin-right:5px;
+  font-size:20px;
+  color:@axa-grey;
+}
+.benefits-plan{
+  padding:5px;
+}
+.selection-mobile{
+  background-color:@axa-auto;
+  text-align:center;
+  color:white;
+
+}
+.mobile-plan{
+  border:solid 1px @axa-auto;
+}
 /* ADDON PAGE*/
 
 .card-packs{
@@ -198,23 +227,7 @@ md-tooltip.white-tooltip .md-content {
 .pack-selected{
   background-color:@axa-auto !important;
 }
-.toolbar-packs{
-  box-sizing: border-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: relative;
-  z-index: 2;
-  font-size: 15px;
-  width: 100%;
-  background-color:#E3F2FD;
-  color:@axa-grey;
-  height:40px;
-  padding:10px;
-}
+
 
 .selection{
   background-color:@axa-auto;
@@ -222,7 +235,7 @@ md-tooltip.white-tooltip .md-content {
   color:white !important;
 }
 .preselect:hover{
-  background-color:#e5f3fa;
+  background-color:@axa-auto-light;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 }
 
@@ -236,44 +249,12 @@ md-tooltip.white-tooltip .md-content {
 }
 
 .discount{
-  background-color:#e5f3fa;
+  background-color:@axa-auto-light;
 }
 
 .details{
   font-size: 12px;
 }
-
-/* OFFER PAGE*/
-.md-subheader{
-  background-color:@axa-auto;
-  margin-bottom:10px;
-  margin-top:10px
-}
-.date-alignment{
-  margin-top:-56px;
-}
-
-
-
-.plan-name{
-  color:@axa-auto;
-  font-style: italic;
-}
-.icon-benefits{
-
-  margin-right:5px;
-  font-size:20px;
-  color:@axa-grey;
-}
-.benefits-plan{
-  padding:5px;
-}
-.selection-mobile{
-  background-color:@axa-auto;
-  text-align:center;
-
-}
-
 /*MODAL*/
 .md-title-card{
   padding-left:16px;

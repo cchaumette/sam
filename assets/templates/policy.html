@@ -1,6 +1,8 @@
-<md-content layout="row" style="background-color:transparent;" layout-fill>
-  <div layout="row" layout-xs="column" layout-margin layout-fill layout-align="space-around center">
-    <div flex="33"  flex-xs="100">
+
+<md-content style="background-color:transparent;" flex="auto">
+
+  <div layout="row" layout-xs="column" layout-margin  layout-align="space-around center" >
+    <div flex="33"  flex-xs="100" flex>
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Car details</md-title>
       </md-toolbar>
@@ -72,7 +74,7 @@
         </md-input-container>
       </md-content>
     </div>
-    <div flex="33"  flex-xs="100">
+    <div flex="33"  flex-xs="100" >
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Policyholder details</md-title>
       </md-toolbar>
@@ -164,106 +166,125 @@
         </form>
       </md-content>
     </div>
-    <div flex="33"  flex-xs="100">
-      <md-toolbar class="md-primary toolbar-border">
-        <md-title layout-margin layout-padding>Drivers details</md-title>
-      </md-toolbar>
-      <md-content class="step shadow" layout-padding>
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab ng-repeat="driver in policy.profil.Drivers">
-            <md-tab-label>
-              <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a>
-              </div>
-            </md-tab-label>
-            <md-tab-body>
-              <md-content class="md-padding">
-                <div layout="row" class="space-up">
-                  <md-input-container class="md-block" flex-gt-sm flex="50">
-                    <label><a>Name</a></label>
-                    <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName" required>
-                  </md-input-container>
-                  <md-input-container class="md-block" flex-gt-sm flex="50">
-                    <label><a>Surname</a></label>
-                    <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.Surname" required>
-                  </md-input-container>
-                </div>
-                <div layout="row">
-                  <md-input-container class="md-block" flex="50">
-                    <label><a>Nationality</a></label>
-                    <md-select ng-model="policy.profil.Drivers.Nationality">
-                      <md-option class="md-primary preselect" ng-repeat="Nationality in policy.param.Drivers.Nationality">
-                        {{Nationality}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>
-                  <md-input-container class="md-block" flex-gt-sm flex="50">
-                    <label><a>ID number</a></label>
-                    <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.IDNumber" required>
-                  </md-input-container>
-                </div>
-                <form name="userForm">
-                  <div layout="row">
-                    <md-input-container class="md-block" flex-gt-sm flex="50"
-                                        ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
-                      <label><a>Email</a></label>
-                      <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100"
-                             ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
+    <div flex="33"  flex-xs="100" >
 
-                      <div class="hint" ng-show="showHints"></div>
-                      <div ng-messages="userForm.email.$error" ng-hide="showHints">
-                        <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                          Your email must be between 10 and 100 characters long and look like an e-mail address.
-                        </div>
-                      </div>
+        <md-toolbar class="md-primary toolbar-border">
+          <md-title layout-margin layout-padding>Drivers details</md-title>
+        </md-toolbar>
+        <md-content class="step shadow" layout-padding>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ng-repeat="driver in policy.profil.Drivers">
+              <md-tab-label>
+                <div layout="row"><i class="material-icons">person</i><a style="font-size:10px;">{{policy.param.Drivers.Title[$index].label}}</a>
+                </div>
+              </md-tab-label>
+              <md-tab-body>
+                <md-content class="md-padding">
+                  <div layout="row" class="space-up">
+                    <md-input-container class="md-block" flex-gt-sm flex="50">
+                      <label><a>Name</a></label>
+                      <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.GivenName" required>
                     </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm flex="50"
-                                        ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
-                      <label><a>Phone number</a></label>
-                      <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8"
-                             ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
-
-                      <div class="hint" ng-show="showHints"></div>
-                      <div ng-messages="userForm.phone.$error" ng-hide="showHints">
-                        <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                          Enter a valid phone number.
-                        </div>
-                      </div>
+                    <md-input-container class="md-block" flex-gt-sm flex="50">
+                      <label><a>Surname</a></label>
+                      <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.Surname" required>
                     </md-input-container>
                   </div>
+                  <div layout="row">
+                    <md-input-container class="md-block" flex="50">
+                      <label><a>Nationality</a></label>
+                      <md-select ng-model="policy.profil.Drivers.Nationality">
+                        <md-option class="md-primary preselect" ng-repeat="Nationality in policy.param.Drivers.Nationality">
+                          {{Nationality}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm flex="50">
+                      <label><a>ID number</a></label>
+                      <input class="md-primary margin_two_inputs" ng-model="policy.profil.Drivers.IDNumber" required>
+                    </md-input-container>
+                  </div>
+                  <form name="userForm">
+                    <div layout="row">
+                      <md-input-container class="md-block" flex-gt-sm flex="50"
+                                          ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
+                        <label><a>Email</a></label>
+                        <input class="md-primary margin_two_inputs" name="email" required minlength="10" maxlength="100"
+                               ng-pattern="/^.+@.+\..+$/" ng-model="policy.profil.Drivers.Email"/>
 
-                  <md-select ng-model="policy.profil.Drivers.Occupation" placeholder="Occupation" class="input-up" layout-padding>
-                    <md-option class="md-primary preselect" ng-repeat="Occupation in policy.param.Drivers.Occupation">
-                      {{Occupation}}
-                    </md-option>
-                  </md-select>
-                  <md-datepicker class="md-block " md-placeholder="Date of birth" md-min-date="minDate"
-                                 md-max-date="maxDate"></md-datepicker>
-                </form>
-              </md-content>
-            </md-tab-body>
-          </md-tab>
-        </md-tabs>
-        <div hide-gt-xs layout="column">
-          <md-button class="md-raised md-accent" href="#/payment"> Buy now</md-button>
-          <md-button class="md-primary md-hue-1" ng-click="showAdvanced($event)"> Save and email my quote
-          </md-button>
-          <md-button class="md-primary md-hue-1" href="#/addon"> Back to quote details</md-button>
+                        <div class="hint" ng-show="showHints"></div>
+                        <div ng-messages="userForm.email.$error" ng-hide="showHints">
+                          <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Your email must be between 10 and 100 characters long and look like an e-mail address.
+                          </div>
+                        </div>
+                      </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm flex="50"
+                                          ng-show="policy.profil.PolicyHolder.IsCorporateClient == 'Corporate'">
+                        <label><a>Phone number</a></label>
+                        <input class="md-primary margin_two_inputs" name="phone" required minlength="8" maxlength="8"
+                               ng-pattern="" ng-model="policy.profil.Drivers.Phone"/>
 
-        </div>
-      </md-content>
-    </div>
+                        <div class="hint" ng-show="showHints"></div>
+                        <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                          <div class="md-warn" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Enter a valid phone number.
+                          </div>
+                        </div>
+                      </md-input-container>
+                    </div>
+
+                    <md-select ng-model="policy.profil.Drivers.Occupation" placeholder="Occupation" class="input-up" layout-padding>
+                      <md-option class="md-primary preselect" ng-repeat="Occupation in policy.param.Drivers.Occupation">
+                        {{Occupation}}
+                      </md-option>
+                    </md-select>
+                    <md-datepicker class="md-block " md-placeholder="Date of birth" md-min-date="minDate"
+                                   md-max-date="maxDate"></md-datepicker>
+                  </form>
+                </md-content>
+              </md-tab-body>
+            </md-tab>
+          </md-tabs>
+
+        </md-content>
+      </div>
   </div>
   <footer hide-xs>
-    <md-button class=" md-raised md-accent action" href="#/payment"> Proceed to payment</md-button>
-    <md-button class=" md-raised  own_button action" ng-click="showAdvanced($event)"> Save & email my quote</md-button>
+
+    <md-button class=" md-raised md-primary action" href="#/offer" ng-disabled="!paymentIsEnabled()"
+               ng-hide="policy.profil.ClaimsPast3Years == true ">
+      Buy now
+    </md-button>
+
+    <md-button class=" md-raised md-primary action" href="#/referral"
+               ng-show="policy.profil.ClaimsPast3Years == true">
+      Proceed
+    </md-button>
     <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
       <md-icon md-svg-src="images/webchat.svg"></md-icon>
-      <md-tooltip class="white-tooltip" md-visible="demo.showTooltip" md-direction="left">
+      <md-tooltip  class="white-tooltip" md-visible="demo.showTooltip" md-direction="left">
         Ask us a question
       </md-tooltip>
     </md-button>
-    <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i
-      class="material-icons">keyboard_arrow_left</i>Back
-    </md-button>
+  </footer>
+  <footer hide-gt-xs>
+    <div layout="row">
+      <md-button layout="row" layout="center center" class="md-primary action action-back" href="#/addon"><i
+        class="material-icons">keyboard_arrow_left</i>
+      </md-button>
+
+      <md-button aria-label="menu" class="md-fab md-mini md-primary  action-fab"ng-click="showAdvanced($event)">
+        <md-icon md-svg-src="images/mail.svg"></md-icon>
+      </md-button>
+      <md-button aria-label="menu" class="md-fab md-mini md-primary  action-fab">
+        <md-icon md-svg-src="images/webchat.svg"></md-icon>
+      </md-button>
+      <md-button class=" md-raised md-primary action" href="#/payment"> Buy now</md-button>
+
+    </div>
   </footer>
 </md-content>
+
+
+
