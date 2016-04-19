@@ -1,6 +1,6 @@
-<md-content style="background-color:transparent;" flex="auto">
-  <div layout="row" layout-xs="column" layout-margin  layout-align="space-around center">
-    <div flex="33"  flex-xs="100" >
+<md-content style="background-color:transparent;" flex="auto" >
+  <div layout="row" layout-xs="column" layout-margin >
+    <div flex="33"  flex-xs="100"  >
 
       <md-toolbar class="md-primary toolbar-border ">
         <md-title layout-margin layout-padding>Car details</md-title>
@@ -43,7 +43,7 @@
         </div>
       </md-content>
     </div>
-    <div flex="33"  flex-xs="100" style="width:100%;">
+    <div flex="33"  flex-xs="100"  style="width:100%;">
       <md-toolbar  class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
@@ -121,14 +121,14 @@
         </md-tabs>
       </md-content>
     </div>
-    <div flex="33" hide-xs  style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
+    <div flex="33" hide-xs hide-sm  style="margin-left: -32.7%;" ng-show="!step2IsVisible()">
       <md-toolbar  class="md-primary toolbar-border" style="width: 100%">
         <md-title layout-margin layout-padding>Driver details</md-title>
       </md-toolbar>
       <md-content class="step" layout-padding style="background-color: rgba(255,255,255,0.70) !important; ">
       </md-content>
     </div>
-    <div flex="33"  flex-xs="100">
+    <div flex="33"  flex-xs="100"  >
       <md-toolbar class="md-primary toolbar-border">
         <md-title layout-margin layout-padding>Driving experience</md-title>
       </md-toolbar>
@@ -163,7 +163,7 @@
 
       </md-content>
     </div>
-    <div flex="33" hide-xs style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
+    <div flex="33" hide-xs hide-sm  style="margin-left: -32.7%;" ng-show="!step3IsVisible()">
       <md-toolbar  class="md-primary toolbar-border" style="width: 100%">
         <md-title layout-margin layout-padding>Driving experience</md-title>
       </md-toolbar>
@@ -192,5 +192,6 @@
     </md-button>
   </footer>
 </md-content>
+
 
 

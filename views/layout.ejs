@@ -43,8 +43,7 @@
   </head>
 
 
-  <body ng-cloak  style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; background-size:cover; "   >
-
+  <body ng-cloak style="background-image: url('/images/bg.jpg'); background-repeat: no-repeat; background-size:cover; ">
 
   <md-toolbar layout="row" style="    background-color: white;">
       <div class="md-toolbar-tools" >
@@ -58,8 +57,9 @@
       </div>
     </md-toolbar>
 
-  <div ng-view layout-margin layout="row"    layout-align="space-around center"></div>
 
+
+  <div ng-view  layout-margin style="display:flex; min-height: calc(100% - 138px) !important;" layout="row"   layout-align="space-around center"></div>
 
 
 
