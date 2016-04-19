@@ -10,7 +10,7 @@
             <div layout="row" layout-align="space-between center">
               <span layout="end end" flex="70" ><b>
                 <span class="{{packsLabels[p.RecordName].icon}} addon-title" style="font-size:24px;" ng-class="p.IsSelected == true ? 'addon-selected':''"></span>
-                <span class="addon-title" ng-class="p.IsSelected == true ? 'addon-selected':''"> {{p.__label.Title}}</span></b>
+                <span class="addon-title" ng-class="p.IsSelected == true ? 'addon-selected':''"> {{p.__label.Title}} $XXX</span></b>
               </span>
               <md-checkbox ng-model="p.IsSelected" aria-label="pack selected" class="input-down"></md-checkbox>
             </div>
@@ -19,7 +19,7 @@
             <p class="details">{{packsLabels[p.RecordName].label}}</p>
           </md-card-content>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="showPacks($event, p)" class="input-up input-down">Know more</md-button>
+            <md-button ng-click="showPacks($event, p)" class="input-up input-down">learn more</md-button>
           </md-card-actions>
         </div>
       </md-content>

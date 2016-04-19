@@ -91,6 +91,7 @@ app.factory('policy', function() {
         Title : [{label :'main driver'}],
         Gender :[{label : 'Male', value : "MALE"}, {label : 'Female', value : "FEMALE"} ],
         MaritalStatus :[{label : 'Yes', value : "MARRIED"}, {label : 'No', value : "OTHER"} ],
+        Relationship:[{label : 'Yes', value : "SPOUSE"}, {label : 'No', value : "OTHER"} ],
         Spouse:[{label:'Yes', value: true}, {label:'No', value:false}],
         DateOfBirth:{}
       },

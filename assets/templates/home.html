@@ -33,7 +33,7 @@
               <md-button class="button-choice shadow "
                          ng-repeat="YearOfMake in policy.param.Vehicle.YearOfMake[rangeYearOfmake]"
                          ng-click="policy.profil.Vehicle.YearOfMake = YearOfMake.year"
-                         ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'md-accent' : '' ">
+                         ng-class="policy.profil.Vehicle.YearOfMake == YearOfMake.year ? 'selection' : '' ">
                 {{YearOfMake.year}}
               </md-button>
               <md-button class="button-choice shadow" ng-click="rangeYearOfmake = 1" ng-show="rangeYearOfmake == 0"> >>
@@ -68,7 +68,7 @@
                   </div>
                 </md-radio-group>
               </div>
-              <div md-padding class="space-up">
+              <div md-padding class="space-up" ng-hide="driver.Relationship == 'MARRIED'">
                 <p class="input-down">Is the driver married?</p>
                 <md-radio-group ng-model="driver.MaritalStatus" layout="row" layout-align="start center"
                                 layout-padding>
@@ -79,6 +79,7 @@
                   </div>
                 </md-radio-group>
               </div>
+
               <div md-padding class="space-up" ng-show="policy.profil.Drivers.length >= 2 && driver.MaritalStatus == 'MARRIED'">
                 <p class="input-down">Is this your spouse?</p>
                 <md-radio-group ng-model="driver.Spouse" layout="row" layout-align="start center"
@@ -96,7 +97,7 @@
               </md-input-container>
               <div layout="row">
                 <md-input-container class="md-block input-down" flex-gt-sm flex="70">
-                  <label><a>Which year was your driving license issued?</a></label>
+                  <label><a>Which year did you get your driving license?</a></label>
                   <input ng-model="driver.license" required>
                 </md-input-container>
                 <div md-input-container class="margin_two_inputs" flex="30" ng-show="driver.license >='2015'">
@@ -135,12 +136,12 @@
         <div md-padding class="space-up">
           <p class="input-down">What is your non-claim discount bonus?</p>
           <section layout="row" layout-sm="column" layout-align="space-around center" flex layout-wrap layout-padding>
-            <md-button class="button-choice shadow" ng-repeat="NCDPoints in policy.param.NCDPoints"
+            <md-button  ng-model="policy.profil.NCDPoints" class="button-choice shadow" ng-repeat="NCDPoints in policy.param.NCDPoints"
                        ng-click="checkNCD($event, NCDPoints.value)"
-                       ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'md-accent' : '' ">{{NCDPoints.label}}
+                       ng-class="policy.profil.NCDPoints == NCDPoints.value ? 'selection' : '' ">{{NCDPoints.label}}
             </md-button>
           </section>
-          <div md-padding class="space-up">
+          <div md-padding class="space-up" ng-hide="policy.profil.NCDPoints == '50'">
             <p class="input-down" >Have you made any claims in the past 3 years?</p>
             <md-radio-group ng-model="policy.profil.ClaimsPast3Years" layout="row" layout-align="start center"
                             ng-change="CheckClaims($event)" class="md-accent" layout-padding>
@@ -149,6 +150,14 @@
                 </md-radio-button>
               </div>
             </md-radio-group>
+          </div>
+          <p style="margin-bottom: 10px;">Cover my car from </p>
+          <div layout="row"  style="padding:0px;">
+
+            <md-datepicker ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
+                           md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()" layout-wrap></md-datepicker>
+            <p style="margin-bottom: 10px; margin-left:20px;">to</p>
+            <md-datepicker ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
           </div>
         </div>
 
@@ -168,12 +177,12 @@
 
     <md-button class=" md-raised md-primary action" href="#/offer" ng-disabled="!offerIsEnabled()"
                ng-hide="policy.profil.ClaimsPast3Years == true ">
-      Buy now
+      Show me the quote
     </md-button>
 
     <md-button class=" md-raised md-primary action" href="#/referral" ng-disabled="!referralIsEnabled()"
                ng-show="policy.profil.ClaimsPast3Years == true">
-      Proceed
+      Show me the quote
     </md-button>
     <md-button aria-label="menu" class="md-fab md-mini md-primary action action-fab">
       <md-icon md-svg-src="images/webchat.svg"></md-icon>

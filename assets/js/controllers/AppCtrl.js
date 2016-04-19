@@ -58,7 +58,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.offerIsEnabled = function(){
     $scope.flow.step3 = false;
-    if($scope.policy.profil.NCDPoints != null && policy.profil.ClaimsPast3Years == false) $scope.flow.step3 = true;
+    if($scope.policy.profil.NCDPoints != null && policy.profil.ClaimsPast3Years == false && policy.profil.PolicyHolder.Phone != null) $scope.flow.step3 = true;
     $scope.flow.offer = $scope.flow.step1 && $scope.flow.step2 && $scope.flow.step3;
 
     return $scope.flow.offer;
@@ -75,6 +75,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     if($scope.isAddDriverEnable){
       console.log("== addDriver ==");
       $scope.policy.profil.Drivers.push({__label : "Driver " + (policy.profil.Drivers.length +1) });
+
     }
   };
 
@@ -147,6 +148,9 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
     if (policy.profil.NCDPoints >= 30 ){
       $scope.showAdvanced(ev)
     }
+
+
+
   };
 
   $scope.showAdvanced = function (ev) {

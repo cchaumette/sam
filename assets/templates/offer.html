@@ -8,13 +8,7 @@
       </md-toolbar>
 
       <md-content class="step shadow" layout-padding>
-        <div layout="row" layout-align="end end" style="padding:0px;">
-          <p style="margin-bottom: 10px;">Cover my car from </p>
-          <md-datepicker style="z-index: 1;" ng-model="policy.PolicyStartDate" md-placeholder="Enter date" md-min-date="inceptionDate.min"
-                         md-max-date="inceptionDate.max" ng-change="updatePolicyEndDate()" layout-wrap></md-datepicker>
-          <p style="margin-bottom: 10px; margin-left:20px;">to</p>
-          <md-datepicker style="z-index: 1;"ng-model="policy.PolicyEndDate" md-placeholder="Enter date"></md-datepicker>
-        </div>
+
         <md-tabs md-dynamic-height md-border-bottom class="date-alignment">
           <!-- ###### TODO CC : DYNAMIQUE ProductName-->
           <md-tab label="COMPREHENSIVE">
