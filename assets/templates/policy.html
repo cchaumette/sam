@@ -14,7 +14,7 @@
           </md-input-container>
           <md-input-container class="md-block" flex="45">
             <label><a>Seating capacity</a></label>
-            <md-select ng-model="policy.param.Vehicle.Seats">
+            <md-select ng-model="policy.policy.Vehicle.Seats" >
               <md-option class="md-primary preselect" ng-repeat="Seats in policy.param.Vehicle.Seats" ng-value="Seats.value">
                 {{Seats.value}}
               </md-option>

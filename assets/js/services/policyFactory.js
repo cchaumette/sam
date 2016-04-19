@@ -12,7 +12,7 @@ app.factory('policy', function() {
         "Model": null,
         "YearOfMake": null,
         "OffPeakCar": false,
-        "Seats": 4,
+        "Seats": '5',
         "RegistrationNumber": null,
         "EngineNumber": null,
         "ChassisNumber": null,
