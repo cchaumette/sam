@@ -11,6 +11,17 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
   $scope.policy = policy;
   $scope.car = policy.profil.Vehicle;
 
+  $scope.isActive = [{active:true},{active:false},{active:false},{active:false},{active:false}];
+  $scope.breadcrumbStep2 = function(){
+    $scope.isActive[0].active = false;
+    $scope.isActive[1].active = true;
+    console.log("bread working")
+  }
+
+
+
+
+
   var clientAlgolia = algolia.Client('BGXJZLELLV', 'f73fe5af31d85d2206be16d5a51718b0');
   var indexAlgolia = clientAlgolia.initIndex('car_list_dev');
 
@@ -58,7 +69,7 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
   $scope.offerIsEnabled = function(){
     $scope.flow.step3 = false;
-    if($scope.policy.profil.NCDPoints != null && policy.profil.ClaimsPast3Years == false && policy.profil.PolicyHolder.Phone != null) $scope.flow.step3 = true;
+    if($scope.policy.profil.NCDPoints != null && policy.profil.ClaimsPast3Years == false ) $scope.flow.step3 = true;
     $scope.flow.offer = $scope.flow.step1 && $scope.flow.step2 && $scope.flow.step3;
 
     return $scope.flow.offer;
@@ -78,6 +89,28 @@ app.controller('AppCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialo
 
     }
   };
+  /* inception date */
+  $scope.inceptionDate = {
+    min : moment().add(-1, 'days').toDate(),
+    max : moment().add(90, 'days').toDate()
+  }
+
+  $scope.updatePolicyEndDate = function(){
+    if($scope.policy.PolicyStartDate) $scope.policy.PolicyEndDate = moment($scope.policy.PolicyStartDate).add(1,'years').add(-1, 'days').toDate()
+  }
+
+  if($scope.policy.PolicyStartDate == null || !$scope.policy.PolicyStartDate)  {
+    $scope.policy.PolicyStartDate = $scope.inceptionDate.min;
+    $scope.updatePolicyEndDate();
+  }
+
+  $scope.updateSelectedPlan = function(plan){
+    product.updateSelectedPlan(plan);
+  }
+  $scope.updateHoverPlan = function(plan){
+    product.updateHoverPlan(plan);
+  }
+
 
   $scope.isAddDriverEnable = function(){
     var _isAddDriverEnable = false;

@@ -12,6 +12,16 @@ app.controller('policyCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDi
     social: "123456789",
     phone: "N/A"
   };
+  $scope.isActive = [{active:false},{active:false},{active:false},{active:true},{active:false}];
+
+  $scope.breadcrumbStep5 = function () {
+    $scope.isActive[0].active = false;
+    $scope.isActive[1].active = false;
+    $scope.isActive[2].active = false;
+    $scope.isActive[3].active = flase;
+    $scope.isActive[4].active = true;
+  }
+
   $scope.flow = [
     {step1:true, step2:false, step3:false, offer:false}
   ];

@@ -11,6 +11,17 @@ app.controller('addonCtrl', ['$scope', 'policy','product','plan','$filter', '$md
   $scope.product = product.selected;
   $scope.plan = plan.selected;
 
+  $scope.isActive = [{active:false},{active:false},{active:true},{active:false},{active:false}];
+
+  $scope.breadcrumbStep4 = function () {
+    $scope.isActive[0].active = false;
+    $scope.isActive[1].active = false;
+    $scope.isActive[2].active = false;
+    $scope.isActive[3].active = true;
+  }
+
+
+
   $scope.$watch(function() {
     return $mdMedia('xs') || $mdMedia('sm');
   }, function(wantsFullScreen) {

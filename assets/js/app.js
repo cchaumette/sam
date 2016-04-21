@@ -94,10 +94,19 @@ app.config(['$routeProvider',
       });
   }
 ]);
+
+
+
+
+
 app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSidenav', '$mdDialog', function ($scope,policy, product, $filter, $mdSidenav, $mdDialog) {
   console.log("== homepageCtrl ==");
   $scope.policy = policy;
   $scope.product = product;
+  $scope.isActive = [{active:true},{active:false},{active:false},{active:false},{active:false}];
+  $scope.selectSecondTab = function () {
+    $scope.isActive[1].active = true;
+  }
 
 
 }]);
@@ -105,6 +114,7 @@ app.controller('HomepageCtrl', ['$scope','policy', 'product','$filter', '$mdSide
 app.controller('ReferralCtrl', ['$scope','policy', '$filter', '$mdSidenav', '$mdDialog', function ($scope, policy, $filter, $mdSidenav, $mdDialog) {
   $scope.policy = policy;
   console.log("== ReferralCtrl ==");
+
 
 }]);
 
